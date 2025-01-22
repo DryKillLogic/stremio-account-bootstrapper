@@ -2,6 +2,604 @@
   "result": {
     "addons": [
       {
+        "transportUrl": "https://v3-cinemeta.strem.io/manifest.json",
+        "transportName": "http",
+        "manifest": {
+          "id": "com.linvo.cinemeta",
+          "version": "3.0.13",
+          "description": "The official addon for movie and series catalogs",
+          "name": "Cinemeta",
+          "resources": [
+            "catalog",
+            "meta",
+            "addon_catalog"
+          ],
+          "types": [
+            "movie",
+            "series"
+          ],
+          "idPrefixes": [
+            "tt"
+          ],
+          "addonCatalogs": [
+            {
+              "type": "all",
+              "id": "official",
+              "name": "Official"
+            },
+            {
+              "type": "movie",
+              "id": "official",
+              "name": "Official"
+            },
+            {
+              "type": "series",
+              "id": "official",
+              "name": "Official"
+            },
+            {
+              "type": "channel",
+              "id": "official",
+              "name": "Official"
+            },
+            {
+              "type": "all",
+              "id": "community",
+              "name": "Community"
+            },
+            {
+              "type": "movie",
+              "id": "community",
+              "name": "Community"
+            },
+            {
+              "type": "series",
+              "id": "community",
+              "name": "Community"
+            },
+            {
+              "type": "channel",
+              "id": "community",
+              "name": "Community"
+            },
+            {
+              "type": "tv",
+              "id": "community",
+              "name": "Community"
+            },
+            {
+              "type": "Podcasts",
+              "id": "community",
+              "name": "Community"
+            },
+            {
+              "type": "other",
+              "id": "community",
+              "name": "Community"
+            }
+          ],
+          "catalogs": [
+            {
+              "name": "Cinemeta Search Movies",
+              "type": "movie",
+              "id": "cinemeta.search",
+              "extra": [
+                {
+                  "name": "search",
+                  "isRequired": true
+                }
+              ]
+            },
+            {
+              "name": "Cinemeta Search TV Shows",
+              "type": "series",
+              "id": "cinemeta.search",
+              "extra": [
+                {
+                  "name": "search",
+                  "isRequired": true
+                }
+              ]
+            },
+            {
+              "type": "series",
+              "id": "last-videos",
+              "name": "Últimos vídeos",
+              "extra": [
+                {
+                  "name": "lastVideosIds",
+                  "isRequired": true,
+                  "optionsLimit": 100
+                }
+              ],
+              "extraSupported": [
+                "lastVideosIds"
+              ],
+              "extraRequired": [
+                "lastVideosIds"
+              ]
+            },
+            {
+              "type": "series",
+              "id": "calendar-videos",
+              "extra": [
+                {
+                  "name": "calendarVideosIds",
+                  "isRequired": true,
+                  "optionsLimit": 100
+                }
+              ],
+              "extraSupported": [
+                "calendarVideosIds"
+              ],
+              "extraRequired": [
+                "calendarVideosIds"
+              ],
+              "name": "Vídeos de calendario"
+            }
+          ],
+          "behaviorHints": {
+            "newEpisodeNotifications": true
+          }
+        },
+        "flags": {
+          "official": true,
+          "protected": true
+        }
+      },
+      {
+        "transportUrl": "https://94c8cb9f702d-tmdb-addon.baby-beamup.club/%7B%22provide_imdbId%22%3A%22true%22%2C%22language%22%3A%22es-MX%22%7D/manifest.json",
+        "transportName": "",
+        "manifest": {
+          "id": "tmdb-addon",
+          "version": "3.0.18",
+          "name": "The Movie Database Addon",
+          "contactEmail": null,
+          "description": "Metadata provided by TMDB with es-MX language.",
+          "logo": "https://github.com/mrcanelas/tmdb-addon/raw/main/images/logo.png",
+          "background": "https://github.com/mrcanelas/tmdb-addon/raw/main/images/background.png",
+          "types": [
+            "movie",
+            "series"
+          ],
+          "resources": [
+            "catalog",
+            "meta"
+          ],
+          "idPrefixes": [
+            "tmdb:",
+            "tt"
+          ],
+          "catalogs": [
+            {
+              "id": "tmdb.top",
+              "type": "movie",
+              "name": "Popular",
+              "extra": [
+                {
+                  "name": "genre",
+                  "isRequired": true,
+                  "options": [
+                    "",
+                    "Acción",
+                    "Animación",
+                    "Aventura",
+                    "Bélica",
+                    "Ciencia ficción",
+                    "Comedia",
+                    "Crimen",
+                    "Documental",
+                    "Drama",
+                    "Familia",
+                    "Fantasía",
+                    "Historia",
+                    "Misterio",
+                    "Música",
+                    "Película de TV",
+                    "Romance",
+                    "Suspense",
+                    "Terror",
+                    "Western"
+                  ],
+                  "optionsLimit": 1
+                },
+                {
+                  "name": "skip",
+                  "isRequired": false,
+                  "options": [],
+                  "optionsLimit": 1
+                },
+                {
+                  "name": "search",
+                  "isRequired": false,
+                  "options": [],
+                  "optionsLimit": 1
+                }
+              ]
+            },
+            {
+              "id": "tmdb.year",
+              "type": "movie",
+              "name": "Año",
+              "extra": [
+                {
+                  "name": "genre",
+                  "isRequired": true,
+                  "options": [
+                    "2025",
+                    "2024",
+                    "2023",
+                    "2022",
+                    "2021",
+                    "2020",
+                    "2019",
+                    "2018",
+                    "2017",
+                    "2016",
+                    "2015",
+                    "2014",
+                    "2013",
+                    "2012",
+                    "2011",
+                    "2010",
+                    "2009",
+                    "2008",
+                    "2007",
+                    "2006",
+                    "2005"
+                  ],
+                  "optionsLimit": 1
+                },
+                {
+                  "name": "skip",
+                  "isRequired": false,
+                  "options": [],
+                  "optionsLimit": 1
+                }
+              ]
+            },
+            {
+              "id": "tmdb.language",
+              "type": "movie",
+              "name": "Idioma",
+              "extra": [
+                {
+                  "name": "genre",
+                  "isRequired": true,
+                  "options": [
+                    "Spanish",
+                    "Afrikaans",
+                    "Albanian",
+                    "Arabic",
+                    "Basque",
+                    "Belarusian",
+                    "Bengali",
+                    "Breton",
+                    "Bulgarian",
+                    "Catalan",
+                    "Chamorro",
+                    "Croatian",
+                    "Czech",
+                    "Danish",
+                    "Dutch",
+                    "English",
+                    "Esperanto",
+                    "Estonian",
+                    "Finnish",
+                    "French",
+                    "Gaelic",
+                    "Galician",
+                    "Georgian",
+                    "German",
+                    "Greek",
+                    "Hebrew",
+                    "Hindi",
+                    "Hungarian",
+                    "Indonesian",
+                    "Irish",
+                    "Italian",
+                    "Japanese",
+                    "Kannada",
+                    "Kazakh",
+                    "Kirghiz",
+                    "Korean",
+                    "Kurdish",
+                    "Latvian",
+                    "Lithuanian",
+                    "Malay",
+                    "Malayalam",
+                    "Mandarin",
+                    "Marathi",
+                    "Norwegian",
+                    "Norwegian Bokmål",
+                    "Persian",
+                    "Polish",
+                    "Portuguese",
+                    "Punjabi",
+                    "Romanian",
+                    "Russian",
+                    "Serbian",
+                    "Sinhalese",
+                    "Slovak",
+                    "Slovenian",
+                    "Somali",
+                    "Swahili",
+                    "Swedish",
+                    "Tagalog",
+                    "Tamil",
+                    "Telugu",
+                    "Thai",
+                    "Turkish",
+                    "Ukrainian",
+                    "Urdu",
+                    "Uzbek",
+                    "Vietnamese",
+                    "Welsh",
+                    "Zulu"
+                  ],
+                  "optionsLimit": 1
+                },
+                {
+                  "name": "skip",
+                  "isRequired": false,
+                  "options": [],
+                  "optionsLimit": 1
+                }
+              ]
+            },
+            {
+              "id": "tmdb.trending",
+              "type": "movie",
+              "name": "Tendencia",
+              "extra": [
+                {
+                  "name": "genre",
+                  "isRequired": true,
+                  "options": [
+                    "Day",
+                    "Week"
+                  ],
+                  "optionsLimit": 1
+                },
+                {
+                  "name": "skip",
+                  "isRequired": false,
+                  "options": [],
+                  "optionsLimit": 1
+                }
+              ]
+            },
+            {
+              "id": "tmdb.top",
+              "type": "series",
+              "name": "Popular",
+              "extra": [
+                {
+                  "name": "genre",
+                  "isRequired": true,
+                  "options": [
+                    "",
+                    "Action & Adventure",
+                    "Animación",
+                    "Comedia",
+                    "Crimen",
+                    "Documental",
+                    "Drama",
+                    "Familia",
+                    "Kids",
+                    "Misterio",
+                    "News",
+                    "Reality",
+                    "Sci-Fi & Fantasy",
+                    "Soap",
+                    "Talk",
+                    "War & Politics",
+                    "Western"
+                  ],
+                  "optionsLimit": 1
+                },
+                {
+                  "name": "skip",
+                  "isRequired": false,
+                  "options": [],
+                  "optionsLimit": 1
+                },
+                {
+                  "name": "search",
+                  "isRequired": false,
+                  "options": [],
+                  "optionsLimit": 1
+                }
+              ]
+            },
+            {
+              "id": "tmdb.year",
+              "type": "series",
+              "name": "Año",
+              "extra": [
+                {
+                  "name": "genre",
+                  "isRequired": true,
+                  "options": [
+                    "2024",
+                    "2023",
+                    "2022",
+                    "2021",
+                    "2020",
+                    "2019",
+                    "2018",
+                    "2017",
+                    "2016",
+                    "2015",
+                    "2014",
+                    "2013",
+                    "2012",
+                    "2011",
+                    "2010",
+                    "2009",
+                    "2008",
+                    "2007",
+                    "2006",
+                    "2005"
+                  ],
+                  "optionsLimit": 1
+                },
+                {
+                  "name": "skip",
+                  "isRequired": false,
+                  "options": [],
+                  "optionsLimit": 1
+                }
+              ]
+            },
+            {
+              "id": "tmdb.language",
+              "type": "series",
+              "name": "Idioma",
+              "extra": [
+                {
+                  "name": "genre",
+                  "isRequired": true,
+                  "options": [
+                    "Spanish",
+                    "Afrikaans",
+                    "Albanian",
+                    "Arabic",
+                    "Basque",
+                    "Belarusian",
+                    "Bengali",
+                    "Breton",
+                    "Bulgarian",
+                    "Catalan",
+                    "Chamorro",
+                    "Croatian",
+                    "Czech",
+                    "Danish",
+                    "Dutch",
+                    "English",
+                    "Esperanto",
+                    "Estonian",
+                    "Finnish",
+                    "French",
+                    "Gaelic",
+                    "Galician",
+                    "Georgian",
+                    "German",
+                    "Greek",
+                    "Hebrew",
+                    "Hindi",
+                    "Hungarian",
+                    "Indonesian",
+                    "Irish",
+                    "Italian",
+                    "Japanese",
+                    "Kannada",
+                    "Kazakh",
+                    "Kirghiz",
+                    "Korean",
+                    "Kurdish",
+                    "Latvian",
+                    "Lithuanian",
+                    "Malay",
+                    "Malayalam",
+                    "Mandarin",
+                    "Marathi",
+                    "Norwegian",
+                    "Norwegian Bokmål",
+                    "Persian",
+                    "Polish",
+                    "Portuguese",
+                    "Punjabi",
+                    "Romanian",
+                    "Russian",
+                    "Serbian",
+                    "Sinhalese",
+                    "Slovak",
+                    "Slovenian",
+                    "Somali",
+                    "Swahili",
+                    "Swedish",
+                    "Tagalog",
+                    "Tamil",
+                    "Telugu",
+                    "Thai",
+                    "Turkish",
+                    "Ukrainian",
+                    "Urdu",
+                    "Uzbek",
+                    "Vietnamese",
+                    "Welsh",
+                    "Zulu"
+                  ],
+                  "optionsLimit": 1
+                },
+                {
+                  "name": "skip",
+                  "isRequired": false,
+                  "options": [],
+                  "optionsLimit": 1
+                }
+              ]
+            },
+            {
+              "id": "tmdb.trending",
+              "type": "series",
+              "name": "Tendencia",
+              "extra": [
+                {
+                  "name": "genre",
+                  "isRequired": true,
+                  "options": [
+                    "Day",
+                    "Week"
+                  ],
+                  "optionsLimit": 1
+                },
+                {
+                  "name": "skip",
+                  "isRequired": false,
+                  "options": [],
+                  "optionsLimit": 1
+                }
+              ]
+            },
+            {
+              "name": "TMDB Búsqueda Películas",
+              "type": "movie",
+              "id": "tmdb.search",
+              "extra": [
+                {
+                  "name": "search",
+                  "isRequired": true
+                }
+              ]
+            },
+            {
+              "name": "TMDB Búsqueda Series",
+              "type": "series",
+              "id": "tmdb.search",
+              "extra": [
+                {
+                  "name": "search",
+                  "isRequired": true
+                }
+              ]
+            }
+          ],
+          "addonCatalogs": [],
+          "behaviorHints": {
+            "adult": false,
+            "p2p": false,
+            "configurable": true,
+            "configurationRequired": false
+          }
+        },
+        "flags": {
+          "official": false,
+          "protected": false
+        }
+      },
+      {
         "transportUrl": "https://2ecbbd610840-trakt.baby-beamup.club/eyJsaXN0cyI6W10sImlkcyI6WyJnYXJ5Y3Jhd2ZvcmRnYzpsYXRlc3QtcmVsZWFzZXM6cmVsZWFzZWQsYXNjIiwiZ2FyeWNyYXdmb3JkZ2M6bGF0ZXN0LXR2LXNob3dzOnJlbGVhc2VkLGFzYyIsImdhcnljcmF3Zm9yZGdjOnRvcC1tb3ZpZXMtb2YtdGhlLXdlZWs6cmVsZWFzZWQsYXNjIiwiZ2FyeWNyYXdmb3JkZ2M6bmV0ZmxpeC1tb3ZpZXM6cmVsZWFzZWQsYXNjIiwiZ2FyeWNyYXdmb3JkZ2M6bmV0ZmxpeC1zaG93czpyZWxlYXNlZCxhc2MiLCJnYXJ5Y3Jhd2ZvcmRnYzpkaXNuZXktbW92aWVzOnJlbGVhc2VkLGFzYyIsImdhcnljcmF3Zm9yZGdjOmRpc25leS1zaG93czpyZWxlYXNlZCxhc2MiLCJnYXJ5Y3Jhd2ZvcmRnYzphbWF6b24tcHJpbWUtbW92aWVzOnJlbGVhc2VkLGFzYyIsImdhcnljcmF3Zm9yZGdjOmFtYXpvbi1wcmltZS1zaG93czpyZWxlYXNlZCxhc2MiLCJnYXJ5Y3Jhd2ZvcmRnYzpodWx1LW1vdmllczpyZWxlYXNlZCxhc2MiLCJnYXJ5Y3Jhd2ZvcmRnYzpodWx1LXNob3dzOnJlbGVhc2VkLGFzYyIsImdhcnljcmF3Zm9yZGdjOmhiby1zaG93czpyZWxlYXNlZCxhc2MiLCJnYXJ5Y3Jhd2ZvcmRnYzphY3Rpb246cmVsZWFzZWQsYXNjIiwicml6cmVmbGVjdHM6YWR2ZW50dXJlLW1vdmllczpyZWxlYXNlZCxhc2MiLCJyaXpyZWZsZWN0czphbmltYXRpb246cmVsZWFzZWQsYXNjIiwiZ2FyeWNyYXdmb3JkZ2M6Y29tZWR5OnJlbGVhc2VkLGFzYyIsImdhcnljcmF3Zm9yZGdjOmNyaW1lOnJlbGVhc2VkLGFzYyIsImdhcnljcmF3Zm9yZGdjOmRyYW1hOnJlbGVhc2VkLGFzYyIsInJpenJlZmxlY3RzOmZhbnRhc3ktbW92aWVzOnJlbGVhc2VkLGFzYyIsImdhcnljcmF3Zm9yZGdjOmhvcnJvcjpyZWxlYXNlZCxhc2MiLCJyaXpyZWZsZWN0czpteXN0ZXJ5LW1vdmllczpyZWxlYXNlZCxhc2MiLCJyaXpyZWZsZWN0czpyb21hbmNlOnJlbGVhc2VkLGFzYyIsImdhcnljcmF3Zm9yZGdjOnNjaS1maTpyZWxlYXNlZCxhc2MiLCJnYXJ5Y3Jhd2ZvcmRnYzp0aHJpbGxlcjpyZWxlYXNlZCxhc2MiXX0=/manifest.json",
         "transportName": "",
         "manifest": {
@@ -1198,459 +1796,6 @@
         }
       },
       {
-        "transportUrl": "https://94c8cb9f702d-tmdb-addon.baby-beamup.club/%7B%22provide_imdbId%22%3A%22true%22%2C%22language%22%3A%22es-MX%22%7D/manifest.json",
-        "transportName": "",
-        "manifest": {
-          "id": "tmdb-addon",
-          "version": "3.0.18",
-          "name": "The Movie Database Addon",
-          "contactEmail": null,
-          "description": "Metadata provided by TMDB with es-MX language.",
-          "logo": "https://github.com/mrcanelas/tmdb-addon/raw/main/images/logo.png",
-          "background": "https://github.com/mrcanelas/tmdb-addon/raw/main/images/background.png",
-          "types": [
-            "movie",
-            "series"
-          ],
-          "resources": [
-            "catalog",
-            "meta"
-          ],
-          "idPrefixes": [
-            "tmdb:",
-            "tt"
-          ],
-          "catalogs": [
-            {
-              "id": "tmdb.top",
-              "type": "movie",
-              "name": "Popular",
-              "extra": [
-                {
-                  "name": "genre",
-                  "isRequired": true,
-                  "options": [
-                    "",
-                    "Acción",
-                    "Animación",
-                    "Aventura",
-                    "Bélica",
-                    "Ciencia ficción",
-                    "Comedia",
-                    "Crimen",
-                    "Documental",
-                    "Drama",
-                    "Familia",
-                    "Fantasía",
-                    "Historia",
-                    "Misterio",
-                    "Música",
-                    "Película de TV",
-                    "Romance",
-                    "Suspense",
-                    "Terror",
-                    "Western"
-                  ],
-                  "optionsLimit": 1
-                },
-                {
-                  "name": "skip",
-                  "isRequired": false,
-                  "options": [],
-                  "optionsLimit": 1
-                },
-                {
-                  "name": "search",
-                  "isRequired": false,
-                  "options": [],
-                  "optionsLimit": 1
-                }
-              ]
-            },
-            {
-              "id": "tmdb.year",
-              "type": "movie",
-              "name": "Año",
-              "extra": [
-                {
-                  "name": "genre",
-                  "isRequired": true,
-                  "options": [
-                    "2024",
-                    "2023",
-                    "2022",
-                    "2021",
-                    "2020",
-                    "2019",
-                    "2018",
-                    "2017",
-                    "2016",
-                    "2015",
-                    "2014",
-                    "2013",
-                    "2012",
-                    "2011",
-                    "2010",
-                    "2009",
-                    "2008",
-                    "2007",
-                    "2006",
-                    "2005",
-                    "2004"
-                  ],
-                  "optionsLimit": 1
-                },
-                {
-                  "name": "skip",
-                  "isRequired": false,
-                  "options": [],
-                  "optionsLimit": 1
-                }
-              ]
-            },
-            {
-              "id": "tmdb.language",
-              "type": "movie",
-              "name": "Idioma",
-              "extra": [
-                {
-                  "name": "genre",
-                  "isRequired": true,
-                  "options": [
-                    "Spanish",
-                    "Afrikaans",
-                    "Albanian",
-                    "Arabic",
-                    "Basque",
-                    "Belarusian",
-                    "Bengali",
-                    "Breton",
-                    "Bulgarian",
-                    "Catalan",
-                    "Chamorro",
-                    "Croatian",
-                    "Czech",
-                    "Danish",
-                    "Dutch",
-                    "English",
-                    "Esperanto",
-                    "Estonian",
-                    "Finnish",
-                    "French",
-                    "Gaelic",
-                    "Galician",
-                    "Georgian",
-                    "German",
-                    "Greek",
-                    "Hebrew",
-                    "Hindi",
-                    "Hungarian",
-                    "Indonesian",
-                    "Irish",
-                    "Italian",
-                    "Japanese",
-                    "Kannada",
-                    "Kazakh",
-                    "Kirghiz",
-                    "Korean",
-                    "Kurdish",
-                    "Latvian",
-                    "Lithuanian",
-                    "Malay",
-                    "Malayalam",
-                    "Mandarin",
-                    "Marathi",
-                    "Norwegian",
-                    "Norwegian Bokmål",
-                    "Persian",
-                    "Polish",
-                    "Portuguese",
-                    "Punjabi",
-                    "Romanian",
-                    "Russian",
-                    "Serbian",
-                    "Sinhalese",
-                    "Slovak",
-                    "Slovenian",
-                    "Somali",
-                    "Swahili",
-                    "Swedish",
-                    "Tagalog",
-                    "Tamil",
-                    "Telugu",
-                    "Thai",
-                    "Turkish",
-                    "Ukrainian",
-                    "Urdu",
-                    "Uzbek",
-                    "Vietnamese",
-                    "Welsh",
-                    "Zulu"
-                  ],
-                  "optionsLimit": 1
-                },
-                {
-                  "name": "skip",
-                  "isRequired": false,
-                  "options": [],
-                  "optionsLimit": 1
-                }
-              ]
-            },
-            {
-              "id": "tmdb.trending",
-              "type": "movie",
-              "name": "Tendencia",
-              "extra": [
-                {
-                  "name": "genre",
-                  "isRequired": true,
-                  "options": [
-                    "Day",
-                    "Week"
-                  ],
-                  "optionsLimit": 1
-                },
-                {
-                  "name": "skip",
-                  "isRequired": false,
-                  "options": [],
-                  "optionsLimit": 1
-                }
-              ]
-            },
-            {
-              "id": "tmdb.top",
-              "type": "series",
-              "name": "Popular",
-              "extra": [
-                {
-                  "name": "genre",
-                  "isRequired": true,
-                  "options": [
-                    "",
-                    "Action & Adventure",
-                    "Animación",
-                    "Comedia",
-                    "Crimen",
-                    "Documental",
-                    "Drama",
-                    "Familia",
-                    "Kids",
-                    "Misterio",
-                    "News",
-                    "Reality",
-                    "Sci-Fi & Fantasy",
-                    "Soap",
-                    "Talk",
-                    "War & Politics",
-                    "Western"
-                  ],
-                  "optionsLimit": 1
-                },
-                {
-                  "name": "skip",
-                  "isRequired": false,
-                  "options": [],
-                  "optionsLimit": 1
-                },
-                {
-                  "name": "search",
-                  "isRequired": false,
-                  "options": [],
-                  "optionsLimit": 1
-                }
-              ]
-            },
-            {
-              "id": "tmdb.year",
-              "type": "series",
-              "name": "Año",
-              "extra": [
-                {
-                  "name": "genre",
-                  "isRequired": true,
-                  "options": [
-                    "2024",
-                    "2023",
-                    "2022",
-                    "2021",
-                    "2020",
-                    "2019",
-                    "2018",
-                    "2017",
-                    "2016",
-                    "2015",
-                    "2014",
-                    "2013",
-                    "2012",
-                    "2011",
-                    "2010",
-                    "2009",
-                    "2008",
-                    "2007",
-                    "2006",
-                    "2005",
-                    "2004"
-                  ],
-                  "optionsLimit": 1
-                },
-                {
-                  "name": "skip",
-                  "isRequired": false,
-                  "options": [],
-                  "optionsLimit": 1
-                }
-              ]
-            },
-            {
-              "id": "tmdb.language",
-              "type": "series",
-              "name": "Idioma",
-              "extra": [
-                {
-                  "name": "genre",
-                  "isRequired": true,
-                  "options": [
-                    "Spanish",
-                    "Afrikaans",
-                    "Albanian",
-                    "Arabic",
-                    "Basque",
-                    "Belarusian",
-                    "Bengali",
-                    "Breton",
-                    "Bulgarian",
-                    "Catalan",
-                    "Chamorro",
-                    "Croatian",
-                    "Czech",
-                    "Danish",
-                    "Dutch",
-                    "English",
-                    "Esperanto",
-                    "Estonian",
-                    "Finnish",
-                    "French",
-                    "Gaelic",
-                    "Galician",
-                    "Georgian",
-                    "German",
-                    "Greek",
-                    "Hebrew",
-                    "Hindi",
-                    "Hungarian",
-                    "Indonesian",
-                    "Irish",
-                    "Italian",
-                    "Japanese",
-                    "Kannada",
-                    "Kazakh",
-                    "Kirghiz",
-                    "Korean",
-                    "Kurdish",
-                    "Latvian",
-                    "Lithuanian",
-                    "Malay",
-                    "Malayalam",
-                    "Mandarin",
-                    "Marathi",
-                    "Norwegian",
-                    "Norwegian Bokmål",
-                    "Persian",
-                    "Polish",
-                    "Portuguese",
-                    "Punjabi",
-                    "Romanian",
-                    "Russian",
-                    "Serbian",
-                    "Sinhalese",
-                    "Slovak",
-                    "Slovenian",
-                    "Somali",
-                    "Swahili",
-                    "Swedish",
-                    "Tagalog",
-                    "Tamil",
-                    "Telugu",
-                    "Thai",
-                    "Turkish",
-                    "Ukrainian",
-                    "Urdu",
-                    "Uzbek",
-                    "Vietnamese",
-                    "Welsh",
-                    "Zulu"
-                  ],
-                  "optionsLimit": 1
-                },
-                {
-                  "name": "skip",
-                  "isRequired": false,
-                  "options": [],
-                  "optionsLimit": 1
-                }
-              ]
-            },
-            {
-              "id": "tmdb.trending",
-              "type": "series",
-              "name": "Tendencia",
-              "extra": [
-                {
-                  "name": "genre",
-                  "isRequired": true,
-                  "options": [
-                    "Day",
-                    "Week"
-                  ],
-                  "optionsLimit": 1
-                },
-                {
-                  "name": "skip",
-                  "isRequired": false,
-                  "options": [],
-                  "optionsLimit": 1
-                }
-              ]
-            },
-            {
-              "name": "TMDB Búsqueda Películas",
-              "type": "movie",
-              "id": "tmdb.search",
-              "extra": [
-                {
-                  "name": "search",
-                  "isRequired": true
-                }
-              ]
-            },
-            {
-              "name": "TMDB Búsqueda Series",
-              "type": "series",
-              "id": "tmdb.search",
-              "extra": [
-                {
-                  "name": "search",
-                  "isRequired": true
-                }
-              ]
-            }
-          ],
-          "addonCatalogs": [],
-          "behaviorHints": {
-            "adult": false,
-            "p2p": false,
-            "configurable": true,
-            "configurationRequired": false
-          }
-        },
-        "flags": {
-          "official": false,
-          "protected": false
-        }
-      },
-      {
         "transportUrl": "https://jackettio.elfhosted.com/eyJtYXhUb3JyZW50cyI6MTAsInByaW90aXplUGFja1RvcnJlbnRzIjoyLCJleGNsdWRlS2V5d29yZHMiOlsiQ0FNIiwiVGVsZVN5bmMiLCJUZWxlQ2luZSIsIlNDUiJdLCJkZWJyaWRJZCI6InJlYWxkZWJyaWQiLCJoaWRlVW5jYWNoZWQiOmZhbHNlLCJzb3J0Q2FjaGVkIjpbWyJxdWFsaXR5Iix0cnVlXSxbInNpemUiLHRydWVdXSwic29ydFVuY2FjaGVkIjpbWyJxdWFsaXR5Iix0cnVlXSxbInNlZWRlcnMiLHRydWVdXSwiZm9yY2VDYWNoZU5leHRFcGlzb2RlIjp0cnVlLCJwcmlvdGl6ZUxhbmd1YWdlcyI6WyJzcGFuaXNoIl0sImluZGV4ZXJUaW1lb3V0U2VjIjo2MCwibWV0YUxhbmd1YWdlIjoiIiwiZW5hYmxlTWVkaWFGbG93IjpmYWxzZSwibWVkaWFmbG93UHJveHlVcmwiOiIiLCJtZWRpYWZsb3dBcGlQYXNzd29yZCI6IiIsIm1lZGlhZmxvd1B1YmxpY0lwIjoiIiwicXVhbGl0aWVzIjpbNDgwLDcyMCwxMDgwLDIxNjBdLCJpbmRleGVycyI6WyJiaXRzZWFyY2giLCJlenR2IiwidGhlcGlyYXRlYmF5IiwidGhlcmFyYmciLCJ5dHMiXSwiZGVicmlkQXBpS2V5IjoiMCJ9/manifest.json",
         "transportName": "",
         "manifest": {
@@ -1844,116 +1989,6 @@
         "flags": {
           "official": false,
           "protected": false
-        }
-      },
-      {
-        "transportUrl": "https://v3-cinemeta.strem.io/manifest.json",
-        "transportName": "http",
-        "manifest": {
-          "id": "com.linvo.cinemeta",
-          "version": "3.0.12",
-          "description": "The official addon for movie and series catalogs",
-          "name": "Cinemeta",
-          "resources": [
-            "meta",
-            "addon_catalog",
-            "catalog"
-          ],
-          "types": [
-            "movie",
-            "series"
-          ],
-          "idPrefixes": [
-            "tt"
-          ],
-          "addonCatalogs": [
-            {
-              "type": "all",
-              "id": "official",
-              "name": "Official"
-            },
-            {
-              "type": "movie",
-              "id": "official",
-              "name": "Official"
-            },
-            {
-              "type": "series",
-              "id": "official",
-              "name": "Official"
-            },
-            {
-              "type": "channel",
-              "id": "official",
-              "name": "Official"
-            },
-            {
-              "type": "all",
-              "id": "community",
-              "name": "Community"
-            },
-            {
-              "type": "movie",
-              "id": "community",
-              "name": "Community"
-            },
-            {
-              "type": "series",
-              "id": "community",
-              "name": "Community"
-            },
-            {
-              "type": "channel",
-              "id": "community",
-              "name": "Community"
-            },
-            {
-              "type": "tv",
-              "id": "community",
-              "name": "Community"
-            },
-            {
-              "type": "Podcasts",
-              "id": "community",
-              "name": "Community"
-            },
-            {
-              "type": "other",
-              "id": "community",
-              "name": "Community"
-            }
-          ],
-          "catalogs": [
-            {
-              "name": "Cinemeta Búsqueda Películas",
-              "type": "movie",
-              "id": "cinemeta.search",
-              "extra": [
-                {
-                  "name": "search",
-                  "isRequired": true
-                }
-              ]
-            },
-            {
-              "name": "Cinemeta Búsqueda Series",
-              "type": "series",
-              "id": "cinemeta.search",
-              "extra": [
-                {
-                  "name": "search",
-                  "isRequired": true
-                }
-              ]
-            }
-          ],
-          "behaviorHints": {
-            "newEpisodeNotifications": true
-          }
-        },
-        "flags": {
-          "official": true,
-          "protected": true
         }
       },
       {

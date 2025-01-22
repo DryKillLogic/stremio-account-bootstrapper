@@ -76,10 +76,10 @@ function loadUserAddons() {
 
           // Comet
           const cometTransportUrl = getDataTransportUrl(
-            presetConfig[2].transportUrl
+            presetConfig[4].transportUrl
           );
-          presetConfig[2].manifest.name += ` | ${debridServiceName}`;
-          presetConfig[2].transportUrl = getUrlTransportUrl(cometTransportUrl, {
+          presetConfig[4].manifest.name += ` | ${debridServiceName}`;
+          presetConfig[4].transportUrl = getUrlTransportUrl(cometTransportUrl, {
             ...cometTransportUrl.data,
             debridApiKey: debridApiKey.value,
             debridService: debridService.value
@@ -88,34 +88,34 @@ function loadUserAddons() {
           // Jackettio
           if (debridService.value !== 'torbox') {
             const jackettioTransportUrl = getDataTransportUrl(
-              presetConfig[4].transportUrl
+              presetConfig[5].transportUrl
             );
-            presetConfig[4].manifest.name += ` ${debridServiceName}`;
-            presetConfig[4].transportUrl = getUrlTransportUrl(jackettioTransportUrl, {
+            presetConfig[5].manifest.name += ` ${debridServiceName}`;
+            presetConfig[5].transportUrl = getUrlTransportUrl(jackettioTransportUrl, {
               ...jackettioTransportUrl.data,
               debridApiKey: debridApiKey.value,
               debridId: debridService.value
             });
           } else {
-            presetConfig.splice(4, 1);
+            presetConfig.splice(5, 1);
           }
 
           // Remove MediaFusion / KnightCrawler / TPB+
-          presetConfig.splice(5, 3);
+          presetConfig.splice(6, 3);
         } else {
           debridServiceName = '';
 
           // Remove Jackettio
-          presetConfig.splice(4, 1);
+          presetConfig.splice(5, 1);
         }
 
         if (!!rpdbKey.value) {
           // Trakt TV
           const traktTransportUrl = getDataTransportUrl(
-            presetConfig[0].transportUrl
+            presetConfig[2].transportUrl
           );
 
-          presetConfig[0].transportUrl = getUrlTransportUrl(traktTransportUrl, {
+          presetConfig[2].transportUrl = getUrlTransportUrl(traktTransportUrl, {
             ...traktTransportUrl.data,
             RPDBkey: {
               key: rpdbKey.value,
@@ -133,11 +133,11 @@ function loadUserAddons() {
 
           // TMDB
           const tmdbTransportUrl = getDataTransportUrl(
-            presetConfig[3].transportUrl,
+            presetConfig[1].transportUrl,
             false
           );
 
-          presetConfig[3].transportUrl = getUrlTransportUrl(
+          presetConfig[1].transportUrl = getUrlTransportUrl(
             tmdbTransportUrl,
             {
               ...tmdbTransportUrl.data,
@@ -150,11 +150,11 @@ function loadUserAddons() {
 
         if (language.value !== 'factory') {
           // Torrentio
-          presetConfig[1].transportUrl = Sqrl.render(
-            presetConfig[1].transportUrl,
+          presetConfig[3].transportUrl = Sqrl.render(
+            presetConfig[3].transportUrl,
             { transportUrl: torrentioConfig }
           );
-          presetConfig[1].manifest.name += ` ${debridServiceName}`;
+          presetConfig[3].manifest.name += ` ${debridServiceName}`;
         }
 
         addons.value = presetConfig;
