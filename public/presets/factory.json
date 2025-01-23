@@ -6,12 +6,21 @@
         "transportName": "http",
         "manifest": {
           "id": "com.linvo.cinemeta",
-          "version": "3.0.12",
+          "version": "3.0.13",
           "description": "The official addon for movie and series catalogs",
           "name": "Cinemeta",
-          "resources": ["catalog", "meta", "addon_catalog"],
-          "types": ["movie", "series"],
-          "idPrefixes": ["tt"],
+          "resources": [
+            "catalog",
+            "meta",
+            "addon_catalog"
+          ],
+          "types": [
+            "movie",
+            "series"
+          ],
+          "idPrefixes": [
+            "tt"
+          ],
           "addonCatalogs": [
             {
               "type": "all",
@@ -126,7 +135,11 @@
                   "name": "skip"
                 }
               ],
-              "extraSupported": ["search", "genre", "skip"],
+              "extraSupported": [
+                "search",
+                "genre",
+                "skip"
+              ],
               "name": "Popular"
             },
             {
@@ -191,13 +204,18 @@
                   "name": "skip"
                 }
               ],
-              "extraSupported": ["search", "genre", "skip"],
+              "extraSupported": [
+                "search",
+                "genre",
+                "skip"
+              ],
               "name": "Popular"
             },
             {
               "type": "movie",
               "id": "year",
               "genres": [
+                "2025",
                 "2024",
                 "2023",
                 "2022",
@@ -308,6 +326,7 @@
                 {
                   "name": "genre",
                   "options": [
+                    "2025",
                     "2024",
                     "2023",
                     "2022",
@@ -420,14 +439,20 @@
                   "name": "skip"
                 }
               ],
-              "extraSupported": ["genre", "skip"],
-              "extraRequired": ["genre"],
+              "extraSupported": [
+                "genre",
+                "skip"
+              ],
+              "extraRequired": [
+                "genre"
+              ],
               "name": "New"
             },
             {
               "type": "series",
               "id": "year",
               "genres": [
+                "2025",
                 "2024",
                 "2023",
                 "2022",
@@ -498,6 +523,7 @@
                 {
                   "name": "genre",
                   "options": [
+                    "2025",
                     "2024",
                     "2023",
                     "2022",
@@ -570,8 +596,13 @@
                   "name": "skip"
                 }
               ],
-              "extraSupported": ["genre", "skip"],
-              "extraRequired": ["genre"],
+              "extraSupported": [
+                "genre",
+                "skip"
+              ],
+              "extraRequired": [
+                "genre"
+              ],
               "name": "New"
             },
             {
@@ -627,7 +658,10 @@
                   "name": "skip"
                 }
               ],
-              "extraSupported": ["genre", "skip"],
+              "extraSupported": [
+                "genre",
+                "skip"
+              ],
               "name": "Featured"
             },
             {
@@ -689,7 +723,10 @@
                   "name": "skip"
                 }
               ],
-              "extraSupported": ["genre", "skip"],
+              "extraSupported": [
+                "genre",
+                "skip"
+              ],
               "name": "Featured"
             },
             {
@@ -702,8 +739,12 @@
                   "optionsLimit": 100
                 }
               ],
-              "extraSupported": ["lastVideosIds"],
-              "extraRequired": ["lastVideosIds"],
+              "extraSupported": [
+                "lastVideosIds"
+              ],
+              "extraRequired": [
+                "lastVideosIds"
+              ],
               "name": "Last videos"
             },
             {
@@ -716,8 +757,12 @@
                   "optionsLimit": 100
                 }
               ],
-              "extraSupported": ["calendarVideosIds"],
-              "extraRequired": ["calendarVideosIds"],
+              "extraSupported": [
+                "calendarVideosIds"
+              ],
+              "extraRequired": [
+                "calendarVideosIds"
+              ],
               "name": "Calendar videos"
             }
           ],
