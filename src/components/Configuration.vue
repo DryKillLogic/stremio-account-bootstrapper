@@ -59,8 +59,12 @@ let rpdbKey = ref('');
 let isEditModalVisible = ref(false);
 let currentManifest = ref({});
 let currentEditIdx = ref(null);
+let isPasteModalOpen = ref(false);
+let customJsonUrl = ref('');
+let advancedVisible = ref(false);
+let isLoading = ref(false);
 
-function loadUserAddons() {
+async function loadUserAddons() {
   const key = props.stremioAuthKey;
   if (!key) {
     console.error('No auth key provided');
@@ -68,331 +72,332 @@ function loadUserAddons() {
   }
 
   console.log('Loading addons...');
+  isLoading.value = true;
 
-  fetch('/preset.json')
-    .then((resp) => {
-      resp.json().then(async (data) => {
-        if (!data.addons) {
-          console.error('Failed to fetch presets: ', data);
-          alert(t('failed_fetching_presets'));
-          return;
-        }
+  try {
+    const resp = await fetch('/preset.json');
+    const data = await resp.json();
 
-        let presetConfig = {};
-        let no4k = false;
-        let cached = false;
-        let cometTransportUrl = {};
-        let jackettioTransportUrl = {};
-        let torrentsdbTransportUrl = {};
-        let streamAsiaTransportUrl = {};
-        const mediaFusionConfig = data.mediafusionConfig;
-        const aiolistsConfig = data.aiolistsConfig;
+    if (!data.addons) {
+      console.error('Failed to fetch presets: ', data);
+      alert(t('failed_fetching_presets'));
+      isLoading.value = false;
+      return;
+    }
 
-        // Set addons config based on language
-        if (language.value === 'factory') {
-          presetConfig = data.factory;
-        } else if (language.value === 'en') {
-          presetConfig = data.addons;
-        } else {
-          presetConfig = _.merge({}, data.addons, data[language.value]);
-        }
+    let presetConfig = {};
+    let no4k = false;
+    let cached = false;
+    let cometTransportUrl = {};
+    let jackettioTransportUrl = {};
+    let torrentsdbTransportUrl = {};
+    let streamAsiaTransportUrl = {};
+    const mediaFusionConfig = data.mediafusionConfig;
+    const aiolistsConfig = data.aiolistsConfig;
 
-        // Set additional addons
-        if (extras.value.length > 0) {
-          extras.value.forEach((extra) => {
-            presetConfig = _.merge({}, presetConfig, {
-              [extra]: data.extras[extra]
-            });
-          });
-        }
+    // Set addons config based on language
+    if (language.value === 'factory') {
+      presetConfig = data.factory;
+    } else if (language.value === 'en') {
+      presetConfig = data.addons;
+    } else {
+      presetConfig = _.merge({}, data.addons, data[language.value]);
+    }
 
-        // Set additional options
-        no4k = options.value.includes('no4k');
-        cached = options.value.includes('cached');
+    // Set additional addons
+    if (extras.value.length > 0) {
+      extras.value.forEach((extra) => {
+        presetConfig = _.merge({}, presetConfig, {
+          [extra]: data.extras[extra]
+        });
+      });
+    }
 
-        // Set AIOLists options
-        aiolistsConfig.config.tmdbLanguage = language.value;
+    // Set additional options
+    no4k = options.value.includes('no4k');
+    cached = options.value.includes('cached');
 
-        // Set language lists
-        aiolistsConfig.config = _.merge(
-          {},
-          aiolistsConfig.config,
-          language.value !== 'en' ? aiolistsConfig[language.value] : {}
+    // Set AIOLists options
+    aiolistsConfig.config.tmdbLanguage = language.value;
+
+    // Set language lists
+    aiolistsConfig.config = _.merge(
+      {},
+      aiolistsConfig.config,
+      language.value !== 'en' ? aiolistsConfig[language.value] : {}
+    );
+
+    // Set RPDB key
+    if (rpdbKey.value) {
+      aiolistsConfig.config.rpdbApiKey = rpdbKey.value;
+      aiolistsConfig.config.isConnected.rpdb = true;
+    }
+
+    try {
+      const encryptedAIOListsUserData = await encryptUserData(
+        'https://aiolists.elfhosted.com/api/config/create',
+        aiolistsConfig
+      );
+
+      if (encryptedAIOListsUserData.success) {
+        presetConfig.aiolists.transportUrl = `https://aiolists.elfhosted.com/${encryptedAIOListsUserData.configHash}/manifest.json`;
+
+        const manifestAIOListsUserData = await fetchUserData(
+          presetConfig.aiolists.transportUrl
         );
 
-        // Set RPDB key
-        if (rpdbKey.value) {
-          aiolistsConfig.config.rpdbApiKey = rpdbKey.value;
-          aiolistsConfig.config.isConnected.rpdb = true;
-        }
-
-        try {
-          const encryptedAIOListsUserData = await encryptUserData(
-            'https://aiolists.elfhosted.com/api/config/create',
-            aiolistsConfig
-          );
-
-          if (encryptedAIOListsUserData.success) {
-            presetConfig.aiolists.transportUrl = `https://aiolists.elfhosted.com/${encryptedAIOListsUserData.configHash}/manifest.json`;
-
-            const manifestAIOListsUserData = await fetchUserData(
-              presetConfig.aiolists.transportUrl
-            );
-
-            if (manifestAIOListsUserData) {
-              presetConfig.aiolists.manifest = manifestAIOListsUserData;
-            } else {
-              presetConfig = _.omit(presetConfig, 'aiolists');
-              console.log('Error fetching AIOLists user manifest.');
-            }
-          } else {
-            presetConfig = _.omit(presetConfig, 'aiolists');
-            console.log('Error fetching AIOLists encrypted user data.');
-          }
-        } catch (error) {
-          console.error('An error occurred:', error);
-        }
-
-        // Set options for debrid
-        if (isValidApiKey()) {
-          debridServiceName = debridServiceInfo[debridService.value].name;
-
-          // Torrentio
-          torrentioConfig = `|sort=qualitysize|debridoptions=${cached ? 'nodownloadlinks,' : ''}nocatalog|${debridService.value}=${debridApiKey.value}`;
-
-          // Comet
-          cometTransportUrl = getDataTransportUrl(
-            presetConfig.comet.transportUrl
-          );
-          presetConfig.comet.manifest.name += ` | ${debridServiceName}`;
-          presetConfig.comet.transportUrl = getUrlTransportUrl(
-            cometTransportUrl,
-            {
-              ...cometTransportUrl.data,
-              debridApiKey: debridApiKey.value,
-              debridService: debridService.value,
-              cachedOnly: cached
-            }
-          );
-
-          // MediaFusion
-          presetConfig.mediafusion.manifest.name += ` | ${debridServiceName}`;
-          mediaFusionConfig.streaming_provider = {
-            service: debridService.value,
-            token: debridApiKey.value,
-            enable_watchlist_catalogs: false,
-            download_via_browser: false,
-            only_show_cached_streams: cached
-          };
-
-          // TorrentsDB
-          torrentsdbTransportUrl = getDataTransportUrl(
-            presetConfig.torrentsdb.transportUrl
-          );
-          presetConfig.torrentsdb.manifest.name += ` | ${debridServiceName}`;
-          presetConfig.torrentsdb.transportUrl = getUrlTransportUrl(
-            torrentsdbTransportUrl,
-            {
-              ...torrentsdbTransportUrl.data,
-              sort: 'qualitysize',
-              [debridService.value]: debridApiKey.value
-            }
-          );
-
-          // Jackettio
-          jackettioTransportUrl = getDataTransportUrl(
-            presetConfig.jackettio.transportUrl
-          );
-          presetConfig.jackettio.manifest.name += ` | ${debridServiceName}`;
-          presetConfig.jackettio.transportUrl = getUrlTransportUrl(
-            jackettioTransportUrl,
-            {
-              ...jackettioTransportUrl.data,
-              debridApiKey: debridApiKey.value,
-              debridId: debridService.value,
-              hideUncached: cached,
-              qualities: no4k
-                ? _.pull(jackettioTransportUrl.data.qualities, 2160)
-                : jackettioTransportUrl.data.qualities
-            }
-          );
-
-          // Peerflix
-          if (debridService.value !== 'easydebrid') {
-            peerflixConfig = `%7Cdebridoptions=nocatalog${cached ? ',nodownloadlinks' : ''}%7C${debridService.value}=${debridApiKey.value}`;
-          } else {
-            presetConfig = _.omit(presetConfig, 'peerflix');
-          }
-
-          // Torbox
-          if (debridService.value === 'torbox') {
-            presetConfig.torbox.transportUrl = Sqrl.render(
-              presetConfig.torbox.transportUrl,
-              { transportUrl: debridApiKey.value }
-            );
-          } else {
-            presetConfig = _.omit(presetConfig, 'torbox');
-          }
-
-          // StreamAsia
-          if (debridService.value !== 'easydebrid' && presetConfig.streamasia) {
-            const streamAsiaDebridService = {
-              realdebrid: 'Real Debrid',
-              alldebrid: 'AllDebrid',
-              premiumize: 'Premiumize',
-              debridlink: 'Debrid-Link',
-              torbox: 'Torbox'
-            };
-
-            streamAsiaTransportUrl = getDataTransportUrl(
-              presetConfig.streamasia.transportUrl
-            );
-            presetConfig.streamasia.transportUrl = getUrlTransportUrl(
-              streamAsiaTransportUrl,
-              {
-                ...streamAsiaTransportUrl.data,
-                debridConfig: [
-                  {
-                    debridProvider:
-                      streamAsiaDebridService[debridService.value],
-                    token: debridApiKey.value
-                  }
-                ]
-              }
-            );
-          }
-
-          // Remove TPB+
-          presetConfig = _.omit(presetConfig, 'tpbplus');
+        if (manifestAIOListsUserData) {
+          presetConfig.aiolists.manifest = manifestAIOListsUserData;
         } else {
-          debridServiceName = '';
-          // Remove Jackettio
-          presetConfig = _.omit(presetConfig, 'jackettio');
-          // Remove Torbox
-          presetConfig = _.omit(presetConfig, 'torbox');
+          presetConfig = _.omit(presetConfig, 'aiolists');
+          console.log('Error fetching AIOLists user manifest.');
         }
+      } else {
+        presetConfig = _.omit(presetConfig, 'aiolists');
+        console.log('Error fetching AIOLists encrypted user data.');
+      }
+    } catch (error) {
+      console.error('An error occurred:', error);
+    }
 
-        // Set stream addons options
-        if (language.value !== 'factory') {
-          // Torrentio
-          presetConfig.torrentio.transportUrl = Sqrl.render(
-            presetConfig.torrentio.transportUrl,
-            { transportUrl: torrentioConfig, no4k: no4k ? '4k,' : '' }
-          );
-          presetConfig.torrentio.manifest.name += ` ${debridServiceName}`;
+    // Set options for debrid
+    if (isValidApiKey()) {
+      debridServiceName = debridServiceInfo[debridService.value].name;
 
-          // Comet
-          if (no4k) {
-            cometTransportUrl = getDataTransportUrl(
-              presetConfig.comet.transportUrl
-            );
-            presetConfig.comet.transportUrl = getUrlTransportUrl(
-              cometTransportUrl,
+      // Torrentio
+      torrentioConfig = `|sort=qualitysize|debridoptions=${cached ? 'nodownloadlinks,' : ''}nocatalog|${debridService.value}=${debridApiKey.value}`;
+
+      // Comet
+      cometTransportUrl = getDataTransportUrl(
+        presetConfig.comet.transportUrl
+      );
+      presetConfig.comet.manifest.name += ` | ${debridServiceName}`;
+      presetConfig.comet.transportUrl = getUrlTransportUrl(
+        cometTransportUrl,
+        {
+          ...cometTransportUrl.data,
+          debridApiKey: debridApiKey.value,
+          debridService: debridService.value,
+          cachedOnly: cached
+        }
+      );
+
+      // MediaFusion
+      presetConfig.mediafusion.manifest.name += ` | ${debridServiceName}`;
+      mediaFusionConfig.streaming_provider = {
+        service: debridService.value,
+        token: debridApiKey.value,
+        enable_watchlist_catalogs: false,
+        download_via_browser: false,
+        only_show_cached_streams: cached
+      };
+
+      // TorrentsDB
+      torrentsdbTransportUrl = getDataTransportUrl(
+        presetConfig.torrentsdb.transportUrl
+      );
+      presetConfig.torrentsdb.manifest.name += ` | ${debridServiceName}`;
+      presetConfig.torrentsdb.transportUrl = getUrlTransportUrl(
+        torrentsdbTransportUrl,
+        {
+          ...torrentsdbTransportUrl.data,
+          sort: 'qualitysize',
+          [debridService.value]: debridApiKey.value
+        }
+      );
+
+      // Jackettio
+      jackettioTransportUrl = getDataTransportUrl(
+        presetConfig.jackettio.transportUrl
+      );
+      presetConfig.jackettio.manifest.name += ` | ${debridServiceName}`;
+      presetConfig.jackettio.transportUrl = getUrlTransportUrl(
+        jackettioTransportUrl,
+        {
+          ...jackettioTransportUrl.data,
+          debridApiKey: debridApiKey.value,
+          debridId: debridService.value,
+          hideUncached: cached,
+          qualities: no4k
+            ? _.pull(jackettioTransportUrl.data.qualities, 2160)
+            : jackettioTransportUrl.data.qualities
+        }
+      );
+
+      // Peerflix
+      if (debridService.value !== 'easydebrid') {
+        peerflixConfig = `%7Cdebridoptions=nocatalog${cached ? ',nodownloadlinks' : ''}%7C${debridService.value}=${debridApiKey.value}`;
+      } else {
+        presetConfig = _.omit(presetConfig, 'peerflix');
+      }
+
+      // Torbox
+      if (debridService.value === 'torbox') {
+        presetConfig.torbox.transportUrl = Sqrl.render(
+          presetConfig.torbox.transportUrl,
+          { transportUrl: debridApiKey.value }
+        );
+      } else {
+        presetConfig = _.omit(presetConfig, 'torbox');
+      }
+
+      // StreamAsia
+      if (debridService.value !== 'easydebrid' && presetConfig.streamasia) {
+        const streamAsiaDebridService = {
+          realdebrid: 'Real Debrid',
+          alldebrid: 'AllDebrid',
+          premiumize: 'Premiumize',
+          debridlink: 'Debrid-Link',
+          torbox: 'Torbox'
+        };
+
+        streamAsiaTransportUrl = getDataTransportUrl(
+          presetConfig.streamasia.transportUrl
+        );
+        presetConfig.streamasia.transportUrl = getUrlTransportUrl(
+          streamAsiaTransportUrl,
+          {
+            ...streamAsiaTransportUrl.data,
+            debridConfig: [
               {
-                ...cometTransportUrl.data,
-                resolutions: {
-                  ...cometTransportUrl.data.resolutions,
-                  r2160p: false
-                }
+                debridProvider:
+                  streamAsiaDebridService[debridService.value],
+                token: debridApiKey.value
               }
-            );
+            ]
           }
+        );
+      }
 
-          // MediaFusion
-          if (no4k) {
-            _.pull(
-              mediaFusionConfig.selected_resolutions,
+      // Remove TPB+
+      presetConfig = _.omit(presetConfig, 'tpbplus');
+    } else {
+      debridServiceName = '';
+      // Remove Jackettio
+      presetConfig = _.omit(presetConfig, 'jackettio');
+      // Remove Torbox
+      presetConfig = _.omit(presetConfig, 'torbox');
+    }
+
+    // Set stream addons options
+    if (language.value !== 'factory') {
+      // Torrentio
+      presetConfig.torrentio.transportUrl = Sqrl.render(
+        presetConfig.torrentio.transportUrl,
+        { transportUrl: torrentioConfig, no4k: no4k ? '4k,' : '' }
+      );
+      presetConfig.torrentio.manifest.name += ` ${debridServiceName}`;
+
+      // Comet
+      if (no4k) {
+        cometTransportUrl = getDataTransportUrl(
+          presetConfig.comet.transportUrl
+        );
+        presetConfig.comet.transportUrl = getUrlTransportUrl(
+          cometTransportUrl,
+          {
+            ...cometTransportUrl.data,
+            resolutions: {
+              ...cometTransportUrl.data.resolutions,
+              r2160p: false
+            }
+          }
+        );
+      }
+
+      // MediaFusion
+      if (no4k) {
+        _.pull(
+          mediaFusionConfig.selected_resolutions,
+          '4k',
+          '2160p',
+          '1440p'
+        );
+      }
+
+      const languagesToPrioritize = {
+        'es-mx': 'Latino',
+        'es-es': 'Spanish',
+        pt: 'Portuguese',
+        fr: 'French',
+        it: 'Italian',
+        de: 'German'
+      };
+
+      if (languagesToPrioritize[language.value]) {
+        _.pull(
+          mediaFusionConfig.language_sorting,
+          languagesToPrioritize[language.value]
+        );
+        mediaFusionConfig.language_sorting.unshift(
+          languagesToPrioritize[language.value]
+        );
+      }
+
+      const encryptedMediaFusionData = await encryptUserData(
+        'https://cloudflare-cors-anywhere.drykilllogic.workers.dev/?https://mediafusion.elfhosted.com/encrypt-user-data',
+        mediaFusionConfig
+      );
+
+      if (encryptedMediaFusionData?.status === 'success') {
+        presetConfig.mediafusion.transportUrl = `https://mediafusion.elfhosted.com/${encryptedMediaFusionData.encrypted_str}/manifest.json`;
+      } else {
+        presetConfig = _.omit(presetConfig, 'mediafusion');
+        console.log('Error fetching MediaFusion encrypted user data.');
+      }
+
+      // TorrentsDB
+      if (no4k) {
+        torrentsdbTransportUrl = getDataTransportUrl(
+          presetConfig.torrentsdb.transportUrl
+        );
+        presetConfig.torrentsdb.transportUrl = getUrlTransportUrl(
+          torrentsdbTransportUrl,
+          {
+            ...torrentsdbTransportUrl.data,
+            qualityfilter: [
+              ...torrentsdbTransportUrl.data.qualityfilter,
               '4k',
-              '2160p',
-              '1440p'
-            );
+              'brremux',
+              'hdrall',
+              'dolbyvisionwithhdr',
+              'dolbyvision'
+            ]
           }
+        );
+      }
 
-          const languagesToPrioritize = {
-            'es-mx': 'Latino',
-            'es-es': 'Spanish',
-            pt: 'Portuguese',
-            fr: 'French',
-            it: 'Italian',
-            de: 'German'
-          };
-
-          if (languagesToPrioritize[language.value]) {
-            _.pull(
-              mediaFusionConfig.language_sorting,
-              languagesToPrioritize[language.value]
-            );
-            mediaFusionConfig.language_sorting.unshift(
-              languagesToPrioritize[language.value]
-            );
+      // Peerflix
+      if (
+        debridService.value !== '' &&
+        debridService.value !== 'easydebrid'
+      ) {
+        presetConfig.peerflix.transportUrl = Sqrl.render(
+          presetConfig.peerflix.transportUrl,
+          {
+            transportUrl: peerflixConfig,
+            no4k: no4k ? ',remux4k,4k,micro4k' : '',
+            sort: debridService.value ? ',size-desc' : ',seed-desc'
           }
+        );
+        presetConfig.peerflix.manifest.name += ` ${debridServiceName}`;
+      }
+    }
 
-          const encryptedMediaFusionData = await encryptUserData(
-            'https://cloudflare-cors-anywhere.drykilllogic.workers.dev/?https://mediafusion.elfhosted.com/encrypt-user-data',
-            mediaFusionConfig
-          );
+    // Create addons list
+    const selectedAddons = [];
 
-          if (encryptedMediaFusionData?.status === 'success') {
-            presetConfig.mediafusion.transportUrl = `https://mediafusion.elfhosted.com/${encryptedMediaFusionData.encrypted_str}/manifest.json`;
-          } else {
-            presetConfig = _.omit(presetConfig, 'mediafusion');
-            console.log('Error fetching MediaFusion encrypted user data.');
-          }
-
-          // TorrentsDB
-          if (no4k) {
-            torrentsdbTransportUrl = getDataTransportUrl(
-              presetConfig.torrentsdb.transportUrl
-            );
-            presetConfig.torrentsdb.transportUrl = getUrlTransportUrl(
-              torrentsdbTransportUrl,
-              {
-                ...torrentsdbTransportUrl.data,
-                qualityfilter: [
-                  ...torrentsdbTransportUrl.data.qualityfilter,
-                  '4k',
-                  'brremux',
-                  'hdrall',
-                  'dolbyvisionwithhdr',
-                  'dolbyvision'
-                ]
-              }
-            );
-          }
-
-          // Peerflix
-          if (
-            debridService.value !== '' &&
-            debridService.value !== 'easydebrid'
-          ) {
-            presetConfig.peerflix.transportUrl = Sqrl.render(
-              presetConfig.peerflix.transportUrl,
-              {
-                transportUrl: peerflixConfig,
-                no4k: no4k ? ',remux4k,4k,micro4k' : '',
-                sort: debridService.value ? ',size-desc' : ',seed-desc'
-              }
-            );
-            presetConfig.peerflix.manifest.name += ` ${debridServiceName}`;
-          }
-        }
-
-        // Create addons list
-        const selectedAddons = [];
-
-        Object.keys(presetConfig).forEach((key) => {
-          selectedAddons.push(presetConfig[key]);
-        });
-
-        addons.value = selectedAddons;
-      });
-    })
-    .catch((error) => {
-      console.error('Error fetching preset config', error);
-    })
-    .finally(() => {
-      isSyncButtonEnabled.value = true;
+    Object.keys(presetConfig).forEach((key) => {
+      selectedAddons.push(presetConfig[key]);
     });
+
+    addons.value = selectedAddons;
+  } catch (error) {
+    console.error('Error fetching preset config', error);
+  } finally {
+    isLoading.value = false;
+    isSyncButtonEnabled.value = true;
+  }
 }
 
 function syncUserAddons() {
@@ -497,6 +502,38 @@ function isValidApiKey() {
   }
 
   return false;
+}
+
+function openPasteModal() {
+  isPasteModalOpen.value = true;
+}
+
+function closePasteModal() {
+  isPasteModalOpen.value = false;
+  customJsonUrl.value = '';
+}
+
+async function addCustomJsonAddon() {
+  isLoading.value = true;
+  try {
+    const response = await fetch(customJsonUrl.value);
+    const parsedJson = await response.json();
+
+    // Validate the parsed JSON
+    if (!parsedJson.id || !parsedJson.name || !parsedJson.version) {
+      throw new Error('Invalid JSON structure');
+    }
+
+    addons.value.push({
+      transportUrl: customJsonUrl.value,
+      manifest: parsedJson
+    });
+    closePasteModal();
+  } catch (error) {
+    alert('Invalid JSON URL or JSON content: ' + error.message);
+  } finally {
+    isLoading.value = false;
+  }
 }
 
 async function fetchUserData(endpoint) {
@@ -694,9 +731,10 @@ async function encryptUserData(endpoint, data) {
         <button
           class="button secondary"
           @click="loadUserAddons"
-          :disabled="!stremioAuthKey"
+          :disabled="!stremioAuthKey || isLoading"
         >
-          {{ $t('load_addons_preset') }}
+          <span v-if="!isLoading">{{ $t('load_addons_preset') }}</span>
+          <span v-else>Loading...</span>
         </button>
       </fieldset>
       <fieldset id="form_step7">
@@ -730,6 +768,15 @@ async function encryptUserData(endpoint, data) {
             />
           </template>
         </draggable>
+        <div>
+          <button :disabled="!isSyncButtonEnabled" @click="advancedVisible = !advancedVisible">
+            {{ advancedVisible ? 'Hide Advanced Options' : 'Show Advanced Options' }}
+          </button>
+          <div v-if="advancedVisible">
+            <input v-model="customJsonUrl" :placeholder="$t('step7_add_custom_addons')" />
+            <button @click="addCustomJsonAddon">Add Addon</button>
+          </div>
+        </div>
       </fieldset>
       <fieldset id="form_step8">
         <legend>{{ $t('step8_bootstrap_account') }}</legend>
@@ -757,6 +804,10 @@ async function encryptUserData(endpoint, data) {
         @update-manifest="saveManifestEdit"
       />
     </div>
+  </div>
+
+  <div v-if="isLoading" class="loading-screen">
+    <div class="spinner"></div>
   </div>
 </template>
 
@@ -807,10 +858,37 @@ async function encryptUserData(endpoint, data) {
 button {
   padding: 10px 20px;
   border: none;
-  background-color: #ffa600;
+  background-color: #7b5bf5;
   color: white;
   font-size: 16px;
   cursor: pointer;
   border-radius: 5px;
+}
+
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1001;
+}
+
+.spinner {
+  border: 16px solid #f3f3f3;
+  border-top: 16px solid gray;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 </style>
