@@ -59,6 +59,10 @@ let rpdbKey = ref('');
 let isEditModalVisible = ref(false);
 let currentManifest = ref({});
 let currentEditIdx = ref(null);
+let isPasteModalOpen = ref(false);
+let customJsonUrl = ref('');
+let advancedVisible = ref(false);
+let isLoading = ref(false);
 
 function loadUserAddons() {
   const key = props.stremioAuthKey;
@@ -499,6 +503,38 @@ function isValidApiKey() {
   return false;
 }
 
+function openPasteModal() {
+  isPasteModalOpen.value = true;
+}
+
+function closePasteModal() {
+  isPasteModalOpen.value = false;
+  customJsonUrl.value = '';
+}
+
+async function addCustomJsonAddon() {
+  isLoading.value = true;
+  try {
+    const response = await fetch(customJsonUrl.value);
+    const parsedJson = await response.json();
+
+    // Validate the parsed JSON
+    if (!parsedJson.id || !parsedJson.name || !parsedJson.version) {
+      throw new Error('Invalid JSON structure');
+    }
+
+    addons.value.push({
+      transportUrl: customJsonUrl.value,
+      manifest: parsedJson
+    });
+    closePasteModal();
+  } catch (error) {
+    alert('Invalid JSON URL or JSON content: ' + error.message);
+  } finally {
+    isLoading.value = false;
+  }
+}
+
 async function fetchUserData(endpoint) {
   try {
     const response = await fetch(endpoint, {
@@ -730,6 +766,15 @@ async function encryptUserData(endpoint, data) {
             />
           </template>
         </draggable>
+        <div>
+          <button :disabled="!isSyncButtonEnabled" @click="advancedVisible = !advancedVisible">
+            {{ advancedVisible ? 'Hide Advanced Options' : 'Show Advanced Options' }}
+          </button>
+          <div v-if="advancedVisible">
+            <input v-model="customJsonUrl" :placeholder="$t('step7_add_custom_addons')" />
+            <button @click="addCustomJsonAddon">Add Addon</button>
+          </div>
+        </div>
       </fieldset>
       <fieldset id="form_step8">
         <legend>{{ $t('step8_bootstrap_account') }}</legend>
@@ -757,6 +802,10 @@ async function encryptUserData(endpoint, data) {
         @update-manifest="saveManifestEdit"
       />
     </div>
+  </div>
+
+  <div v-if="isLoading" class="loading-screen">
+    <div class="spinner"></div>
   </div>
 </template>
 
@@ -807,10 +856,37 @@ async function encryptUserData(endpoint, data) {
 button {
   padding: 10px 20px;
   border: none;
-  background-color: #ffa600;
+  background-color: #7b5bf5;
   color: white;
   font-size: 16px;
   cursor: pointer;
   border-radius: 5px;
+}
+
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1001;
+}
+
+.spinner {
+  border: 16px solid #f3f3f3;
+  border-top: 16px solid gray;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 </style>

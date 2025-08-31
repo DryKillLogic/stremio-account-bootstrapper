@@ -61,6 +61,7 @@
   "step6_load_preset": "Step 6: Load preset",
   "load_addons_preset": "Load Addons Preset",
   "step7_customize_addons": "Step 7: Customize Addons (optional)",
+  "step7_add_custom_addons": "Paste the manifest URL of additional addons",
   "step8_bootstrap_account": "Step 8: Bootstrap account",
   "sync_to_stremio": "Sync to Stremio",
   "edit_manifest": "Edit manifest",
