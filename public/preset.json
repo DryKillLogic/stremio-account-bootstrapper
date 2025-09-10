@@ -1,548 +1,1594 @@
 {
-  "addons": {
-    "cinemeta": {
-      "transportUrl": "https://v3-cinemeta.strem.io/manifest.json",
-      "transportName": "http",
-      "manifest": {
-        "id": "com.linvo.cinemeta",
-        "version": "3.0.13",
-        "description": "The official addon for movie and series catalogs",
-        "name": "Cinemeta",
-        "resources": ["catalog", "meta", "addon_catalog"],
-        "types": ["movie", "series"],
-        "idPrefixes": ["tt"],
-        "addonCatalogs": [
-          {
-            "type": "all",
-            "id": "official",
-            "name": "Official"
-          },
-          {
-            "type": "movie",
-            "id": "official",
-            "name": "Official"
-          },
-          {
-            "type": "series",
-            "id": "official",
-            "name": "Official"
-          },
-          {
-            "type": "channel",
-            "id": "official",
-            "name": "Official"
-          },
-          {
-            "type": "all",
-            "id": "community",
-            "name": "Community"
-          },
-          {
-            "type": "movie",
-            "id": "community",
-            "name": "Community"
-          },
-          {
-            "type": "series",
-            "id": "community",
-            "name": "Community"
-          },
-          {
-            "type": "channel",
-            "id": "community",
-            "name": "Community"
-          },
-          {
-            "type": "tv",
-            "id": "community",
-            "name": "Community"
-          },
-          {
-            "type": "Podcasts",
-            "id": "community",
-            "name": "Community"
-          },
-          {
-            "type": "other",
-            "id": "community",
-            "name": "Community"
+  "presets": {
+    "minimal": ["cinemeta", "aiolists", "autostream", "subhero"],
+    "standard": [
+      "cinemeta",
+      "aiolists",
+      "torrentio",
+      "comet",
+      "mediafusion",
+      "webstreamr",
+      "subhero"
+    ],
+    "full": [
+      "cinemeta",
+      "aiolists",
+      "torrentio",
+      "comet",
+      "mediafusion",
+      "jackettio",
+      "torrentsdb",
+      "peerflix",
+      "torbox",
+      "tpbplus",
+      "nuvio",
+      "webstreamr",
+      "subhero",
+      "subsource",
+      "opensubtitlesv3",
+      "localfiles"
+    ],
+    "factory": [
+      "cinemeta-unmodified",
+      "stremiochannels",
+      "watchhub",
+      "publicdomains",
+      "opensubtitlesv3",
+      "localfiles"
+    ]
+  },
+  "languages": {
+    "en": {
+      "cinemeta": {
+        "transportUrl": "https://v3-cinemeta.strem.io/manifest.json",
+        "transportName": "http",
+        "manifest": {
+          "id": "com.linvo.cinemeta",
+          "version": "3.0.13",
+          "description": "The official addon for movie and series catalogs",
+          "name": "Cinemeta",
+          "resources": ["catalog", "meta", "addon_catalog"],
+          "types": ["movie", "series"],
+          "idPrefixes": ["tt"],
+          "addonCatalogs": [
+            {
+              "type": "all",
+              "id": "official",
+              "name": "Official"
+            },
+            {
+              "type": "movie",
+              "id": "official",
+              "name": "Official"
+            },
+            {
+              "type": "series",
+              "id": "official",
+              "name": "Official"
+            },
+            {
+              "type": "channel",
+              "id": "official",
+              "name": "Official"
+            },
+            {
+              "type": "all",
+              "id": "community",
+              "name": "Community"
+            },
+            {
+              "type": "movie",
+              "id": "community",
+              "name": "Community"
+            },
+            {
+              "type": "series",
+              "id": "community",
+              "name": "Community"
+            },
+            {
+              "type": "channel",
+              "id": "community",
+              "name": "Community"
+            },
+            {
+              "type": "tv",
+              "id": "community",
+              "name": "Community"
+            },
+            {
+              "type": "Podcasts",
+              "id": "community",
+              "name": "Community"
+            },
+            {
+              "type": "other",
+              "id": "community",
+              "name": "Community"
+            }
+          ],
+          "catalogs": [
+            {
+              "type": "series",
+              "id": "last-videos",
+              "name": "Last videos",
+              "extra": [
+                {
+                  "name": "lastVideosIds",
+                  "isRequired": true,
+                  "optionsLimit": 100
+                }
+              ],
+              "extraSupported": ["lastVideosIds"],
+              "extraRequired": ["lastVideosIds"]
+            },
+            {
+              "type": "series",
+              "id": "calendar-videos",
+              "extra": [
+                {
+                  "name": "calendarVideosIds",
+                  "isRequired": true,
+                  "optionsLimit": 100
+                }
+              ],
+              "extraSupported": ["calendarVideosIds"],
+              "extraRequired": ["calendarVideosIds"],
+              "name": "Calendar videos"
+            }
+          ],
+          "behaviorHints": {
+            "newEpisodeNotifications": true
           }
-        ],
-        "catalogs": [
-          {
-            "type": "series",
-            "id": "last-videos",
-            "name": "Last videos",
-            "extra": [
-              {
-                "name": "lastVideosIds",
-                "isRequired": true,
-                "optionsLimit": 100
-              }
-            ],
-            "extraSupported": ["lastVideosIds"],
-            "extraRequired": ["lastVideosIds"]
-          },
-          {
-            "type": "series",
-            "id": "calendar-videos",
-            "extra": [
-              {
-                "name": "calendarVideosIds",
-                "isRequired": true,
-                "optionsLimit": 100
-              }
-            ],
-            "extraSupported": ["calendarVideosIds"],
-            "extraRequired": ["calendarVideosIds"],
-            "name": "Calendar videos"
-          }
-        ],
-        "behaviorHints": {
-          "newEpisodeNotifications": true
+        },
+        "flags": {
+          "official": true,
+          "protected": true
         }
       },
-      "flags": {
-        "official": true,
-        "protected": true
-      }
-    },
-    "aiolists": {
-      "transportUrl": "",
-      "manifest": {}
-    },
-    "torrentio": {
-      "transportUrl": "https://torrentio.strem.fun/providers=yts,eztv,rarbg,1337x,thepiratebay,kickasstorrents,torrentgalaxy,magnetdl,horriblesubs,nyaasi,tokyotosho,anidex|qualityfilter=threed,{{it.no4k}}scr,cam,unknown|limit=10{{it.transportUrl}}/manifest.json",
-      "transportName": "",
-      "manifest": {
-        "id": "com.stremio.torrentio.addon",
-        "version": "0.0.15",
-        "name": "Torrentio",
-        "contactEmail": null,
-        "description": "Provides torrent streams from scraped torrent providers. Currently supports YTS(+), EZTV(+), RARBG(+), 1337x(+), ThePirateBay(+), KickassTorrents(+), TorrentGalaxy(+), MagnetDL(+), HorribleSubs(+), NyaaSi(+), TokyoTosho(+), AniDex(+), Rutor(+), Rutracker(+), Comando(+), BluDV(+), Torrent9(+), ilCorSaRoNeRo(+), MejorTorrent(+), Wolfmax4k(+), Cinecalidad(+), BestTorrents(+). To configure providers, RealDebrid/Premiumize/AllDebrid/DebridLink/EasyDebrid/Offcloud/TorBox/Put.io support and other settings visit https://torrentio.strem.fun",
-        "logo": "https://torrentio.strem.fun/images/logo_v1.png",
-        "background": "https://torrentio.strem.fun/images/background_v1.jpg",
-        "types": ["movie", "series", "anime", "other"],
-        "resources": [
-          {
-            "name": "stream",
-            "types": ["movie", "series"],
-            "idPrefixes": ["tt", "kitsu"]
+      "aiolists": {
+        "transportUrl": "",
+        "manifest": {}
+      },
+      "torrentio": {
+        "transportUrl": "https://torrentio.strem.fun/providers=yts,eztv,rarbg,1337x,thepiratebay,kickasstorrents,torrentgalaxy,magnetdl,horriblesubs,nyaasi,tokyotosho,anidex|qualityfilter=threed,{{it.no4k}}scr,cam,unknown|limit=10{{it.transportUrl}}/manifest.json",
+        "transportName": "",
+        "manifest": {
+          "id": "com.stremio.torrentio.addon",
+          "version": "0.0.15",
+          "name": "Torrentio",
+          "contactEmail": null,
+          "description": "Provides torrent streams from scraped torrent providers. Currently supports YTS(+), EZTV(+), RARBG(+), 1337x(+), ThePirateBay(+), KickassTorrents(+), TorrentGalaxy(+), MagnetDL(+), HorribleSubs(+), NyaaSi(+), TokyoTosho(+), AniDex(+), Rutor(+), Rutracker(+), Comando(+), BluDV(+), Torrent9(+), ilCorSaRoNeRo(+), MejorTorrent(+), Wolfmax4k(+), Cinecalidad(+), BestTorrents(+). To configure providers, RealDebrid/Premiumize/AllDebrid/DebridLink/EasyDebrid/Offcloud/TorBox/Put.io support and other settings visit https://torrentio.strem.fun",
+          "logo": "https://torrentio.strem.fun/images/logo_v1.png",
+          "background": "https://torrentio.strem.fun/images/background_v1.jpg",
+          "types": ["movie", "series", "anime", "other"],
+          "resources": [
+            {
+              "name": "stream",
+              "types": ["movie", "series"],
+              "idPrefixes": ["tt", "kitsu"]
+            }
+          ],
+          "idPrefixes": null,
+          "catalogs": [],
+          "addonCatalogs": [],
+          "behaviorHints": {
+            "adult": false,
+            "p2p": false,
+            "configurable": true,
+            "configurationRequired": false
           }
-        ],
-        "idPrefixes": null,
-        "catalogs": [],
-        "addonCatalogs": [],
-        "behaviorHints": {
-          "adult": false,
-          "p2p": false,
-          "configurable": true,
-          "configurationRequired": false
+        },
+        "flags": {
+          "official": false,
+          "protected": false
         }
       },
-      "flags": {
-        "official": false,
-        "protected": false
-      }
-    },
-    "comet": {
-      "transportUrl": "https://comet.elfhosted.com/eyJtYXhSZXN1bHRzUGVyUmVzb2x1dGlvbiI6MTAsIm1heFNpemUiOjAsImNhY2hlZE9ubHkiOmZhbHNlLCJyZW1vdmVUcmFzaCI6dHJ1ZSwicmVzdWx0Rm9ybWF0IjpbImFsbCJdLCJkZWJyaWRTZXJ2aWNlIjoidG9ycmVudCIsImRlYnJpZEFwaUtleSI6IiIsImRlYnJpZFN0cmVhbVByb3h5UGFzc3dvcmQiOiIiLCJsYW5ndWFnZXMiOnsicmVxdWlyZWQiOltdLCJleGNsdWRlIjpbXSwicHJlZmVycmVkIjpbImVuIl19LCJyZXNvbHV0aW9ucyI6eyJyMzYwcCI6ZmFsc2UsInVua25vd24iOmZhbHNlfSwib3B0aW9ucyI6eyJyZW1vdmVfcmFua3NfdW5kZXIiOi0xMDAwMDAwMDAwMCwiYWxsb3dfZW5nbGlzaF9pbl9sYW5ndWFnZXMiOmZhbHNlLCJyZW1vdmVfdW5rbm93bl9sYW5ndWFnZXMiOmZhbHNlfX0=/manifest.json",
-      "transportName": "",
-      "manifest": {
-        "id": "comet.elfhosted.com.TJeT",
-        "description": "Stremio's fastest torrent/debrid search add-on.",
-        "version": "2.0.0",
-        "catalogs": [],
-        "resources": [
-          {
-            "name": "stream",
-            "types": ["movie", "series"],
-            "idPrefixes": ["tt", "kitsu"]
-          }
-        ],
-        "types": ["movie", "series", "anime", "other"],
-        "logo": "https://i.imgur.com/jmVoVMu.jpeg",
-        "background": "https://i.imgur.com/WwnXB3k.jpeg",
-        "behaviorHints": {
-          "configurable": true,
-          "configurationRequired": false
+      "comet": {
+        "transportUrl": "https://comet.elfhosted.com/eyJtYXhSZXN1bHRzUGVyUmVzb2x1dGlvbiI6MTAsIm1heFNpemUiOjAsImNhY2hlZE9ubHkiOmZhbHNlLCJyZW1vdmVUcmFzaCI6dHJ1ZSwicmVzdWx0Rm9ybWF0IjpbImFsbCJdLCJkZWJyaWRTZXJ2aWNlIjoidG9ycmVudCIsImRlYnJpZEFwaUtleSI6IiIsImRlYnJpZFN0cmVhbVByb3h5UGFzc3dvcmQiOiIiLCJsYW5ndWFnZXMiOnsicmVxdWlyZWQiOltdLCJleGNsdWRlIjpbXSwicHJlZmVycmVkIjpbImVuIl19LCJyZXNvbHV0aW9ucyI6eyJyMzYwcCI6ZmFsc2UsInVua25vd24iOmZhbHNlfSwib3B0aW9ucyI6eyJyZW1vdmVfcmFua3NfdW5kZXIiOi0xMDAwMDAwMDAwMCwiYWxsb3dfZW5nbGlzaF9pbl9sYW5ndWFnZXMiOmZhbHNlLCJyZW1vdmVfdW5rbm93bl9sYW5ndWFnZXMiOmZhbHNlfX0=/manifest.json",
+        "transportName": "",
+        "manifest": {
+          "id": "comet.elfhosted.com.TJeT",
+          "description": "Stremio's fastest torrent/debrid search add-on.",
+          "version": "2.0.0",
+          "catalogs": [],
+          "resources": [
+            {
+              "name": "stream",
+              "types": ["movie", "series"],
+              "idPrefixes": ["tt", "kitsu"]
+            }
+          ],
+          "types": ["movie", "series", "anime", "other"],
+          "logo": "https://i.imgur.com/jmVoVMu.jpeg",
+          "background": "https://i.imgur.com/WwnXB3k.jpeg",
+          "behaviorHints": {
+            "configurable": true,
+            "configurationRequired": false
+          },
+          "name": "Comet | ElfHosted"
         },
-        "name": "Comet | ElfHosted"
-      },
-      "flags": {
-        "official": false,
-        "protected": false
-      }
-    },
-    "mediafusion": {
-      "transportUrl": "",
-      "manifest": {
-        "id": "stremio.addons.mediafusion|elfhosted",
-        "version": "4.3.33",
-        "name": "MediaFusion | ElfHosted",
-        "contactEmail": "mhdzumair@gmail.com",
-        "description": "Universal Stremio Add-on for Movies, Series, Live TV &amp; Sports Events. Source: https://github.com/mhdzumair/MediaFusion",
-        "logo": "https://mediafusion.elfhosted.com/static/images/mediafusion-elfhosted-logo.png",
-        "behaviorHints": {
-          "configurable": true,
-          "configurationRequired": false
-        },
-        "resources": [
-          "catalog",
-          {
-            "name": "stream",
-            "types": ["movie", "series", "tv", "events"],
-            "idPrefixes": ["tt", "mf", "dl"]
-          },
-          {
-            "name": "meta",
-            "types": ["movie", "series", "tv", "events"],
-            "idPrefixes": ["mf", "dl"]
-          }
-        ],
-        "types": ["movie", "series", "tv", "events"],
-        "catalogs": []
-      }
-    },
-    "jackettio": {
-      "transportUrl": "https://jackettio.elfhosted.com/eyJtYXhUb3JyZW50cyI6OCwicHJpb3RpemVQYWNrVG9ycmVudHMiOjIsImV4Y2x1ZGVLZXl3b3JkcyI6WyJjYW0iLCJzY3JlZW5lciJdLCJkZWJyaWRJZCI6IiIsImhpZGVVbmNhY2hlZCI6ZmFsc2UsInNvcnRDYWNoZWQiOltbInF1YWxpdHkiLHRydWVdLFsic2l6ZSIsdHJ1ZV1dLCJzb3J0VW5jYWNoZWQiOltbInF1YWxpdHkiLHRydWVdLFsic2VlZGVycyIsdHJ1ZV1dLCJmb3JjZUNhY2hlTmV4dEVwaXNvZGUiOmZhbHNlLCJwcmlvdGl6ZUxhbmd1YWdlcyI6WyJlbmdsaXNoIl0sImluZGV4ZXJUaW1lb3V0U2VjIjo2MCwibWV0YUxhbmd1YWdlIjoiIiwiZW5hYmxlTWVkaWFGbG93IjpmYWxzZSwibWVkaWFmbG93UHJveHlVcmwiOiIiLCJtZWRpYWZsb3dBcGlQYXNzd29yZCI6IiIsIm1lZGlhZmxvd1B1YmxpY0lwIjoiIiwidXNlU3RyZW1UaHJ1Ijp0cnVlLCJzdHJlbXRocnVVcmwiOiJodHRwOi8vZWxmaG9zdGVkLWludGVybmFsLnN0cmVtdGhydSIsInF1YWxpdGllcyI6WzQ4MCw3MjAsMTA4MCwyMTYwXSwiaW5kZXhlcnMiOlsiYml0c2VhcmNoIiwiZXp0diIsInRoZXBpcmF0ZWJheSIsInRoZXJhcmJnIiwieXRzIl0sImRlYnJpZEFwaUtleSI6IiJ9/manifest.json",
-      "manifest": {
-        "id": "jackettio.elfhosted.com",
-        "version": "1.7.0",
-        "name": "Jackettio",
-        "description": "Stremio addon that resolve streams using Jackett and Debrid. It seamlessly integrates with private trackers.",
-        "icon": "https://jackettio.elfhosted.com/icon",
-        "resources": ["stream"],
-        "types": ["movie", "series"],
-        "idPrefixes": ["tt"],
-        "catalogs": [],
-        "behaviorHints": {
-          "configurable": true
-        }
-      }
-    },
-    "torrentsdb": {
-      "transportUrl": "https://torrentsdb.com/eyJwcm92aWRlcnMiOlsieXRzIiwiZXp0diIsIjEzMzd4IiwidG9ycmVudGNzdiIsIm55YWEiLCJsaW1ldG9ycmVudCIsInJhcmdiIiwia25hYmVuIiwidGhlcGlyYXRlYmF5Iiwia2lja2Fzc3RvcnJlbnRzIiwiYW5pbWV0b3NobyIsInRva3lvdG9zaG8iLCJtYW51YWwiXSwibGFuZ3VhZ2UiOltdLCJxdWFsaXR5ZmlsdGVyIjpbInNjciIsImNhbSIsInVua25vd24iXSwibGltaXQiOiIxMCJ9/manifest.json",
-      "manifest": {
-        "id": "com.torrentsdb.addon",
-        "version": "1.0.0",
-        "name": "TorrentsDB",
-        "description": "Provides torrent streams from scraped torrent providers. Currently supports YTS(+), EZTV(+), 1337x(+), TorrentCSV(+), 1lou(-), Nyaa(+), Sk-CzTorrent(-), 1TamilBlasters(-), LimeTorrent(+), 1TamilMV(-), RARGB(+), Knaben(+), ThePirateBay(+), KickassTorrents(+), AnimeTosho(+), ExtremlymTorrents(-), YggTorrent(-), TokyoTosho(+), Rutor(-), Rutracker(-), Torrent9(-), ilCorSaRoNeRo(-), Manual(+) and RealDebrid enabled. To configure providers, Premiumize/EasyDebrid/Debrider/AllDebrid/RealDebrid/DebridLink/Offcloud/TorBox/Put.io support and other settings visit https://torrentsdb.com",
-        "resources": [
-          {
-            "name": "stream",
-            "types": ["movie", "series"],
-            "idPrefixes": ["tt", "kitsu"]
-          }
-        ],
-        "types": ["movie", "series", "anime", "other"],
-        "logo": "https://torrentsdb.com/icon.svg",
-        "behaviorHints": {
-          "configurable": true,
-          "configurationRequired": false
-        }
-      }
-    },
-    "peerflix": {
-      "transportUrl": "https://peerflix-addon.onrender.com/language=en%7Cqualityfilter=threed,unknown,screener,vhs,sd{{it.no4k}}{{it.transportUrl}}%7Csort=quality-desc,language-desc{{it.sort}}/manifest.json",
-      "manifest": {
-        "id": "com.keopps.peerflix",
-        "version": "2.7.1",
-        "name": "Peerflix",
-        "description": "Peerflix proporciona los mejores enlaces en español e inglés de películas y series de TV en Stremio.Para configurar proveedores de chache, RealDebrid/Premiumize/AllDebrid/DebridLink/Offcloud/Put.io/Torbox visita https://peerflix-addon.onrender.com",
-        "catalogs": [],
-        "resources": [
-          {
-            "name": "stream",
-            "types": ["movie", "series"],
-            "idPrefixes": ["tt", "kitsu"]
-          }
-        ],
-        "types": ["movie", "series"],
-        "background": "https://i.ibb.co/vL3SKgX/peerflix-background-2.jpg",
-        "logo": "https://peerflix.mov/static/logo.png",
-        "behaviorHints": {
-          "configurable": true,
-          "configurationRequired": false
-        }
-      }
-    },
-    "torbox": {
-      "transportUrl": " https://stremio.torbox.app/{{it.transportUrl}}/manifest.json",
-      "manifest": {
-        "id": "app.torbox.stremio",
-        "version": "1.1.0",
-        "name": "TorBox",
-        "contactEmail": "contact@torbox.app",
-        "description": "Provides torrent streams for users of TorBox. With zero config, and a free account you can instantly start watching your favorite torrents using TorBox. To add with streaming support, go to your TorBox settings and click the Access Stremio Addon button! Configuration can be done from the TorBox settings, which are propagated instantly, no need to reinstall the addon! Requires a TorBox account to stream. Get started for free at https://torbox.app",
-        "catalogs": [],
-        "resources": [
-          {
-            "name": "stream",
-            "types": ["movie", "series", "anime"]
-          },
-          {
-            "name": "catalog",
-            "types": ["movie", "series", "anime"]
-          },
-          {
-            "name": "meta",
-            "types": ["movie", "series", "anime"],
-            "idPrefixes": ["usermovies", "tbm"]
-          }
-        ],
-        "types": ["movie", "series", "anime"],
-        "behaviorHints": {
-          "configurable": true,
-          "configurationRequired": false
-        },
-        "logo": "https://torbox.app/android-chrome-512x512.png"
-      }
-    },
-    "tpbplus": {
-      "transportUrl": "https://thepiratebay-plus.strem.fun/manifest.json",
-      "transportName": "",
-      "manifest": {
-        "id": "com.stremio.thepiratebay.plus",
-        "version": "1.4.0",
-        "name": "ThePirateBay+",
-        "description": "Search for movies, series and anime from ThePirateBay",
-        "catalogs": [],
-        "resources": ["stream"],
-        "types": ["movie", "series"],
-        "idPrefixes": ["tt"],
-        "background": "https://i.imgur.com/t8wVwcg.jpg",
-        "logo": "https://i.imgur.com/dPa2clS.png"
-      },
-      "flags": {}
-    },
-    "nuvio": {
-      "transportUrl": "https://nuviostreams.hayd.uk/providers=showbox,soapertv,vidzee,vidsrc,mp4hydra,uhdmovies,moviesmod,dramadrip,topmovies/min_qualities=%7B%22showbox%22%3A%22480p%22%2C%22vidsrc%22%3A%22480p%22%2C%22mp4hydra%22%3A%22480p%22%2C%22uhdmovies%22%3A%22720p%22%2C%22moviesmod%22%3A%22720p%22%2C%22dramadrip%22%3A%22720p%22%2C%22topmovies%22%3A%22720p%22%7D/manifest.json",
-      "manifest": {
-        "id": "org.nuvio.streams",
-        "version": "0.4.0",
-        "name": "Nuvio Streams | Elfhosted",
-        "description": "Stremio addon for high-quality streaming links.",
-        "logo": "https://raw.githubusercontent.com/tapframe/NuvioStreaming/main/assets/titlelogo.png",
-        "resources": ["stream"],
-        "types": ["movie", "series"],
-        "idPrefixes": ["tt", "tmdb"],
-        "catalogs": [],
-        "behaviorHints": {
-          "adult": false,
-          "p2pNotSupported": true,
-          "configurable": true
-        },
-        "stremioAddonsConfig": {
-          "issuer": "https://stremio-addons.net",
-          "signature": "eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..2YiTzY5hiYNywrpyMgv9Vg.vtorJ0blJ2dja5h7HSdL2eg0Hho7g8nJJnX2HbjJXSqzOU64niitT3FQItz9Q0rtF2sIswFcm842XgAnih0vPCTksxPwlkfDqolZcCjirQMl5hhcSzxJo88Mvonq2dxG.OYTTCCQcFthlmdn6c117CQ"
-        },
-        "config": []
-      }
-    },
-    "webstreamr": {
-      "transportUrl": "https://webstreamr.hayd.uk/%7B%22en%22%3A%22on%22%2C%22excludeExternalUrls%22%3A%22on%22%7D/manifest.json",
-      "manifest": {
-        "id": "webstreamr.hayd.uk",
-        "version": "0.32.5",
-        "name": "WebStreamr | Hayduk",
-        "description": "Provides HTTP URLs from streaming websites.",
-        "resources": ["stream"],
-        "types": ["movie", "series"],
-        "catalogs": [],
-        "idPrefixes": ["tt"],
-        "behaviorHints": {
-          "p2p": false,
-          "configurable": true,
-          "configurationRequired": false
-        },
-        "config": [
-          {
-            "key": "de",
-            "type": "checkbox",
-            "title": "German 🇩🇪 (KinoGer, MeineCloud, StreamKiste)"
-          },
-          {
-            "key": "en",
-            "type": "checkbox",
-            "title": "English 🇺🇸 (Soaper, VidSrc)",
-            "default": "checked"
-          },
-          {
-            "key": "es",
-            "type": "checkbox",
-            "title": "Castilian Spanish 🇪🇸 (CineHDPlus, VerHdLink)"
-          },
-          {
-            "key": "fr",
-            "type": "checkbox",
-            "title": "French 🇫🇷 (Frembed, FrenchCloud)"
-          },
-          {
-            "key": "it",
-            "type": "checkbox",
-            "title": "Italian 🇮🇹 (Eurostreaming, MostraGuarda)"
-          },
-          {
-            "key": "mx",
-            "type": "checkbox",
-            "title": "Latin American Spanish 🇲🇽 (CineHDPlus, VerHdLink)"
-          },
-          {
-            "key": "excludeExternalUrls",
-            "type": "checkbox",
-            "title": "Exclude external URLs from results"
-          }
-        ],
-        "stremioAddonsConfig": {
-          "issuer": "https://stremio-addons.net",
-          "signature": "eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..D3-Wl15vxnYltwx8G52rRg.16-0VzsSgTvnv0wampIR8YPZsFhH8-7IgpuqxcUfC2p7kIJtuk8xQzrzqQOLXANEpaH_w7a4JOEpNo8wv28Zo_nMGCLOXgWbyGM3sQ-tfq6DCK3JU0ol6YMC1UDX2z_c.IOLlZyTYx_swutjYSTES0Q"
-        }
-      }
-    },
-    "subhero": {
-      "transportUrl": "https://subhero.onrender.com/%7B%22language%22%3A%22en%22%7D/manifest.json",
-      "manifest": {
-        "id": "community.subhero.wyzie",
-        "version": "1.0.5",
-        "catalogs": [],
-        "resources": ["subtitles"],
-        "types": ["movie", "series"],
-        "name": "SubHero",
-        "description": "Your all-in-one subtitle addon with language filtering and sources by OpenSubtitles, SubDL & subf2m. Subtitles provided & scraped by Wyzie API.",
-        "behaviorHints": {
-          "configurable": true
-        },
-        "config": [
-          {
-            "key": "language",
-            "type": "text",
-            "default": "en",
-            "title": "Subtitle Languages (comma separated language codes e.g 'en,ru,sv,fr')",
-            "required": false
-          }
-        ],
-        "idPrefixes": ["tt"],
-        "background": "https://w.wallhaven.cc/full/0p/wallhaven-0pjkp9.png",
-        "logo": "https://cdn.icon-icons.com/icons2/3606/PNG/512/sculpture_statue_texture_futuristic_art_geometry_organic_abstract_shape_explode_shae_icon_226539.png"
-      }
-    },
-    "subsource": {
-      "transportUrl": "https://subsource.strem.top/ZW5nbGlzaC9oaUV4Y2x1ZGUv/manifest.json",
-      "manifest": {
-        "id": "community.subsource.subtitles",
-        "version": "1.1.4",
-        "name": "SubSource Subtitles - [Exclude HI]",
-        "description": "Unofficial addon for getting subtitles from SubSource.net",
-        "logo": "https://raw.githubusercontent.com/nexusdiscord/tv-logo/master/ss.png",
-        "background": "https://raw.githubusercontent.com/nexusdiscord/tv-logo/master/backgroundcinema.jpg",
-        "resources": ["subtitles"],
-        "types": ["movie", "series", "subtitles"],
-        "idPrefixes": ["tt"],
-        "catalogs": [],
-        "behaviorHints": {
-          "configurable": true,
-          "configurableRequired": false
-        },
-        "stremioAddonsConfig": {
-          "issuer": "https://stremio-addons.net",
-          "signature": "eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..Yw7m0oOLj9gCM47lmL6qWA.zHG2dJVTR6Xxk1DsjYO_Q00EdW0kTedpCb8F7cq32g4cOto2QQq3l09Mtok3O2YLT2R3CCXg-SrnWTljgxZxJagzbSOLHQRAraAwSyCcuWMWuFY3P3KDnslQtjyFuzR2.k1bpKxf6IJ87C01Jc3X_VQ"
-        }
-      }
-    },
-    "opensubtitlesv3pro": {
-      "transportUrl": "https://opensubtitlesv3-pro.dexter21767.com/eyJsYW5ncyI6WyJlbmdsaXNoIl0sInNvdXJjZSI6ImFsbCIsImFpVHJhbnNsYXRlZCI6ZmFsc2UsImF1dG9BZGp1c3RtZW50Ijp0cnVlfQ==/manifest.json",
-      "transportName": "",
-      "manifest": {
-        "id": "community.opensubtitlesv3.pro",
-        "version": "0.1.0",
-        "name": "opensubtitles PRO",
-        "contactEmail": "dexter21767@gmail.com",
-        "description": "ad-free and spam-free subtitles addon",
-        "logo": "https://i.imgur.com/cGc1DXB.png",
-        "background": "https://github.com/Stremio/stremio-art/raw/main/originals/reiphantomhive1.png",
-        "types": ["movie", "series"],
-        "resources": ["subtitles"],
-        "idPrefixes": ["tt", "kitsu"],
-        "catalogs": [],
-        "addonCatalogs": [],
-        "behaviorHints": {
-          "adult": false,
-          "p2p": false,
-          "configurable": true,
-          "configurationRequired": false
+        "flags": {
+          "official": false,
+          "protected": false
         }
       },
-      "flags": {
-        "official": false,
-        "protected": false
-      }
-    },
-    "opensubtitlesv3": {
-      "transportUrl": "https://opensubtitles-v3.strem.io/manifest.json",
-      "transportName": "",
-      "manifest": {
-        "id": "org.stremio.opensubtitlesv3",
-        "version": "1.0.0",
-        "name": "OpenSubtitles v3",
-        "contactEmail": null,
-        "description": "OpenSubtitles v3 Addon for Stremio",
-        "logo": "http://www.strem.io/images/addons/opensubtitles-logo.png",
-        "background": null,
-        "types": ["movie", "series"],
-        "resources": ["subtitles"],
-        "idPrefixes": ["tt"],
-        "catalogs": [],
-        "addonCatalogs": [],
-        "behaviorHints": {
-          "adult": false,
-          "p2p": false,
-          "configurable": false,
-          "configurationRequired": false
-        }
-      },
-      "flags": {
-        "official": true,
-        "protected": false
-      }
-    },
-    "localfiles": {
-      "transportUrl": "http://127.0.0.1:11470/local-addon/manifest.json",
-      "transportName": "",
-      "manifest": {
-        "id": "org.stremio.local",
-        "version": "1.10.0",
-        "name": "Local Files (without catalog support)",
-        "contactEmail": null,
-        "description": "Local add-on to find playable files: .torrent, .mp4, .mkv and .avi",
-        "logo": null,
-        "background": null,
-        "types": ["movie", "series", "other"],
-        "resources": [
-          {
-            "name": "meta",
-            "types": ["other"],
-            "idPrefixes": ["local:", "bt:"]
+      "mediafusion": {
+        "transportUrl": "",
+        "manifest": {
+          "id": "stremio.addons.mediafusion|elfhosted",
+          "version": "4.3.34",
+          "name": "MediaFusion | ElfHosted",
+          "contactEmail": "mhdzumair@gmail.com",
+          "description": "Universal Stremio Add-on for Movies, Series, Live TV &amp; Sports Events. Source: https://github.com/mhdzumair/MediaFusion",
+          "logo": "https://mediafusion.elfhosted.com/static/images/mediafusion-elfhosted-logo.png",
+          "behaviorHints": {
+            "configurable": true,
+            "configurationRequired": false
           },
-          {
-            "name": "stream",
-            "types": ["movie", "series"],
-            "idPrefixes": ["tt"]
-          }
-        ],
-        "idPrefixes": null,
-        "catalogs": [],
-        "addonCatalogs": [],
-        "behaviorHints": {
-          "adult": false,
-          "p2p": false,
-          "configurable": false,
-          "configurationRequired": false
+          "resources": [
+            "catalog",
+            {
+              "name": "stream",
+              "types": ["movie", "series", "tv", "events"],
+              "idPrefixes": ["tt", "mf", "dl"]
+            },
+            {
+              "name": "meta",
+              "types": ["movie", "series", "tv", "events"],
+              "idPrefixes": ["mf", "dl"]
+            }
+          ],
+          "types": ["movie", "series", "tv", "events"],
+          "catalogs": []
         }
       },
-      "flags": {
-        "official": true,
-        "protected": true
+      "jackettio": {
+        "transportUrl": "https://jackettio.elfhosted.com/eyJtYXhUb3JyZW50cyI6OCwicHJpb3RpemVQYWNrVG9ycmVudHMiOjIsImV4Y2x1ZGVLZXl3b3JkcyI6WyJjYW0iLCJzY3JlZW5lciJdLCJkZWJyaWRJZCI6IiIsImhpZGVVbmNhY2hlZCI6ZmFsc2UsInNvcnRDYWNoZWQiOltbInF1YWxpdHkiLHRydWVdLFsic2l6ZSIsdHJ1ZV1dLCJzb3J0VW5jYWNoZWQiOltbInF1YWxpdHkiLHRydWVdLFsic2VlZGVycyIsdHJ1ZV1dLCJmb3JjZUNhY2hlTmV4dEVwaXNvZGUiOmZhbHNlLCJwcmlvdGl6ZUxhbmd1YWdlcyI6WyJlbmdsaXNoIl0sImluZGV4ZXJUaW1lb3V0U2VjIjo2MCwibWV0YUxhbmd1YWdlIjoiIiwiZW5hYmxlTWVkaWFGbG93IjpmYWxzZSwibWVkaWFmbG93UHJveHlVcmwiOiIiLCJtZWRpYWZsb3dBcGlQYXNzd29yZCI6IiIsIm1lZGlhZmxvd1B1YmxpY0lwIjoiIiwidXNlU3RyZW1UaHJ1Ijp0cnVlLCJzdHJlbXRocnVVcmwiOiJodHRwOi8vZWxmaG9zdGVkLWludGVybmFsLnN0cmVtdGhydSIsInF1YWxpdGllcyI6WzQ4MCw3MjAsMTA4MCwyMTYwXSwiaW5kZXhlcnMiOlsiYml0c2VhcmNoIiwiZXp0diIsInRoZXBpcmF0ZWJheSIsInRoZXJhcmJnIiwieXRzIl0sImRlYnJpZEFwaUtleSI6IiJ9/manifest.json",
+        "manifest": {
+          "id": "jackettio.elfhosted.com",
+          "version": "1.7.0",
+          "name": "Jackettio",
+          "description": "Stremio addon that resolve streams using Jackett and Debrid. It seamlessly integrates with private trackers.",
+          "icon": "https://jackettio.elfhosted.com/icon",
+          "resources": ["stream"],
+          "types": ["movie", "series"],
+          "idPrefixes": ["tt"],
+          "catalogs": [],
+          "behaviorHints": {
+            "configurable": true
+          }
+        }
+      },
+      "torrentsdb": {
+        "transportUrl": "https://torrentsdb.com/eyJwcm92aWRlcnMiOlsieXRzIiwiZXp0diIsIjEzMzd4IiwidG9ycmVudGNzdiIsIm55YWEiLCJsaW1ldG9ycmVudCIsInJhcmdiIiwia25hYmVuIiwidGhlcGlyYXRlYmF5Iiwia2lja2Fzc3RvcnJlbnRzIiwiYW5pbWV0b3NobyIsInRva3lvdG9zaG8iLCJtYW51YWwiXSwibGFuZ3VhZ2UiOltdLCJxdWFsaXR5ZmlsdGVyIjpbInNjciIsImNhbSIsInVua25vd24iXSwibGltaXQiOiIxMCJ9/manifest.json",
+        "manifest": {
+          "id": "com.torrentsdb.addon",
+          "version": "1.0.0",
+          "name": "TorrentsDB",
+          "description": "Provides torrent streams from scraped torrent providers. Currently supports YTS(+), EZTV(+), 1337x(+), TorrentCSV(+), 1lou(-), Nyaa(+), Sk-CzTorrent(-), 1TamilBlasters(-), LimeTorrent(+), 1TamilMV(-), RARGB(+), Knaben(+), ThePirateBay(+), KickassTorrents(+), AnimeTosho(+), ExtremlymTorrents(-), YggTorrent(-), TokyoTosho(+), Rutor(-), Rutracker(-), Torrent9(-), ilCorSaRoNeRo(-), Manual(+) and RealDebrid enabled. To configure providers, Premiumize/EasyDebrid/Debrider/AllDebrid/RealDebrid/DebridLink/Offcloud/TorBox/Put.io support and other settings visit https://torrentsdb.com",
+          "resources": [
+            {
+              "name": "stream",
+              "types": ["movie", "series"],
+              "idPrefixes": ["tt", "kitsu"]
+            }
+          ],
+          "types": ["movie", "series", "anime", "other"],
+          "logo": "https://torrentsdb.com/icon.svg",
+          "behaviorHints": {
+            "configurable": true,
+            "configurationRequired": false
+          }
+        }
+      },
+      "peerflix": {
+        "transportUrl": "https://peerflix-addon.onrender.com/language=en%7Cqualityfilter=threed,unknown,screener,vhs,sd{{it.no4k}}{{it.transportUrl}}%7Csort=quality-desc,language-desc{{it.sort}}/manifest.json",
+        "manifest": {
+          "id": "com.keopps.peerflix",
+          "version": "2.7.1",
+          "name": "Peerflix",
+          "description": "Peerflix proporciona los mejores enlaces en español e inglés de películas y series de TV en Stremio.Para configurar proveedores de chache, RealDebrid/Premiumize/AllDebrid/DebridLink/Offcloud/Put.io/Torbox visita https://peerflix-addon.onrender.com",
+          "catalogs": [],
+          "resources": [
+            {
+              "name": "stream",
+              "types": ["movie", "series"],
+              "idPrefixes": ["tt", "kitsu"]
+            }
+          ],
+          "types": ["movie", "series"],
+          "background": "https://i.ibb.co/vL3SKgX/peerflix-background-2.jpg",
+          "logo": "https://peerflix.mov/static/logo.png",
+          "behaviorHints": {
+            "configurable": true,
+            "configurationRequired": false
+          }
+        }
+      },
+      "torbox": {
+        "transportUrl": "https://stremio.torbox.app/{{it.transportUrl}}/manifest.json",
+        "manifest": {
+          "id": "app.torbox.stremio",
+          "version": "1.1.1",
+          "name": "TorBox",
+          "contactEmail": "contact@torbox.app",
+          "description": "Provides torrent streams for users of TorBox. With zero config, and a free account you can instantly start watching your favorite torrents using TorBox. To add with streaming support, go to your TorBox settings and click the Access Stremio Addon button! Configuration can be done from the TorBox settings, which are propagated instantly, no need to reinstall the addon! Requires a TorBox account to stream. Get started for free at https://torbox.app",
+          "catalogs": [],
+          "resources": [
+            {
+              "name": "stream",
+              "types": ["movie", "series", "anime"]
+            },
+            {
+              "name": "catalog",
+              "types": ["movie", "series", "anime"]
+            },
+            {
+              "name": "meta",
+              "types": ["movie", "series", "anime"],
+              "idPrefixes": ["usermovies", "tbm"]
+            }
+          ],
+          "types": ["movie", "series", "anime"],
+          "behaviorHints": {
+            "configurable": true,
+            "configurationRequired": false
+          },
+          "logo": "https://torbox.app/android-chrome-512x512.png"
+        }
+      },
+      "tpbplus": {
+        "transportUrl": "https://thepiratebay-plus.strem.fun/manifest.json",
+        "transportName": "",
+        "manifest": {
+          "id": "com.stremio.thepiratebay.plus",
+          "version": "1.4.0",
+          "name": "ThePirateBay+",
+          "description": "Search for movies, series and anime from ThePirateBay",
+          "catalogs": [],
+          "resources": ["stream"],
+          "types": ["movie", "series"],
+          "idPrefixes": ["tt"],
+          "background": "https://i.imgur.com/t8wVwcg.jpg",
+          "logo": "https://i.imgur.com/dPa2clS.png"
+        },
+        "flags": {}
+      },
+      "autostream": {
+        "transportUrl": "https://autostream-addon.onrender.com/manifest.json?fallback=1{{it.transportUrl}}&lang_prio=EN&blacklist=CAM%2CTS%2CTC",
+        "manifest": {
+          "id": "com.stremio.autostream.addon",
+          "version": "3.4.6",
+          "name": "AutoStream",
+          "description": "Curated best-pick streams with optional debrid; Nuvio direct-host supported.",
+          "logo": "https://github.com/keypop3750/AutoStream/blob/main/logo.png?raw=true",
+          "background": "https://github.com/keypop3750/AutoStream/blob/main/logo.png?raw=true",
+          "contactEmail": "autostream@example.com",
+          "resources": [
+            {
+              "name": "stream",
+              "types": ["movie", "series"],
+              "idPrefixes": ["tt", "tmdb"]
+            }
+          ],
+          "types": ["movie", "series"],
+          "catalogs": [],
+          "behaviorHints": {
+            "configurable": true,
+            "configurationRequired": false
+          }
+        }
+      },
+      "nuvio": {
+        "transportUrl": "https://nuviostreams.hayd.uk/min_qualities=%7B%22showbox%22%3A%22480p%22%2C%22vidsrc%22%3A%22480p%22%2C%22mp4hydra%22%3A%22480p%22%2C%22uhdmovies%22%3A%22720p%22%2C%22moviesmod%22%3A%22720p%22%2C%22moviesdrive%22%3A%22720p%22%2C%224khdhub%22%3A%22720p%22%2C%22dramadrip%22%3A%22720p%22%2C%22topmovies%22%3A%22720p%22%2C%22animepahe%22%3A%22720p%22%7D/manifest.json",
+        "manifest": {
+          "id": "org.nuvio.streams",
+          "version": "0.5.0",
+          "name": "Nuvio Streams | Elfhosted",
+          "description": "Stremio addon for high-quality streaming links.",
+          "logo": "https://raw.githubusercontent.com/tapframe/NuvioStreaming/main/assets/titlelogo.png",
+          "resources": ["stream"],
+          "types": ["movie", "series"],
+          "idPrefixes": ["tt", "tmdb"],
+          "catalogs": [],
+          "behaviorHints": {
+            "adult": false,
+            "p2pNotSupported": true,
+            "configurable": true
+          },
+          "stremioAddonsConfig": {
+            "issuer": "https://stremio-addons.net",
+            "signature": "eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..2YiTzY5hiYNywrpyMgv9Vg.vtorJ0blJ2dja5h7HSdL2eg0Hho7g8nJJnX2HbjJXSqzOU64niitT3FQItz9Q0rtF2sIswFcm842XgAnih0vPCTksxPwlkfDqolZcCjirQMl5hhcSzxJo88Mvonq2dxG.OYTTCCQcFthlmdn6c117CQ"
+          },
+          "config": []
+        }
+      },
+      "webstreamr": {
+        "transportUrl": "https://webstreamr.hayd.uk/%7B%22en%22%3A%22on%22%2C%22excludeExternalUrls%22%3A%22on%22%7D/manifest.json",
+        "manifest": {
+          "id": "webstreamr.hayd.uk",
+          "version": "0.49.0",
+          "name": "WebStreamr | Hayduk",
+          "description": "Provides HTTP URLs from streaming websites.",
+          "resources": ["stream"],
+          "types": ["movie", "series"],
+          "catalogs": [],
+          "idPrefixes": ["tt"],
+          "behaviorHints": {
+            "p2p": false,
+            "configurable": true,
+            "configurationRequired": false
+          },
+          "config": [
+            {
+              "key": "de",
+              "type": "checkbox",
+              "title": "German 🇩🇪 (KinoGer, MeineCloud, StreamKiste)"
+            },
+            {
+              "key": "en",
+              "type": "checkbox",
+              "title": "English 🇺🇸 (Soaper, VidSrc)",
+              "default": "checked"
+            },
+            {
+              "key": "es",
+              "type": "checkbox",
+              "title": "Castilian Spanish 🇪🇸 (CineHDPlus, VerHdLink)"
+            },
+            {
+              "key": "fr",
+              "type": "checkbox",
+              "title": "French 🇫🇷 (Frembed, FrenchCloud)"
+            },
+            {
+              "key": "it",
+              "type": "checkbox",
+              "title": "Italian 🇮🇹 (Eurostreaming, MostraGuarda)"
+            },
+            {
+              "key": "mx",
+              "type": "checkbox",
+              "title": "Latin American Spanish 🇲🇽 (CineHDPlus, VerHdLink)"
+            },
+            {
+              "key": "excludeExternalUrls",
+              "type": "checkbox",
+              "title": "Exclude external URLs from results"
+            }
+          ],
+          "stremioAddonsConfig": {
+            "issuer": "https://stremio-addons.net",
+            "signature": "eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..D3-Wl15vxnYltwx8G52rRg.16-0VzsSgTvnv0wampIR8YPZsFhH8-7IgpuqxcUfC2p7kIJtuk8xQzrzqQOLXANEpaH_w7a4JOEpNo8wv28Zo_nMGCLOXgWbyGM3sQ-tfq6DCK3JU0ol6YMC1UDX2z_c.IOLlZyTYx_swutjYSTES0Q"
+          }
+        }
+      },
+      "subhero": {
+        "transportUrl": "https://subhero.onrender.com/%7B%22language%22%3A%22en%22%7D/manifest.json",
+        "manifest": {
+          "id": "community.subhero.wyzie",
+          "version": "1.0.5",
+          "catalogs": [],
+          "resources": ["subtitles"],
+          "types": ["movie", "series"],
+          "name": "SubHero",
+          "description": "Your all-in-one subtitle addon with language filtering and sources by OpenSubtitles, SubDL & subf2m. Subtitles provided & scraped by Wyzie API.",
+          "behaviorHints": {
+            "configurable": true
+          },
+          "config": [
+            {
+              "key": "language",
+              "type": "text",
+              "default": "en",
+              "title": "Subtitle Languages (comma separated language codes e.g 'en,ru,sv,fr')",
+              "required": false
+            }
+          ],
+          "idPrefixes": ["tt"],
+          "background": "https://w.wallhaven.cc/full/0p/wallhaven-0pjkp9.png",
+          "logo": "https://cdn.icon-icons.com/icons2/3606/PNG/512/sculpture_statue_texture_futuristic_art_geometry_organic_abstract_shape_explode_shae_icon_226539.png"
+        }
+      },
+      "subsource": {
+        "transportUrl": "https://subsource.strem.top/ZW5nbGlzaC9oaUV4Y2x1ZGUv/manifest.json",
+        "manifest": {
+          "id": "community.subsource.subtitles",
+          "version": "1.1.4",
+          "name": "SubSource Subtitles - [Exclude HI]",
+          "description": "Unofficial addon for getting subtitles from SubSource.net",
+          "logo": "https://raw.githubusercontent.com/nexusdiscord/tv-logo/master/ss.png",
+          "background": "https://raw.githubusercontent.com/nexusdiscord/tv-logo/master/backgroundcinema.jpg",
+          "resources": ["subtitles"],
+          "types": ["movie", "series", "subtitles"],
+          "idPrefixes": ["tt"],
+          "catalogs": [],
+          "behaviorHints": {
+            "configurable": true,
+            "configurableRequired": false
+          },
+          "stremioAddonsConfig": {
+            "issuer": "https://stremio-addons.net",
+            "signature": "eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..Yw7m0oOLj9gCM47lmL6qWA.zHG2dJVTR6Xxk1DsjYO_Q00EdW0kTedpCb8F7cq32g4cOto2QQq3l09Mtok3O2YLT2R3CCXg-SrnWTljgxZxJagzbSOLHQRAraAwSyCcuWMWuFY3P3KDnslQtjyFuzR2.k1bpKxf6IJ87C01Jc3X_VQ"
+          }
+        }
+      },
+      "opensubtitlesv3": {
+        "transportUrl": "https://opensubtitles-v3.strem.io/manifest.json",
+        "transportName": "",
+        "manifest": {
+          "id": "org.stremio.opensubtitlesv3",
+          "version": "1.0.0",
+          "name": "OpenSubtitles v3",
+          "contactEmail": null,
+          "description": "OpenSubtitles v3 Addon for Stremio",
+          "logo": "http://www.strem.io/images/addons/opensubtitles-logo.png",
+          "background": null,
+          "types": ["movie", "series"],
+          "resources": ["subtitles"],
+          "idPrefixes": ["tt"],
+          "catalogs": [],
+          "addonCatalogs": [],
+          "behaviorHints": {
+            "adult": false,
+            "p2p": false,
+            "configurable": false,
+            "configurationRequired": false
+          }
+        },
+        "flags": {
+          "official": true,
+          "protected": false
+        }
+      },
+      "cinemeta-unmodified": {
+        "transportUrl": "https://v3-cinemeta.strem.io/manifest.json",
+        "transportName": "http",
+        "manifest": {
+          "id": "com.linvo.cinemeta",
+          "version": "3.0.13",
+          "description": "The official addon for movie and series catalogs",
+          "name": "Cinemeta",
+          "resources": ["catalog", "meta", "addon_catalog"],
+          "types": ["movie", "series"],
+          "idPrefixes": ["tt"],
+          "addonCatalogs": [
+            {
+              "type": "all",
+              "id": "official",
+              "name": "Official"
+            },
+            {
+              "type": "movie",
+              "id": "official",
+              "name": "Official"
+            },
+            {
+              "type": "series",
+              "id": "official",
+              "name": "Official"
+            },
+            {
+              "type": "channel",
+              "id": "official",
+              "name": "Official"
+            },
+            {
+              "type": "all",
+              "id": "community",
+              "name": "Community"
+            },
+            {
+              "type": "movie",
+              "id": "community",
+              "name": "Community"
+            },
+            {
+              "type": "series",
+              "id": "community",
+              "name": "Community"
+            },
+            {
+              "type": "channel",
+              "id": "community",
+              "name": "Community"
+            },
+            {
+              "type": "tv",
+              "id": "community",
+              "name": "Community"
+            },
+            {
+              "type": "Podcasts",
+              "id": "community",
+              "name": "Community"
+            },
+            {
+              "type": "other",
+              "id": "community",
+              "name": "Community"
+            }
+          ],
+          "catalogs": [
+            {
+              "type": "movie",
+              "id": "top",
+              "genres": [
+                "Action",
+                "Adventure",
+                "Animation",
+                "Biography",
+                "Comedy",
+                "Crime",
+                "Documentary",
+                "Drama",
+                "Family",
+                "Fantasy",
+                "History",
+                "Horror",
+                "Mystery",
+                "Romance",
+                "Sci-Fi",
+                "Sport",
+                "Thriller",
+                "War",
+                "Western"
+              ],
+              "extra": [
+                {
+                  "name": "genre",
+                  "options": [
+                    "Action",
+                    "Adventure",
+                    "Animation",
+                    "Biography",
+                    "Comedy",
+                    "Crime",
+                    "Documentary",
+                    "Drama",
+                    "Family",
+                    "Fantasy",
+                    "History",
+                    "Horror",
+                    "Mystery",
+                    "Romance",
+                    "Sci-Fi",
+                    "Sport",
+                    "Thriller",
+                    "War",
+                    "Western"
+                  ]
+                },
+                {
+                  "name": "search"
+                },
+                {
+                  "name": "skip"
+                }
+              ],
+              "extraSupported": ["search", "genre", "skip"],
+              "name": "Popular"
+            },
+            {
+              "type": "series",
+              "id": "top",
+              "genres": [
+                "Action",
+                "Adventure",
+                "Animation",
+                "Biography",
+                "Comedy",
+                "Crime",
+                "Documentary",
+                "Drama",
+                "Family",
+                "Fantasy",
+                "History",
+                "Horror",
+                "Mystery",
+                "Romance",
+                "Sci-Fi",
+                "Sport",
+                "Thriller",
+                "War",
+                "Western",
+                "Reality-TV",
+                "Talk-Show",
+                "Game-Show"
+              ],
+              "extra": [
+                {
+                  "name": "genre",
+                  "options": [
+                    "Action",
+                    "Adventure",
+                    "Animation",
+                    "Biography",
+                    "Comedy",
+                    "Crime",
+                    "Documentary",
+                    "Drama",
+                    "Family",
+                    "Fantasy",
+                    "History",
+                    "Horror",
+                    "Mystery",
+                    "Romance",
+                    "Sci-Fi",
+                    "Sport",
+                    "Thriller",
+                    "War",
+                    "Western",
+                    "Reality-TV",
+                    "Talk-Show",
+                    "Game-Show"
+                  ]
+                },
+                {
+                  "name": "search"
+                },
+                {
+                  "name": "skip"
+                }
+              ],
+              "extraSupported": ["search", "genre", "skip"],
+              "name": "Popular"
+            },
+            {
+              "type": "movie",
+              "id": "year",
+              "genres": [
+                "2025",
+                "2024",
+                "2023",
+                "2022",
+                "2021",
+                "2020",
+                "2019",
+                "2018",
+                "2017",
+                "2016",
+                "2015",
+                "2014",
+                "2013",
+                "2012",
+                "2011",
+                "2010",
+                "2009",
+                "2008",
+                "2007",
+                "2006",
+                "2005",
+                "2004",
+                "2003",
+                "2002",
+                "2001",
+                "2000",
+                "1999",
+                "1998",
+                "1997",
+                "1996",
+                "1995",
+                "1994",
+                "1993",
+                "1992",
+                "1991",
+                "1990",
+                "1989",
+                "1988",
+                "1987",
+                "1986",
+                "1985",
+                "1984",
+                "1983",
+                "1982",
+                "1981",
+                "1980",
+                "1979",
+                "1978",
+                "1977",
+                "1976",
+                "1975",
+                "1974",
+                "1973",
+                "1972",
+                "1971",
+                "1970",
+                "1969",
+                "1968",
+                "1967",
+                "1966",
+                "1965",
+                "1964",
+                "1963",
+                "1962",
+                "1961",
+                "1960",
+                "1959",
+                "1958",
+                "1957",
+                "1956",
+                "1955",
+                "1954",
+                "1953",
+                "1952",
+                "1951",
+                "1950",
+                "1949",
+                "1948",
+                "1947",
+                "1946",
+                "1945",
+                "1944",
+                "1943",
+                "1942",
+                "1941",
+                "1940",
+                "1939",
+                "1938",
+                "1937",
+                "1936",
+                "1935",
+                "1934",
+                "1933",
+                "1932",
+                "1931",
+                "1930",
+                "1929",
+                "1928",
+                "1927",
+                "1926",
+                "1925",
+                "1924",
+                "1923",
+                "1922",
+                "1921",
+                "1920"
+              ],
+              "extra": [
+                {
+                  "name": "genre",
+                  "options": [
+                    "2025",
+                    "2024",
+                    "2023",
+                    "2022",
+                    "2021",
+                    "2020",
+                    "2019",
+                    "2018",
+                    "2017",
+                    "2016",
+                    "2015",
+                    "2014",
+                    "2013",
+                    "2012",
+                    "2011",
+                    "2010",
+                    "2009",
+                    "2008",
+                    "2007",
+                    "2006",
+                    "2005",
+                    "2004",
+                    "2003",
+                    "2002",
+                    "2001",
+                    "2000",
+                    "1999",
+                    "1998",
+                    "1997",
+                    "1996",
+                    "1995",
+                    "1994",
+                    "1993",
+                    "1992",
+                    "1991",
+                    "1990",
+                    "1989",
+                    "1988",
+                    "1987",
+                    "1986",
+                    "1985",
+                    "1984",
+                    "1983",
+                    "1982",
+                    "1981",
+                    "1980",
+                    "1979",
+                    "1978",
+                    "1977",
+                    "1976",
+                    "1975",
+                    "1974",
+                    "1973",
+                    "1972",
+                    "1971",
+                    "1970",
+                    "1969",
+                    "1968",
+                    "1967",
+                    "1966",
+                    "1965",
+                    "1964",
+                    "1963",
+                    "1962",
+                    "1961",
+                    "1960",
+                    "1959",
+                    "1958",
+                    "1957",
+                    "1956",
+                    "1955",
+                    "1954",
+                    "1953",
+                    "1952",
+                    "1951",
+                    "1950",
+                    "1949",
+                    "1948",
+                    "1947",
+                    "1946",
+                    "1945",
+                    "1944",
+                    "1943",
+                    "1942",
+                    "1941",
+                    "1940",
+                    "1939",
+                    "1938",
+                    "1937",
+                    "1936",
+                    "1935",
+                    "1934",
+                    "1933",
+                    "1932",
+                    "1931",
+                    "1930",
+                    "1929",
+                    "1928",
+                    "1927",
+                    "1926",
+                    "1925",
+                    "1924",
+                    "1923",
+                    "1922",
+                    "1921",
+                    "1920"
+                  ],
+                  "isRequired": true
+                },
+                {
+                  "name": "skip"
+                }
+              ],
+              "extraSupported": ["genre", "skip"],
+              "extraRequired": ["genre"],
+              "name": "New"
+            },
+            {
+              "type": "series",
+              "id": "year",
+              "genres": [
+                "2025",
+                "2024",
+                "2023",
+                "2022",
+                "2021",
+                "2020",
+                "2019",
+                "2018",
+                "2017",
+                "2016",
+                "2015",
+                "2014",
+                "2013",
+                "2012",
+                "2011",
+                "2010",
+                "2009",
+                "2008",
+                "2007",
+                "2006",
+                "2005",
+                "2004",
+                "2003",
+                "2002",
+                "2001",
+                "2000",
+                "1999",
+                "1998",
+                "1997",
+                "1996",
+                "1995",
+                "1994",
+                "1993",
+                "1992",
+                "1991",
+                "1990",
+                "1989",
+                "1988",
+                "1987",
+                "1986",
+                "1985",
+                "1984",
+                "1983",
+                "1982",
+                "1981",
+                "1980",
+                "1979",
+                "1978",
+                "1977",
+                "1976",
+                "1975",
+                "1974",
+                "1973",
+                "1972",
+                "1971",
+                "1970",
+                "1969",
+                "1968",
+                "1967",
+                "1966",
+                "1965",
+                "1964",
+                "1963",
+                "1962",
+                "1961",
+                "1960"
+              ],
+              "extra": [
+                {
+                  "name": "genre",
+                  "options": [
+                    "2025",
+                    "2024",
+                    "2023",
+                    "2022",
+                    "2021",
+                    "2020",
+                    "2019",
+                    "2018",
+                    "2017",
+                    "2016",
+                    "2015",
+                    "2014",
+                    "2013",
+                    "2012",
+                    "2011",
+                    "2010",
+                    "2009",
+                    "2008",
+                    "2007",
+                    "2006",
+                    "2005",
+                    "2004",
+                    "2003",
+                    "2002",
+                    "2001",
+                    "2000",
+                    "1999",
+                    "1998",
+                    "1997",
+                    "1996",
+                    "1995",
+                    "1994",
+                    "1993",
+                    "1992",
+                    "1991",
+                    "1990",
+                    "1989",
+                    "1988",
+                    "1987",
+                    "1986",
+                    "1985",
+                    "1984",
+                    "1983",
+                    "1982",
+                    "1981",
+                    "1980",
+                    "1979",
+                    "1978",
+                    "1977",
+                    "1976",
+                    "1975",
+                    "1974",
+                    "1973",
+                    "1972",
+                    "1971",
+                    "1970",
+                    "1969",
+                    "1968",
+                    "1967",
+                    "1966",
+                    "1965",
+                    "1964",
+                    "1963",
+                    "1962",
+                    "1961",
+                    "1960"
+                  ],
+                  "isRequired": true
+                },
+                {
+                  "name": "skip"
+                }
+              ],
+              "extraSupported": ["genre", "skip"],
+              "extraRequired": ["genre"],
+              "name": "New"
+            },
+            {
+              "type": "movie",
+              "id": "imdbRating",
+              "genres": [
+                "Action",
+                "Adventure",
+                "Animation",
+                "Biography",
+                "Comedy",
+                "Crime",
+                "Documentary",
+                "Drama",
+                "Family",
+                "Fantasy",
+                "History",
+                "Horror",
+                "Mystery",
+                "Romance",
+                "Sci-Fi",
+                "Sport",
+                "Thriller",
+                "War",
+                "Western"
+              ],
+              "extra": [
+                {
+                  "name": "genre",
+                  "options": [
+                    "Action",
+                    "Adventure",
+                    "Animation",
+                    "Biography",
+                    "Comedy",
+                    "Crime",
+                    "Documentary",
+                    "Drama",
+                    "Family",
+                    "Fantasy",
+                    "History",
+                    "Horror",
+                    "Mystery",
+                    "Romance",
+                    "Sci-Fi",
+                    "Sport",
+                    "Thriller",
+                    "War",
+                    "Western"
+                  ]
+                },
+                {
+                  "name": "skip"
+                }
+              ],
+              "extraSupported": ["genre", "skip"],
+              "name": "Featured"
+            },
+            {
+              "type": "series",
+              "id": "imdbRating",
+              "genres": [
+                "Action",
+                "Adventure",
+                "Animation",
+                "Biography",
+                "Comedy",
+                "Crime",
+                "Documentary",
+                "Drama",
+                "Family",
+                "Fantasy",
+                "History",
+                "Horror",
+                "Mystery",
+                "Romance",
+                "Sci-Fi",
+                "Sport",
+                "Thriller",
+                "War",
+                "Western",
+                "Reality-TV",
+                "Talk-Show",
+                "Game-Show"
+              ],
+              "extra": [
+                {
+                  "name": "genre",
+                  "options": [
+                    "Action",
+                    "Adventure",
+                    "Animation",
+                    "Biography",
+                    "Comedy",
+                    "Crime",
+                    "Documentary",
+                    "Drama",
+                    "Family",
+                    "Fantasy",
+                    "History",
+                    "Horror",
+                    "Mystery",
+                    "Romance",
+                    "Sci-Fi",
+                    "Sport",
+                    "Thriller",
+                    "War",
+                    "Western",
+                    "Reality-TV",
+                    "Talk-Show",
+                    "Game-Show"
+                  ]
+                },
+                {
+                  "name": "skip"
+                }
+              ],
+              "extraSupported": ["genre", "skip"],
+              "name": "Featured"
+            },
+            {
+              "type": "series",
+              "id": "last-videos",
+              "extra": [
+                {
+                  "name": "lastVideosIds",
+                  "isRequired": true,
+                  "optionsLimit": 100
+                }
+              ],
+              "extraSupported": ["lastVideosIds"],
+              "extraRequired": ["lastVideosIds"],
+              "name": "Last videos"
+            },
+            {
+              "type": "series",
+              "id": "calendar-videos",
+              "extra": [
+                {
+                  "name": "calendarVideosIds",
+                  "isRequired": true,
+                  "optionsLimit": 100
+                }
+              ],
+              "extraSupported": ["calendarVideosIds"],
+              "extraRequired": ["calendarVideosIds"],
+              "name": "Calendar videos"
+            }
+          ],
+          "behaviorHints": {
+            "newEpisodeNotifications": true
+          }
+        },
+        "flags": {
+          "official": true,
+          "protected": true
+        }
+      },
+      "stremiochannels": {
+        "transportUrl": "https://v3-channels.strem.io/manifest.json",
+        "transportName": "http",
+        "manifest": {
+          "id": "com.linvo.stremiochannels",
+          "version": "1.30.7",
+          "description": "Watch your favourite YouTube channels ad-free and get notified when they upload new videos.",
+          "name": "YouTube",
+          "resources": ["catalog", "meta"],
+          "types": ["channel"],
+          "idPrefixes": ["yt_id:"],
+          "catalogs": [
+            {
+              "type": "channel",
+              "id": "top",
+              "extra": [
+                {
+                  "name": "search",
+                  "isRequired": false
+                },
+                {
+                  "name": "genre",
+                  "options": [
+                    "Animation",
+                    "Automotive",
+                    "Beauty \u0026 Fashion",
+                    "Causes \u0026 Non-profits",
+                    "Comedy",
+                    "Cooking \u0026 Health",
+                    "Film \u0026 Entertainment",
+                    "From TV",
+                    "Gaming",
+                    "Lifestyle",
+                    "Music",
+                    "News \u0026 Politics",
+                    "Sports"
+                  ],
+                  "isRequired": false
+                },
+                {
+                  "name": "skip",
+                  "isRequired": false
+                }
+              ]
+            },
+            {
+              "type": "channel",
+              "id": "videos",
+              "extra": [
+                {
+                  "name": "search",
+                  "isRequired": true
+                }
+              ]
+            }
+          ]
+        },
+        "flags": {
+          "official": true
+        }
+      },
+      "watchhub": {
+        "transportUrl": "https://watchhub.strem.io/manifest.json",
+        "transportName": "http",
+        "manifest": {
+          "id": "org.stremio.watchhub",
+          "logo": "https://www.strem.io/images/watchhub-logo.png",
+          "version": "1.15.0",
+          "name": "WatchHub",
+          "description": "Find where to stream your favorite movies and shows amongst Netflix, iTunes, Hulu, Amazon, HBO GO and many others. Supports many countries.",
+          "resources": ["stream"],
+          "types": ["movie", "series"],
+          "catalogs": [],
+          "idPrefixes": ["tt"]
+        },
+        "flags": {
+          "official": true
+        }
+      },
+      "publicdomains": {
+        "transportUrl": "https://caching.stremio.net/publicdomainmovies.now.sh/manifest.json",
+        "transportName": "http",
+        "manifest": {
+          "id": "org.stremio.pubdomainmovies",
+          "version": "1.0.0",
+          "logo": "https://johnserv531.github.io/gh-images/1586344884.jpg",
+          "name": "Public Domain Movies",
+          "description": "Torrents for public domain movies. Includes a collection of more then 500 public domain movies.",
+          "resources": ["catalog", "stream"],
+          "types": ["movie"],
+          "catalogs": [
+            {
+              "type": "movie",
+              "id": "publicdomainmovies",
+              "extra": [
+                {
+                  "name": "skip"
+                },
+                {
+                  "name": "search"
+                }
+              ]
+            }
+          ],
+          "idPrefixes": ["tt"]
+        },
+        "flags": {
+          "official": true
+        }
+      },
+      "localfiles": {
+        "transportUrl": "http://127.0.0.1:11470/local-addon/manifest.json",
+        "transportName": "",
+        "manifest": {
+          "id": "org.stremio.local",
+          "version": "1.10.0",
+          "name": "Local Files (without catalog support)",
+          "contactEmail": null,
+          "description": "Local add-on to find playable files: .torrent, .mp4, .mkv and .avi",
+          "logo": null,
+          "background": null,
+          "types": ["movie", "series", "other"],
+          "resources": [
+            {
+              "name": "meta",
+              "types": ["other"],
+              "idPrefixes": ["local:", "bt:"]
+            },
+            {
+              "name": "stream",
+              "types": ["movie", "series"],
+              "idPrefixes": ["tt"]
+            }
+          ],
+          "idPrefixes": null,
+          "catalogs": [],
+          "addonCatalogs": [],
+          "behaviorHints": {
+            "adult": false,
+            "p2p": false,
+            "configurable": false,
+            "configurationRequired": false
+          }
+        },
+        "flags": {
+          "official": true,
+          "protected": true
+        }
+      }
+    },
+    "es-mx": {
+      "torrentio": {
+        "transportUrl": "https://torrentio.strem.fun/providers=yts,eztv,rarbg,1337x,thepiratebay,kickasstorrents,torrentgalaxy,magnetdl,horriblesubs,nyaasi,tokyotosho,anidex,cinecalidad|language=latino|qualityfilter=threed,{{it.no4k}}scr,cam,unknown|limit=10{{it.transportUrl}}/manifest.json"
+      },
+      "comet": {
+        "transportUrl": "https://comet.elfhosted.com/eyJtYXhSZXN1bHRzUGVyUmVzb2x1dGlvbiI6MTAsIm1heFNpemUiOjAsImNhY2hlZE9ubHkiOmZhbHNlLCJyZW1vdmVUcmFzaCI6dHJ1ZSwicmVzdWx0Rm9ybWF0IjpbImFsbCJdLCJkZWJyaWRTZXJ2aWNlIjoidG9ycmVudCIsImRlYnJpZEFwaUtleSI6IiIsImRlYnJpZFN0cmVhbVByb3h5UGFzc3dvcmQiOiIiLCJsYW5ndWFnZXMiOnsicmVxdWlyZWQiOltdLCJleGNsdWRlIjpbXSwicHJlZmVycmVkIjpbImxhIl19LCJyZXNvbHV0aW9ucyI6eyJyMzYwcCI6ZmFsc2UsInVua25vd24iOmZhbHNlfSwib3B0aW9ucyI6eyJyZW1vdmVfcmFua3NfdW5kZXIiOi0xMDAwMDAwMDAwMCwiYWxsb3dfZW5nbGlzaF9pbl9sYW5ndWFnZXMiOmZhbHNlLCJyZW1vdmVfdW5rbm93bl9sYW5ndWFnZXMiOmZhbHNlfX0=/manifest.json"
+      },
+      "jackettio": {
+        "transportUrl": "https://jackettio.elfhosted.com/eyJtYXhUb3JyZW50cyI6OCwicHJpb3RpemVQYWNrVG9ycmVudHMiOjIsImV4Y2x1ZGVLZXl3b3JkcyI6WyJjYW0iLCJzY3JlZW5lciJdLCJkZWJyaWRJZCI6IiIsImhpZGVVbmNhY2hlZCI6ZmFsc2UsInNvcnRDYWNoZWQiOltbInF1YWxpdHkiLHRydWVdLFsic2l6ZSIsdHJ1ZV1dLCJzb3J0VW5jYWNoZWQiOltbInF1YWxpdHkiLHRydWVdLFsic2VlZGVycyIsdHJ1ZV1dLCJmb3JjZUNhY2hlTmV4dEVwaXNvZGUiOmZhbHNlLCJwcmlvdGl6ZUxhbmd1YWdlcyI6WyJzcGFuaXNoIl0sImluZGV4ZXJUaW1lb3V0U2VjIjo2MCwibWV0YUxhbmd1YWdlIjoiIiwiZW5hYmxlTWVkaWFGbG93IjpmYWxzZSwibWVkaWFmbG93UHJveHlVcmwiOiIiLCJtZWRpYWZsb3dBcGlQYXNzd29yZCI6IiIsIm1lZGlhZmxvd1B1YmxpY0lwIjoiIiwidXNlU3RyZW1UaHJ1Ijp0cnVlLCJzdHJlbXRocnVVcmwiOiJodHRwOi8vZWxmaG9zdGVkLWludGVybmFsLnN0cmVtdGhydSIsInF1YWxpdGllcyI6WzQ4MCw3MjAsMTA4MCwyMTYwXSwiaW5kZXhlcnMiOlsiYml0c2VhcmNoIiwiZXp0diIsInRoZXBpcmF0ZWJheSIsInRoZXJhcmJnIiwieXRzIl0sImRlYnJpZEFwaUtleSI6IiJ9/manifest.json"
+      },
+      "torrentsdb": {
+        "transportUrl": "https://torrentsdb.com/eyJwcm92aWRlcnMiOlsieXRzIiwiZXp0diIsIjEzMzd4IiwidG9ycmVudGNzdiIsIm55YWEiLCJsaW1ldG9ycmVudCIsInJhcmdiIiwia25hYmVuIiwidGhlcGlyYXRlYmF5Iiwia2lja2Fzc3RvcnJlbnRzIiwiYW5pbWV0b3NobyIsInRva3lvdG9zaG8iLCJtYW51YWwiXSwibGFuZ3VhZ2UiOlsibGF0aW5vIl0sInF1YWxpdHlmaWx0ZXIiOlsic2NyIiwiY2FtIiwidW5rbm93biJdLCJsaW1pdCI6IjEwIn0=/manifest.json"
+      },
+      "autostream": {
+        "transportUrl": "https://autostream-addon.onrender.com/manifest.json?fallback=1{{it.transportUrl}}&lang_prio=ES&blacklist=CAM%2CTS%2CTC"
+      },
+      "webstreamr": {
+        "transportUrl": "https://webstreamr.hayd.uk/%7B%22en%22%3A%22on%22%2C%22mx%22%3A%22on%22%2C%22excludeExternalUrls%22%3A%22on%22%7D/manifest.json"
+      },
+      "subdivx": {
+        "transportUrl": "https://stremio-subdivx.xor.ar/manifest.json",
+        "manifest": {
+          "id": "ar.xor.subdivx.go",
+          "version": "0.0.6",
+          "name": "Subdivx",
+          "description": "Subdivx subtitles addon",
+          "types": ["movie", "series"],
+          "idPrefixes": ["tt"],
+          "catalogs": [],
+          "resources": ["subtitles"]
+        }
+      },
+      "subhero": {
+        "transportUrl": "https://subhero.onrender.com/%7B%22language%22%3A%22es%22%7D/manifest.json"
+      },
+      "subsource": {
+        "transportUrl": "https://subsource.strem.top/c3BhbmlzaF9sYXRpbl9hbWVyaWNhL2hpRXhjbHVkZS8=/manifest.json"
+      }
+    },
+    "es-es": {
+      "torrentio": {
+        "transportUrl": "https://torrentio.strem.fun/providers=yts,eztv,rarbg,1337x,thepiratebay,kickasstorrents,torrentgalaxy,magnetdl,horriblesubs,nyaasi,tokyotosho,anidex,cinecalidad|language=spanish|qualityfilter=threed,{{it.no4k}}scr,cam,unknown|limit=10{{it.transportUrl}}/manifest.json"
+      },
+      "comet": {
+        "transportUrl": "https://comet.elfhosted.com/eyJtYXhSZXN1bHRzUGVyUmVzb2x1dGlvbiI6MTAsIm1heFNpemUiOjAsImNhY2hlZE9ubHkiOmZhbHNlLCJyZW1vdmVUcmFzaCI6dHJ1ZSwicmVzdWx0Rm9ybWF0IjpbImFsbCJdLCJkZWJyaWRTZXJ2aWNlIjoidG9ycmVudCIsImRlYnJpZEFwaUtleSI6IiIsImRlYnJpZFN0cmVhbVByb3h5UGFzc3dvcmQiOiIiLCJsYW5ndWFnZXMiOnsicmVxdWlyZWQiOltdLCJleGNsdWRlIjpbXSwicHJlZmVycmVkIjpbImVzIl19LCJyZXNvbHV0aW9ucyI6eyJyMzYwcCI6ZmFsc2UsInVua25vd24iOmZhbHNlfSwib3B0aW9ucyI6eyJyZW1vdmVfcmFua3NfdW5kZXIiOi0xMDAwMDAwMDAwMCwiYWxsb3dfZW5nbGlzaF9pbl9sYW5ndWFnZXMiOmZhbHNlLCJyZW1vdmVfdW5rbm93bl9sYW5ndWFnZXMiOmZhbHNlfX0=/manifest.json"
+      },
+      "jackettio": {
+        "transportUrl": "https://jackettio.elfhosted.com/eyJtYXhUb3JyZW50cyI6OCwicHJpb3RpemVQYWNrVG9ycmVudHMiOjIsImV4Y2x1ZGVLZXl3b3JkcyI6WyJjYW0iLCJzY3JlZW5lciJdLCJkZWJyaWRJZCI6IiIsImhpZGVVbmNhY2hlZCI6ZmFsc2UsInNvcnRDYWNoZWQiOltbInF1YWxpdHkiLHRydWVdLFsic2l6ZSIsdHJ1ZV1dLCJzb3J0VW5jYWNoZWQiOltbInF1YWxpdHkiLHRydWVdLFsic2VlZGVycyIsdHJ1ZV1dLCJmb3JjZUNhY2hlTmV4dEVwaXNvZGUiOmZhbHNlLCJwcmlvdGl6ZUxhbmd1YWdlcyI6WyJzcGFuaXNoIl0sImluZGV4ZXJUaW1lb3V0U2VjIjo2MCwibWV0YUxhbmd1YWdlIjoiIiwiZW5hYmxlTWVkaWFGbG93IjpmYWxzZSwibWVkaWFmbG93UHJveHlVcmwiOiIiLCJtZWRpYWZsb3dBcGlQYXNzd29yZCI6IiIsIm1lZGlhZmxvd1B1YmxpY0lwIjoiIiwidXNlU3RyZW1UaHJ1Ijp0cnVlLCJzdHJlbXRocnVVcmwiOiJodHRwOi8vZWxmaG9zdGVkLWludGVybmFsLnN0cmVtdGhydSIsInF1YWxpdGllcyI6WzQ4MCw3MjAsMTA4MCwyMTYwXSwiaW5kZXhlcnMiOlsiYml0c2VhcmNoIiwiZXp0diIsInRoZXBpcmF0ZWJheSIsInRoZXJhcmJnIiwieXRzIl0sImRlYnJpZEFwaUtleSI6IiJ9/manifest.json"
+      },
+      "torrentsdb": {
+        "transportUrl": "https://torrentsdb.com/eyJwcm92aWRlcnMiOlsieXRzIiwiZXp0diIsIjEzMzd4IiwidG9ycmVudGNzdiIsIm55YWEiLCJsaW1ldG9ycmVudCIsInJhcmdiIiwia25hYmVuIiwidGhlcGlyYXRlYmF5Iiwia2lja2Fzc3RvcnJlbnRzIiwiYW5pbWV0b3NobyIsInRva3lvdG9zaG8iLCJtYW51YWwiXSwibGFuZ3VhZ2UiOlsic3BhbmlzaCJdLCJxdWFsaXR5ZmlsdGVyIjpbInNjciIsImNhbSIsInVua25vd24iXSwibGltaXQiOiIxMCJ9/manifest.json"
+      },
+      "autostream": {
+        "transportUrl": "https://autostream-addon.onrender.com/manifest.json?fallback=1{{it.transportUrl}}&lang_prio=ES&blacklist=CAM%2CTS%2CTC"
+      },
+      "peerflix": {
+        "transportUrl": "https://peerflix-addon.onrender.com/language=es,en%7Cqualityfilter=threed,unknown,screener,vhs,sd{{it.no4k}}{{it.transportUrl}}%7Csort=quality-desc,language-desc{{it.sort}}/manifest.json"
+      },
+      "webstreamr": {
+        "transportUrl": "https://webstreamr.hayd.uk/%7B%22en%22%3A%22on%22%2C%22es%22%3A%22on%22%2C%22excludeExternalUrls%22%3A%22on%22%7D/manifest.json"
+      },
+      "subhero": {
+        "transportUrl": "https://subsource.strem.top/c3BhbmlzaF9zcGFpbi9oaUV4Y2x1ZGUv/manifest.json"
+      },
+      "subsource": {
+        "transportUrl": "https://subsource.strem.top/ZW5nbGlzaC9oaUV4Y2x1ZGUv/manifest.json"
+      }
+    },
+    "pt": {
+      "torrentio": {
+        "transportUrl": "https://torrentio.strem.fun/providers=yts,eztv,rarbg,1337x,thepiratebay,kickasstorrents,torrentgalaxy,magnetdl,horriblesubs,nyaasi,tokyotosho,anidex,comando,bludv|language=portuguese|qualityfilter=threed,{{it.no4k}}scr,cam,unknown|limit=10{{it.transportUrl}}/manifest.json"
+      },
+      "comet": {
+        "transportUrl": "https://comet.elfhosted.com/eyJtYXhSZXN1bHRzUGVyUmVzb2x1dGlvbiI6MTAsIm1heFNpemUiOjAsImNhY2hlZE9ubHkiOmZhbHNlLCJyZW1vdmVUcmFzaCI6dHJ1ZSwicmVzdWx0Rm9ybWF0IjpbImFsbCJdLCJkZWJyaWRTZXJ2aWNlIjoidG9ycmVudCIsImRlYnJpZEFwaUtleSI6IiIsImRlYnJpZFN0cmVhbVByb3h5UGFzc3dvcmQiOiIiLCJsYW5ndWFnZXMiOnsicmVxdWlyZWQiOltdLCJleGNsdWRlIjpbXSwicHJlZmVycmVkIjpbInB0Il19LCJyZXNvbHV0aW9ucyI6eyJyMzYwcCI6ZmFsc2UsInVua25vd24iOmZhbHNlfSwib3B0aW9ucyI6eyJyZW1vdmVfcmFua3NfdW5kZXIiOi0xMDAwMDAwMDAwMCwiYWxsb3dfZW5nbGlzaF9pbl9sYW5ndWFnZXMiOmZhbHNlLCJyZW1vdmVfdW5rbm93bl9sYW5ndWFnZXMiOmZhbHNlfX0=/manifest.json"
+      },
+      "jackettio": {
+        "transportUrl": "https://jackettio.elfhosted.com/eyJtYXhUb3JyZW50cyI6OCwicHJpb3RpemVQYWNrVG9ycmVudHMiOjIsImV4Y2x1ZGVLZXl3b3JkcyI6WyJjYW0iLCJzY3JlZW5lciJdLCJkZWJyaWRJZCI6IiIsImhpZGVVbmNhY2hlZCI6ZmFsc2UsInNvcnRDYWNoZWQiOltbInF1YWxpdHkiLHRydWVdLFsic2l6ZSIsdHJ1ZV1dLCJzb3J0VW5jYWNoZWQiOltbInF1YWxpdHkiLHRydWVdLFsic2VlZGVycyIsdHJ1ZV1dLCJmb3JjZUNhY2hlTmV4dEVwaXNvZGUiOmZhbHNlLCJwcmlvdGl6ZUxhbmd1YWdlcyI6WyJicmF6aWxpYW4iLCJwb3J0dWd1ZXNlIl0sImluZGV4ZXJUaW1lb3V0U2VjIjo2MCwibWV0YUxhbmd1YWdlIjoiIiwiZW5hYmxlTWVkaWFGbG93IjpmYWxzZSwibWVkaWFmbG93UHJveHlVcmwiOiIiLCJtZWRpYWZsb3dBcGlQYXNzd29yZCI6IiIsIm1lZGlhZmxvd1B1YmxpY0lwIjoiIiwidXNlU3RyZW1UaHJ1Ijp0cnVlLCJzdHJlbXRocnVVcmwiOiJodHRwOi8vZWxmaG9zdGVkLWludGVybmFsLnN0cmVtdGhydSIsInF1YWxpdGllcyI6WzQ4MCw3MjAsMTA4MCwyMTYwXSwiaW5kZXhlcnMiOlsiYml0c2VhcmNoIiwiZXp0diIsInRoZXBpcmF0ZWJheSIsInRoZXJhcmJnIiwieXRzIl0sImRlYnJpZEFwaUtleSI6IiJ9/manifest.json"
+      },
+      "torrentsdb": {
+        "transportUrl": "https://torrentsdb.com/eyJwcm92aWRlcnMiOlsieXRzIiwiZXp0diIsIjEzMzd4IiwidG9ycmVudGNzdiIsIm55YWEiLCJsaW1ldG9ycmVudCIsInJhcmdiIiwia25hYmVuIiwidGhlcGlyYXRlYmF5Iiwia2lja2Fzc3RvcnJlbnRzIiwiYW5pbWV0b3NobyIsInRva3lvdG9zaG8iLCJtYW51YWwiXSwibGFuZ3VhZ2UiOlsicG9ydHVndWVzZSJdLCJxdWFsaXR5ZmlsdGVyIjpbInNjciIsImNhbSIsInVua25vd24iXSwibGltaXQiOiIxMCJ9/manifest.json"
+      },
+      "autostream": {
+        "transportUrl": "https://autostream-addon.onrender.com/manifest.json?fallback=1{{it.transportUrl}}&lang_prio=PT-BR&blacklist=CAM%2CTS%2CTC"
+      },
+      "subhero": {
+        "transportUrl": "https://subhero.onrender.com/%7B%22language%22%3A%22pb%22%7D/manifest.json"
+      },
+      "subsource": {
+        "transportUrl": "https://subsource.strem.top/YnJhemlsaWFuX3BvcnR1Z3Vlc2UvaGlFeGNsdWRlLw==/manifest.json"
+      }
+    },
+    "fr": {
+      "torrentio": {
+        "transportUrl": "https://torrentio.strem.fun/providers=yts,eztv,rarbg,1337x,thepiratebay,kickasstorrents,torrentgalaxy,magnetdl,horriblesubs,nyaasi,tokyotosho,anidex,torrent9|language=french|qualityfilter=threed,{{it.no4k}}scr,cam,unknown|limit=10{{it.transportUrl}}/manifest.json"
+      },
+      "comet": {
+        "transportUrl": "https://comet.elfhosted.com/eyJtYXhSZXN1bHRzUGVyUmVzb2x1dGlvbiI6MTAsIm1heFNpemUiOjAsImNhY2hlZE9ubHkiOmZhbHNlLCJyZW1vdmVUcmFzaCI6dHJ1ZSwicmVzdWx0Rm9ybWF0IjpbImFsbCJdLCJkZWJyaWRTZXJ2aWNlIjoidG9ycmVudCIsImRlYnJpZEFwaUtleSI6IiIsImRlYnJpZFN0cmVhbVByb3h5UGFzc3dvcmQiOiIiLCJsYW5ndWFnZXMiOnsicmVxdWlyZWQiOltdLCJleGNsdWRlIjpbXSwicHJlZmVycmVkIjpbImZyIl19LCJyZXNvbHV0aW9ucyI6eyJyMzYwcCI6ZmFsc2UsInVua25vd24iOmZhbHNlfSwib3B0aW9ucyI6eyJyZW1vdmVfcmFua3NfdW5kZXIiOi0xMDAwMDAwMDAwMCwiYWxsb3dfZW5nbGlzaF9pbl9sYW5ndWFnZXMiOmZhbHNlLCJyZW1vdmVfdW5rbm93bl9sYW5ndWFnZXMiOmZhbHNlfX0=/manifest.json"
+      },
+      "jackettio": {
+        "transportUrl": "https://jackettio.elfhosted.com/eyJtYXhUb3JyZW50cyI6OCwicHJpb3RpemVQYWNrVG9ycmVudHMiOjIsImV4Y2x1ZGVLZXl3b3JkcyI6WyJjYW0iLCJzY3JlZW5lciJdLCJkZWJyaWRJZCI6IiIsImhpZGVVbmNhY2hlZCI6ZmFsc2UsInNvcnRDYWNoZWQiOltbInF1YWxpdHkiLHRydWVdLFsic2l6ZSIsdHJ1ZV1dLCJzb3J0VW5jYWNoZWQiOltbInF1YWxpdHkiLHRydWVdLFsic2VlZGVycyIsdHJ1ZV1dLCJmb3JjZUNhY2hlTmV4dEVwaXNvZGUiOmZhbHNlLCJwcmlvdGl6ZUxhbmd1YWdlcyI6WyJmcmVuY2giXSwiaW5kZXhlclRpbWVvdXRTZWMiOjYwLCJtZXRhTGFuZ3VhZ2UiOiIiLCJlbmFibGVNZWRpYUZsb3ciOmZhbHNlLCJtZWRpYWZsb3dQcm94eVVybCI6IiIsIm1lZGlhZmxvd0FwaVBhc3N3b3JkIjoiIiwibWVkaWFmbG93UHVibGljSXAiOiIiLCJ1c2VTdHJlbVRocnUiOnRydWUsInN0cmVtdGhydVVybCI6Imh0dHA6Ly9lbGZob3N0ZWQtaW50ZXJuYWwuc3RyZW10aHJ1IiwicXVhbGl0aWVzIjpbNDgwLDcyMCwxMDgwLDIxNjBdLCJpbmRleGVycyI6WyJiaXRzZWFyY2giLCJlenR2IiwidGhlcGlyYXRlYmF5IiwidGhlcmFyYmciLCJ5dHMiXSwiZGVicmlkQXBpS2V5IjoiIn0=/manifest.json"
+      },
+      "torrentsdb": {
+        "transportUrl": "https://torrentsdb.com/eyJwcm92aWRlcnMiOlsieXRzIiwiZXp0diIsIjEzMzd4IiwidG9ycmVudGNzdiIsIm55YWEiLCJsaW1ldG9ycmVudCIsInJhcmdiIiwia25hYmVuIiwidGhlcGlyYXRlYmF5Iiwia2lja2Fzc3RvcnJlbnRzIiwiYW5pbWV0b3NobyIsInRva3lvdG9zaG8iLCJtYW51YWwiLCJ0b3JyZW50OSIsInlnZ3RvcnJlbnQiXSwibGFuZ3VhZ2UiOlsiZnJlbmNoIl0sInF1YWxpdHlmaWx0ZXIiOlsic2NyIiwiY2FtIiwidW5rbm93biJdLCJsaW1pdCI6IjEwIn0=/manifest.json"
+      },
+      "autostream": {
+        "transportUrl": "https://autostream-addon.onrender.com/manifest.json?fallback=1{{it.transportUrl}}&lang_prio=FR&blacklist=CAM%2CTS%2CTC"
+      },
+      "webstreamr": {
+        "transportUrl": "https://webstreamr.hayd.uk/%7B%22en%22%3A%22on%22%2C%22fr%22%3A%22on%22%2C%22excludeExternalUrls%22%3A%22on%22%7D/manifest.json"
+      },
+      "subhero": {
+        "transportUrl": "https://subhero.onrender.com/%7B%22language%22%3A%22fr%22%7D/manifest.json"
+      },
+      "subsource": {
+        "transportUrl": "https://subsource.strem.top/ZnJlbmNoX2ZyYW5jZS9oaUV4Y2x1ZGUv/manifest.json"
+      }
+    },
+    "it": {
+      "torrentio": {
+        "transportUrl": "https://torrentio.strem.fun/providers=yts,eztv,rarbg,1337x,thepiratebay,kickasstorrents,torrentgalaxy,magnetdl,horriblesubs,nyaasi,tokyotosho,anidex,ilcorsaronero|language=italian|qualityfilter=threed,{{it.no4k}},scr,cam,unknown|limit=10{{it.transportUrl}}/manifest.json"
+      },
+      "comet": {
+        "transportUrl": "https://comet.elfhosted.com/eyJtYXhSZXN1bHRzUGVyUmVzb2x1dGlvbiI6MTAsIm1heFNpemUiOjAsImNhY2hlZE9ubHkiOmZhbHNlLCJyZW1vdmVUcmFzaCI6dHJ1ZSwicmVzdWx0Rm9ybWF0IjpbImFsbCJdLCJkZWJyaWRTZXJ2aWNlIjoidG9ycmVudCIsImRlYnJpZEFwaUtleSI6IiIsImRlYnJpZFN0cmVhbVByb3h5UGFzc3dvcmQiOiIiLCJsYW5ndWFnZXMiOnsicmVxdWlyZWQiOltdLCJleGNsdWRlIjpbXSwicHJlZmVycmVkIjpbIml0Il19LCJyZXNvbHV0aW9ucyI6eyJyMzYwcCI6ZmFsc2UsInVua25vd24iOmZhbHNlfSwib3B0aW9ucyI6eyJyZW1vdmVfcmFua3NfdW5kZXIiOi0xMDAwMDAwMDAwMCwiYWxsb3dfZW5nbGlzaF9pbl9sYW5ndWFnZXMiOmZhbHNlLCJyZW1vdmVfdW5rbm93bl9sYW5ndWFnZXMiOmZhbHNlfX0=/manifest.json"
+      },
+      "jackettio": {
+        "transportUrl": "https://jackettio.elfhosted.com/eyJtYXhUb3JyZW50cyI6OCwicHJpb3RpemVQYWNrVG9ycmVudHMiOjIsImV4Y2x1ZGVLZXl3b3JkcyI6WyJjYW0iLCJzY3JlZW5lciJdLCJkZWJyaWRJZCI6IiIsImhpZGVVbmNhY2hlZCI6ZmFsc2UsInNvcnRDYWNoZWQiOltbInF1YWxpdHkiLHRydWVdLFsic2l6ZSIsdHJ1ZV1dLCJzb3J0VW5jYWNoZWQiOltbInF1YWxpdHkiLHRydWVdLFsic2VlZGVycyIsdHJ1ZV1dLCJmb3JjZUNhY2hlTmV4dEVwaXNvZGUiOmZhbHNlLCJwcmlvdGl6ZUxhbmd1YWdlcyI6WyJpdGFsaWFuIl0sImluZGV4ZXJUaW1lb3V0U2VjIjo2MCwibWV0YUxhbmd1YWdlIjoiIiwiZW5hYmxlTWVkaWFGbG93IjpmYWxzZSwibWVkaWFmbG93UHJveHlVcmwiOiIiLCJtZWRpYWZsb3dBcGlQYXNzd29yZCI6IiIsIm1lZGlhZmxvd1B1YmxpY0lwIjoiIiwidXNlU3RyZW1UaHJ1Ijp0cnVlLCJzdHJlbXRocnVVcmwiOiJodHRwOi8vZWxmaG9zdGVkLWludGVybmFsLnN0cmVtdGhydSIsInF1YWxpdGllcyI6WzQ4MCw3MjAsMTA4MCwyMTYwXSwiaW5kZXhlcnMiOlsiYml0c2VhcmNoIiwiZXp0diIsInRoZXBpcmF0ZWJheSIsInRoZXJhcmJnIiwieXRzIl0sImRlYnJpZEFwaUtleSI6IiJ9/manifest.json"
+      },
+      "torrentsdb": {
+        "transportUrl": "https://torrentsdb.com/eyJwcm92aWRlcnMiOlsieXRzIiwiZXp0diIsIjEzMzd4IiwidG9ycmVudGNzdiIsIm55YWEiLCJsaW1ldG9ycmVudCIsInJhcmdiIiwia25hYmVuIiwidGhlcGlyYXRlYmF5Iiwia2lja2Fzc3RvcnJlbnRzIiwiYW5pbWV0b3NobyIsInRva3lvdG9zaG8iLCJtYW51YWwiLCJpbGNvcnNhcm9uZXJvIl0sImxhbmd1YWdlIjpbIml0YWxpYW4iXSwicXVhbGl0eWZpbHRlciI6WyJzY3IiLCJjYW0iLCJ1bmtub3duIl0sImxpbWl0IjoiMTAiLCJkZWJyaWRvcHRpb25zIjpbIm5vY2F0YWxvZyJdfQ==/manifest.json"
+      },
+      "autostream": {
+        "transportUrl": "https://autostream-addon.onrender.com/manifest.json?fallback=1{{it.transportUrl}}&lang_prio=IT&blacklist=CAM%2CTS%2CTC"
+      },
+      "webstreamr": {
+        "transportUrl": "https://webstreamr.hayd.uk/%7B%22en%22%3A%22on%22%2C%22it%22%3A%22on%22%2C%22excludeExternalUrls%22%3A%22on%22%7D/manifest.json"
+      },
+      "subhero": {
+        "transportUrl": "https://subhero.onrender.com/%7B%22language%22%3A%22it%22%7D/manifest.json"
+      },
+      "subsource": {
+        "transportUrl": "https://subsource.strem.top/aXRhbGlhbi9oaUV4Y2x1ZGUv/manifest.json"
+      }
+    },
+    "de": {
+      "torrentio": {
+        "transportUrl": "https://torrentio.strem.fun/providers=yts,eztv,rarbg,1337x,thepiratebay,kickasstorrents,torrentgalaxy,magnetdl,horriblesubs,nyaasi,tokyotosho,anidex|language=german|qualityfilter=threed,{{it.no4k}}scr,cam,unknown|limit=10{{it.transportUrl}}/manifest.json"
+      },
+      "comet": {
+        "transportUrl": "https://comet.elfhosted.com/eyJtYXhSZXN1bHRzUGVyUmVzb2x1dGlvbiI6MTAsIm1heFNpemUiOjAsImNhY2hlZE9ubHkiOmZhbHNlLCJyZW1vdmVUcmFzaCI6dHJ1ZSwicmVzdWx0Rm9ybWF0IjpbImFsbCJdLCJkZWJyaWRTZXJ2aWNlIjoidG9ycmVudCIsImRlYnJpZEFwaUtleSI6IiIsImRlYnJpZFN0cmVhbVByb3h5UGFzc3dvcmQiOiIiLCJsYW5ndWFnZXMiOnsicmVxdWlyZWQiOltdLCJleGNsdWRlIjpbXSwicHJlZmVycmVkIjpbImRlIl19LCJyZXNvbHV0aW9ucyI6eyJyMzYwcCI6ZmFsc2UsInVua25vd24iOmZhbHNlfSwib3B0aW9ucyI6eyJyZW1vdmVfcmFua3NfdW5kZXIiOi0xMDAwMDAwMDAwMCwiYWxsb3dfZW5nbGlzaF9pbl9sYW5ndWFnZXMiOmZhbHNlLCJyZW1vdmVfdW5rbm93bl9sYW5ndWFnZXMiOmZhbHNlfX0=/manifest.json"
+      },
+      "jackettio": {
+        "transportUrl": "https://jackettio.elfhosted.com/eyJtYXhUb3JyZW50cyI6OCwicHJpb3RpemVQYWNrVG9ycmVudHMiOjIsImV4Y2x1ZGVLZXl3b3JkcyI6WyJjYW0iLCJzY3JlZW5lciJdLCJkZWJyaWRJZCI6IiIsImhpZGVVbmNhY2hlZCI6ZmFsc2UsInNvcnRDYWNoZWQiOltbInF1YWxpdHkiLHRydWVdLFsic2l6ZSIsdHJ1ZV1dLCJzb3J0VW5jYWNoZWQiOltbInF1YWxpdHkiLHRydWVdLFsic2VlZGVycyIsdHJ1ZV1dLCJmb3JjZUNhY2hlTmV4dEVwaXNvZGUiOmZhbHNlLCJwcmlvdGl6ZUxhbmd1YWdlcyI6WyJnZXJtYW4iXSwiaW5kZXhlclRpbWVvdXRTZWMiOjYwLCJtZXRhTGFuZ3VhZ2UiOiIiLCJlbmFibGVNZWRpYUZsb3ciOmZhbHNlLCJtZWRpYWZsb3dQcm94eVVybCI6IiIsIm1lZGlhZmxvd0FwaVBhc3N3b3JkIjoiIiwibWVkaWFmbG93UHVibGljSXAiOiIiLCJ1c2VTdHJlbVRocnUiOnRydWUsInN0cmVtdGhydVVybCI6Imh0dHA6Ly9lbGZob3N0ZWQtaW50ZXJuYWwuc3RyZW10aHJ1IiwicXVhbGl0aWVzIjpbNDgwLDcyMCwxMDgwLDIxNjBdLCJpbmRleGVycyI6WyJiaXRzZWFyY2giLCJlenR2IiwidGhlcGlyYXRlYmF5IiwidGhlcmFyYmciLCJ5dHMiXSwiZGVicmlkQXBpS2V5IjoiIn0=/manifest.json"
+      },
+      "autostream": {
+        "transportUrl": "https://autostream-addon.onrender.com/manifest.json?fallback=1{{it.transportUrl}}&lang_prio=DE&blacklist=CAM%2CTS%2CTC"
+      },
+      "webstreamr": {
+        "transportUrl": "https://webstreamr.hayd.uk/%7B%22de%22%3A%22on%22%2C%22en%22%3A%22on%22%2C%22excludeExternalUrls%22%3A%22on%22%7D/manifest.json"
+      },
+      "subhero": {
+        "transportUrl": "https://subhero.onrender.com/%7B%22language%22%3A%22de%22%7D/manifest.json"
+      },
+      "subsource": {
+        "transportUrl": "https://subsource.strem.top/Z2VybWFuL2hpRXhjbHVkZS8=/manifest.json"
       }
     }
   },
@@ -636,9 +1682,7 @@
                   "Tragedy"
                 ]
               },
-              {
-                "name": "skip"
-              }
+              { "name": "skip" }
             ],
             "genres": [
               "Action",
@@ -775,9 +1819,7 @@
                   "Tragedy"
                 ]
               },
-              {
-                "name": "skip"
-              }
+              { "name": "skip" }
             ],
             "genres": [
               "Action",
@@ -914,9 +1956,7 @@
                   "Tragedy"
                 ]
               },
-              {
-                "name": "skip"
-              }
+              { "name": "skip" }
             ],
             "genres": [
               "Action",
@@ -987,26 +2027,17 @@
             "name": "Kitsu",
             "type": "anime",
             "extra": [
-              {
-                "name": "search",
-                "isRequired": true
-              },
+              { "name": "search", "isRequired": true },
               {
                 "name": "lastVideosIds",
                 "isRequired": false,
                 "optionsLimit": 20
               },
-              {
-                "name": "skip"
-              }
+              { "name": "skip" }
             ]
           }
         ],
         "idPrefixes": ["kitsu", "mal", "anilist", "anidb"]
-      },
-      "flags": {
-        "official": false,
-        "protected": false
       }
     },
     "usatv": {
@@ -1162,1063 +2193,6 @@
       }
     }
   },
-  "es-mx": {
-    "torrentio": {
-      "transportUrl": "https://torrentio.strem.fun/providers=yts,eztv,rarbg,1337x,thepiratebay,kickasstorrents,torrentgalaxy,magnetdl,horriblesubs,nyaasi,tokyotosho,anidex,cinecalidad|language=latino|qualityfilter=threed,{{it.no4k}}scr,cam,unknown|limit=10{{it.transportUrl}}/manifest.json"
-    },
-    "comet": {
-      "transportUrl": "https://comet.elfhosted.com/eyJtYXhSZXN1bHRzUGVyUmVzb2x1dGlvbiI6MTAsIm1heFNpemUiOjAsImNhY2hlZE9ubHkiOmZhbHNlLCJyZW1vdmVUcmFzaCI6dHJ1ZSwicmVzdWx0Rm9ybWF0IjpbImFsbCJdLCJkZWJyaWRTZXJ2aWNlIjoidG9ycmVudCIsImRlYnJpZEFwaUtleSI6IiIsImRlYnJpZFN0cmVhbVByb3h5UGFzc3dvcmQiOiIiLCJsYW5ndWFnZXMiOnsicmVxdWlyZWQiOltdLCJleGNsdWRlIjpbXSwicHJlZmVycmVkIjpbImxhIl19LCJyZXNvbHV0aW9ucyI6eyJyMzYwcCI6ZmFsc2UsInVua25vd24iOmZhbHNlfSwib3B0aW9ucyI6eyJyZW1vdmVfcmFua3NfdW5kZXIiOi0xMDAwMDAwMDAwMCwiYWxsb3dfZW5nbGlzaF9pbl9sYW5ndWFnZXMiOmZhbHNlLCJyZW1vdmVfdW5rbm93bl9sYW5ndWFnZXMiOmZhbHNlfX0=/manifest.json"
-    },
-    "jackettio": {
-      "transportUrl": "https://jackettio.elfhosted.com/eyJtYXhUb3JyZW50cyI6OCwicHJpb3RpemVQYWNrVG9ycmVudHMiOjIsImV4Y2x1ZGVLZXl3b3JkcyI6WyJjYW0iLCJzY3JlZW5lciJdLCJkZWJyaWRJZCI6IiIsImhpZGVVbmNhY2hlZCI6ZmFsc2UsInNvcnRDYWNoZWQiOltbInF1YWxpdHkiLHRydWVdLFsic2l6ZSIsdHJ1ZV1dLCJzb3J0VW5jYWNoZWQiOltbInF1YWxpdHkiLHRydWVdLFsic2VlZGVycyIsdHJ1ZV1dLCJmb3JjZUNhY2hlTmV4dEVwaXNvZGUiOmZhbHNlLCJwcmlvdGl6ZUxhbmd1YWdlcyI6WyJzcGFuaXNoIl0sImluZGV4ZXJUaW1lb3V0U2VjIjo2MCwibWV0YUxhbmd1YWdlIjoiIiwiZW5hYmxlTWVkaWFGbG93IjpmYWxzZSwibWVkaWFmbG93UHJveHlVcmwiOiIiLCJtZWRpYWZsb3dBcGlQYXNzd29yZCI6IiIsIm1lZGlhZmxvd1B1YmxpY0lwIjoiIiwidXNlU3RyZW1UaHJ1Ijp0cnVlLCJzdHJlbXRocnVVcmwiOiJodHRwOi8vZWxmaG9zdGVkLWludGVybmFsLnN0cmVtdGhydSIsInF1YWxpdGllcyI6WzQ4MCw3MjAsMTA4MCwyMTYwXSwiaW5kZXhlcnMiOlsiYml0c2VhcmNoIiwiZXp0diIsInRoZXBpcmF0ZWJheSIsInRoZXJhcmJnIiwieXRzIl0sImRlYnJpZEFwaUtleSI6IiJ9/manifest.json"
-    },
-    "torrentsdb": {
-      "transportUrl": "https://torrentsdb.com/eyJwcm92aWRlcnMiOlsieXRzIiwiZXp0diIsIjEzMzd4IiwidG9ycmVudGNzdiIsIm55YWEiLCJsaW1ldG9ycmVudCIsInJhcmdiIiwia25hYmVuIiwidGhlcGlyYXRlYmF5Iiwia2lja2Fzc3RvcnJlbnRzIiwiYW5pbWV0b3NobyIsInRva3lvdG9zaG8iLCJtYW51YWwiXSwibGFuZ3VhZ2UiOlsibGF0aW5vIl0sInF1YWxpdHlmaWx0ZXIiOlsic2NyIiwiY2FtIiwidW5rbm93biJdLCJsaW1pdCI6IjEwIn0=/manifest.json"
-    },
-    "webstreamr": {
-      "transportUrl": "https://webstreamr.hayd.uk/%7B%22en%22%3A%22on%22%2C%22mx%22%3A%22on%22%2C%22excludeExternalUrls%22%3A%22on%22%7D/manifest.json"
-    },
-    "subdivx": {
-      "transportUrl": "https://stremio-subdivx.xor.ar/manifest.json",
-      "manifest": {
-        "id": "ar.xor.subdivx.go",
-        "version": "0.0.6",
-        "name": "Subdivx",
-        "description": "Subdivx subtitles addon",
-        "types": ["movie", "series"],
-        "idPrefixes": ["tt"],
-        "catalogs": [],
-        "resources": ["subtitles"]
-      }
-    },
-    "subhero": {
-      "transportUrl": "https://subhero.onrender.com/%7B%22language%22%3A%22es%22%7D/manifest.json"
-    },
-    "subsource": {
-      "transportUrl": "https://subsource.strem.top/c3BhbmlzaF9sYXRpbl9hbWVyaWNhL2hpRXhjbHVkZS8=/manifest.json"
-    },
-    "opensubtitlesv3pro": {
-      "transportUrl": "https://opensubtitlesv3-pro.dexter21767.com/eyJsYW5ncyI6WyJzcGFuaXNoLWxhIl0sInNvdXJjZSI6ImFsbCIsImFpVHJhbnNsYXRlZCI6ZmFsc2UsImF1dG9BZGp1c3RtZW50Ijp0cnVlfQ==/manifest.json"
-    }
-  },
-  "es-es": {
-    "torrentio": {
-      "transportUrl": "https://torrentio.strem.fun/providers=yts,eztv,rarbg,1337x,thepiratebay,kickasstorrents,torrentgalaxy,magnetdl,horriblesubs,nyaasi,tokyotosho,anidex,cinecalidad|language=spanish|qualityfilter=threed,{{it.no4k}}scr,cam,unknown|limit=10{{it.transportUrl}}/manifest.json"
-    },
-    "comet": {
-      "transportUrl": "https://comet.elfhosted.com/eyJtYXhSZXN1bHRzUGVyUmVzb2x1dGlvbiI6MTAsIm1heFNpemUiOjAsImNhY2hlZE9ubHkiOmZhbHNlLCJyZW1vdmVUcmFzaCI6dHJ1ZSwicmVzdWx0Rm9ybWF0IjpbImFsbCJdLCJkZWJyaWRTZXJ2aWNlIjoidG9ycmVudCIsImRlYnJpZEFwaUtleSI6IiIsImRlYnJpZFN0cmVhbVByb3h5UGFzc3dvcmQiOiIiLCJsYW5ndWFnZXMiOnsicmVxdWlyZWQiOltdLCJleGNsdWRlIjpbXSwicHJlZmVycmVkIjpbImVzIl19LCJyZXNvbHV0aW9ucyI6eyJyMzYwcCI6ZmFsc2UsInVua25vd24iOmZhbHNlfSwib3B0aW9ucyI6eyJyZW1vdmVfcmFua3NfdW5kZXIiOi0xMDAwMDAwMDAwMCwiYWxsb3dfZW5nbGlzaF9pbl9sYW5ndWFnZXMiOmZhbHNlLCJyZW1vdmVfdW5rbm93bl9sYW5ndWFnZXMiOmZhbHNlfX0=/manifest.json"
-    },
-    "jackettio": {
-      "transportUrl": "https://jackettio.elfhosted.com/eyJtYXhUb3JyZW50cyI6OCwicHJpb3RpemVQYWNrVG9ycmVudHMiOjIsImV4Y2x1ZGVLZXl3b3JkcyI6WyJjYW0iLCJzY3JlZW5lciJdLCJkZWJyaWRJZCI6IiIsImhpZGVVbmNhY2hlZCI6ZmFsc2UsInNvcnRDYWNoZWQiOltbInF1YWxpdHkiLHRydWVdLFsic2l6ZSIsdHJ1ZV1dLCJzb3J0VW5jYWNoZWQiOltbInF1YWxpdHkiLHRydWVdLFsic2VlZGVycyIsdHJ1ZV1dLCJmb3JjZUNhY2hlTmV4dEVwaXNvZGUiOmZhbHNlLCJwcmlvdGl6ZUxhbmd1YWdlcyI6WyJzcGFuaXNoIl0sImluZGV4ZXJUaW1lb3V0U2VjIjo2MCwibWV0YUxhbmd1YWdlIjoiIiwiZW5hYmxlTWVkaWFGbG93IjpmYWxzZSwibWVkaWFmbG93UHJveHlVcmwiOiIiLCJtZWRpYWZsb3dBcGlQYXNzd29yZCI6IiIsIm1lZGlhZmxvd1B1YmxpY0lwIjoiIiwidXNlU3RyZW1UaHJ1Ijp0cnVlLCJzdHJlbXRocnVVcmwiOiJodHRwOi8vZWxmaG9zdGVkLWludGVybmFsLnN0cmVtdGhydSIsInF1YWxpdGllcyI6WzQ4MCw3MjAsMTA4MCwyMTYwXSwiaW5kZXhlcnMiOlsiYml0c2VhcmNoIiwiZXp0diIsInRoZXBpcmF0ZWJheSIsInRoZXJhcmJnIiwieXRzIl0sImRlYnJpZEFwaUtleSI6IiJ9/manifest.json"
-    },
-    "torrentsdb": {
-      "transportUrl": "https://torrentsdb.com/eyJwcm92aWRlcnMiOlsieXRzIiwiZXp0diIsIjEzMzd4IiwidG9ycmVudGNzdiIsIm55YWEiLCJsaW1ldG9ycmVudCIsInJhcmdiIiwia25hYmVuIiwidGhlcGlyYXRlYmF5Iiwia2lja2Fzc3RvcnJlbnRzIiwiYW5pbWV0b3NobyIsInRva3lvdG9zaG8iLCJtYW51YWwiXSwibGFuZ3VhZ2UiOlsic3BhbmlzaCJdLCJxdWFsaXR5ZmlsdGVyIjpbInNjciIsImNhbSIsInVua25vd24iXSwibGltaXQiOiIxMCJ9/manifest.json"
-    },
-    "peerflix": {
-      "transportUrl": "https://peerflix-addon.onrender.com/language=es,en%7Cqualityfilter=threed,unknown,screener,vhs,sd{{it.no4k}}{{it.transportUrl}}%7Csort=quality-desc,language-desc{{it.sort}}/manifest.json"
-    },
-    "webstreamr": {
-      "transportUrl": "https://webstreamr.hayd.uk/%7B%22en%22%3A%22on%22%2C%22es%22%3A%22on%22%2C%22excludeExternalUrls%22%3A%22on%22%7D/manifest.json"
-    },
-    "subhero": {
-      "transportUrl": "https://subsource.strem.top/c3BhbmlzaF9zcGFpbi9oaUV4Y2x1ZGUv/manifest.json"
-    },
-    "subsource": {
-      "transportUrl": "https://subsource.strem.top/ZW5nbGlzaC9oaUV4Y2x1ZGUv/manifest.json"
-    },
-    "opensubtitlesv3pro": {
-      "transportUrl": "https://opensubtitlesv3-pro.dexter21767.com/eyJsYW5ncyI6WyJzcGFuaXNoIiwic3BhbmlzaC1ldSJdLCJzb3VyY2UiOiJhbGwiLCJhaVRyYW5zbGF0ZWQiOmZhbHNlLCJhdXRvQWRqdXN0bWVudCI6dHJ1ZX0=/manifest.json"
-    }
-  },
-  "pt": {
-    "torrentio": {
-      "transportUrl": "https://torrentio.strem.fun/providers=yts,eztv,rarbg,1337x,thepiratebay,kickasstorrents,torrentgalaxy,magnetdl,horriblesubs,nyaasi,tokyotosho,anidex,comando,bludv|language=portuguese|qualityfilter=threed,{{it.no4k}}scr,cam,unknown|limit=10{{it.transportUrl}}/manifest.json"
-    },
-    "comet": {
-      "transportUrl": "https://comet.elfhosted.com/eyJtYXhSZXN1bHRzUGVyUmVzb2x1dGlvbiI6MTAsIm1heFNpemUiOjAsImNhY2hlZE9ubHkiOmZhbHNlLCJyZW1vdmVUcmFzaCI6dHJ1ZSwicmVzdWx0Rm9ybWF0IjpbImFsbCJdLCJkZWJyaWRTZXJ2aWNlIjoidG9ycmVudCIsImRlYnJpZEFwaUtleSI6IiIsImRlYnJpZFN0cmVhbVByb3h5UGFzc3dvcmQiOiIiLCJsYW5ndWFnZXMiOnsicmVxdWlyZWQiOltdLCJleGNsdWRlIjpbXSwicHJlZmVycmVkIjpbInB0Il19LCJyZXNvbHV0aW9ucyI6eyJyMzYwcCI6ZmFsc2UsInVua25vd24iOmZhbHNlfSwib3B0aW9ucyI6eyJyZW1vdmVfcmFua3NfdW5kZXIiOi0xMDAwMDAwMDAwMCwiYWxsb3dfZW5nbGlzaF9pbl9sYW5ndWFnZXMiOmZhbHNlLCJyZW1vdmVfdW5rbm93bl9sYW5ndWFnZXMiOmZhbHNlfX0=/manifest.json"
-    },
-    "jackettio": {
-      "transportUrl": "https://jackettio.elfhosted.com/eyJtYXhUb3JyZW50cyI6OCwicHJpb3RpemVQYWNrVG9ycmVudHMiOjIsImV4Y2x1ZGVLZXl3b3JkcyI6WyJjYW0iLCJzY3JlZW5lciJdLCJkZWJyaWRJZCI6IiIsImhpZGVVbmNhY2hlZCI6ZmFsc2UsInNvcnRDYWNoZWQiOltbInF1YWxpdHkiLHRydWVdLFsic2l6ZSIsdHJ1ZV1dLCJzb3J0VW5jYWNoZWQiOltbInF1YWxpdHkiLHRydWVdLFsic2VlZGVycyIsdHJ1ZV1dLCJmb3JjZUNhY2hlTmV4dEVwaXNvZGUiOmZhbHNlLCJwcmlvdGl6ZUxhbmd1YWdlcyI6WyJicmF6aWxpYW4iLCJwb3J0dWd1ZXNlIl0sImluZGV4ZXJUaW1lb3V0U2VjIjo2MCwibWV0YUxhbmd1YWdlIjoiIiwiZW5hYmxlTWVkaWFGbG93IjpmYWxzZSwibWVkaWFmbG93UHJveHlVcmwiOiIiLCJtZWRpYWZsb3dBcGlQYXNzd29yZCI6IiIsIm1lZGlhZmxvd1B1YmxpY0lwIjoiIiwidXNlU3RyZW1UaHJ1Ijp0cnVlLCJzdHJlbXRocnVVcmwiOiJodHRwOi8vZWxmaG9zdGVkLWludGVybmFsLnN0cmVtdGhydSIsInF1YWxpdGllcyI6WzQ4MCw3MjAsMTA4MCwyMTYwXSwiaW5kZXhlcnMiOlsiYml0c2VhcmNoIiwiZXp0diIsInRoZXBpcmF0ZWJheSIsInRoZXJhcmJnIiwieXRzIl0sImRlYnJpZEFwaUtleSI6IiJ9/manifest.json"
-    },
-    "torrentsdb": {
-      "transportUrl": "https://torrentsdb.com/eyJwcm92aWRlcnMiOlsieXRzIiwiZXp0diIsIjEzMzd4IiwidG9ycmVudGNzdiIsIm55YWEiLCJsaW1ldG9ycmVudCIsInJhcmdiIiwia25hYmVuIiwidGhlcGlyYXRlYmF5Iiwia2lja2Fzc3RvcnJlbnRzIiwiYW5pbWV0b3NobyIsInRva3lvdG9zaG8iLCJtYW51YWwiXSwibGFuZ3VhZ2UiOlsicG9ydHVndWVzZSJdLCJxdWFsaXR5ZmlsdGVyIjpbInNjciIsImNhbSIsInVua25vd24iXSwibGltaXQiOiIxMCJ9/manifest.json"
-    },
-    "subhero": {
-      "transportUrl": "https://subhero.onrender.com/%7B%22language%22%3A%22pb%22%7D/manifest.json"
-    },
-    "subsource": {
-      "transportUrl": "https://subsource.strem.top/YnJhemlsaWFuX3BvcnR1Z3Vlc2UvaGlFeGNsdWRlLw==/manifest.json"
-    },
-    "opensubtitlesv3pro": {
-      "transportUrl": "https://opensubtitlesv3-pro.dexter21767.com/eyJsYW5ncyI6WyJwb3J0dWd1ZXNlLWJyIl0sInNvdXJjZSI6ImFsbCIsImFpVHJhbnNsYXRlZCI6ZmFsc2UsImF1dG9BZGp1c3RtZW50Ijp0cnVlfQ==/manifest.json"
-    }
-  },
-  "fr": {
-    "torrentio": {
-      "transportUrl": "https://torrentio.strem.fun/providers=yts,eztv,rarbg,1337x,thepiratebay,kickasstorrents,torrentgalaxy,magnetdl,horriblesubs,nyaasi,tokyotosho,anidex,torrent9|language=french|qualityfilter=threed,{{it.no4k}}scr,cam,unknown|limit=10{{it.transportUrl}}/manifest.json"
-    },
-    "comet": {
-      "transportUrl": "https://comet.elfhosted.com/eyJtYXhSZXN1bHRzUGVyUmVzb2x1dGlvbiI6MTAsIm1heFNpemUiOjAsImNhY2hlZE9ubHkiOmZhbHNlLCJyZW1vdmVUcmFzaCI6dHJ1ZSwicmVzdWx0Rm9ybWF0IjpbImFsbCJdLCJkZWJyaWRTZXJ2aWNlIjoidG9ycmVudCIsImRlYnJpZEFwaUtleSI6IiIsImRlYnJpZFN0cmVhbVByb3h5UGFzc3dvcmQiOiIiLCJsYW5ndWFnZXMiOnsicmVxdWlyZWQiOltdLCJleGNsdWRlIjpbXSwicHJlZmVycmVkIjpbImZyIl19LCJyZXNvbHV0aW9ucyI6eyJyMzYwcCI6ZmFsc2UsInVua25vd24iOmZhbHNlfSwib3B0aW9ucyI6eyJyZW1vdmVfcmFua3NfdW5kZXIiOi0xMDAwMDAwMDAwMCwiYWxsb3dfZW5nbGlzaF9pbl9sYW5ndWFnZXMiOmZhbHNlLCJyZW1vdmVfdW5rbm93bl9sYW5ndWFnZXMiOmZhbHNlfX0=/manifest.json"
-    },
-    "jackettio": {
-      "transportUrl": "https://jackettio.elfhosted.com/eyJtYXhUb3JyZW50cyI6OCwicHJpb3RpemVQYWNrVG9ycmVudHMiOjIsImV4Y2x1ZGVLZXl3b3JkcyI6WyJjYW0iLCJzY3JlZW5lciJdLCJkZWJyaWRJZCI6IiIsImhpZGVVbmNhY2hlZCI6ZmFsc2UsInNvcnRDYWNoZWQiOltbInF1YWxpdHkiLHRydWVdLFsic2l6ZSIsdHJ1ZV1dLCJzb3J0VW5jYWNoZWQiOltbInF1YWxpdHkiLHRydWVdLFsic2VlZGVycyIsdHJ1ZV1dLCJmb3JjZUNhY2hlTmV4dEVwaXNvZGUiOmZhbHNlLCJwcmlvdGl6ZUxhbmd1YWdlcyI6WyJmcmVuY2giXSwiaW5kZXhlclRpbWVvdXRTZWMiOjYwLCJtZXRhTGFuZ3VhZ2UiOiIiLCJlbmFibGVNZWRpYUZsb3ciOmZhbHNlLCJtZWRpYWZsb3dQcm94eVVybCI6IiIsIm1lZGlhZmxvd0FwaVBhc3N3b3JkIjoiIiwibWVkaWFmbG93UHVibGljSXAiOiIiLCJ1c2VTdHJlbVRocnUiOnRydWUsInN0cmVtdGhydVVybCI6Imh0dHA6Ly9lbGZob3N0ZWQtaW50ZXJuYWwuc3RyZW10aHJ1IiwicXVhbGl0aWVzIjpbNDgwLDcyMCwxMDgwLDIxNjBdLCJpbmRleGVycyI6WyJiaXRzZWFyY2giLCJlenR2IiwidGhlcGlyYXRlYmF5IiwidGhlcmFyYmciLCJ5dHMiXSwiZGVicmlkQXBpS2V5IjoiIn0=/manifest.json"
-    },
-    "torrentsdb": {
-      "transportUrl": "https://torrentsdb.com/eyJwcm92aWRlcnMiOlsieXRzIiwiZXp0diIsIjEzMzd4IiwidG9ycmVudGNzdiIsIm55YWEiLCJsaW1ldG9ycmVudCIsInJhcmdiIiwia25hYmVuIiwidGhlcGlyYXRlYmF5Iiwia2lja2Fzc3RvcnJlbnRzIiwiYW5pbWV0b3NobyIsInRva3lvdG9zaG8iLCJtYW51YWwiLCJ0b3JyZW50OSIsInlnZ3RvcnJlbnQiXSwibGFuZ3VhZ2UiOlsiZnJlbmNoIl0sInF1YWxpdHlmaWx0ZXIiOlsic2NyIiwiY2FtIiwidW5rbm93biJdLCJsaW1pdCI6IjEwIn0=/manifest.json"
-    },
-    "webstreamr": {
-      "transportUrl": "https://webstreamr.hayd.uk/%7B%22en%22%3A%22on%22%2C%22fr%22%3A%22on%22%2C%22excludeExternalUrls%22%3A%22on%22%7D/manifest.json"
-    },
-    "subhero": {
-      "transportUrl": "https://subhero.onrender.com/%7B%22language%22%3A%22fr%22%7D/manifest.json"
-    },
-    "subsource": {
-      "transportUrl": "https://subsource.strem.top/ZnJlbmNoX2ZyYW5jZS9oaUV4Y2x1ZGUv/manifest.json"
-    },
-    "opensubtitlesv3pro": {
-      "transportUrl": "https://opensubtitlesv3-pro.dexter21767.com/eyJsYW5ncyI6WyJmcmVuY2giXSwic291cmNlIjoiYWxsIiwiYWlUcmFuc2xhdGVkIjpmYWxzZSwiYXV0b0FkanVzdG1lbnQiOnRydWV9/manifest.json"
-    }
-  },
-  "it": {
-    "torrentio": {
-      "transportUrl": "https://torrentio.strem.fun/providers=yts,eztv,rarbg,1337x,thepiratebay,kickasstorrents,torrentgalaxy,magnetdl,horriblesubs,nyaasi,tokyotosho,anidex,ilcorsaronero|language=italian|qualityfilter=threed,{{it.no4k}},scr,cam,unknown|limit=10{{it.transportUrl}}/manifest.json"
-    },
-    "comet": {
-      "transportUrl": "https://comet.elfhosted.com/eyJtYXhSZXN1bHRzUGVyUmVzb2x1dGlvbiI6MTAsIm1heFNpemUiOjAsImNhY2hlZE9ubHkiOmZhbHNlLCJyZW1vdmVUcmFzaCI6dHJ1ZSwicmVzdWx0Rm9ybWF0IjpbImFsbCJdLCJkZWJyaWRTZXJ2aWNlIjoidG9ycmVudCIsImRlYnJpZEFwaUtleSI6IiIsImRlYnJpZFN0cmVhbVByb3h5UGFzc3dvcmQiOiIiLCJsYW5ndWFnZXMiOnsicmVxdWlyZWQiOltdLCJleGNsdWRlIjpbXSwicHJlZmVycmVkIjpbIml0Il19LCJyZXNvbHV0aW9ucyI6eyJyMzYwcCI6ZmFsc2UsInVua25vd24iOmZhbHNlfSwib3B0aW9ucyI6eyJyZW1vdmVfcmFua3NfdW5kZXIiOi0xMDAwMDAwMDAwMCwiYWxsb3dfZW5nbGlzaF9pbl9sYW5ndWFnZXMiOmZhbHNlLCJyZW1vdmVfdW5rbm93bl9sYW5ndWFnZXMiOmZhbHNlfX0=/manifest.json"
-    },
-    "jackettio": {
-      "transportUrl": "https://jackettio.elfhosted.com/eyJtYXhUb3JyZW50cyI6OCwicHJpb3RpemVQYWNrVG9ycmVudHMiOjIsImV4Y2x1ZGVLZXl3b3JkcyI6WyJjYW0iLCJzY3JlZW5lciJdLCJkZWJyaWRJZCI6IiIsImhpZGVVbmNhY2hlZCI6ZmFsc2UsInNvcnRDYWNoZWQiOltbInF1YWxpdHkiLHRydWVdLFsic2l6ZSIsdHJ1ZV1dLCJzb3J0VW5jYWNoZWQiOltbInF1YWxpdHkiLHRydWVdLFsic2VlZGVycyIsdHJ1ZV1dLCJmb3JjZUNhY2hlTmV4dEVwaXNvZGUiOmZhbHNlLCJwcmlvdGl6ZUxhbmd1YWdlcyI6WyJpdGFsaWFuIl0sImluZGV4ZXJUaW1lb3V0U2VjIjo2MCwibWV0YUxhbmd1YWdlIjoiIiwiZW5hYmxlTWVkaWFGbG93IjpmYWxzZSwibWVkaWFmbG93UHJveHlVcmwiOiIiLCJtZWRpYWZsb3dBcGlQYXNzd29yZCI6IiIsIm1lZGlhZmxvd1B1YmxpY0lwIjoiIiwidXNlU3RyZW1UaHJ1Ijp0cnVlLCJzdHJlbXRocnVVcmwiOiJodHRwOi8vZWxmaG9zdGVkLWludGVybmFsLnN0cmVtdGhydSIsInF1YWxpdGllcyI6WzQ4MCw3MjAsMTA4MCwyMTYwXSwiaW5kZXhlcnMiOlsiYml0c2VhcmNoIiwiZXp0diIsInRoZXBpcmF0ZWJheSIsInRoZXJhcmJnIiwieXRzIl0sImRlYnJpZEFwaUtleSI6IiJ9/manifest.json"
-    },
-    "torrentsdb": {
-      "transportUrl": "https://torrentsdb.com/eyJwcm92aWRlcnMiOlsieXRzIiwiZXp0diIsIjEzMzd4IiwidG9ycmVudGNzdiIsIm55YWEiLCJsaW1ldG9ycmVudCIsInJhcmdiIiwia25hYmVuIiwidGhlcGlyYXRlYmF5Iiwia2lja2Fzc3RvcnJlbnRzIiwiYW5pbWV0b3NobyIsInRva3lvdG9zaG8iLCJtYW51YWwiLCJpbGNvcnNhcm9uZXJvIl0sImxhbmd1YWdlIjpbIml0YWxpYW4iXSwicXVhbGl0eWZpbHRlciI6WyJzY3IiLCJjYW0iLCJ1bmtub3duIl0sImxpbWl0IjoiMTAiLCJkZWJyaWRvcHRpb25zIjpbIm5vY2F0YWxvZyJdfQ==/manifest.json"
-    },
-    "webstreamr": {
-      "transportUrl": "https://webstreamr.hayd.uk/%7B%22en%22%3A%22on%22%2C%22it%22%3A%22on%22%2C%22excludeExternalUrls%22%3A%22on%22%7D/manifest.json"
-    },
-    "subhero": {
-      "transportUrl": "https://subhero.onrender.com/%7B%22language%22%3A%22it%22%7D/manifest.json"
-    },
-    "subsource": {
-      "transportUrl": "https://subsource.strem.top/aXRhbGlhbi9oaUV4Y2x1ZGUv/manifest.json"
-    },
-    "opensubtitlesv3pro": {
-      "transportUrl": "https://opensubtitlesv3-pro.dexter21767.com/eyJsYW5ncyI6WyJpdGFsaWFuIl0sInNvdXJjZSI6ImFsbCIsImFpVHJhbnNsYXRlZCI6ZmFsc2UsImF1dG9BZGp1c3RtZW50Ijp0cnVlfQ==/manifest.json"
-    }
-  },
-  "de": {
-    "torrentio": {
-      "transportUrl": "https://torrentio.strem.fun/providers=yts,eztv,rarbg,1337x,thepiratebay,kickasstorrents,torrentgalaxy,magnetdl,horriblesubs,nyaasi,tokyotosho,anidex|language=german|qualityfilter=threed,{{it.no4k}}scr,cam,unknown|limit=10{{it.transportUrl}}/manifest.json"
-    },
-    "comet": {
-      "transportUrl": "https://comet.elfhosted.com/eyJtYXhSZXN1bHRzUGVyUmVzb2x1dGlvbiI6MTAsIm1heFNpemUiOjAsImNhY2hlZE9ubHkiOmZhbHNlLCJyZW1vdmVUcmFzaCI6dHJ1ZSwicmVzdWx0Rm9ybWF0IjpbImFsbCJdLCJkZWJyaWRTZXJ2aWNlIjoidG9ycmVudCIsImRlYnJpZEFwaUtleSI6IiIsImRlYnJpZFN0cmVhbVByb3h5UGFzc3dvcmQiOiIiLCJsYW5ndWFnZXMiOnsicmVxdWlyZWQiOltdLCJleGNsdWRlIjpbXSwicHJlZmVycmVkIjpbImRlIl19LCJyZXNvbHV0aW9ucyI6eyJyMzYwcCI6ZmFsc2UsInVua25vd24iOmZhbHNlfSwib3B0aW9ucyI6eyJyZW1vdmVfcmFua3NfdW5kZXIiOi0xMDAwMDAwMDAwMCwiYWxsb3dfZW5nbGlzaF9pbl9sYW5ndWFnZXMiOmZhbHNlLCJyZW1vdmVfdW5rbm93bl9sYW5ndWFnZXMiOmZhbHNlfX0=/manifest.json"
-    },
-    "jackettio": {
-      "transportUrl": "https://jackettio.elfhosted.com/eyJtYXhUb3JyZW50cyI6OCwicHJpb3RpemVQYWNrVG9ycmVudHMiOjIsImV4Y2x1ZGVLZXl3b3JkcyI6WyJjYW0iLCJzY3JlZW5lciJdLCJkZWJyaWRJZCI6IiIsImhpZGVVbmNhY2hlZCI6ZmFsc2UsInNvcnRDYWNoZWQiOltbInF1YWxpdHkiLHRydWVdLFsic2l6ZSIsdHJ1ZV1dLCJzb3J0VW5jYWNoZWQiOltbInF1YWxpdHkiLHRydWVdLFsic2VlZGVycyIsdHJ1ZV1dLCJmb3JjZUNhY2hlTmV4dEVwaXNvZGUiOmZhbHNlLCJwcmlvdGl6ZUxhbmd1YWdlcyI6WyJnZXJtYW4iXSwiaW5kZXhlclRpbWVvdXRTZWMiOjYwLCJtZXRhTGFuZ3VhZ2UiOiIiLCJlbmFibGVNZWRpYUZsb3ciOmZhbHNlLCJtZWRpYWZsb3dQcm94eVVybCI6IiIsIm1lZGlhZmxvd0FwaVBhc3N3b3JkIjoiIiwibWVkaWFmbG93UHVibGljSXAiOiIiLCJ1c2VTdHJlbVRocnUiOnRydWUsInN0cmVtdGhydVVybCI6Imh0dHA6Ly9lbGZob3N0ZWQtaW50ZXJuYWwuc3RyZW10aHJ1IiwicXVhbGl0aWVzIjpbNDgwLDcyMCwxMDgwLDIxNjBdLCJpbmRleGVycyI6WyJiaXRzZWFyY2giLCJlenR2IiwidGhlcGlyYXRlYmF5IiwidGhlcmFyYmciLCJ5dHMiXSwiZGVicmlkQXBpS2V5IjoiIn0=/manifest.json"
-    },
-    "webstreamr": {
-      "transportUrl": "https://webstreamr.hayd.uk/%7B%22de%22%3A%22on%22%2C%22en%22%3A%22on%22%2C%22excludeExternalUrls%22%3A%22on%22%7D/manifest.json"
-    },
-    "subhero": {
-      "transportUrl": "https://subhero.onrender.com/%7B%22language%22%3A%22de%22%7D/manifest.json"
-    },
-    "subsource": {
-      "transportUrl": "https://subsource.strem.top/Z2VybWFuL2hpRXhjbHVkZS8=/manifest.json"
-    },
-    "opensubtitlesv3pro": {
-      "transportUrl": "https://opensubtitlesv3-pro.dexter21767.com/eyJsYW5ncyI6WyJnZXJtYW4iXSwic291cmNlIjoiYWxsIiwiYWlUcmFuc2xhdGVkIjpmYWxzZSwiYXV0b0FkanVzdG1lbnQiOnRydWV9/manifest.json"
-    }
-  },
-  "factory": {
-    "cinemeta": {
-      "transportUrl": "https://v3-cinemeta.strem.io/manifest.json",
-      "transportName": "http",
-      "manifest": {
-        "id": "com.linvo.cinemeta",
-        "version": "3.0.13",
-        "description": "The official addon for movie and series catalogs",
-        "name": "Cinemeta",
-        "resources": ["catalog", "meta", "addon_catalog"],
-        "types": ["movie", "series"],
-        "idPrefixes": ["tt"],
-        "addonCatalogs": [
-          {
-            "type": "all",
-            "id": "official",
-            "name": "Official"
-          },
-          {
-            "type": "movie",
-            "id": "official",
-            "name": "Official"
-          },
-          {
-            "type": "series",
-            "id": "official",
-            "name": "Official"
-          },
-          {
-            "type": "channel",
-            "id": "official",
-            "name": "Official"
-          },
-          {
-            "type": "all",
-            "id": "community",
-            "name": "Community"
-          },
-          {
-            "type": "movie",
-            "id": "community",
-            "name": "Community"
-          },
-          {
-            "type": "series",
-            "id": "community",
-            "name": "Community"
-          },
-          {
-            "type": "channel",
-            "id": "community",
-            "name": "Community"
-          },
-          {
-            "type": "tv",
-            "id": "community",
-            "name": "Community"
-          },
-          {
-            "type": "Podcasts",
-            "id": "community",
-            "name": "Community"
-          },
-          {
-            "type": "other",
-            "id": "community",
-            "name": "Community"
-          }
-        ],
-        "catalogs": [
-          {
-            "type": "movie",
-            "id": "top",
-            "genres": [
-              "Action",
-              "Adventure",
-              "Animation",
-              "Biography",
-              "Comedy",
-              "Crime",
-              "Documentary",
-              "Drama",
-              "Family",
-              "Fantasy",
-              "History",
-              "Horror",
-              "Mystery",
-              "Romance",
-              "Sci-Fi",
-              "Sport",
-              "Thriller",
-              "War",
-              "Western"
-            ],
-            "extra": [
-              {
-                "name": "genre",
-                "options": [
-                  "Action",
-                  "Adventure",
-                  "Animation",
-                  "Biography",
-                  "Comedy",
-                  "Crime",
-                  "Documentary",
-                  "Drama",
-                  "Family",
-                  "Fantasy",
-                  "History",
-                  "Horror",
-                  "Mystery",
-                  "Romance",
-                  "Sci-Fi",
-                  "Sport",
-                  "Thriller",
-                  "War",
-                  "Western"
-                ]
-              },
-              {
-                "name": "search"
-              },
-              {
-                "name": "skip"
-              }
-            ],
-            "extraSupported": ["search", "genre", "skip"],
-            "name": "Popular"
-          },
-          {
-            "type": "series",
-            "id": "top",
-            "genres": [
-              "Action",
-              "Adventure",
-              "Animation",
-              "Biography",
-              "Comedy",
-              "Crime",
-              "Documentary",
-              "Drama",
-              "Family",
-              "Fantasy",
-              "History",
-              "Horror",
-              "Mystery",
-              "Romance",
-              "Sci-Fi",
-              "Sport",
-              "Thriller",
-              "War",
-              "Western",
-              "Reality-TV",
-              "Talk-Show",
-              "Game-Show"
-            ],
-            "extra": [
-              {
-                "name": "genre",
-                "options": [
-                  "Action",
-                  "Adventure",
-                  "Animation",
-                  "Biography",
-                  "Comedy",
-                  "Crime",
-                  "Documentary",
-                  "Drama",
-                  "Family",
-                  "Fantasy",
-                  "History",
-                  "Horror",
-                  "Mystery",
-                  "Romance",
-                  "Sci-Fi",
-                  "Sport",
-                  "Thriller",
-                  "War",
-                  "Western",
-                  "Reality-TV",
-                  "Talk-Show",
-                  "Game-Show"
-                ]
-              },
-              {
-                "name": "search"
-              },
-              {
-                "name": "skip"
-              }
-            ],
-            "extraSupported": ["search", "genre", "skip"],
-            "name": "Popular"
-          },
-          {
-            "type": "movie",
-            "id": "year",
-            "genres": [
-              "2025",
-              "2024",
-              "2023",
-              "2022",
-              "2021",
-              "2020",
-              "2019",
-              "2018",
-              "2017",
-              "2016",
-              "2015",
-              "2014",
-              "2013",
-              "2012",
-              "2011",
-              "2010",
-              "2009",
-              "2008",
-              "2007",
-              "2006",
-              "2005",
-              "2004",
-              "2003",
-              "2002",
-              "2001",
-              "2000",
-              "1999",
-              "1998",
-              "1997",
-              "1996",
-              "1995",
-              "1994",
-              "1993",
-              "1992",
-              "1991",
-              "1990",
-              "1989",
-              "1988",
-              "1987",
-              "1986",
-              "1985",
-              "1984",
-              "1983",
-              "1982",
-              "1981",
-              "1980",
-              "1979",
-              "1978",
-              "1977",
-              "1976",
-              "1975",
-              "1974",
-              "1973",
-              "1972",
-              "1971",
-              "1970",
-              "1969",
-              "1968",
-              "1967",
-              "1966",
-              "1965",
-              "1964",
-              "1963",
-              "1962",
-              "1961",
-              "1960",
-              "1959",
-              "1958",
-              "1957",
-              "1956",
-              "1955",
-              "1954",
-              "1953",
-              "1952",
-              "1951",
-              "1950",
-              "1949",
-              "1948",
-              "1947",
-              "1946",
-              "1945",
-              "1944",
-              "1943",
-              "1942",
-              "1941",
-              "1940",
-              "1939",
-              "1938",
-              "1937",
-              "1936",
-              "1935",
-              "1934",
-              "1933",
-              "1932",
-              "1931",
-              "1930",
-              "1929",
-              "1928",
-              "1927",
-              "1926",
-              "1925",
-              "1924",
-              "1923",
-              "1922",
-              "1921",
-              "1920"
-            ],
-            "extra": [
-              {
-                "name": "genre",
-                "options": [
-                  "2025",
-                  "2024",
-                  "2023",
-                  "2022",
-                  "2021",
-                  "2020",
-                  "2019",
-                  "2018",
-                  "2017",
-                  "2016",
-                  "2015",
-                  "2014",
-                  "2013",
-                  "2012",
-                  "2011",
-                  "2010",
-                  "2009",
-                  "2008",
-                  "2007",
-                  "2006",
-                  "2005",
-                  "2004",
-                  "2003",
-                  "2002",
-                  "2001",
-                  "2000",
-                  "1999",
-                  "1998",
-                  "1997",
-                  "1996",
-                  "1995",
-                  "1994",
-                  "1993",
-                  "1992",
-                  "1991",
-                  "1990",
-                  "1989",
-                  "1988",
-                  "1987",
-                  "1986",
-                  "1985",
-                  "1984",
-                  "1983",
-                  "1982",
-                  "1981",
-                  "1980",
-                  "1979",
-                  "1978",
-                  "1977",
-                  "1976",
-                  "1975",
-                  "1974",
-                  "1973",
-                  "1972",
-                  "1971",
-                  "1970",
-                  "1969",
-                  "1968",
-                  "1967",
-                  "1966",
-                  "1965",
-                  "1964",
-                  "1963",
-                  "1962",
-                  "1961",
-                  "1960",
-                  "1959",
-                  "1958",
-                  "1957",
-                  "1956",
-                  "1955",
-                  "1954",
-                  "1953",
-                  "1952",
-                  "1951",
-                  "1950",
-                  "1949",
-                  "1948",
-                  "1947",
-                  "1946",
-                  "1945",
-                  "1944",
-                  "1943",
-                  "1942",
-                  "1941",
-                  "1940",
-                  "1939",
-                  "1938",
-                  "1937",
-                  "1936",
-                  "1935",
-                  "1934",
-                  "1933",
-                  "1932",
-                  "1931",
-                  "1930",
-                  "1929",
-                  "1928",
-                  "1927",
-                  "1926",
-                  "1925",
-                  "1924",
-                  "1923",
-                  "1922",
-                  "1921",
-                  "1920"
-                ],
-                "isRequired": true
-              },
-              {
-                "name": "skip"
-              }
-            ],
-            "extraSupported": ["genre", "skip"],
-            "extraRequired": ["genre"],
-            "name": "New"
-          },
-          {
-            "type": "series",
-            "id": "year",
-            "genres": [
-              "2025",
-              "2024",
-              "2023",
-              "2022",
-              "2021",
-              "2020",
-              "2019",
-              "2018",
-              "2017",
-              "2016",
-              "2015",
-              "2014",
-              "2013",
-              "2012",
-              "2011",
-              "2010",
-              "2009",
-              "2008",
-              "2007",
-              "2006",
-              "2005",
-              "2004",
-              "2003",
-              "2002",
-              "2001",
-              "2000",
-              "1999",
-              "1998",
-              "1997",
-              "1996",
-              "1995",
-              "1994",
-              "1993",
-              "1992",
-              "1991",
-              "1990",
-              "1989",
-              "1988",
-              "1987",
-              "1986",
-              "1985",
-              "1984",
-              "1983",
-              "1982",
-              "1981",
-              "1980",
-              "1979",
-              "1978",
-              "1977",
-              "1976",
-              "1975",
-              "1974",
-              "1973",
-              "1972",
-              "1971",
-              "1970",
-              "1969",
-              "1968",
-              "1967",
-              "1966",
-              "1965",
-              "1964",
-              "1963",
-              "1962",
-              "1961",
-              "1960"
-            ],
-            "extra": [
-              {
-                "name": "genre",
-                "options": [
-                  "2025",
-                  "2024",
-                  "2023",
-                  "2022",
-                  "2021",
-                  "2020",
-                  "2019",
-                  "2018",
-                  "2017",
-                  "2016",
-                  "2015",
-                  "2014",
-                  "2013",
-                  "2012",
-                  "2011",
-                  "2010",
-                  "2009",
-                  "2008",
-                  "2007",
-                  "2006",
-                  "2005",
-                  "2004",
-                  "2003",
-                  "2002",
-                  "2001",
-                  "2000",
-                  "1999",
-                  "1998",
-                  "1997",
-                  "1996",
-                  "1995",
-                  "1994",
-                  "1993",
-                  "1992",
-                  "1991",
-                  "1990",
-                  "1989",
-                  "1988",
-                  "1987",
-                  "1986",
-                  "1985",
-                  "1984",
-                  "1983",
-                  "1982",
-                  "1981",
-                  "1980",
-                  "1979",
-                  "1978",
-                  "1977",
-                  "1976",
-                  "1975",
-                  "1974",
-                  "1973",
-                  "1972",
-                  "1971",
-                  "1970",
-                  "1969",
-                  "1968",
-                  "1967",
-                  "1966",
-                  "1965",
-                  "1964",
-                  "1963",
-                  "1962",
-                  "1961",
-                  "1960"
-                ],
-                "isRequired": true
-              },
-              {
-                "name": "skip"
-              }
-            ],
-            "extraSupported": ["genre", "skip"],
-            "extraRequired": ["genre"],
-            "name": "New"
-          },
-          {
-            "type": "movie",
-            "id": "imdbRating",
-            "genres": [
-              "Action",
-              "Adventure",
-              "Animation",
-              "Biography",
-              "Comedy",
-              "Crime",
-              "Documentary",
-              "Drama",
-              "Family",
-              "Fantasy",
-              "History",
-              "Horror",
-              "Mystery",
-              "Romance",
-              "Sci-Fi",
-              "Sport",
-              "Thriller",
-              "War",
-              "Western"
-            ],
-            "extra": [
-              {
-                "name": "genre",
-                "options": [
-                  "Action",
-                  "Adventure",
-                  "Animation",
-                  "Biography",
-                  "Comedy",
-                  "Crime",
-                  "Documentary",
-                  "Drama",
-                  "Family",
-                  "Fantasy",
-                  "History",
-                  "Horror",
-                  "Mystery",
-                  "Romance",
-                  "Sci-Fi",
-                  "Sport",
-                  "Thriller",
-                  "War",
-                  "Western"
-                ]
-              },
-              {
-                "name": "skip"
-              }
-            ],
-            "extraSupported": ["genre", "skip"],
-            "name": "Featured"
-          },
-          {
-            "type": "series",
-            "id": "imdbRating",
-            "genres": [
-              "Action",
-              "Adventure",
-              "Animation",
-              "Biography",
-              "Comedy",
-              "Crime",
-              "Documentary",
-              "Drama",
-              "Family",
-              "Fantasy",
-              "History",
-              "Horror",
-              "Mystery",
-              "Romance",
-              "Sci-Fi",
-              "Sport",
-              "Thriller",
-              "War",
-              "Western",
-              "Reality-TV",
-              "Talk-Show",
-              "Game-Show"
-            ],
-            "extra": [
-              {
-                "name": "genre",
-                "options": [
-                  "Action",
-                  "Adventure",
-                  "Animation",
-                  "Biography",
-                  "Comedy",
-                  "Crime",
-                  "Documentary",
-                  "Drama",
-                  "Family",
-                  "Fantasy",
-                  "History",
-                  "Horror",
-                  "Mystery",
-                  "Romance",
-                  "Sci-Fi",
-                  "Sport",
-                  "Thriller",
-                  "War",
-                  "Western",
-                  "Reality-TV",
-                  "Talk-Show",
-                  "Game-Show"
-                ]
-              },
-              {
-                "name": "skip"
-              }
-            ],
-            "extraSupported": ["genre", "skip"],
-            "name": "Featured"
-          },
-          {
-            "type": "series",
-            "id": "last-videos",
-            "extra": [
-              {
-                "name": "lastVideosIds",
-                "isRequired": true,
-                "optionsLimit": 100
-              }
-            ],
-            "extraSupported": ["lastVideosIds"],
-            "extraRequired": ["lastVideosIds"],
-            "name": "Last videos"
-          },
-          {
-            "type": "series",
-            "id": "calendar-videos",
-            "extra": [
-              {
-                "name": "calendarVideosIds",
-                "isRequired": true,
-                "optionsLimit": 100
-              }
-            ],
-            "extraSupported": ["calendarVideosIds"],
-            "extraRequired": ["calendarVideosIds"],
-            "name": "Calendar videos"
-          }
-        ],
-        "behaviorHints": {
-          "newEpisodeNotifications": true
-        }
-      },
-      "flags": {
-        "official": true,
-        "protected": true
-      }
-    },
-    "stremiochannels": {
-      "transportUrl": "https://v3-channels.strem.io/manifest.json",
-      "transportName": "http",
-      "manifest": {
-        "id": "com.linvo.stremiochannels",
-        "version": "1.30.7",
-        "description": "Watch your favourite YouTube channels ad-free and get notified when they upload new videos.",
-        "name": "YouTube",
-        "resources": ["catalog", "meta"],
-        "types": ["channel"],
-        "idPrefixes": ["yt_id:"],
-        "catalogs": [
-          {
-            "type": "channel",
-            "id": "top",
-            "extra": [
-              {
-                "name": "search",
-                "isRequired": false
-              },
-              {
-                "name": "genre",
-                "options": [
-                  "Animation",
-                  "Automotive",
-                  "Beauty \u0026 Fashion",
-                  "Causes \u0026 Non-profits",
-                  "Comedy",
-                  "Cooking \u0026 Health",
-                  "Film \u0026 Entertainment",
-                  "From TV",
-                  "Gaming",
-                  "Lifestyle",
-                  "Music",
-                  "News \u0026 Politics",
-                  "Sports"
-                ],
-                "isRequired": false
-              },
-              {
-                "name": "skip",
-                "isRequired": false
-              }
-            ]
-          },
-          {
-            "type": "channel",
-            "id": "videos",
-            "extra": [
-              {
-                "name": "search",
-                "isRequired": true
-              }
-            ]
-          }
-        ]
-      },
-      "flags": {
-        "official": true
-      }
-    },
-    "watchhub": {
-      "transportUrl": "https://watchhub.strem.io/manifest.json",
-      "transportName": "http",
-      "manifest": {
-        "id": "org.stremio.watchhub",
-        "logo": "https://www.strem.io/images/watchhub-logo.png",
-        "version": "1.15.0",
-        "name": "WatchHub",
-        "description": "Find where to stream your favorite movies and shows amongst Netflix, iTunes, Hulu, Amazon, HBO GO and many others. Supports many countries.",
-        "resources": ["stream"],
-        "types": ["movie", "series"],
-        "catalogs": [],
-        "idPrefixes": ["tt"]
-      },
-      "flags": {
-        "official": true
-      }
-    },
-    "publicdomains": {
-      "transportUrl": "https://caching.stremio.net/publicdomainmovies.now.sh/manifest.json",
-      "transportName": "http",
-      "manifest": {
-        "id": "org.stremio.pubdomainmovies",
-        "version": "1.0.0",
-        "logo": "https://johnserv531.github.io/gh-images/1586344884.jpg",
-        "name": "Public Domain Movies",
-        "description": "Torrents for public domain movies. Includes a collection of more then 500 public domain movies.",
-        "resources": ["catalog", "stream"],
-        "types": ["movie"],
-        "catalogs": [
-          {
-            "type": "movie",
-            "id": "publicdomainmovies",
-            "extra": [
-              {
-                "name": "skip"
-              },
-              {
-                "name": "search"
-              }
-            ]
-          }
-        ],
-        "idPrefixes": ["tt"]
-      },
-      "flags": {
-        "official": true
-      }
-    },
-    "opensubtitlesv3": {
-      "transportUrl": "https://opensubtitles-v3.strem.io/manifest.json",
-      "transportName": "http",
-      "manifest": {
-        "id": "org.stremio.opensubtitlesv3",
-        "version": "1.0.0",
-        "name": "OpenSubtitles v3",
-        "description": "OpenSubtitles v3 Addon for Stremio",
-        "catalogs": [],
-        "resources": ["subtitles"],
-        "types": ["movie", "series"],
-        "idPrefixes": ["tt"],
-        "logo": "http://www.strem.io/images/addons/opensubtitles-logo.png"
-      },
-      "flags": {
-        "official": true
-      }
-    },
-    "localfiles": {
-      "transportUrl": "http://127.0.0.1:11470/local-addon/manifest.json",
-      "transportName": "http",
-      "manifest": {
-        "id": "org.stremio.local",
-        "version": "1.10.0",
-        "description": "Local add-on to find playable files: .torrent, .mp4, .mkv and .avi",
-        "name": "Local Files (without catalog support)",
-        "resources": [
-          {
-            "name": "meta",
-            "types": ["other"],
-            "idPrefixes": ["local:", "bt:"]
-          },
-          {
-            "name": "stream",
-            "types": ["movie", "series"],
-            "idPrefixes": ["tt"]
-          }
-        ],
-        "types": ["movie", "series", "other"],
-        "catalogs": []
-      },
-      "flags": {
-        "official": true,
-        "protected": true
-      }
-    }
-  },
   "mediafusionConfig": {
     "streaming_provider": null,
     "selected_catalogs": [],
@@ -2350,6 +2324,10 @@
         "mdblisturl_hulu-shows",
         "mdblisturl_hbo-shows",
         "mdblisturl_hbo-movies",
+        "mdblisturl_movies-paramount-plus",
+        "mdblisturl_cbs-all-access",
+        "mdblisturl_apple-tv-movies",
+        "mdblisturl_apple-tv",
         "mdblisturl_action",
         "mdblisturl_adventure-movies",
         "mdblisturl_animation",
@@ -2511,6 +2489,17 @@
           "mdblistSlug": "hulu-shows",
           "types": ["series"]
         },
+        "mdblisturl_hbo-movies": {
+          "id": "mdblisturl_hbo-movies",
+          "name": "Hbo Movies",
+          "hasMovies": true,
+          "hasShows": false,
+          "isMDBListUrlImport": true,
+          "mdblistId": "hbo-movies",
+          "mdblistUsername": "shaunatkins11",
+          "mdblistSlug": "hbo-movies",
+          "types": ["movie"]
+        },
         "mdblisturl_hbo-shows": {
           "id": "mdblisturl_hbo-shows",
           "name": "Hbo Shows",
@@ -2522,16 +2511,49 @@
           "mdblistSlug": "hbo-shows",
           "types": ["series"]
         },
-        "mdblisturl_hbo-movies": {
-          "id": "mdblisturl_hbo-movies",
-          "name": "Hbo Movies",
+        "mdblisturl_movies-paramount-plus": {
+          "id": "mdblisturl_movies-paramount-plus",
+          "name": "Paramount+ Movies",
           "hasMovies": true,
           "hasShows": false,
           "isMDBListUrlImport": true,
-          "mdblistId": "hbo-movies",
-          "mdblistUsername": "shaunatkins11",
-          "mdblistSlug": "hbo-movies",
+          "mdblistId": "movies-paramount-plus",
+          "mdblistUsername": "sig1878",
+          "mdblistSlug": "movies-paramount-plus",
           "types": ["movie"]
+        },
+        "mdblisturl_cbs-all-access": {
+          "id": "mdblisturl_cbs-all-access",
+          "name": "Paramount+ Shows",
+          "hasMovies": false,
+          "hasShows": true,
+          "isMDBListUrlImport": true,
+          "mdblistId": "cbs-all-access",
+          "mdblistUsername": "sig1878",
+          "mdblistSlug": "cbs-all-access",
+          "types": ["series"]
+        },
+        "mdblisturl_apple-tv-movies": {
+          "id": "mdblisturl_apple-tv-movies",
+          "name": "Apple TV+ Movies",
+          "hasMovies": true,
+          "hasShows": false,
+          "isMDBListUrlImport": true,
+          "mdblistId": "apple-tv-movies",
+          "mdblistUsername": "slimshizn",
+          "mdblistSlug": "apple-tv-movies",
+          "types": ["movie"]
+        },
+        "mdblisturl_apple-tv": {
+          "id": "mdblisturl_apple-tv",
+          "name": "Apple TV+ Shows",
+          "hasMovies": false,
+          "hasShows": true,
+          "isMDBListUrlImport": true,
+          "mdblistId": "apple-tv",
+          "mdblistUsername": "adamosborne01",
+          "mdblistSlug": "apple-tv",
+          "types": ["series"]
         },
         "mdblisturl_action": {
           "id": "mdblisturl_action",
@@ -2645,7 +2667,7 @@
         },
         "mdblisturl_sci-fi": {
           "id": "mdblisturl_sci-fi",
-          "name": "Sci Fi",
+          "name": "Sci-Fi",
           "hasMovies": true,
           "hasShows": false,
           "isMDBListUrlImport": true,
@@ -2739,29 +2761,38 @@
         "latest-digital-releases": { "sort": "released", "order": "desc" },
         "top-movies-of-the-week": { "sort": "released", "order": "desc" },
         "netflix-movies": { "sort": "released", "order": "desc" },
+        "netflix-shows": { "sort": "released", "order": "desc" },
         "amazon-prime-shows": { "sort": "released", "order": "desc" },
         "amazon-prime-movies": { "sort": "released", "order": "desc" },
         "disney-movies": { "sort": "released", "order": "desc" },
-        "netflix-shows": { "sort": "released", "order": "desc" },
         "disney-shows": { "sort": "released", "order": "desc" },
         "hulu-movies": { "sort": "released", "order": "desc" },
         "hulu-shows": { "sort": "released", "order": "desc" },
-        "hbo-shows": { "sort": "released", "order": "desc" },
         "hbo-movies": { "sort": "released", "order": "desc" },
+        "hbo-shows": { "sort": "released", "order": "desc" },
+        "movies-paramount-plus": {
+          "sort": "released",
+          "order": "desc"
+        },
+        "cbs-all-access": { "sort": "released", "order": "desc" },
+        "apple-tv-movies": { "sort": "released", "order": "desc" },
+        "apple-tv": { "sort": "released", "order": "desc" },
         "action": { "sort": "released", "order": "desc" },
         "adventure-movies": { "sort": "released", "order": "desc" },
         "animation": { "sort": "released", "order": "desc" },
         "comedy": { "sort": "released", "order": "desc" },
         "crime": { "sort": "released", "order": "desc" },
+        "documentary": { "sort": "released", "order": "desc" },
         "drama": { "sort": "released", "order": "desc" },
+        "family-movies": { "sort": "released", "order": "desc" },
         "fantasy-movies": { "sort": "released", "order": "desc" },
+        "history": { "sort": "released", "order": "desc" },
         "horror": { "sort": "released", "order": "desc" },
         "mystery-movies": { "sort": "released", "order": "desc" },
         "romance": { "sort": "released", "order": "desc" },
         "sci-fi": { "sort": "released", "order": "desc" },
         "thriller": { "sort": "released", "order": "desc" },
-        "documentary": { "sort": "released", "order": "desc" },
-        "family-movies": { "sort": "released", "order": "desc" }
+        "war": { "sort": "released", "order": "desc" }
       },
       "disableGenreFilter": true,
       "enableRandomListFeature": false,
@@ -2799,6 +2830,10 @@
         "mdblisturl_hulu-shows": "Hulu Series",
         "mdblisturl_hbo-movies": "HBO Películas",
         "mdblisturl_hbo-shows": "HBO Series",
+        "mdblisturl_movies-paramount-plus": "Paramount+ Películas",
+        "mdblisturl_cbs-all-access": "Paramount+ Series",
+        "mdblisturl_apple-tv-movies": "Apple TV+ Películas",
+        "mdblisturl_apple-tv": "Apple TV+ Series",
         "mdblisturl_action": "Acción",
         "mdblisturl_animation": "Animación",
         "mdblisturl_adventure-movies": "Aventura",
@@ -2834,6 +2869,10 @@
         "mdblisturl_hulu-shows": "Hulu Series",
         "mdblisturl_hbo-movies": "HBO Películas",
         "mdblisturl_hbo-shows": "HBO Series",
+        "mdblisturl_movies-paramount-plus": "Paramount+ Películas",
+        "mdblisturl_cbs-all-access": "Paramount+ Series",
+        "mdblisturl_apple-tv-movies": "Apple TV+ Películas",
+        "mdblisturl_apple-tv": "Apple TV+ Series",
         "mdblisturl_action": "Acción",
         "mdblisturl_animation": "Animación",
         "mdblisturl_adventure-movies": "Aventura",
@@ -2869,6 +2908,10 @@
         "mdblisturl_hulu-shows": "Hulu Séries",
         "mdblisturl_hbo-movies": "HBO Filmes",
         "mdblisturl_hbo-shows": "HBO Séries",
+        "mdblisturl_movies-paramount-plus": "Paramount+ Filmes",
+        "mdblisturl_cbs-all-access": "Paramount+ Séries",
+        "mdblisturl_apple-tv-movies": "Apple TV+ Filmes",
+        "mdblisturl_apple-tv": "Apple TV+ Séries",
         "mdblisturl_action": "Ação",
         "mdblisturl_animation": "Animação",
         "mdblisturl_adventure-movies": "Aventura",
@@ -2904,6 +2947,10 @@
         "mdblisturl_hulu-shows": "Hulu Séries",
         "mdblisturl_hbo-movies": "HBO Films",
         "mdblisturl_hbo-shows": "HBO Séries",
+        "mdblisturl_movies-paramount-plus": "Paramount+ Films",
+        "mdblisturl_cbs-all-access": "Paramount+ Séries",
+        "mdblisturl_apple-tv-movies": "Apple TV+ Films",
+        "mdblisturl_apple-tv": "Apple TV+ Séries",
         "mdblisturl_action": "Action",
         "mdblisturl_animation": "Animation",
         "mdblisturl_adventure-movies": "Aventure",
@@ -2939,6 +2986,10 @@
         "mdblisturl_hulu-shows": "Hulu Serie",
         "mdblisturl_hbo-movies": "HBO Film",
         "mdblisturl_hbo-shows": "HBO Serie",
+        "mdblisturl_movies-paramount-plus": "Paramount+ Film",
+        "mdblisturl_cbs-all-access": "Paramount+ Serie",
+        "mdblisturl_apple-tv-movies": "Apple TV+ Film",
+        "mdblisturl_apple-tv": "Apple TV+ Serie",
         "mdblisturl_action": "Azione",
         "mdblisturl_animation": "Animazione",
         "mdblisturl_adventure-movies": "Avventura",
@@ -2974,6 +3025,10 @@
         "mdblisturl_hulu-shows": "Hulu Serien",
         "mdblisturl_hbo-movies": "HBO Filme",
         "mdblisturl_hbo-shows": "HBO Serien",
+        "mdblisturl_movies-paramount-plus": "Paramount+ Filme",
+        "mdblisturl_cbs-all-access": "Paramount+ Serien",
+        "mdblisturl_apple-tv-movies": "Apple TV+ Filme",
+        "mdblisturl_apple-tv": "Apple TV+ Serien",
         "mdblisturl_action": "Action",
         "mdblisturl_animation": "Animation",
         "mdblisturl_adventure-movies": "Abenteuer",

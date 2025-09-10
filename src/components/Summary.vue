@@ -45,6 +45,10 @@ const { t } = useI18n();
           <p>ThePirateBay+</p>
         </div>
         <div class="col-2 text-center">
+          <img src="/public/logos/autostream.png" alt="AutoStream" />
+          <p>AutoStream</p>
+        </div>
+        <div class="col-2 text-center">
           <img src="/public/logos/nuvio.png" alt="Nuvio Streams" />
           <p>Nuvio Streams</p>
         </div>
@@ -56,12 +60,12 @@ const { t } = useI18n();
           <img src="/public/logos/aiolists.png" alt="AIOLists" />
           <p>AIOLists</p>
         </div>
+      </div>
+      <div class="row">
         <div class="col-2 text-center">
           <img src="/public/logos/cinemeta.png" alt="Cinemeta" />
           <p>Cinemeta</p>
         </div>
-      </div>
-      <div class="row">
         <div class="col-2 text-center">
           <img src="/public/logos/subhero.png" alt="SubHero" />
           <p>SubHero</p>
@@ -69,13 +73,6 @@ const { t } = useI18n();
         <div class="col-2 text-center">
           <img src="/public/logos/subsource.png" alt="SubSource" />
           <p>SubSource</p>
-        </div>
-        <div class="col-2 text-center">
-          <img
-            src="/public/logos/opensubtitlespro.png"
-            alt="OpenSubtitles Pro"
-          />
-          <p>OpenSubtitles Pro</p>
         </div>
         <div class="col-2 text-center">
           <img src="/public/logos/opensubtitles.png" alt="OpenSubtitles v3" />
@@ -114,13 +111,14 @@ const { t } = useI18n();
       <li v-html="t('instructions_1')"></li>
       <li>{{ t('instructions_2') }}</li>
       <li v-html="t('instructions_3')"></li>
-      <li v-html="t('instructions_4')"></li>
-      <li>{{ t('instructions_5') }}</li>
-      <li v-html="t('instructions_6')"></li>
-      <li>{{ t('instructions_7') }}</li>
+      <li>{{ t('instructions_4') }}</li>
+      <li v-html="t('instructions_5')"></li>
+      <li>{{ t('instructions_6') }}</li>
+      <li v-html="t('instructions_7')"></li>
       <li>{{ t('instructions_8') }}</li>
       <li>{{ t('instructions_9') }}</li>
       <li>{{ t('instructions_10') }}</li>
+      <li>{{ t('instructions_11') }}</li>
     </ol>
     <p class="text-center" v-html="t('warning')"></p>
     <p>

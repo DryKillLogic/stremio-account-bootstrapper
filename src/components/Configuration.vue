@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { Buffer } from 'buffer';
 import draggable from 'vuedraggable';
@@ -21,6 +21,7 @@ let extras = ref([]);
 let options = ref([]);
 let isSyncButtonEnabled = ref(false);
 let language = ref('en');
+let preset = ref('standard');
 
 const debridServiceInfo = {
   realdebrid: {
@@ -72,7 +73,7 @@ function loadUserAddons() {
   fetch('/preset.json')
     .then((resp) => {
       resp.json().then(async (data) => {
-        if (!data.addons) {
+        if (!data) {
           console.error('Failed to fetch presets: ', data);
           alert(t('failed_fetching_presets'));
           return;
@@ -88,14 +89,13 @@ function loadUserAddons() {
         const mediaFusionConfig = data.mediafusionConfig;
         const aiolistsConfig = data.aiolistsConfig;
 
-        // Set addons config based on language
-        if (language.value === 'factory') {
-          presetConfig = data.factory;
-        } else if (language.value === 'en') {
-          presetConfig = data.addons;
-        } else {
-          presetConfig = _.merge({}, data.addons, data[language.value]);
-        }
+        // Get preset config
+        presetConfig = _.pick(
+          language.value === 'en'
+            ? data.languages[language.value]
+            : _.merge({}, data.languages.en, data.languages[language.value]),
+          data.presets[preset.value]
+        );
 
         // Set additional addons
         if (extras.value.length > 0) {
@@ -112,8 +112,6 @@ function loadUserAddons() {
 
         // Set AIOLists options
         aiolistsConfig.config.tmdbLanguage = language.value;
-
-        // Set language lists
         aiolistsConfig.config = _.merge(
           {},
           aiolistsConfig.config,
@@ -126,31 +124,34 @@ function loadUserAddons() {
           aiolistsConfig.config.isConnected.rpdb = true;
         }
 
-        try {
-          const encryptedAIOListsUserData = await encryptUserData(
-            'https://aiolists.elfhosted.com/api/config/create',
-            aiolistsConfig
-          );
-
-          if (encryptedAIOListsUserData.success) {
-            presetConfig.aiolists.transportUrl = `https://aiolists.elfhosted.com/${encryptedAIOListsUserData.configHash}/manifest.json`;
-
-            const manifestAIOListsUserData = await fetchUserData(
-              presetConfig.aiolists.transportUrl
+        // AIOLists request
+        if (presetConfig.aiolists) {
+          try {
+            const encryptedAIOListsUserData = await encryptUserData(
+              'https://aiolists.elfhosted.com/api/config/create',
+              aiolistsConfig
             );
 
-            if (manifestAIOListsUserData) {
-              presetConfig.aiolists.manifest = manifestAIOListsUserData;
+            if (encryptedAIOListsUserData.success) {
+              presetConfig.aiolists.transportUrl = `https://aiolists.elfhosted.com/${encryptedAIOListsUserData.configHash}/manifest.json`;
+
+              const manifestAIOListsUserData = await fetchUserData(
+                presetConfig.aiolists.transportUrl
+              );
+
+              if (manifestAIOListsUserData) {
+                presetConfig.aiolists.manifest = manifestAIOListsUserData;
+              } else {
+                presetConfig = _.omit(presetConfig, 'aiolists');
+                console.log('Error fetching AIOLists user manifest.');
+              }
             } else {
               presetConfig = _.omit(presetConfig, 'aiolists');
-              console.log('Error fetching AIOLists user manifest.');
+              console.log('Error fetching AIOLists encrypted user data.');
             }
-          } else {
-            presetConfig = _.omit(presetConfig, 'aiolists');
-            console.log('Error fetching AIOLists encrypted user data.');
+          } catch (error) {
+            console.error('An error occurred:', error);
           }
-        } catch (error) {
-          console.error('An error occurred:', error);
         }
 
         // Set options for debrid
@@ -158,74 +159,86 @@ function loadUserAddons() {
           debridServiceName = debridServiceInfo[debridService.value].name;
 
           // Torrentio
-          torrentioConfig = `|sort=qualitysize|debridoptions=${cached ? 'nodownloadlinks,' : ''}nocatalog|${debridService.value}=${debridApiKey.value}`;
+          if (presetConfig.torrentio) {
+            torrentioConfig = `|sort=qualitysize|debridoptions=${cached ? 'nodownloadlinks,' : ''}nocatalog|${debridService.value}=${debridApiKey.value}`;
+          }
 
           // Comet
-          cometTransportUrl = getDataTransportUrl(
-            presetConfig.comet.transportUrl
-          );
-          presetConfig.comet.manifest.name += ` | ${debridServiceName}`;
-          presetConfig.comet.transportUrl = getUrlTransportUrl(
-            cometTransportUrl,
-            {
-              ...cometTransportUrl.data,
-              debridApiKey: debridApiKey.value,
-              debridService: debridService.value,
-              cachedOnly: cached
-            }
-          );
+          if (presetConfig.comet) {
+            cometTransportUrl = getDataTransportUrl(
+              presetConfig.comet.transportUrl
+            );
+            presetConfig.comet.manifest.name += ` | ${debridServiceName}`;
+            presetConfig.comet.transportUrl = getUrlTransportUrl(
+              cometTransportUrl,
+              {
+                ...cometTransportUrl.data,
+                debridApiKey: debridApiKey.value,
+                debridService: debridService.value,
+                cachedOnly: cached
+              }
+            );
+          }
 
           // MediaFusion
-          presetConfig.mediafusion.manifest.name += ` | ${debridServiceName}`;
-          mediaFusionConfig.streaming_provider = {
-            service: debridService.value,
-            token: debridApiKey.value,
-            enable_watchlist_catalogs: false,
-            download_via_browser: false,
-            only_show_cached_streams: cached
-          };
+          if (presetConfig.mediafusion) {
+            presetConfig.mediafusion.manifest.name += ` | ${debridServiceName}`;
+            mediaFusionConfig.streaming_provider = {
+              service: debridService.value,
+              token: debridApiKey.value,
+              enable_watchlist_catalogs: false,
+              download_via_browser: false,
+              only_show_cached_streams: cached
+            };
+          }
 
           // TorrentsDB
-          torrentsdbTransportUrl = getDataTransportUrl(
-            presetConfig.torrentsdb.transportUrl
-          );
-          presetConfig.torrentsdb.manifest.name += ` | ${debridServiceName}`;
-          presetConfig.torrentsdb.transportUrl = getUrlTransportUrl(
-            torrentsdbTransportUrl,
-            {
-              ...torrentsdbTransportUrl.data,
-              sort: 'qualitysize',
-              [debridService.value]: debridApiKey.value
-            }
-          );
+          if (presetConfig.torrentsdb) {
+            torrentsdbTransportUrl = getDataTransportUrl(
+              presetConfig.torrentsdb.transportUrl
+            );
+            presetConfig.torrentsdb.manifest.name += ` | ${debridServiceName}`;
+            presetConfig.torrentsdb.transportUrl = getUrlTransportUrl(
+              torrentsdbTransportUrl,
+              {
+                ...torrentsdbTransportUrl.data,
+                sort: 'qualitysize',
+                [debridService.value]: debridApiKey.value
+              }
+            );
+          }
 
           // Jackettio
-          jackettioTransportUrl = getDataTransportUrl(
-            presetConfig.jackettio.transportUrl
-          );
-          presetConfig.jackettio.manifest.name += ` | ${debridServiceName}`;
-          presetConfig.jackettio.transportUrl = getUrlTransportUrl(
-            jackettioTransportUrl,
-            {
-              ...jackettioTransportUrl.data,
-              debridApiKey: debridApiKey.value,
-              debridId: debridService.value,
-              hideUncached: cached,
-              qualities: no4k
-                ? _.pull(jackettioTransportUrl.data.qualities, 2160)
-                : jackettioTransportUrl.data.qualities
-            }
-          );
+          if (presetConfig.jackettio) {
+            jackettioTransportUrl = getDataTransportUrl(
+              presetConfig.jackettio.transportUrl
+            );
+            presetConfig.jackettio.manifest.name += ` | ${debridServiceName}`;
+            presetConfig.jackettio.transportUrl = getUrlTransportUrl(
+              jackettioTransportUrl,
+              {
+                ...jackettioTransportUrl.data,
+                debridApiKey: debridApiKey.value,
+                debridId: debridService.value,
+                hideUncached: cached,
+                qualities: no4k
+                  ? _.pull(jackettioTransportUrl.data.qualities, 2160)
+                  : jackettioTransportUrl.data.qualities
+              }
+            );
+          }
 
           // Peerflix
-          if (debridService.value !== 'easydebrid') {
-            peerflixConfig = `%7Cdebridoptions=nocatalog${cached ? ',nodownloadlinks' : ''}%7C${debridService.value}=${debridApiKey.value}`;
-          } else {
-            presetConfig = _.omit(presetConfig, 'peerflix');
+          if (presetConfig.peerflix) {
+            if (debridService.value !== 'easydebrid') {
+              peerflixConfig = `%7Cdebridoptions=nocatalog${cached ? ',nodownloadlinks' : ''}%7C${debridService.value}=${debridApiKey.value}`;
+            } else {
+              presetConfig = _.omit(presetConfig, 'peerflix');
+            }
           }
 
           // Torbox
-          if (debridService.value === 'torbox') {
+          if (debridService.value === 'torbox' && presetConfig.torbox) {
             presetConfig.torbox.transportUrl = Sqrl.render(
               presetConfig.torbox.transportUrl,
               { transportUrl: debridApiKey.value }
@@ -234,8 +247,26 @@ function loadUserAddons() {
             presetConfig = _.omit(presetConfig, 'torbox');
           }
 
+          // AutoStream
+          if (presetConfig.autostream) {
+            const autostreamDebridService = {
+              realdebrid: 'rd',
+              alldebrid: 'ad',
+              premiumize: 'pm',
+              torbox: 'tb'
+            };
+
+            presetConfig.autostream.transportUrl = Sqrl.render(
+              presetConfig.autostream.transportUrl,
+              {
+                transportUrl: `&${autostreamDebridService[debridService.value]}=${debridApiKey.value}`
+              },
+              { autoEscape: false }
+            );
+          }
+
           // StreamAsia
-          if (debridService.value !== 'easydebrid' && presetConfig.streamasia) {
+          if (presetConfig.streamasia && debridService.value !== 'easydebrid') {
             const streamAsiaDebridService = {
               realdebrid: 'Real Debrid',
               alldebrid: 'AllDebrid',
@@ -273,32 +304,34 @@ function loadUserAddons() {
         }
 
         // Set stream addons options
-        if (language.value !== 'factory') {
+        if (presetConfig.torrentio) {
           // Torrentio
           presetConfig.torrentio.transportUrl = Sqrl.render(
             presetConfig.torrentio.transportUrl,
             { transportUrl: torrentioConfig, no4k: no4k ? '4k,' : '' }
           );
           presetConfig.torrentio.manifest.name += ` ${debridServiceName}`;
+        }
 
-          // Comet
-          if (no4k) {
-            cometTransportUrl = getDataTransportUrl(
-              presetConfig.comet.transportUrl
-            );
-            presetConfig.comet.transportUrl = getUrlTransportUrl(
-              cometTransportUrl,
-              {
-                ...cometTransportUrl.data,
-                resolutions: {
-                  ...cometTransportUrl.data.resolutions,
-                  r2160p: false
-                }
+        // Comet
+        if (presetConfig.comet && no4k) {
+          cometTransportUrl = getDataTransportUrl(
+            presetConfig.comet.transportUrl
+          );
+          presetConfig.comet.transportUrl = getUrlTransportUrl(
+            cometTransportUrl,
+            {
+              ...cometTransportUrl.data,
+              resolutions: {
+                ...cometTransportUrl.data.resolutions,
+                r2160p: false
               }
-            );
-          }
+            }
+          );
+        }
 
-          // MediaFusion
+        // MediaFusion
+        if (presetConfig.mediafusion) {
           if (no4k) {
             _.pull(
               mediaFusionConfig.selected_resolutions,
@@ -338,29 +371,31 @@ function loadUserAddons() {
             presetConfig = _.omit(presetConfig, 'mediafusion');
             console.log('Error fetching MediaFusion encrypted user data.');
           }
+        }
 
-          // TorrentsDB
-          if (no4k) {
-            torrentsdbTransportUrl = getDataTransportUrl(
-              presetConfig.torrentsdb.transportUrl
-            );
-            presetConfig.torrentsdb.transportUrl = getUrlTransportUrl(
-              torrentsdbTransportUrl,
-              {
-                ...torrentsdbTransportUrl.data,
-                qualityfilter: [
-                  ...torrentsdbTransportUrl.data.qualityfilter,
-                  '4k',
-                  'brremux',
-                  'hdrall',
-                  'dolbyvisionwithhdr',
-                  'dolbyvision'
-                ]
-              }
-            );
-          }
+        // TorrentsDB
+        if (presetConfig.torrentsdb && no4k) {
+          torrentsdbTransportUrl = getDataTransportUrl(
+            presetConfig.torrentsdb.transportUrl
+          );
+          presetConfig.torrentsdb.transportUrl = getUrlTransportUrl(
+            torrentsdbTransportUrl,
+            {
+              ...torrentsdbTransportUrl.data,
+              qualityfilter: [
+                ...torrentsdbTransportUrl.data.qualityfilter,
+                '4k',
+                'brremux',
+                'hdrall',
+                'dolbyvisionwithhdr',
+                'dolbyvision'
+              ]
+            }
+          );
+        }
 
-          // Peerflix
+        // Peerflix
+        if (presetConfig.peerflix) {
           if (
             debridService.value !== '' &&
             debridService.value !== 'easydebrid'
@@ -375,6 +410,17 @@ function loadUserAddons() {
             );
             presetConfig.peerflix.manifest.name += ` ${debridServiceName}`;
           }
+        }
+
+        // AutoStream
+        if (presetConfig.autostream && no4k) {
+          presetConfig.autostream.transportUrl += '%2C4K';
+          presetConfig.autostream.transportUrl = Sqrl.render(
+            presetConfig.autostream.transportUrl,
+            {
+              transportUrl: ''
+            }
+          );
         }
 
         // Create addons list
@@ -394,6 +440,16 @@ function loadUserAddons() {
       isSyncButtonEnabled.value = true;
     });
 }
+
+// Disable minimal preset if debridlink or easydebrid is selected
+watch(debridService, (newVal) => {
+  if (
+    ['debridlink', 'easydebrid'].includes(newVal) &&
+    preset.value === 'minimal'
+  ) {
+    preset.value = 'standard';
+  }
+});
 
 function syncUserAddons() {
   const key = props.stremioAuthKey;
@@ -540,6 +596,35 @@ async function encryptUserData(endpoint, data) {
       <fieldset id="form_step1">
         <legend>{{ $t('step1_select_preset') }}</legend>
         <div>
+          <!--
+            // Removed until AutoStreams stops using torrents when a debrid service is set
+            <label>
+            <input
+              type="radio"
+              value="minimal"
+              v-model="preset"
+              :disabled="['debridlink', 'easydebrid'].includes(debridService)"
+            />
+            {{ $t('minimal') }}
+            </label>
+            -->
+          <label>
+            <input type="radio" value="standard" v-model="preset" />
+            {{ $t('standard') }}
+          </label>
+          <label>
+            <input type="radio" value="full" v-model="preset" />
+            {{ $t('full') }}
+          </label>
+          <label>
+            <input type="radio" value="factory" v-model="preset" />
+            {{ $t('factory') }}
+          </label>
+        </div>
+      </fieldset>
+      <fieldset id="form_step2">
+        <legend>{{ $t('step2_select_language') }}</legend>
+        <div>
           <label>
             <input type="radio" value="en" v-model="language" />
             🇺🇸 {{ $t('english') }}
@@ -568,14 +653,10 @@ async function encryptUserData(endpoint, data) {
             <input type="radio" value="de" v-model="language" />
             🇩🇪 {{ $t('german') }}
           </label>
-          <label>
-            <input type="radio" value="factory" v-model="language" />
-            🏭 {{ $t('factory') }}
-          </label>
         </div>
       </fieldset>
-      <fieldset id="form_step2">
-        <legend>{{ $t('step2_debrid_api_key') }} <a href="#faq">(?)</a></legend>
+      <fieldset id="form_step3">
+        <legend>{{ $t('step3_debrid_api_key') }} <a href="#faq">(?)</a></legend>
         <div>
           <label>
             <input
@@ -639,8 +720,8 @@ async function encryptUserData(endpoint, data) {
           </label>
         </div>
       </fieldset>
-      <fieldset id="form_step3">
-        <legend>{{ $t('step3_additional_addons') }}</legend>
+      <fieldset id="form_step4">
+        <legend>{{ $t('step4_additional_addons') }}</legend>
         <div>
           <label>
             <input type="checkbox" value="kitsu" v-model="extras" />
@@ -660,8 +741,8 @@ async function encryptUserData(endpoint, data) {
           </label>
         </div>
       </fieldset>
-      <fieldset id="form_step4">
-        <legend>{{ $t('step4_additional_options') }}</legend>
+      <fieldset id="form_step5">
+        <legend>{{ $t('step5_additional_options') }}</legend>
         <div>
           <label>
             <input type="checkbox" value="no4k" v-model="options" />
@@ -678,9 +759,9 @@ async function encryptUserData(endpoint, data) {
           </label>
         </div>
       </fieldset>
-      <fieldset id="form_step5">
+      <fieldset id="form_step6">
         <legend>
-          {{ $t('step5_rpdb_key') }}
+          {{ $t('step6_rpdb_key') }}
           <a target="_blank" href="https://ratingposterdb.com">(?)</a>
         </legend>
         <div>
@@ -689,18 +770,18 @@ async function encryptUserData(endpoint, data) {
           </label>
         </div>
       </fieldset>
-      <fieldset id="form_step6">
-        <legend>{{ $t('step6_load_preset') }}</legend>
+      <fieldset id="form_step7">
+        <legend>{{ $t('step7_load_preset') }}</legend>
         <button
           class="button secondary"
           @click="loadUserAddons"
-          :disabled="!stremioAuthKey"
+          :disabled="!props.stremioAuthKey || !preset"
         >
           {{ $t('load_addons_preset') }}
         </button>
       </fieldset>
-      <fieldset id="form_step7">
-        <legend>{{ $t('step7_customize_addons') }}</legend>
+      <fieldset id="form_step8">
+        <legend>{{ $t('step8_customize_addons') }}</legend>
         <draggable
           :list="addons"
           item-key="transportUrl"
@@ -731,8 +812,8 @@ async function encryptUserData(endpoint, data) {
           </template>
         </draggable>
       </fieldset>
-      <fieldset id="form_step8">
-        <legend>{{ $t('step8_bootstrap_account') }}</legend>
+      <fieldset id="form_step9">
+        <legend>{{ $t('step9_bootstrap_account') }}</legend>
         <button
           type="button"
           class="button secondary icon"
@@ -740,10 +821,6 @@ async function encryptUserData(endpoint, data) {
           @click="syncUserAddons"
         >
           {{ $t('sync_to_stremio') }}
-          <img
-            src="https://icongr.am/feather/loader.svg?size=16&amp;color=ffffff"
-            alt="icon"
-          />
         </button>
       </fieldset>
     </form>
