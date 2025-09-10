@@ -2,7 +2,7 @@
   "addon_summary": "Richte dein Stremio-Konto mit nur wenigen Klicks ein.",
   "what_does_it_do_title": "Was macht es?",
   "what_does_it_do_desc": "Der Stremio Account Bootstrapper ermöglicht es dir, dein Stremio-Konto mit nur wenigen Klicks einzurichten, indem ein Preset in dein Konto übernommen wird. Praktisch für Neulinge, für diejenigen, die eine solide Grundlage für ihr Setup möchten, oder um den Prozess für neue Konten von Familienmitgliedern oder Freunden zu beschleunigen.",
-  "which_addons_title": "Welche Addons sind im Preset enthalten?",
+  "which_addons_title": "Welche Addons könnten in den Presets enthalten sein? (hängt vom ausgewählten Preset ab)",
   "instructions_title": "Anleitung",
   "instructions_1": "Melde dich mit deinen Stremio-Zugangsdaten an oder hole dir den Stremio Authkey. Wenn du dein Konto über Facebook erstellt hast, verwende bitte Letzteres <a href=\"#how\">(?)</a>. Falls du noch kein Konto hast, kannst du eines erstellen, indem du auf \"Registrieren\" klickst.",
   "instructions_2": "Erstelle ein Backup deiner aktuellen Konfiguration (empfohlen). So kannst du dein aktuelles Setup bei Bedarf wiederherstellen.",

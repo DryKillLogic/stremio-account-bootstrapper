@@ -1,5 +1,5 @@
 <script setup>
-import { ref, watch } from 'vue';
+import { ref } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { Buffer } from 'buffer';
 import draggable from 'vuedraggable';
@@ -82,12 +82,18 @@ function loadUserAddons() {
         let presetConfig = {};
         let no4k = false;
         let cached = false;
+        let limit = 10;
         let cometTransportUrl = {};
         let jackettioTransportUrl = {};
         let torrentsdbTransportUrl = {};
         let streamAsiaTransportUrl = {};
         const mediaFusionConfig = data.mediafusionConfig;
         const aiolistsConfig = data.aiolistsConfig;
+
+        // Set additional addons based on language selection
+        if (language.value === 'es-mx') {
+          data.presets[preset.value].push('subdivx');
+        }
 
         // Get preset config
         presetConfig = _.pick(
@@ -109,6 +115,7 @@ function loadUserAddons() {
         // Set additional options
         no4k = options.value.includes('no4k');
         cached = options.value.includes('cached');
+        limit = (preset.value === 'minimal' && 2) || limit;
 
         // Set AIOLists options
         aiolistsConfig.config.tmdbLanguage = language.value;
@@ -247,24 +254,6 @@ function loadUserAddons() {
             presetConfig = _.omit(presetConfig, 'torbox');
           }
 
-          // AutoStream
-          if (presetConfig.autostream) {
-            const autostreamDebridService = {
-              realdebrid: 'rd',
-              alldebrid: 'ad',
-              premiumize: 'pm',
-              torbox: 'tb'
-            };
-
-            presetConfig.autostream.transportUrl = Sqrl.render(
-              presetConfig.autostream.transportUrl,
-              {
-                transportUrl: `&${autostreamDebridService[debridService.value]}=${debridApiKey.value}`
-              },
-              { autoEscape: false }
-            );
-          }
-
           // StreamAsia
           if (presetConfig.streamasia && debridService.value !== 'easydebrid') {
             const streamAsiaDebridService = {
@@ -308,13 +297,17 @@ function loadUserAddons() {
           // Torrentio
           presetConfig.torrentio.transportUrl = Sqrl.render(
             presetConfig.torrentio.transportUrl,
-            { transportUrl: torrentioConfig, no4k: no4k ? '4k,' : '' }
+            {
+              transportUrl: torrentioConfig,
+              no4k: no4k ? '4k,' : '',
+              limit: limit
+            }
           );
           presetConfig.torrentio.manifest.name += ` ${debridServiceName}`;
         }
 
         // Comet
-        if (presetConfig.comet && no4k) {
+        if (presetConfig.comet) {
           cometTransportUrl = getDataTransportUrl(
             presetConfig.comet.transportUrl
           );
@@ -322,9 +315,10 @@ function loadUserAddons() {
             cometTransportUrl,
             {
               ...cometTransportUrl.data,
+              maxResultsPerResolution: limit,
               resolutions: {
                 ...cometTransportUrl.data.resolutions,
-                r2160p: false
+                r2160p: no4k ? false : true
               }
             }
           );
@@ -412,17 +406,6 @@ function loadUserAddons() {
           }
         }
 
-        // AutoStream
-        if (presetConfig.autostream && no4k) {
-          presetConfig.autostream.transportUrl += '%2C4K';
-          presetConfig.autostream.transportUrl = Sqrl.render(
-            presetConfig.autostream.transportUrl,
-            {
-              transportUrl: ''
-            }
-          );
-        }
-
         // Create addons list
         const selectedAddons = [];
 
@@ -440,16 +423,6 @@ function loadUserAddons() {
       isSyncButtonEnabled.value = true;
     });
 }
-
-// Disable minimal preset if debridlink or easydebrid is selected
-watch(debridService, (newVal) => {
-  if (
-    ['debridlink', 'easydebrid'].includes(newVal) &&
-    preset.value === 'minimal'
-  ) {
-    preset.value = 'standard';
-  }
-});
 
 function syncUserAddons() {
   const key = props.stremioAuthKey;
@@ -596,18 +569,10 @@ async function encryptUserData(endpoint, data) {
       <fieldset id="form_step1">
         <legend>{{ $t('step1_select_preset') }}</legend>
         <div>
-          <!--
-            // Removed until AutoStreams stops using torrents when a debrid service is set
-            <label>
-            <input
-              type="radio"
-              value="minimal"
-              v-model="preset"
-              :disabled="['debridlink', 'easydebrid'].includes(debridService)"
-            />
+          <label>
+            <input type="radio" value="minimal" v-model="preset" />
             {{ $t('minimal') }}
-            </label>
-            -->
+          </label>
           <label>
             <input type="radio" value="standard" v-model="preset" />
             {{ $t('standard') }}
@@ -775,7 +740,7 @@ async function encryptUserData(endpoint, data) {
         <button
           class="button secondary"
           @click="loadUserAddons"
-          :disabled="!props.stremioAuthKey || !preset"
+          :disabled="!props.stremioAuthKey"
         >
           {{ $t('load_addons_preset') }}
         </button>

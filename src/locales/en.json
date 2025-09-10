@@ -2,7 +2,7 @@
   "addon_summary": "Set up your Stremio account with just a few clicks.",
   "what_does_it_do_title": "What does it do?",
   "what_does_it_do_desc": "Stremio Account Bootstrapper lets you set up your Stremio account with just a few clicks by bootstrapping a preset into your account. It's handy for newcomers, those who want a solid foundation to build their setup on, or to speed up the process of setting up new accounts for family members or friends.",
-  "which_addons_title": "Which addons does the preset include?",
+  "which_addons_title": "What addons might be included in the presets? (depends on the selected preset)",
   "instructions_title": "Instructions",
   "instructions_1": "Log in using your Stremio credentials or get the Stremio Authkey. If you have created your account through Facebook, please use the latter <a href=\"#how\">(?)</a>. If you don't have an account, you can create one by clicking \"Sign up\".",
   "instructions_2": "Create a backup of your current configuration (recommended). This will allow you to restore your current setup if needed.",

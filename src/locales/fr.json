@@ -2,7 +2,7 @@
   "addon_summary": "Configurez votre compte Stremio en quelques clics.",
   "what_does_it_do_title": "À quoi ça sert ?",
   "what_does_it_do_desc": "Stremio Account Bootstrapper vous permet de configurer votre compte Stremio en quelques clics en intégrant un préréglage dans votre compte. C'est pratique pour les nouveaux utilisateurs, ceux qui veulent une base solide pour leur configuration, ou pour accélérer la création de nouveaux comptes pour des membres de la famille ou des amis.",
-  "which_addons_title": "Quels addons sont inclus dans le préréglage ?",
+  "which_addons_title": "Quels addons pourraient être inclus dans les préréglages ? (dépend du préréglage sélectionné)",
   "instructions_title": "Instructions",
   "instructions_1": "Connectez-vous avec vos identifiants Stremio ou obtenez la clé d'authentification Stremio. Si vous avez créé votre compte via Facebook, veuillez utiliser la clé d'authentification <a href=\"#how\">(?)</a>. Si vous n'avez pas de compte, vous pouvez en créer un en cliquant sur \"Inscription\".",
   "instructions_2": "Créez une sauvegarde de votre configuration actuelle (recommandé). Cela vous permettra de restaurer votre configuration si nécessaire.",

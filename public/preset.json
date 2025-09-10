@@ -1,6 +1,6 @@
 {
   "presets": {
-    "minimal": ["cinemeta", "aiolists", "autostream", "subhero"],
+    "minimal": ["cinemeta", "aiolists", "torrentio", "comet", "subhero"],
     "standard": [
       "cinemeta",
       "aiolists",
@@ -25,7 +25,6 @@
       "webstreamr",
       "subhero",
       "subsource",
-      "opensubtitlesv3",
       "localfiles"
     ],
     "factory": [
@@ -151,7 +150,7 @@
         "manifest": {}
       },
       "torrentio": {
-        "transportUrl": "https://torrentio.strem.fun/providers=yts,eztv,rarbg,1337x,thepiratebay,kickasstorrents,torrentgalaxy,magnetdl,horriblesubs,nyaasi,tokyotosho,anidex|qualityfilter=threed,{{it.no4k}}scr,cam,unknown|limit=10{{it.transportUrl}}/manifest.json",
+        "transportUrl": "https://torrentio.strem.fun/providers=yts,eztv,rarbg,1337x,thepiratebay,kickasstorrents,torrentgalaxy,magnetdl,horriblesubs,nyaasi,tokyotosho,anidex|qualityfilter=threed,{{it.no4k}}scr,cam,unknown|limit={{it.limit}}{{it.transportUrl}}/manifest.json",
         "transportName": "",
         "manifest": {
           "id": "com.stremio.torrentio.addon",
@@ -1427,7 +1426,7 @@
     },
     "es-mx": {
       "torrentio": {
-        "transportUrl": "https://torrentio.strem.fun/providers=yts,eztv,rarbg,1337x,thepiratebay,kickasstorrents,torrentgalaxy,magnetdl,horriblesubs,nyaasi,tokyotosho,anidex,cinecalidad|language=latino|qualityfilter=threed,{{it.no4k}}scr,cam,unknown|limit=10{{it.transportUrl}}/manifest.json"
+        "transportUrl": "https://torrentio.strem.fun/providers=yts,eztv,rarbg,1337x,thepiratebay,kickasstorrents,torrentgalaxy,magnetdl,horriblesubs,nyaasi,tokyotosho,anidex,cinecalidad|language=latino|qualityfilter=threed,{{it.no4k}}scr,cam,unknown|limit={{it.limit}}{{it.transportUrl}}/manifest.json"
       },
       "comet": {
         "transportUrl": "https://comet.elfhosted.com/eyJtYXhSZXN1bHRzUGVyUmVzb2x1dGlvbiI6MTAsIm1heFNpemUiOjAsImNhY2hlZE9ubHkiOmZhbHNlLCJyZW1vdmVUcmFzaCI6dHJ1ZSwicmVzdWx0Rm9ybWF0IjpbImFsbCJdLCJkZWJyaWRTZXJ2aWNlIjoidG9ycmVudCIsImRlYnJpZEFwaUtleSI6IiIsImRlYnJpZFN0cmVhbVByb3h5UGFzc3dvcmQiOiIiLCJsYW5ndWFnZXMiOnsicmVxdWlyZWQiOltdLCJleGNsdWRlIjpbXSwicHJlZmVycmVkIjpbImxhIl19LCJyZXNvbHV0aW9ucyI6eyJyMzYwcCI6ZmFsc2UsInVua25vd24iOmZhbHNlfSwib3B0aW9ucyI6eyJyZW1vdmVfcmFua3NfdW5kZXIiOi0xMDAwMDAwMDAwMCwiYWxsb3dfZW5nbGlzaF9pbl9sYW5ndWFnZXMiOmZhbHNlLCJyZW1vdmVfdW5rbm93bl9sYW5ndWFnZXMiOmZhbHNlfX0=/manifest.json"
@@ -1466,7 +1465,7 @@
     },
     "es-es": {
       "torrentio": {
-        "transportUrl": "https://torrentio.strem.fun/providers=yts,eztv,rarbg,1337x,thepiratebay,kickasstorrents,torrentgalaxy,magnetdl,horriblesubs,nyaasi,tokyotosho,anidex,cinecalidad|language=spanish|qualityfilter=threed,{{it.no4k}}scr,cam,unknown|limit=10{{it.transportUrl}}/manifest.json"
+        "transportUrl": "https://torrentio.strem.fun/providers=yts,eztv,rarbg,1337x,thepiratebay,kickasstorrents,torrentgalaxy,magnetdl,horriblesubs,nyaasi,tokyotosho,anidex,cinecalidad|language=spanish|qualityfilter=threed,{{it.no4k}}scr,cam,unknown|limit={{it.limit}}{{it.transportUrl}}/manifest.json"
       },
       "comet": {
         "transportUrl": "https://comet.elfhosted.com/eyJtYXhSZXN1bHRzUGVyUmVzb2x1dGlvbiI6MTAsIm1heFNpemUiOjAsImNhY2hlZE9ubHkiOmZhbHNlLCJyZW1vdmVUcmFzaCI6dHJ1ZSwicmVzdWx0Rm9ybWF0IjpbImFsbCJdLCJkZWJyaWRTZXJ2aWNlIjoidG9ycmVudCIsImRlYnJpZEFwaUtleSI6IiIsImRlYnJpZFN0cmVhbVByb3h5UGFzc3dvcmQiOiIiLCJsYW5ndWFnZXMiOnsicmVxdWlyZWQiOltdLCJleGNsdWRlIjpbXSwicHJlZmVycmVkIjpbImVzIl19LCJyZXNvbHV0aW9ucyI6eyJyMzYwcCI6ZmFsc2UsInVua25vd24iOmZhbHNlfSwib3B0aW9ucyI6eyJyZW1vdmVfcmFua3NfdW5kZXIiOi0xMDAwMDAwMDAwMCwiYWxsb3dfZW5nbGlzaF9pbl9sYW5ndWFnZXMiOmZhbHNlLCJyZW1vdmVfdW5rbm93bl9sYW5ndWFnZXMiOmZhbHNlfX0=/manifest.json"
@@ -1495,7 +1494,7 @@
     },
     "pt": {
       "torrentio": {
-        "transportUrl": "https://torrentio.strem.fun/providers=yts,eztv,rarbg,1337x,thepiratebay,kickasstorrents,torrentgalaxy,magnetdl,horriblesubs,nyaasi,tokyotosho,anidex,comando,bludv|language=portuguese|qualityfilter=threed,{{it.no4k}}scr,cam,unknown|limit=10{{it.transportUrl}}/manifest.json"
+        "transportUrl": "https://torrentio.strem.fun/providers=yts,eztv,rarbg,1337x,thepiratebay,kickasstorrents,torrentgalaxy,magnetdl,horriblesubs,nyaasi,tokyotosho,anidex,comando,bludv|language=portuguese|qualityfilter=threed,{{it.no4k}}scr,cam,unknown|limit={{it.limit}}{{it.transportUrl}}/manifest.json"
       },
       "comet": {
         "transportUrl": "https://comet.elfhosted.com/eyJtYXhSZXN1bHRzUGVyUmVzb2x1dGlvbiI6MTAsIm1heFNpemUiOjAsImNhY2hlZE9ubHkiOmZhbHNlLCJyZW1vdmVUcmFzaCI6dHJ1ZSwicmVzdWx0Rm9ybWF0IjpbImFsbCJdLCJkZWJyaWRTZXJ2aWNlIjoidG9ycmVudCIsImRlYnJpZEFwaUtleSI6IiIsImRlYnJpZFN0cmVhbVByb3h5UGFzc3dvcmQiOiIiLCJsYW5ndWFnZXMiOnsicmVxdWlyZWQiOltdLCJleGNsdWRlIjpbXSwicHJlZmVycmVkIjpbInB0Il19LCJyZXNvbHV0aW9ucyI6eyJyMzYwcCI6ZmFsc2UsInVua25vd24iOmZhbHNlfSwib3B0aW9ucyI6eyJyZW1vdmVfcmFua3NfdW5kZXIiOi0xMDAwMDAwMDAwMCwiYWxsb3dfZW5nbGlzaF9pbl9sYW5ndWFnZXMiOmZhbHNlLCJyZW1vdmVfdW5rbm93bl9sYW5ndWFnZXMiOmZhbHNlfX0=/manifest.json"
@@ -1518,7 +1517,7 @@
     },
     "fr": {
       "torrentio": {
-        "transportUrl": "https://torrentio.strem.fun/providers=yts,eztv,rarbg,1337x,thepiratebay,kickasstorrents,torrentgalaxy,magnetdl,horriblesubs,nyaasi,tokyotosho,anidex,torrent9|language=french|qualityfilter=threed,{{it.no4k}}scr,cam,unknown|limit=10{{it.transportUrl}}/manifest.json"
+        "transportUrl": "https://torrentio.strem.fun/providers=yts,eztv,rarbg,1337x,thepiratebay,kickasstorrents,torrentgalaxy,magnetdl,horriblesubs,nyaasi,tokyotosho,anidex,torrent9|language=french|qualityfilter=threed,{{it.no4k}}scr,cam,unknown|limit={{it.limit}}{{it.transportUrl}}/manifest.json"
       },
       "comet": {
         "transportUrl": "https://comet.elfhosted.com/eyJtYXhSZXN1bHRzUGVyUmVzb2x1dGlvbiI6MTAsIm1heFNpemUiOjAsImNhY2hlZE9ubHkiOmZhbHNlLCJyZW1vdmVUcmFzaCI6dHJ1ZSwicmVzdWx0Rm9ybWF0IjpbImFsbCJdLCJkZWJyaWRTZXJ2aWNlIjoidG9ycmVudCIsImRlYnJpZEFwaUtleSI6IiIsImRlYnJpZFN0cmVhbVByb3h5UGFzc3dvcmQiOiIiLCJsYW5ndWFnZXMiOnsicmVxdWlyZWQiOltdLCJleGNsdWRlIjpbXSwicHJlZmVycmVkIjpbImZyIl19LCJyZXNvbHV0aW9ucyI6eyJyMzYwcCI6ZmFsc2UsInVua25vd24iOmZhbHNlfSwib3B0aW9ucyI6eyJyZW1vdmVfcmFua3NfdW5kZXIiOi0xMDAwMDAwMDAwMCwiYWxsb3dfZW5nbGlzaF9pbl9sYW5ndWFnZXMiOmZhbHNlLCJyZW1vdmVfdW5rbm93bl9sYW5ndWFnZXMiOmZhbHNlfX0=/manifest.json"
@@ -1544,7 +1543,7 @@
     },
     "it": {
       "torrentio": {
-        "transportUrl": "https://torrentio.strem.fun/providers=yts,eztv,rarbg,1337x,thepiratebay,kickasstorrents,torrentgalaxy,magnetdl,horriblesubs,nyaasi,tokyotosho,anidex,ilcorsaronero|language=italian|qualityfilter=threed,{{it.no4k}},scr,cam,unknown|limit=10{{it.transportUrl}}/manifest.json"
+        "transportUrl": "https://torrentio.strem.fun/providers=yts,eztv,rarbg,1337x,thepiratebay,kickasstorrents,torrentgalaxy,magnetdl,horriblesubs,nyaasi,tokyotosho,anidex,ilcorsaronero|language=italian|qualityfilter=threed,{{it.no4k}},scr,cam,unknown|limit={{it.limit}}{{it.transportUrl}}/manifest.json"
       },
       "comet": {
         "transportUrl": "https://comet.elfhosted.com/eyJtYXhSZXN1bHRzUGVyUmVzb2x1dGlvbiI6MTAsIm1heFNpemUiOjAsImNhY2hlZE9ubHkiOmZhbHNlLCJyZW1vdmVUcmFzaCI6dHJ1ZSwicmVzdWx0Rm9ybWF0IjpbImFsbCJdLCJkZWJyaWRTZXJ2aWNlIjoidG9ycmVudCIsImRlYnJpZEFwaUtleSI6IiIsImRlYnJpZFN0cmVhbVByb3h5UGFzc3dvcmQiOiIiLCJsYW5ndWFnZXMiOnsicmVxdWlyZWQiOltdLCJleGNsdWRlIjpbXSwicHJlZmVycmVkIjpbIml0Il19LCJyZXNvbHV0aW9ucyI6eyJyMzYwcCI6ZmFsc2UsInVua25vd24iOmZhbHNlfSwib3B0aW9ucyI6eyJyZW1vdmVfcmFua3NfdW5kZXIiOi0xMDAwMDAwMDAwMCwiYWxsb3dfZW5nbGlzaF9pbl9sYW5ndWFnZXMiOmZhbHNlLCJyZW1vdmVfdW5rbm93bl9sYW5ndWFnZXMiOmZhbHNlfX0=/manifest.json"
@@ -1570,7 +1569,7 @@
     },
     "de": {
       "torrentio": {
-        "transportUrl": "https://torrentio.strem.fun/providers=yts,eztv,rarbg,1337x,thepiratebay,kickasstorrents,torrentgalaxy,magnetdl,horriblesubs,nyaasi,tokyotosho,anidex|language=german|qualityfilter=threed,{{it.no4k}}scr,cam,unknown|limit=10{{it.transportUrl}}/manifest.json"
+        "transportUrl": "https://torrentio.strem.fun/providers=yts,eztv,rarbg,1337x,thepiratebay,kickasstorrents,torrentgalaxy,magnetdl,horriblesubs,nyaasi,tokyotosho,anidex|language=german|qualityfilter=threed,{{it.no4k}}scr,cam,unknown|limit={{it.limit}}{{it.transportUrl}}/manifest.json"
       },
       "comet": {
         "transportUrl": "https://comet.elfhosted.com/eyJtYXhSZXN1bHRzUGVyUmVzb2x1dGlvbiI6MTAsIm1heFNpemUiOjAsImNhY2hlZE9ubHkiOmZhbHNlLCJyZW1vdmVUcmFzaCI6dHJ1ZSwicmVzdWx0Rm9ybWF0IjpbImFsbCJdLCJkZWJyaWRTZXJ2aWNlIjoidG9ycmVudCIsImRlYnJpZEFwaUtleSI6IiIsImRlYnJpZFN0cmVhbVByb3h5UGFzc3dvcmQiOiIiLCJsYW5ndWFnZXMiOnsicmVxdWlyZWQiOltdLCJleGNsdWRlIjpbXSwicHJlZmVycmVkIjpbImRlIl19LCJyZXNvbHV0aW9ucyI6eyJyMzYwcCI6ZmFsc2UsInVua25vd24iOmZhbHNlfSwib3B0aW9ucyI6eyJyZW1vdmVfcmFua3NfdW5kZXIiOi0xMDAwMDAwMDAwMCwiYWxsb3dfZW5nbGlzaF9pbl9sYW5ndWFnZXMiOmZhbHNlLCJyZW1vdmVfdW5rbm93bl9sYW5ndWFnZXMiOmZhbHNlfX0=/manifest.json"

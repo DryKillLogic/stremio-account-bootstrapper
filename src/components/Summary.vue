@@ -45,10 +45,6 @@ const { t } = useI18n();
           <p>ThePirateBay+</p>
         </div>
         <div class="col-2 text-center">
-          <img src="/public/logos/autostream.png" alt="AutoStream" />
-          <p>AutoStream</p>
-        </div>
-        <div class="col-2 text-center">
           <img src="/public/logos/nuvio.png" alt="Nuvio Streams" />
           <p>Nuvio Streams</p>
         </div>
@@ -60,12 +56,12 @@ const { t } = useI18n();
           <img src="/public/logos/aiolists.png" alt="AIOLists" />
           <p>AIOLists</p>
         </div>
-      </div>
-      <div class="row">
         <div class="col-2 text-center">
           <img src="/public/logos/cinemeta.png" alt="Cinemeta" />
           <p>Cinemeta</p>
         </div>
+      </div>
+      <div class="row">
         <div class="col-2 text-center">
           <img src="/public/logos/subhero.png" alt="SubHero" />
           <p>SubHero</p>
@@ -75,10 +71,6 @@ const { t } = useI18n();
           <p>SubSource</p>
         </div>
         <div class="col-2 text-center">
-          <img src="/public/logos/opensubtitles.png" alt="OpenSubtitles v3" />
-          <p>OpenSubtitles v3</p>
-        </div>
-        <div class="col-2 text-center">
           <img src="/public/logos/subdivx.png" alt="Subdivx" />
           <p>Subdivx</p>
         </div>
@@ -86,8 +78,6 @@ const { t } = useI18n();
           <img src="/public/logos/localfiles.png" alt="Local Files" />
           <p>Local Files</p>
         </div>
-      </div>
-      <div class="row">
         <div class="col-2 text-center">
           <img src="/public/logos/kitsu.png" alt="Anime Kitsu" />
           <p>Anime Kitsu</p>
@@ -96,6 +86,8 @@ const { t } = useI18n();
           <img src="/public/logos/usatv.png" alt="USA TV" />
           <p>USA TV</p>
         </div>
+      </div>
+      <div class="row">
         <div class="col-2 text-center">
           <img src="/public/logos/argentinatv.png" alt="Argentina TV" />
           <p>Argentina TV</p>
