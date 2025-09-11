@@ -74,7 +74,6 @@
   "credits_text": "Dieses Tool basiert auf der ursprünglichen <code><a href=\"https://github.com/pancake3000/stremio-addon-manager\" target=\"_blank\">pancake3000</a></code>-Arbeit und dem <code><a href=\"https://github.com/redd-ravenn/stremio-addon-manager\" target=\"_blank\">redd-ravenn</a></code>-Fork, mit der Zusammenarbeit von <code>Sleeyax</code> und <code>&lt;Code/&gt;</code>. Ohne ihren Beitrag zur Stremio-Community wäre diese Idee nicht möglich gewesen 🙏.",
   "footer_credit": "Mit ❤️ von DryKillLogic",
   "footer_source_code": "Quellcode",
-  "instructions_10": "Genieße deine Lieblingsfilme, Serien und Live-TV!",
   "authentication": "Authentifizierung",
   "backup_restore": "Backup/Wiederherstellung",
   "backing_up": "Backup wird erstellt...",
@@ -109,5 +108,7 @@
   "instructions_6": "Wähle zusätzliche Addons/Optionen (optional).",
   "instructions_7": "Gib deinen RPDB-Schlüssel ein (optional) <a href=\"https://ratingposterdb.com/\" target=\"_blank\">(?)</a>.",
   "instructions_8": "Passe das Addon-Preset an (optional). Du kannst Addons entfernen oder sortieren sowie die AIOLists/Anime Kitsu-Kataloge umbenennen oder löschen.",
-  "instructions_9": "Wenn du mit der Anpassung fertig bist, klicke auf \"Mit Stremio synchronisieren\", um dein Konto zu aktualisieren."
+  "instructions_9": "Wenn du mit der Anpassung fertig bist, klicke auf \"Mit Stremio synchronisieren\", um dein Konto zu aktualisieren.",
+  "instructions_10": "Gehe zu den Stremio-Einstellungen, um deine bevorzugten Sprachoptionen anzupassen.",
+  "kids": "Kinder"
 }

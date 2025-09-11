@@ -88,7 +88,10 @@ function loadUserAddons() {
         let torrentsdbTransportUrl = {};
         let streamAsiaTransportUrl = {};
         const mediaFusionConfig = data.mediafusionConfig;
-        const aiolistsConfig = data.aiolistsConfig;
+        const aiolistsConfig =
+          preset.value === 'kids'
+            ? data.aiolistsKidsConfig
+            : data.aiolistsConfig;
 
         // Set additional addons based on language selection
         if (language.value === 'es-mx') {
@@ -115,7 +118,7 @@ function loadUserAddons() {
         // Set additional options
         no4k = options.value.includes('no4k');
         cached = options.value.includes('cached');
-        limit = (preset.value === 'minimal' && 2) || limit;
+        limit = ['minimal', 'kids'].includes(preset.value) ? 2 : limit;
 
         // Set AIOLists options
         aiolistsConfig.config.tmdbLanguage = language.value;
@@ -580,6 +583,10 @@ async function encryptUserData(endpoint, data) {
           <label>
             <input type="radio" value="full" v-model="preset" />
             {{ $t('full') }}
+          </label>
+          <label>
+            <input type="radio" value="kids" v-model="preset" />
+            {{ $t('kids') }}
           </label>
           <label>
             <input type="radio" value="factory" v-model="preset" />

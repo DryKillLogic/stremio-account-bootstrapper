@@ -109,5 +109,6 @@
   "instructions_7": "Insira sua chave RPDB (opcional) <a href=\"https://ratingposterdb.com/\" target=\"_blank\">(?)</a>.",
   "instructions_8": "Personalize o preset de addons (opcional). Você pode remover ou ordenar addons, e renomear ou excluir os catálogos AIOLists/Anime Kitsu.",
   "instructions_9": "Quando terminar de personalizar, clique em \"Sincronizar com Stremio\" para atualizar sua conta.",
-  "instructions_10": "Vá para as configurações do Stremio para ajustar suas opções de idioma preferidas."
+  "instructions_10": "Vá para as configurações do Stremio para ajustar suas opções de idioma preferidas.",
+  "kids": "Infantil"
 }

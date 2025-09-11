@@ -27,6 +27,14 @@
       "subsource",
       "localfiles"
     ],
+    "kids": [
+      "cinemeta",
+      "aiolists",
+      "torrentio",
+      "comet",
+      "webstreamr",
+      "subhero"
+    ],
     "factory": [
       "cinemeta-unmodified",
       "stremiochannels",
@@ -3044,6 +3052,376 @@
         "mdblisturl_sci-fi": "Science-Fiction",
         "mdblisturl_thriller": "Thriller",
         "mdblisturl_war": "Krieg"
+      }
+    }
+  },
+  "aiolistsKidsConfig": {
+    "config": {
+      "tmdbUsername": "",
+      "metadataSource": "tmdb",
+      "tmdbLanguage": "en",
+      "traktUsername": "",
+      "listOrder": [
+        "mdblisturl_kids",
+        "mdblisturl_kids-tv-shows",
+        "mdblisturl_kids-movies",
+        "mdblisturl_latest-kids-shows",
+        "mdblisturl_top-watched-movies-of-the-week-for-kids",
+        "mdblisturl_childish-movies-8",
+        "mdblisturl_walt-disney-animated-films",
+        "mdblisturl_disney-live-action-adaptations-and-remakes-of-disney-animated-films",
+        "mdblisturl_pixar",
+        "mdblisturl_disney-junior-tv",
+        "mdblisturl_kids-tv-cartoon-network",
+        "mdblisturl_movie-netflix-kids-u0cpofqeue",
+        "mdblisturl_tv-show-netflix-kids",
+        "mdblisturl_nickelodeon-movies",
+        "mdblisturl_nickelodeon-kids"
+      ],
+      "lastUpdated": "2025-06-15T20:43:28.634Z",
+      "listsMetadata": {
+        "aiolists-watchlist-W": {
+          "hasMovies": false,
+          "hasShows": false,
+          "lastChecked": "2025-06-11T16:55:09.860Z"
+        }
+      },
+      "hiddenLists": [],
+      "removedLists": [],
+      "customListNames": {},
+      "mergedLists": {},
+      "customMediaTypeNames": {},
+      "importedAddons": {
+        "mdblisturl_kids": {
+          "id": "mdblisturl_kids",
+          "name": "Popular Movies",
+          "hasMovies": true,
+          "hasShows": false,
+          "isMDBListUrlImport": true,
+          "mdblistId": "kids",
+          "mdblistUsername": "ceefaxer",
+          "mdblistSlug": "kids",
+          "types": ["movie"]
+        },
+        "mdblisturl_kids-tv-shows": {
+          "id": "mdblisturl_kids-tv-shows",
+          "name": "Popular TV Shows",
+          "hasMovies": false,
+          "hasShows": true,
+          "isMDBListUrlImport": true,
+          "mdblistId": "kids-tv-shows",
+          "mdblistUsername": "ishalioh",
+          "mdblistSlug": "kids-tv-shows",
+          "types": ["series"]
+        },
+        "mdblisturl_kids-movies": {
+          "id": "mdblisturl_kids-movies",
+          "name": "Latest Movies",
+          "hasMovies": true,
+          "hasShows": false,
+          "isMDBListUrlImport": true,
+          "mdblistId": "kids-movies",
+          "mdblistUsername": "samthe2can",
+          "mdblistSlug": "kids-movies",
+          "types": ["movie"]
+        },
+        "mdblisturl_latest-kids-shows": {
+          "id": "mdblisturl_latest-kids-shows",
+          "name": "Latest TV Shows",
+          "hasMovies": false,
+          "hasShows": true,
+          "isMDBListUrlImport": true,
+          "mdblistId": "latest-kids-shows",
+          "mdblistUsername": "hardboardweird",
+          "mdblistSlug": "latest-kids-shows",
+          "types": ["series"]
+        },
+        "mdblisturl_top-watched-movies-of-the-week-for-kids": {
+          "id": "mdblisturl_top-watched-movies-of-the-week-for-kids",
+          "name": "Top Movies of the Week",
+          "hasMovies": true,
+          "hasShows": false,
+          "isMDBListUrlImport": true,
+          "mdblistId": "top-watched-movies-of-the-week-for-kids",
+          "mdblistUsername": "linaspurinis",
+          "mdblistSlug": "top-watched-movies-of-the-week-for-kids",
+          "types": ["movie"]
+        },
+        "mdblisturl_childish-movies-8": {
+          "id": "mdblisturl_childish-movies-8",
+          "name": "Family Movies",
+          "hasMovies": true,
+          "hasShows": false,
+          "isMDBListUrlImport": true,
+          "mdblistId": "childish-movies-8",
+          "mdblistUsername": "iamamac",
+          "mdblistSlug": "childish-movies-8",
+          "types": ["movie"]
+        },
+        "mdblisturl_walt-disney-animated-films": {
+          "id": "mdblisturl_walt-disney-animated-films",
+          "name": "Disney Animated Movies",
+          "hasMovies": true,
+          "hasShows": false,
+          "isMDBListUrlImport": true,
+          "mdblistId": "walt-disney-animated-films",
+          "mdblistUsername": "banggun2",
+          "mdblistSlug": "walt-disney-animated-films",
+          "types": ["movie"]
+        },
+        "mdblisturl_disney-live-action-adaptations-and-remakes-of-disney-animated-films": {
+          "id": "mdblisturl_disney-live-action-adaptations-and-remakes-of-disney-animated-films",
+          "name": "Disney Live Action Movies",
+          "hasMovies": true,
+          "hasShows": false,
+          "isMDBListUrlImport": true,
+          "mdblistId": "disney-live-action-adaptations-and-remakes-of-disney-animated-films",
+          "mdblistUsername": "aaron713",
+          "mdblistSlug": "disney-live-action-adaptations-and-remakes-of-disney-animated-films",
+          "types": ["movie"]
+        },
+        "mdblisturl_pixar": {
+          "id": "mdblisturl_pixar",
+          "name": "Pixar Movies",
+          "hasMovies": true,
+          "hasShows": false,
+          "isMDBListUrlImport": true,
+          "mdblistId": "pixar",
+          "mdblistUsername": "gigsy",
+          "mdblistSlug": "pixar",
+          "types": ["movie"]
+        },
+        "mdblisturl_disney-junior-tv": {
+          "id": "mdblisturl_disney-junior-tv",
+          "name": "Disney Junior TV Shows",
+          "hasMovies": false,
+          "hasShows": true,
+          "isMDBListUrlImport": true,
+          "mdblistId": "disney-junior-tv",
+          "mdblistUsername": "mrspacegoose",
+          "mdblistSlug": "disney-junior-tv",
+          "types": ["series"]
+        },
+        "mdblisturl_kids-tv-cartoon-network": {
+          "id": "mdblisturl_kids-tv-cartoon-network",
+          "name": "Cartoon Network TV Shows",
+          "hasMovies": false,
+          "hasShows": true,
+          "isMDBListUrlImport": true,
+          "mdblistId": "kids-tv-cartoon-network",
+          "mdblistUsername": "starteq",
+          "mdblistSlug": "kids-tv-cartoon-network",
+          "types": ["series"]
+        },
+        "mdblisturl_movie-netflix-kids-u0cpofqeue": {
+          "id": "mdblisturl_movie-netflix-kids-u0cpofqeue",
+          "name": "Netflix Kids Movies",
+          "hasMovies": true,
+          "hasShows": false,
+          "isMDBListUrlImport": true,
+          "mdblistId": "movie-netflix-kids-u0cpofqeue",
+          "mdblistUsername": "plamuvi",
+          "mdblistSlug": "movie-netflix-kids-u0cpofqeue",
+          "types": ["movie"]
+        },
+        "mdblisturl_tv-show-netflix-kids": {
+          "id": "mdblisturl_tv-show-netflix-kids",
+          "name": "Netflix Kids TV Shows",
+          "hasMovies": false,
+          "hasShows": true,
+          "isMDBListUrlImport": true,
+          "mdblistId": "tv-show-netflix-kids",
+          "mdblistUsername": "plamuvi",
+          "mdblistSlug": "tv-show-netflix-kids",
+          "types": ["series"]
+        },
+        "mdblisturl_nickelodeon-movies": {
+          "id": "mdblisturl_nickelodeon-movies",
+          "name": "Nickelodeon Movies",
+          "hasMovies": true,
+          "hasShows": false,
+          "isMDBListUrlImport": true,
+          "mdblistId": "nickelodeon-movies",
+          "mdblistUsername": "mulanzo3",
+          "mdblistSlug": "nickelodeon-movies",
+          "types": ["movie"]
+        },
+        "mdblisturl_nickelodeon-kids": {
+          "id": "mdblisturl_nickelodeon-kids",
+          "name": "Nickelodeon TV Shows",
+          "hasMovies": false,
+          "hasShows": true,
+          "isMDBListUrlImport": true,
+          "mdblistId": "nickelodeon-kids",
+          "mdblistUsername": "phoenixtrajero",
+          "mdblistSlug": "nickelodeon-kids",
+          "types": ["series"]
+        }
+      },
+      "sortPreferences": {
+        "kids": { "sort": "imdbpopular", "order": "desc" },
+        "kids-tv-shows": {
+          "sort": "imdbpopular",
+          "order": "desc"
+        },
+        "kids-movies": { "sort": "released", "order": "desc" },
+        "latest-kids-shows": { "sort": "released", "order": "desc" },
+        "top-watched-movies-of-the-week-for-kids": {
+          "sort": "released",
+          "order": "desc"
+        },
+        "childish-movies-8": { "sort": "released", "order": "desc" },
+        "walt-disney-animated-films": {
+          "sort": "released",
+          "order": "desc"
+        },
+        "disney-live-action-adaptations-and-remakes-of-disney-animated-films": {
+          "sort": "released",
+          "order": "desc"
+        },
+        "pixar": { "sort": "released", "order": "desc" },
+        "disney-junior-tv": { "sort": "released", "order": "desc" },
+        "kids-tv-cartoon-network": {
+          "sort": "released",
+          "order": "desc"
+        },
+        "movie-netflix-kids-u0cpofqeue": {
+          "sort": "released",
+          "order": "desc"
+        },
+        "tv-show-netflix-kids": {
+          "sort": "released",
+          "order": "desc"
+        },
+        "nickelodeon-movies": { "sort": "released", "order": "desc" },
+        "nickelodeon-kids": { "sort": "released", "order": "desc" }
+      },
+      "disableGenreFilter": true,
+      "enableRandomListFeature": false,
+      "randomMDBListUsernames": [],
+      "searchSources": ["cinemeta", "tmdb"],
+      "mergedSearchSources": [],
+      "animeSearchEnabled": false,
+      "isConnected": {
+        "mdblist": false,
+        "rpdb": true,
+        "tmdb": false,
+        "trakt": false,
+        "upstash": false
+      }
+    },
+    "es-mx": {
+      "customListNames": {
+        "mdblisturl_kids": "Películas Populares",
+        "mdblisturl_kids-tv-shows": "Series Populares",
+        "mdblisturl_kids-movies": "Últimas Películas",
+        "mdblisturl_latest-kids-shows": "Últimas Series",
+        "mdblisturl_top-watched-movies-of-the-week-for-kids": "Películas más vistas de la semana",
+        "mdblisturl_childish-movies-8": "Películas Familiares",
+        "mdblisturl_walt-disney-animated-films": "Películas animadas de Disney",
+        "mdblisturl_disney-live-action-adaptations-and-remakes-of-disney-animated-films": "Películas de acción real de Disney",
+        "mdblisturl_pixar": "Películas de Pixar",
+        "mdblisturl_disney-junior-tv": "Series de Disney Junior",
+        "mdblisturl_kids-tv-cartoon-network": "Series de Cartoon Network",
+        "mdblisturl_movie-netflix-kids-u0cpofqeue": "Películas de Netflix Kids",
+        "mdblisturl_tv-show-netflix-kids": "Series de Netflix Kids",
+        "mdblisturl_nickelodeon-movies": "Películas de Nickelodeon",
+        "mdblisturl_nickelodeon-kids": "Series de Nickelodeon Kids"
+      }
+    },
+    "es-es": {
+      "customListNames": {
+        "mdblisturl_kids": "Películas Populares",
+        "mdblisturl_kids-tv-shows": "Series Populares",
+        "mdblisturl_kids-movies": "Últimas Películas",
+        "mdblisturl_latest-kids-shows": "Últimas Series",
+        "mdblisturl_top-watched-movies-of-the-week-for-kids": "Películas más vistas de la semana",
+        "mdblisturl_childish-movies-8": "Películas Familiares",
+        "mdblisturl_walt-disney-animated-films": "Películas animadas de Disney",
+        "mdblisturl_disney-live-action-adaptations-and-remakes-of-disney-animated-films": "Películas de acción real de Disney",
+        "mdblisturl_pixar": "Películas de Pixar",
+        "mdblisturl_disney-junior-tv": "Series de Disney Junior",
+        "mdblisturl_kids-tv-cartoon-network": "Series de Cartoon Network",
+        "mdblisturl_movie-netflix-kids-u0cpofqeue": "Películas de Netflix Kids",
+        "mdblisturl_tv-show-netflix-kids": "Series de Netflix Kids",
+        "mdblisturl_nickelodeon-movies": "Películas de Nickelodeon",
+        "mdblisturl_nickelodeon-kids": "Series de Nickelodeon Kids"
+      }
+    },
+    "pt": {
+      "customListNames": {
+        "mdblisturl_kids": "Filmes Populares",
+        "mdblisturl_kids-tv-shows": "Séries Populares",
+        "mdblisturl_kids-movies": "Últimos Filmes",
+        "mdblisturl_latest-kids-shows": "Últimas Séries",
+        "mdblisturl_top-watched-movies-of-the-week-for-kids": "Filmes da Semana",
+        "mdblisturl_childish-movies-8": "Filmes Familiares",
+        "mdblisturl_walt-disney-animated-films": "Filmes Animados da Disney",
+        "mdblisturl_disney-live-action-adaptations-and-remakes-of-disney-animated-films": "Filmes Live Action da Disney",
+        "mdblisturl_pixar": "Filmes da Pixar",
+        "mdblisturl_disney-junior-tv": "Séries Disney Junior",
+        "mdblisturl_kids-tv-cartoon-network": "Séries Cartoon Network",
+        "mdblisturl_movie-netflix-kids-u0cpofqeue": "Filmes Netflix Kids",
+        "mdblisturl_tv-show-netflix-kids": "Séries Netflix Kids",
+        "mdblisturl_nickelodeon-movies": "Filmes Nickelodeon",
+        "mdblisturl_nickelodeon-kids": "Séries Nickelodeon Kids"
+      }
+    },
+    "fr": {
+      "customListNames": {
+        "mdblisturl_kids": "Films Populaires",
+        "mdblisturl_kids-tv-shows": "Séries Populaires",
+        "mdblisturl_kids-movies": "Derniers Films",
+        "mdblisturl_latest-kids-shows": "Dernières Séries",
+        "mdblisturl_top-watched-movies-of-the-week-for-kids": "Films les plus regardés de la semaine",
+        "mdblisturl_childish-movies-8": "Films Familiaux",
+        "mdblisturl_walt-disney-animated-films": "Films d'animation Disney",
+        "mdblisturl_disney-live-action-adaptations-and-remakes-of-disney-animated-films": "Films Disney en prise de vue réelle",
+        "mdblisturl_pixar": "Films Pixar",
+        "mdblisturl_disney-junior-tv": "Séries Disney Junior",
+        "mdblisturl_kids-tv-cartoon-network": "Séries Cartoon Network",
+        "mdblisturl_movie-netflix-kids-u0cpofqeue": "Films Netflix Kids",
+        "mdblisturl_tv-show-netflix-kids": "Séries Netflix Kids",
+        "mdblisturl_nickelodeon-movies": "Films Nickelodeon",
+        "mdblisturl_nickelodeon-kids": "Séries Nickelodeon Kids"
+      }
+    },
+    "it": {
+      "customListNames": {
+        "mdblisturl_kids": "Film Popolari",
+        "mdblisturl_kids-tv-shows": "Serie Popolari",
+        "mdblisturl_kids-movies": "Ultimi Film",
+        "mdblisturl_latest-kids-shows": "Ultime Serie",
+        "mdblisturl_top-watched-movies-of-the-week-for-kids": "Film più visti della settimana",
+        "mdblisturl_childish-movies-8": "Film per Famiglie",
+        "mdblisturl_walt-disney-animated-films": "Film d'animazione Disney",
+        "mdblisturl_disney-live-action-adaptations-and-remakes-of-disney-animated-films": "Film Disney live action",
+        "mdblisturl_pixar": "Film Pixar",
+        "mdblisturl_disney-junior-tv": "Serie Disney Junior",
+        "mdblisturl_kids-tv-cartoon-network": "Serie Cartoon Network",
+        "mdblisturl_movie-netflix-kids-u0cpofqeue": "Film Netflix Kids",
+        "mdblisturl_tv-show-netflix-kids": "Serie Netflix Kids",
+        "mdblisturl_nickelodeon-movies": "Film Nickelodeon",
+        "mdblisturl_nickelodeon-kids": "Serie Nickelodeon Kids"
+      }
+    },
+    "de": {
+      "customListNames": {
+        "mdblisturl_kids": "Beliebte Filme",
+        "mdblisturl_kids-tv-shows": "Beliebte Serien",
+        "mdblisturl_kids-movies": "Neueste Filme",
+        "mdblisturl_latest-kids-shows": "Neueste Serien",
+        "mdblisturl_top-watched-movies-of-the-week-for-kids": "Meistgesehene Filme der Woche",
+        "mdblisturl_childish-movies-8": "Familienfilme",
+        "mdblisturl_walt-disney-animated-films": "Disney Animationsfilme",
+        "mdblisturl_disney-live-action-adaptations-and-remakes-of-disney-animated-films": "Disney Realverfilmungen",
+        "mdblisturl_pixar": "Pixar Filme",
+        "mdblisturl_disney-junior-tv": "Disney Junior Serien",
+        "mdblisturl_kids-tv-cartoon-network": "Cartoon Network Serien",
+        "mdblisturl_movie-netflix-kids-u0cpofqeue": "Netflix Kids Filme",
+        "mdblisturl_tv-show-netflix-kids": "Netflix Kids Serien",
+        "mdblisturl_nickelodeon-movies": "Nickelodeon Filme",
+        "mdblisturl_nickelodeon-kids": "Nickelodeon Kids Serien"
       }
     }
   }
