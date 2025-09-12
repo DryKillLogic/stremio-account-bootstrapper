@@ -110,5 +110,7 @@
   "instructions_8": "Passe das Addon-Preset an (optional). Du kannst Addons entfernen oder sortieren sowie die AIOLists/Anime Kitsu-Kataloge umbenennen oder löschen.",
   "instructions_9": "Wenn du mit der Anpassung fertig bist, klicke auf \"Mit Stremio synchronisieren\", um dein Konto zu aktualisieren.",
   "instructions_10": "Gehe zu den Stremio-Einstellungen, um deine bevorzugten Sprachoptionen anzupassen.",
-  "kids": "Kinder"
+  "kids": "Kinder",
+  "max_size": "Maximale Größe",
+  "no_size_limit": "Keine Begrenzung"
 }

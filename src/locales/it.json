@@ -110,5 +110,7 @@
   "instructions_8": "Personalizza la preimpostazione degli addon (opzionale). Puoi rimuovere o ordinare gli addon, e rinominare o eliminare i cataloghi AIOLists/Anime Kitsu.",
   "instructions_9": "Quando hai finito di personalizzare, clicca su \"Sincronizza con Stremio\" per aggiornare il tuo account.",
   "instructions_10": "Vai nelle impostazioni di Stremio per regolare le opzioni di lingua preferite.",
-  "kids": "Bambini"
+  "kids": "Bambini",
+  "max_size": "Max size",
+  "no_size_limit": "Nessun limite"
 }

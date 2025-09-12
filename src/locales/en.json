@@ -62,6 +62,8 @@
   "step4_additional_addons": "Step 4: Additional addons (optional)",
   "step5_additional_options": "Step 5: Additional options (optional)",
   "no_4k": "No 4K",
+  "max_size": "Max size",
+  "no_size_limit": "No limit",
   "cached_only_debrid": "Cached-only (debrid)",
   "step6_rpdb_key": "Step 6: Enter RPDB key (optional)",
   "step7_load_preset": "Step 7: Load preset",

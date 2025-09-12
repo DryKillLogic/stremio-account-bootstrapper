@@ -83,9 +83,11 @@ function loadUserAddons() {
         let no4k = false;
         let cached = false;
         let limit = 10;
+        let size = '';
         let cometTransportUrl = {};
         let jackettioTransportUrl = {};
         let torrentsdbTransportUrl = {};
+        let stremthrutorzTransportUrl = {};
         let streamAsiaTransportUrl = {};
         const mediaFusionConfig = data.mediafusionConfig;
         const aiolistsConfig =
@@ -119,6 +121,7 @@ function loadUserAddons() {
         no4k = options.value.includes('no4k');
         cached = options.value.includes('cached');
         limit = ['minimal', 'kids'].includes(preset.value) ? 2 : limit;
+        size = options.value.maxSize ? options.value.maxSize : '';
 
         // Set AIOLists options
         aiolistsConfig.config.tmdbLanguage = language.value;
@@ -238,6 +241,34 @@ function loadUserAddons() {
             );
           }
 
+          // StremThru Torz
+          if (presetConfig.stremthrutorz) {
+            const stremthrutorzDebridService = {
+              realdebrid: 'rd',
+              alldebrid: 'ad',
+              premiumize: 'pm',
+              debridlink: 'dl',
+              torbox: 'tb'
+            };
+
+            stremthrutorzTransportUrl = getDataTransportUrl(
+              presetConfig.stremthrutorz.transportUrl
+            );
+            presetConfig.stremthrutorz.manifest.name += ` | ${debridServiceName}`;
+            presetConfig.stremthrutorz.transportUrl = getUrlTransportUrl(
+              stremthrutorzTransportUrl,
+              {
+                stores: [
+                  {
+                    c: stremthrutorzDebridService[debridService.value],
+                    t: debridApiKey.value
+                  }
+                ],
+                cached: cached
+              }
+            );
+          }
+
           // Peerflix
           if (presetConfig.peerflix) {
             if (debridService.value !== 'easydebrid') {
@@ -303,7 +334,8 @@ function loadUserAddons() {
             {
               transportUrl: torrentioConfig,
               no4k: no4k ? '4k,' : '',
-              limit: limit
+              limit: limit,
+              maxSize: size ? `|sizefilter=${size}GB` : ''
             }
           );
           presetConfig.torrentio.manifest.name += ` ${debridServiceName}`;
@@ -319,6 +351,7 @@ function loadUserAddons() {
             {
               ...cometTransportUrl.data,
               maxResultsPerResolution: limit,
+              maxSize: size ? convertToBytes(size) : 0,
               resolutions: {
                 ...cometTransportUrl.data.resolutions,
                 r2160p: no4k ? false : true
@@ -357,6 +390,10 @@ function loadUserAddons() {
             );
           }
 
+          if (size) {
+            mediaFusionConfig.max_size = convertToBytes(size);
+          }
+
           const encryptedMediaFusionData = await encryptUserData(
             'https://cloudflare-cors-anywhere.drykilllogic.workers.dev/?https://mediafusion.elfhosted.com/encrypt-user-data',
             mediaFusionConfig
@@ -371,7 +408,7 @@ function loadUserAddons() {
         }
 
         // TorrentsDB
-        if (presetConfig.torrentsdb && no4k) {
+        if (presetConfig.torrentsdb) {
           torrentsdbTransportUrl = getDataTransportUrl(
             presetConfig.torrentsdb.transportUrl
           );
@@ -379,13 +416,18 @@ function loadUserAddons() {
             torrentsdbTransportUrl,
             {
               ...torrentsdbTransportUrl.data,
+              sizefilter: size ? convertToMegabytes(size) : '',
               qualityfilter: [
                 ...torrentsdbTransportUrl.data.qualityfilter,
-                '4k',
-                'brremux',
-                'hdrall',
-                'dolbyvisionwithhdr',
-                'dolbyvision'
+                ...(no4k
+                  ? [
+                      '4k',
+                      'brremux',
+                      'hdrall',
+                      'dolbyvisionwithhdr',
+                      'dolbyvision'
+                    ]
+                  : [])
               ]
             }
           );
@@ -498,7 +540,9 @@ function encodeDataFromTransportUrl(data) {
 }
 
 function getDataTransportUrl(url, base64 = true) {
-  const parsedUrl = url.match(/(https?:\/\/[^\/]+\/)([^\/]+)(\/[^\/]+)$/);
+  const parsedUrl = url.match(
+    /(https?:\/\/[^\/]+(?:\/[^\/]+)*\/)([^\/=]+={0,2})(\/manifest\.json)$/
+  );
 
   return {
     domain: parsedUrl[1],
@@ -562,6 +606,14 @@ async function encryptUserData(endpoint, data) {
   } catch (error) {
     console.error(error);
   }
+}
+
+function convertToBytes(gb) {
+  return Number(gb) * 1024 * 1024 * 1024;
+}
+
+function convertToMegabytes(gb) {
+  return Number(gb) * 1024;
 }
 </script>
 
@@ -729,6 +781,19 @@ async function encryptUserData(endpoint, data) {
             />
             {{ $t('cached_only_debrid') }}
           </label>
+          <label>
+            <select v-model="options.maxSize" class="max-size-select">
+              <option :value="''">{{ $t('no_size_limit') }}</option>
+              <option
+                v-for="size in [2, 5, 10, 15, 20, 25, 30]"
+                :key="size"
+                :value="size"
+              >
+                {{ size }} GB
+              </option>
+            </select>
+            {{ $t('max_size') }}
+          </label>
         </div>
       </fieldset>
       <fieldset id="form_step6">
@@ -861,5 +926,14 @@ button {
   font-size: 16px;
   cursor: pointer;
   border-radius: 5px;
+}
+
+.max-size-select {
+  font-size: 1em;
+  padding: 6px 16px;
+  border-radius: 4px;
+  max-width: 120px;
+  margin: 0 8px;
+  display: inline-block;
 }
 </style>
