@@ -112,5 +112,6 @@
   "instructions_10": "Allez dans les paramètres de Stremio pour ajuster vos options de langue préférées.",
   "kids": "Enfants",
   "max_size": "Taille maximale",
-  "no_size_limit": "Aucune limite"
+  "no_size_limit": "Aucune limite",
+  "invalid_debrid_api_key": "Clé API de débridage invalide"
 }

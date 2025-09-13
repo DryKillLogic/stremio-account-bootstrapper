@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { Buffer } from 'buffer';
 import draggable from 'vuedraggable';
@@ -53,6 +53,8 @@ let debridService = ref('');
 let debridApiKey = ref(null);
 let debridApiUrl = ref('');
 let debridServiceName = '';
+
+const isDebridApiKeyValid = computed(() => isValidApiKey(debridService.value));
 
 let torrentioConfig = '';
 let peerflixConfig = '';
@@ -167,8 +169,8 @@ function loadUserAddons() {
           }
         }
 
-        // Set options for debrid
-        if (isValidApiKey()) {
+        // Set options for debrid service
+        if (isValidApiKey(debridService.value)) {
           debridServiceName = debridServiceInfo[debridService.value].name;
 
           // Torrentio
@@ -567,12 +569,21 @@ function updateDebridApiUrl() {
   debridApiUrl.value = debridServiceInfo[debridService.value].url;
 }
 
-function isValidApiKey() {
-  if (debridApiKey.value) {
-    return /^[a-zA-Z0-9-]+$/.test(debridApiKey.value);
-  }
+function isValidApiKey(service) {
+  if (!debridApiKey.value) return false;
 
-  return false;
+  const key = String(debridApiKey.value).trim();
+
+  const patterns = {
+    alldebrid: /^[a-zA-Z0-9]{20}$/,
+    premiumize: /^[a-f0-9]{32}$/i,
+    debridlink: /^[A-Za-z0-9]{35}$/i,
+    easydebrid: /^[a-zA-Z0-9]{16}$/,
+    realdebrid: /^[A-Z0-9]{52}$/,
+    torbox: /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i
+  };
+
+  return patterns[service].test(key);
 }
 
 async function fetchUserData(endpoint) {
@@ -737,10 +748,24 @@ function convertToMegabytes(gb) {
             TorBox
           </label>
           <label>
-            <input v-model="debridApiKey" :disabled="!debridService" />
+            <input
+              v-model="debridApiKey"
+              :disabled="!debridService"
+              :class="{ 'bd-error': debridApiKey && !isDebridApiKeyValid }"
+              :aria-invalid="
+                debridApiKey ? (!isDebridApiKeyValid).toString() : 'false'
+              "
+              type="text"
+            />
             <a v-if="debridApiUrl" target="_blank" :href="`${debridApiUrl}`">{{
               $t('get_api_key_here')
             }}</a>
+            <small
+              v-if="debridApiKey && !isDebridApiKeyValid"
+              class="text-error pull-right"
+            >
+              {{ $t('invalid_debrid_api_key') }}
+            </small>
           </label>
         </div>
       </fieldset>
@@ -777,7 +802,7 @@ function convertToMegabytes(gb) {
               type="checkbox"
               value="cached"
               v-model="options"
-              :disabled="!debridApiKey"
+              :disabled="!isDebridApiKeyValid"
             />
             {{ $t('cached_only_debrid') }}
           </label>
@@ -812,7 +837,10 @@ function convertToMegabytes(gb) {
         <button
           class="button secondary"
           @click="loadUserAddons"
-          :disabled="!props.stremioAuthKey"
+          :disabled="
+            !props.stremioAuthKey ||
+            (debridService ? !isDebridApiKeyValid : false)
+          "
         >
           {{ $t('load_addons_preset') }}
         </button>

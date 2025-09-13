@@ -59,6 +59,7 @@
   "factory": "Factory",
   "step3_debrid_api_key": "Step 3: Enter Debrid API Key (optional)",
   "get_api_key_here": "Get it from here",
+  "invalid_debrid_api_key": "Invalid debrid API key",
   "step4_additional_addons": "Step 4: Additional addons (optional)",
   "step5_additional_options": "Step 5: Additional options (optional)",
   "no_4k": "No 4K",
