@@ -576,7 +576,7 @@ function isValidApiKey(service) {
 
   const patterns = {
     alldebrid: /^[a-zA-Z0-9]{20}$/,
-    premiumize: /^[a-f0-9]{32}$/i,
+    premiumize: /^[a-z0-9]{16}$/i,
     debridlink: /^[A-Za-z0-9]{35}$/i,
     easydebrid: /^[a-zA-Z0-9]{16}$/,
     realdebrid: /^[A-Z0-9]{52}$/,
