@@ -19,6 +19,7 @@ let dragging = false;
 let addons = ref([]);
 let extras = ref([]);
 let options = ref([]);
+let maxSize = ref(''); // default to '' so "No size limit" is selected
 let isSyncButtonEnabled = ref(false);
 let language = ref('en');
 let preset = ref('standard');
@@ -124,7 +125,7 @@ function loadUserAddons() {
         no4k = options.value.includes('no4k');
         cached = options.value.includes('cached');
         limit = ['minimal', 'kids'].includes(preset.value) ? 2 : limit;
-        size = options.value.maxSize ? options.value.maxSize : '';
+        size = maxSize.value ? maxSize.value : '';
 
         // Set AIOLists options
         aiolistsConfig.config.tmdbLanguage = language.value;
@@ -846,7 +847,7 @@ function convertToMegabytes(gb) {
             {{ $t('cached_only_debrid') }}
           </label>
           <label>
-            <select v-model="options.maxSize" class="max-size-select">
+            <select v-model="maxSize" class="max-size-select">
               <option :value="''">{{ $t('no_size_limit') }}</option>
               <option
                 v-for="size in [2, 5, 10, 15, 20, 25, 30]"
