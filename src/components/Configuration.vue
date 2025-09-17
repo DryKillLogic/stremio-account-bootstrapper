@@ -90,6 +90,7 @@ function loadUserAddons() {
         let jackettioTransportUrl = {};
         let torrentsdbTransportUrl = {};
         let stremthrutorzTransportUrl = {};
+        let stremthrustoreTransportUrl = {};
         let streamAsiaTransportUrl = {};
         const mediaFusionConfig = data.mediafusionConfig;
         const aiolistsConfig =
@@ -316,6 +317,35 @@ function loadUserAddons() {
                 ]
               }
             );
+          }
+
+          // StremThru Store
+          if (presetConfig.stremthrustore) {
+            stremthrustoreTransportUrl = getDataTransportUrl(
+              presetConfig.stremthrustore.transportUrl
+            );
+            presetConfig.stremthrustore.transportUrl = getUrlTransportUrl(
+              stremthrustoreTransportUrl,
+              {
+                ...stremthrustoreTransportUrl.data,
+                store_name: debridService.value,
+                store_token: debridApiKey.value
+              }
+            );
+
+            try {
+              const manifestStremthruStoreUserData = await fetchUserData(
+                `https://cloudflare-cors-anywhere.drykilllogic.workers.dev/?${presetConfig.stremthrustore.transportUrl}`
+              );
+
+              if (manifestStremthruStoreUserData) {
+                presetConfig.stremthrustore.manifest =
+                  manifestStremthruStoreUserData;
+              }
+            } catch (error) {
+              presetConfig = _.omit(presetConfig, 'stremthrustore');
+              console.error('Error fetching StremThru Store manifest:', error);
+            }
           }
 
           // Remove TPB+
@@ -787,6 +817,15 @@ function convertToMegabytes(gb) {
           <label>
             <input type="checkbox" value="streamasia" v-model="extras" />
             StreamAsia
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              value="stremthrustore"
+              :disabled="!isDebridApiKeyValid"
+              v-model="extras"
+            />
+            StremThru Store
           </label>
         </div>
       </fieldset>

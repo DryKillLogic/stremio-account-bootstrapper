@@ -35,9 +35,9 @@ defineProps({
   flex-direction: column;
 }
 
-.logo svg {
+.logo img {
   width: 100%;
-  max-width: 300px;
+  max-width: 450px;
 }
 
 .logo h3 {

@@ -100,6 +100,10 @@ const { t } = useI18n();
           <img src="/public/logos/streamasia.png" alt="StreamAsia" />
           <p>StreamAsia</p>
         </div>
+        <div class="col-2 text-center">
+          <img src="/public/logos/stremthrustore.png" alt="StremThru Store" />
+          <p>StremThru Store</p>
+        </div>
       </div>
     </div>
     <h2>{{ t('instructions_title') }}</h2>
