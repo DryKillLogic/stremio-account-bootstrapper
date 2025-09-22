@@ -1,49 +1,35 @@
+<template>
+  <label class="swap swap-rotate">
+    <input
+      type="checkbox"
+      class="theme-controller"
+      value="dark"
+      @change="toggleTheme"
+    />
+
+    <SunIcon class="swap-off w-6 h-6" />
+    <MoonIcon class="swap-on w-6 h-6" />
+  </label>
+</template>
+
 <script setup>
-import { ref, onMounted } from 'vue';
+import { onMounted } from "vue";
+import { SunIcon, MoonIcon } from "@heroicons/vue/24/outline";
 
-const darkIcon = '🌙';
-const lightIcon = '☀️';
-let darkEnabled = ref(getDarkModePreference());
-let toggleIcon = ref(darkEnabled.value ? lightIcon : darkIcon);
-
-function getDarkModePreference() {
-  const userSet = localStorage.getItem('darkMode');
-  // User explicit setting takes precedence
-  if (userSet !== null) {
-    return userSet === 'true';
-  } else {
-    // If user has no preference, use system preference
-    if (
-      window.matchMedia &&
-      window.matchMedia('(prefers-color-scheme: dark)').matches
-    ) {
-      return true;
-    }
-  }
-
-  return false;
-}
-
-function toggleMode() {
-  darkEnabled.value = !darkEnabled.value;
-  localStorage.setItem('darkMode', darkEnabled.value);
-  document.body.classList.toggle('dark');
-  if (darkEnabled.value) {
-    toggleIcon.value = lightIcon;
-  } else {
-    toggleIcon.value = darkIcon;
-  }
+function toggleTheme(event) {
+  const theme = event.target.checked ? "dark" : "light";
+  document.documentElement.setAttribute("data-theme", theme);
+  localStorage.setItem("theme", theme);
 }
 
 onMounted(() => {
-  if (darkEnabled.value) {
-    document.body.classList.add('dark');
+  const savedTheme = localStorage.getItem("theme") || "light";
+  document.documentElement.setAttribute("data-theme", savedTheme);
+
+  // Set the checkbox state based on saved theme
+  const checkbox = document.querySelector(".theme-controller");
+  if (checkbox) {
+    checkbox.checked = savedTheme === "dark";
   }
 });
 </script>
-
-<template>
-  <a @click="toggleMode" style="font-size: 2.5rem; cursor: pointer">{{
-    toggleIcon
-  }}</a>
-</template>

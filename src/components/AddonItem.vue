@@ -1,4 +1,10 @@
 <script setup>
+import {
+  ClipboardDocumentIcon,
+  PencilSquareIcon,
+  TrashIcon
+} from '@heroicons/vue/24/outline';
+
 const props = defineProps({
   name: {
     type: String,
@@ -53,156 +59,46 @@ function openEditManifestModal() {
 </script>
 
 <template>
-  <div class="item">
-    <div class="col-8">
-      <div class="details">
+  <div
+    class="item flex items-center justify-between flex-wrap rounded-lg p-3 mb-3 border border-gray-300 bg-base-200 relative cursor-move"
+  >
+    <div class="col-8 flex-1">
+      <div class="details flex items-center">
         <div class="logo_container">
-          <img :src="logoURL || defaultLogo" />
+          <img
+            :src="logoURL || defaultLogo"
+            class="h-15 w-15 pointer-events-none mr-3 object-contain object-center rounded-[30%] bg-gray-800"
+          />
         </div>
-        <span>{{ name }}</span>
+        <span class="text-base font-medium text-no">{{ name }}</span>
       </div>
     </div>
-    <div class="col">
-      <button class="button icon-only copy-url" title="Copy addon manifest URL to clipboard"
-        @click="copyManifestURLToClipboard">
-        <img src="https://icongr.am/feather/clipboard.svg?size=12" />
+    <div class="col flex gap-2 flex-wrap items-center mt-2 md:mt-0">
+      <button
+        class="button icon-only copy-url flex justify-center items-center rounded px-2 py-1 transition-colors hover:bg-gray-100 cursor-pointer"
+        title="Copy addon manifest URL to clipboard"
+        @click="copyManifestURLToClipboard"
+      >
+        <ClipboardDocumentIcon class="w-5 h-5" />
       </button>
-      <button class="button icon-only edit-manifest" title="Edit manifest JSON" @click="openEditManifestModal">
-        <img src="https://icongr.am/feather/edit.svg?size=12" />
+      <button
+        class="button icon-only edit-manifest flex justify-center items-center rounded px-2 py-1 transition-colors hover:bg-gray-100 cursor-pointer"
+        title="Edit manifest JSON"
+        @click="openEditManifestModal"
+      >
+        <PencilSquareIcon class="w-5 h-5" />
       </button>
-      <button class="button icon-only delete" title="Remove addon from list" :disabled="!isDeletable"
-        @click="removeAddon">
-        <img src="https://icongr.am/feather/trash-2.svg?size=12" />
+      <button
+        class="button icon-only delete flex justify-center items-center rounded px-2 py-1 transition-colors hover:bg-gray-100 disabled:opacity-50 cursor-pointer"
+        title="Remove addon from list"
+        :disabled="!isDeletable"
+        @click="removeAddon"
+      >
+        <TrashIcon class="w-5 h-5" />
       </button>
     </div>
-    <i class="uil uil-draggabledots"></i>
+    <i
+      class="uil uil-draggabledots absolute right-2 bottom-2 text-xl text-gray-400 md:static md:ml-4"
+    ></i>
   </div>
 </template>
-
-<style scoped>
-.sortable-list .item {
-  list-style: none;
-  display: flex;
-  cursor: move;
-  align-items: center;
-  border-radius: 5px;
-  padding: 10px 13px;
-  margin-bottom: 11px;
-  border: 1px solid #ccc;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-
-.dark .sortable-list .item {
-  border: 1px solid #434242;
-}
-
-.item .details {
-  display: flex;
-  align-items: center;
-  flex: 1;
-}
-
-.item .details img {
-  height: 60px;
-  width: 60px;
-  pointer-events: none;
-  margin-right: 12px;
-  object-fit: contain;
-  object-position: center;
-  border-radius: 30%;
-  background-color: #262626;
-}
-
-.col {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  align-items: center;
-  min-width: 200px;
-}
-
-.button {
-  border-radius: 4px;
-  cursor: pointer;
-  padding: 5px;
-  transition: background-color 0.3s;
-}
-
-.icon-only {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.visit-url img,
-.copy-url img,
-.edit-manifest img,
-.delete img {
-  width: 20px;
-  height: 20px;
-}
-
-@media (max-width: 768px) {
-  .sortable-list .item {
-    flex-direction: column;
-    align-items: center;
-    padding: 10px;
-  }
-
-  .item .details {
-    margin-bottom: 10px;
-    text-align: center;
-  }
-
-  .item .details img {
-    margin-right: 12px;
-    margin-bottom: 8px;
-  }
-
-  .col {
-    flex-direction: row;
-    gap: 8px;
-    justify-content: center;
-    width: 100%;
-    margin-top: 10px;
-  }
-
-  .button {
-    padding: 6px;
-  }
-
-  .uil-draggabledots {
-    position: absolute;
-    right: 10px;
-    bottom: 10px;
-  }
-}
-
-@media (max-width: 480px) {
-  .item .details {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .item .details img {
-    margin-bottom: 6px;
-  }
-
-  .col {
-    flex-direction: row;
-    gap: 4px;
-    justify-content: center;
-    width: 100%;
-  }
-
-  .button {
-    padding: 4px;
-  }
-
-  .uil-draggabledots {
-    display: none;
-  }
-}
-</style>

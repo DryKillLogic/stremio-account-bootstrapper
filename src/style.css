@@ -1,0 +1,12 @@
+@import 'tailwindcss';
+@plugin "daisyui";
+
+@plugin "daisyui/theme" {
+  name: 'light';
+  --color-secondary: var(--color-warning);
+}
+
+@plugin "daisyui/theme" {
+  name: 'dark';
+  --color-secondary: var(--color-warning);
+}

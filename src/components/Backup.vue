@@ -6,6 +6,7 @@ import {
 } from '../composables/useStremioApi';
 import { format } from 'date-fns';
 import { useI18n } from 'vue-i18n';
+import { addNotification } from '../composables/useNotifications';
 
 const { stremioAuthKey } = defineProps({
   stremioAuthKey: { type: String }
@@ -23,7 +24,6 @@ function backupConfig() {
 
   getAddonCollection(stremioAuthKey)
     .then((data) => {
-      console.log('Backup data:', data);
       const blob = new Blob([JSON.stringify(data, null, 2)], {
         type: 'application/json'
       });
@@ -36,11 +36,11 @@ function backupConfig() {
       a.remove();
       URL.revokeObjectURL(url);
 
-      alert(t('backup_saved'));
+      addNotification(t('backup_saved'), 'success');
     })
     .catch((e) => {
       error.value = e?.message || String(e);
-      alert(`${error.value || t('backup_failed')}`);
+      addNotification(error.value || t('backup_failed'), 'error');
     })
     .finally(() => {
       loadingBackup.value = false;
@@ -70,16 +70,15 @@ async function restoreConfigFile(event) {
     const addonsPayload = parsed?.result?.addons;
 
     if (!addonsPayload) {
-      alert(t('invalid_backup_file'));
+      addNotification(t('invalid_backup_file'), 'error');
       throw new Error(t('invalid_backup_file'));
     }
 
-    await setAddonCollection(addonsPayload, stremioAuthKey).then(() => {
-      alert(t('restore_successful'));
-    });
+    await setAddonCollection(addonsPayload, stremioAuthKey);
+    addNotification(t('restore_successful'), 'success');
   } catch (e) {
     error.value = e?.message || String(e);
-    alert(`${error.value || t('restore_failed')}`);
+    addNotification(error.value || t('restore_failed'), 'error');
   } finally {
     loadingRestore.value = false;
     event.target.value = '';
@@ -88,26 +87,35 @@ async function restoreConfigFile(event) {
 </script>
 
 <template>
-  <section id="backup">
-    <h2>{{ $t('backup_restore') }}</h2>
-    <fieldset style="padding: 0 20px; padding-top: 10px">
-      <div class="row">
-        <div class="col-6">
+  <section id="backup" class="max-w-4xl mx-auto p-4">
+    <h2 class="text-2xl font-bold mb-6">{{ $t('backup_restore') }}</h2>
+
+    <div class="bg-base-100 p-6 rounded-lg border border-base-300">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
           <button
-            class="button primary"
+            class="btn btn-primary w-full"
             @click="backupConfig"
             :disabled="!stremioAuthKey || loadingBackup"
           >
+            <span
+              v-if="loadingBackup"
+              class="loading loading-spinner loading-sm"
+            ></span>
             {{ loadingBackup ? $t('backing_up') : $t('backup_config') }}
           </button>
         </div>
-        <div class="col-6">
+
+        <div>
           <button
-            class="button secondary"
+            class="btn btn-secondary w-full"
             @click="openFilePicker"
             :disabled="!stremioAuthKey || loadingRestore"
-            style="display: inline-flex; align-items: center"
           >
+            <span
+              v-if="loadingRestore"
+              class="loading loading-spinner loading-sm"
+            ></span>
             {{ loadingRestore ? $t('restoring') : $t('restore_config') }}
           </button>
 
@@ -116,11 +124,11 @@ async function restoreConfigFile(event) {
             type="file"
             accept=".json,application/json"
             @change="restoreConfigFile"
-            style="display: none"
+            class="hidden"
             :disabled="!stremioAuthKey || loadingRestore"
           />
         </div>
       </div>
-    </fieldset>
+    </div>
   </section>
 </template>

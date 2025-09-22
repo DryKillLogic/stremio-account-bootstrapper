@@ -2,6 +2,9 @@
 import { ref } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { loginUser, createUser } from '../composables/useStremioApi';
+import { QuestionMarkCircleIcon } from '@heroicons/vue/24/outline';
+import HowGetAuthKey from './HowGetAuthKey.vue';
+import { addNotification } from '../composables/useNotifications';
 
 const { t } = useI18n();
 
@@ -19,12 +22,12 @@ function loginUserPassword() {
         loggedIn.value = true;
         emitAuthKey();
       } else {
-        alert(data?.error.message || t('login_failed'));
+        addNotification(data?.error?.message || t('login_failed'), 'error');
       }
     })
     .catch((err) => {
       console.error(err);
-      alert(err?.message || t('login_failed'));
+      addNotification(err?.message || t('login_failed'), 'error');
     });
 }
 
@@ -35,14 +38,14 @@ function createAccount() {
         authKey.value = data.result.authKey;
         loggedIn.value = true;
         emitAuthKey();
-        alert(t('register_successful'));
+        addNotification(t('register_successful'), 'success');
       } else {
-        alert(data?.error.message || t('register_failed'));
+        addNotification(data?.error?.message || t('register_failed'), 'error');
       }
     })
     .catch((err) => {
       console.error(err);
-      alert(err?.message || t('register_failed'));
+      addNotification(err?.message || t('register_failed'), 'error');
     });
 }
 
@@ -52,96 +55,72 @@ function emitAuthKey() {
 </script>
 
 <template>
-  <h2>{{ $t('authentication') }}</h2>
-  <fieldset style="padding: 10px 20px">
-    <div class="row">
-      <div class="col-12">
-        <input type="text" v-model="email" :placeholder="$t('stremio_email')" />
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12">
-        <input
-          type="password"
-          v-model="password"
-          :placeholder="$t('stremio_password')"
-        />
-      </div>
-    </div>
+  <section id="authentication" class="max-w-4xl mx-auto p-4">
+    <h3 class="text-2xl font-bold mb-6">{{ $t('authentication') }}</h3>
 
-    <div class="row">
-      <div class="col-6">
-        <button
-          class="button primary"
-          @click="loginUserPassword"
-          :disabled="!email || !password"
-        >
-          {{ loggedIn ? $t('logged_in') : $t('login') }}
-        </button>
-      </div>
-      <div class="col-6">
-        <button
-          class="button secondary"
-          @click="createAccount"
-          :disabled="!email || !password"
-        >
-          {{ $t('signup') }}
-        </button>
-      </div>
-    </div>
+    <div class="bg-base-100 p-6 rounded-lg border border-base-300">
+      <div class="space-y-4">
+        <div class="form-control">
+          <input
+            type="text"
+            v-model="email"
+            :placeholder="$t('stremio_email')"
+            class="input input-bordered w-full"
+          />
+        </div>
 
-    <div class="text-center vertical-margin">
-      <strong>{{ $t('or') }}</strong>
-    </div>
+        <div class="form-control">
+          <input
+            type="password"
+            v-model="password"
+            :placeholder="$t('stremio_password')"
+            class="input input-bordered w-full"
+          />
+        </div>
 
-    <div>
-      <label>
-        <input
-          type="password"
-          v-model="authKey"
-          v-on:input="emitAuthKey"
-          :placeholder="$t('paste_authkey')"
-        />
-        <a href="#how">{{ $t('how_to_get_authkey') }}</a>
-      </label>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <button
+            class="btn btn-primary"
+            @click="loginUserPassword"
+            :disabled="!email || !password"
+          >
+            {{ loggedIn ? $t('logged_in') : $t('login') }}
+          </button>
+
+          <button
+            class="btn btn-secondary"
+            @click="createAccount"
+            :disabled="!email || !password"
+          >
+            {{ $t('signup') }}
+          </button>
+        </div>
+
+        <div class="divider">
+          <strong>{{ $t('or') }}</strong>
+        </div>
+
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">{{ $t('paste_authkey') }}</span>
+            <button
+              type="button"
+              onclick="get_auth_key.showModal()"
+              class="p-0 bg-transparent border-0 shadow-none hover:bg-transparent cursor-pointer"
+            >
+              <QuestionMarkCircleIcon class="h-5 w-5 text-primary" />
+            </button>
+          </label>
+          <input
+            type="password"
+            v-model="authKey"
+            v-on:input="emitAuthKey"
+            :placeholder="$t('paste_authkey')"
+            class="input input-bordered w-full"
+          />
+        </div>
+      </div>
     </div>
-  </fieldset>
+    <HowGetAuthKey />
+  </section>
 </template>
-<style scoped>
-.sortable-list .item {
-  list-style: none;
-  display: flex;
-  cursor: move;
-  align-items: center;
-  border-radius: 5px;
-  padding: 10px 13px;
-  margin-bottom: 11px;
-  /* box-shadow: 0 2px 4px rgba(0,0,0,0.06); */
-  border: 1px solid #ccc;
-  justify-content: space-between;
-}
-
-.dark .sortable-list .item {
-  border: 1px solid #434242;
-}
-
-.item .details {
-  display: flex;
-  align-items: center;
-}
-
-.item .details img {
-  height: 60px;
-  width: 60px;
-  pointer-events: none;
-  margin-right: 12px;
-  object-fit: contain;
-  object-position: center;
-  border-radius: 30%;
-  background-color: #262626;
-}
-
-.vertical-margin {
-  margin: 5px 0;
-}
-</style>

@@ -214,7 +214,7 @@
             "configurable": true,
             "configurationRequired": false
           },
-          "name": "Comet | ElfHosted"
+          "name": "Comet"
         },
         "flags": {
           "official": false,
@@ -226,7 +226,7 @@
         "manifest": {
           "id": "stremio.addons.mediafusion|elfhosted",
           "version": "4.3.34",
-          "name": "MediaFusion | ElfHosted",
+          "name": "MediaFusion",
           "contactEmail": "mhdzumair@gmail.com",
           "description": "Universal Stremio Add-on for Movies, Series, Live TV &amp; Sports Events. Source: https://github.com/mhdzumair/MediaFusion",
           "logo": "https://mediafusion.elfhosted.com/static/images/mediafusion-elfhosted-logo.png",
@@ -390,7 +390,7 @@
         "manifest": {
           "id": "org.nuvio.streams",
           "version": "0.5.0",
-          "name": "Nuvio Streams | Elfhosted",
+          "name": "Nuvio Streams",
           "description": "Stremio addon for high-quality streaming links.",
           "logo": "https://raw.githubusercontent.com/tapframe/NuvioStreaming/main/assets/titlelogo.png",
           "resources": ["stream"],
@@ -414,7 +414,7 @@
         "manifest": {
           "id": "webstreamr.hayd.uk",
           "version": "0.49.0",
-          "name": "WebStreamr | Hayduk",
+          "name": "WebStreamr",
           "description": "Provides HTTP URLs from streaming websites.",
           "resources": ["stream"],
           "types": ["movie", "series"],

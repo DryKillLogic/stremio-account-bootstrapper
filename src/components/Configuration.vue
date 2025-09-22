@@ -7,6 +7,8 @@ import AddonItem from './AddonItem.vue';
 import DynamicForm from './DynamicForm.vue';
 import _ from 'lodash';
 import { setAddonCollection } from '../composables/useStremioApi';
+import { QuestionMarkCircleIcon } from '@heroicons/vue/24/outline';
+import { addNotification } from '../composables/useNotifications';
 
 const { t } = useI18n();
 
@@ -19,8 +21,10 @@ let dragging = false;
 let addons = ref([]);
 let extras = ref([]);
 let options = ref([]);
-let maxSize = ref(''); // default to '' so "No size limit" is selected
+let maxSize = ref('');
 let isSyncButtonEnabled = ref(false);
+let isLoadingPreset = ref(false);
+let isSyncAddons = ref(false);
 let language = ref('en');
 let preset = ref('standard');
 
@@ -64,442 +68,422 @@ let isEditModalVisible = ref(false);
 let currentManifest = ref({});
 let currentEditIdx = ref(null);
 
-function loadUserAddons() {
+async function loadUserAddons() {
   const key = props.stremioAuthKey;
   if (!key) {
     console.error('No auth key provided');
     return;
   }
 
+  isLoadingPreset.value = true;
+  isSyncButtonEnabled.value = false;
   console.log('Loading addons...');
 
-  fetch('/preset.json')
-    .then((resp) => {
-      resp.json().then(async (data) => {
-        if (!data) {
-          console.error('Failed to fetch presets: ', data);
-          alert(t('failed_fetching_presets'));
-          return;
-        }
+  try {
+    const resp = await fetch('/preset.json');
+    const data = await resp.json();
 
-        let presetConfig = {};
-        let no4k = false;
-        let cached = false;
-        let limit = 10;
-        let size = '';
-        let cometTransportUrl = {};
-        let jackettioTransportUrl = {};
-        let torrentsdbTransportUrl = {};
-        let stremthrutorzTransportUrl = {};
-        let stremthrustoreTransportUrl = {};
-        let streamAsiaTransportUrl = {};
-        const mediaFusionConfig = data.mediafusionConfig;
-        const aiolistsConfig =
-          preset.value === 'kids'
-            ? data.aiolistsKidsConfig
-            : data.aiolistsConfig;
+    if (!data) {
+      console.error('Failed to fetch presets: ', data);
+      addNotification(t('failed_fetching_presets'), 'error');
+      return;
+    }
 
-        // Set additional addons based on language selection
-        if (language.value === 'es-mx') {
-          data.presets[preset.value].push('subdivx');
-        }
+    let presetConfig = {};
+    let no4k = false;
+    let cached = false;
+    let limit = 10;
+    let size = '';
+    let cometTransportUrl = {};
+    let jackettioTransportUrl = {};
+    let torrentsdbTransportUrl = {};
+    let stremthrutorzTransportUrl = {};
+    let stremthrustoreTransportUrl = {};
+    let streamAsiaTransportUrl = {};
+    const mediaFusionConfig = data.mediafusionConfig;
+    const aiolistsConfig =
+      preset.value === 'kids' ? data.aiolistsKidsConfig : data.aiolistsConfig;
 
-        // Get preset config
-        presetConfig = _.pick(
-          language.value === 'en'
-            ? data.languages[language.value]
-            : _.merge({}, data.languages.en, data.languages[language.value]),
-          data.presets[preset.value]
-        );
+    // Set additional addons based on language selection
+    if (language.value === 'es-mx') {
+      data.presets[preset.value].push('subdivx');
+    }
 
-        // Set additional addons
-        if (extras.value.length > 0) {
-          extras.value.forEach((extra) => {
-            presetConfig = _.merge({}, presetConfig, {
-              [extra]: data.extras[extra]
-            });
-          });
-        }
+    // Get preset config
+    presetConfig = _.pick(
+      language.value === 'en'
+        ? data.languages[language.value]
+        : _.merge({}, data.languages.en, data.languages[language.value]),
+      data.presets[preset.value]
+    );
 
-        // Set additional options
-        no4k = options.value.includes('no4k');
-        cached = options.value.includes('cached');
-        limit = ['minimal', 'kids'].includes(preset.value) ? 2 : limit;
-        size = maxSize.value ? maxSize.value : '';
-
-        // Set AIOLists options
-        aiolistsConfig.config.tmdbLanguage = language.value;
-        aiolistsConfig.config = _.merge(
-          {},
-          aiolistsConfig.config,
-          language.value !== 'en' ? aiolistsConfig[language.value] : {}
-        );
-
-        // Set RPDB key
-        if (rpdbKey.value) {
-          aiolistsConfig.config.rpdbApiKey = rpdbKey.value;
-          aiolistsConfig.config.isConnected.rpdb = true;
-        }
-
-        // AIOLists request
-        if (presetConfig.aiolists) {
-          try {
-            const encryptedAIOListsUserData = await encryptUserData(
-              'https://aiolists.elfhosted.com/api/config/create',
-              aiolistsConfig
-            );
-
-            if (encryptedAIOListsUserData.success) {
-              presetConfig.aiolists.transportUrl = `https://aiolists.elfhosted.com/${encryptedAIOListsUserData.configHash}/manifest.json`;
-
-              const manifestAIOListsUserData = await fetchUserData(
-                presetConfig.aiolists.transportUrl
-              );
-
-              if (manifestAIOListsUserData) {
-                presetConfig.aiolists.manifest = manifestAIOListsUserData;
-              } else {
-                presetConfig = _.omit(presetConfig, 'aiolists');
-                console.log('Error fetching AIOLists user manifest.');
-              }
-            } else {
-              presetConfig = _.omit(presetConfig, 'aiolists');
-              console.log('Error fetching AIOLists encrypted user data.');
-            }
-          } catch (error) {
-            console.error('An error occurred:', error);
-          }
-        }
-
-        // Set options for debrid service
-        if (isValidApiKey(debridService.value)) {
-          debridServiceName = debridServiceInfo[debridService.value].name;
-
-          // Torrentio
-          if (presetConfig.torrentio) {
-            torrentioConfig = `|sort=qualitysize|debridoptions=${cached ? 'nodownloadlinks,' : ''}nocatalog|${debridService.value}=${debridApiKey.value}`;
-          }
-
-          // Comet
-          if (presetConfig.comet) {
-            cometTransportUrl = getDataTransportUrl(
-              presetConfig.comet.transportUrl
-            );
-            presetConfig.comet.manifest.name += ` | ${debridServiceName}`;
-            presetConfig.comet.transportUrl = getUrlTransportUrl(
-              cometTransportUrl,
-              {
-                ...cometTransportUrl.data,
-                debridApiKey: debridApiKey.value,
-                debridService: debridService.value,
-                cachedOnly: cached
-              }
-            );
-          }
-
-          // MediaFusion
-          if (presetConfig.mediafusion) {
-            presetConfig.mediafusion.manifest.name += ` | ${debridServiceName}`;
-            mediaFusionConfig.streaming_provider = {
-              service: debridService.value,
-              token: debridApiKey.value,
-              enable_watchlist_catalogs: false,
-              download_via_browser: false,
-              only_show_cached_streams: cached
-            };
-          }
-
-          // TorrentsDB
-          if (presetConfig.torrentsdb) {
-            torrentsdbTransportUrl = getDataTransportUrl(
-              presetConfig.torrentsdb.transportUrl
-            );
-            presetConfig.torrentsdb.manifest.name += ` | ${debridServiceName}`;
-            presetConfig.torrentsdb.transportUrl = getUrlTransportUrl(
-              torrentsdbTransportUrl,
-              {
-                ...torrentsdbTransportUrl.data,
-                sort: 'qualitysize',
-                [debridService.value]: debridApiKey.value
-              }
-            );
-          }
-
-          // Jackettio
-          if (presetConfig.jackettio) {
-            jackettioTransportUrl = getDataTransportUrl(
-              presetConfig.jackettio.transportUrl
-            );
-            presetConfig.jackettio.manifest.name += ` | ${debridServiceName}`;
-            presetConfig.jackettio.transportUrl = getUrlTransportUrl(
-              jackettioTransportUrl,
-              {
-                ...jackettioTransportUrl.data,
-                debridApiKey: debridApiKey.value,
-                debridId: debridService.value,
-                hideUncached: cached,
-                qualities: no4k
-                  ? _.pull(jackettioTransportUrl.data.qualities, 2160)
-                  : jackettioTransportUrl.data.qualities
-              }
-            );
-          }
-
-          // StremThru Torz
-          if (presetConfig.stremthrutorz) {
-            const stremthrutorzDebridService = {
-              realdebrid: 'rd',
-              alldebrid: 'ad',
-              premiumize: 'pm',
-              debridlink: 'dl',
-              torbox: 'tb'
-            };
-
-            stremthrutorzTransportUrl = getDataTransportUrl(
-              presetConfig.stremthrutorz.transportUrl
-            );
-            presetConfig.stremthrutorz.manifest.name += ` | ${debridServiceName}`;
-            presetConfig.stremthrutorz.transportUrl = getUrlTransportUrl(
-              stremthrutorzTransportUrl,
-              {
-                stores: [
-                  {
-                    c: stremthrutorzDebridService[debridService.value],
-                    t: debridApiKey.value
-                  }
-                ],
-                cached: cached
-              }
-            );
-          }
-
-          // Peerflix
-          if (presetConfig.peerflix) {
-            if (debridService.value !== 'easydebrid') {
-              peerflixConfig = `%7Cdebridoptions=nocatalog${cached ? ',nodownloadlinks' : ''}%7C${debridService.value}=${debridApiKey.value}`;
-            } else {
-              presetConfig = _.omit(presetConfig, 'peerflix');
-            }
-          }
-
-          // Torbox
-          if (debridService.value === 'torbox' && presetConfig.torbox) {
-            presetConfig.torbox.transportUrl = Sqrl.render(
-              presetConfig.torbox.transportUrl,
-              { transportUrl: debridApiKey.value }
-            );
-          } else {
-            presetConfig = _.omit(presetConfig, 'torbox');
-          }
-
-          // StreamAsia
-          if (presetConfig.streamasia && debridService.value !== 'easydebrid') {
-            const streamAsiaDebridService = {
-              realdebrid: 'Real Debrid',
-              alldebrid: 'AllDebrid',
-              premiumize: 'Premiumize',
-              debridlink: 'Debrid-Link',
-              torbox: 'Torbox'
-            };
-
-            streamAsiaTransportUrl = getDataTransportUrl(
-              presetConfig.streamasia.transportUrl
-            );
-            presetConfig.streamasia.transportUrl = getUrlTransportUrl(
-              streamAsiaTransportUrl,
-              {
-                ...streamAsiaTransportUrl.data,
-                debridConfig: [
-                  {
-                    debridProvider:
-                      streamAsiaDebridService[debridService.value],
-                    token: debridApiKey.value
-                  }
-                ]
-              }
-            );
-          }
-
-          // StremThru Store
-          if (presetConfig.stremthrustore) {
-            stremthrustoreTransportUrl = getDataTransportUrl(
-              presetConfig.stremthrustore.transportUrl
-            );
-            presetConfig.stremthrustore.transportUrl = getUrlTransportUrl(
-              stremthrustoreTransportUrl,
-              {
-                ...stremthrustoreTransportUrl.data,
-                store_name: debridService.value,
-                store_token: debridApiKey.value
-              }
-            );
-
-            try {
-              const manifestStremthruStoreUserData = await fetchUserData(
-                `https://cloudflare-cors-anywhere.drykilllogic.workers.dev/?${presetConfig.stremthrustore.transportUrl}`
-              );
-
-              if (manifestStremthruStoreUserData) {
-                presetConfig.stremthrustore.manifest =
-                  manifestStremthruStoreUserData;
-              }
-            } catch (error) {
-              presetConfig = _.omit(presetConfig, 'stremthrustore');
-              console.error('Error fetching StremThru Store manifest:', error);
-            }
-          }
-
-          // Remove TPB+
-          presetConfig = _.omit(presetConfig, 'tpbplus');
-        } else {
-          debridServiceName = '';
-          // Remove Jackettio
-          presetConfig = _.omit(presetConfig, 'jackettio');
-          // Remove Torbox
-          presetConfig = _.omit(presetConfig, 'torbox');
-        }
-
-        // Set stream addons options
-        if (presetConfig.torrentio) {
-          // Torrentio
-          presetConfig.torrentio.transportUrl = Sqrl.render(
-            presetConfig.torrentio.transportUrl,
-            {
-              transportUrl: torrentioConfig,
-              no4k: no4k ? '4k,' : '',
-              limit: limit,
-              maxSize: size ? `|sizefilter=${size}GB` : ''
-            }
-          );
-          presetConfig.torrentio.manifest.name += ` ${debridServiceName}`;
-        }
-
-        // Comet
-        if (presetConfig.comet) {
-          cometTransportUrl = getDataTransportUrl(
-            presetConfig.comet.transportUrl
-          );
-          presetConfig.comet.transportUrl = getUrlTransportUrl(
-            cometTransportUrl,
-            {
-              ...cometTransportUrl.data,
-              maxResultsPerResolution: limit,
-              maxSize: size ? convertToBytes(size) : 0,
-              resolutions: {
-                ...cometTransportUrl.data.resolutions,
-                r2160p: no4k ? false : true
-              }
-            }
-          );
-        }
-
-        // MediaFusion
-        if (presetConfig.mediafusion) {
-          if (no4k) {
-            _.pull(
-              mediaFusionConfig.selected_resolutions,
-              '4k',
-              '2160p',
-              '1440p'
-            );
-          }
-
-          const languagesToPrioritize = {
-            'es-mx': 'Latino',
-            'es-es': 'Spanish',
-            pt: 'Portuguese',
-            fr: 'French',
-            it: 'Italian',
-            de: 'German'
-          };
-
-          if (languagesToPrioritize[language.value]) {
-            _.pull(
-              mediaFusionConfig.language_sorting,
-              languagesToPrioritize[language.value]
-            );
-            mediaFusionConfig.language_sorting.unshift(
-              languagesToPrioritize[language.value]
-            );
-          }
-
-          if (size) {
-            mediaFusionConfig.max_size = convertToBytes(size);
-          }
-
-          const encryptedMediaFusionData = await encryptUserData(
-            'https://cloudflare-cors-anywhere.drykilllogic.workers.dev/?https://mediafusion.elfhosted.com/encrypt-user-data',
-            mediaFusionConfig
-          );
-
-          if (encryptedMediaFusionData?.status === 'success') {
-            presetConfig.mediafusion.transportUrl = `https://mediafusion.elfhosted.com/${encryptedMediaFusionData.encrypted_str}/manifest.json`;
-          } else {
-            presetConfig = _.omit(presetConfig, 'mediafusion');
-            console.log('Error fetching MediaFusion encrypted user data.');
-          }
-        }
-
-        // TorrentsDB
-        if (presetConfig.torrentsdb) {
-          torrentsdbTransportUrl = getDataTransportUrl(
-            presetConfig.torrentsdb.transportUrl
-          );
-          presetConfig.torrentsdb.transportUrl = getUrlTransportUrl(
-            torrentsdbTransportUrl,
-            {
-              ...torrentsdbTransportUrl.data,
-              sizefilter: size ? convertToMegabytes(size) : '',
-              qualityfilter: [
-                ...torrentsdbTransportUrl.data.qualityfilter,
-                ...(no4k
-                  ? [
-                      '4k',
-                      'brremux',
-                      'hdrall',
-                      'dolbyvisionwithhdr',
-                      'dolbyvision'
-                    ]
-                  : [])
-              ]
-            }
-          );
-        }
-
-        // Peerflix
-        if (presetConfig.peerflix) {
-          if (
-            debridService.value !== '' &&
-            debridService.value !== 'easydebrid'
-          ) {
-            presetConfig.peerflix.transportUrl = Sqrl.render(
-              presetConfig.peerflix.transportUrl,
-              {
-                transportUrl: peerflixConfig,
-                no4k: no4k ? ',remux4k,4k,micro4k' : '',
-                sort: debridService.value ? ',size-desc' : ',seed-desc'
-              }
-            );
-            presetConfig.peerflix.manifest.name += ` ${debridServiceName}`;
-          }
-        }
-
-        // Create addons list
-        const selectedAddons = [];
-
-        Object.keys(presetConfig).forEach((key) => {
-          selectedAddons.push(presetConfig[key]);
+    // Set additional addons
+    if (extras.value.length > 0) {
+      extras.value.forEach((extra) => {
+        presetConfig = _.merge({}, presetConfig, {
+          [extra]: data.extras[extra]
         });
-
-        addons.value = selectedAddons;
       });
-    })
-    .catch((error) => {
-      console.error('Error fetching preset config', error);
-    })
-    .finally(() => {
-      isSyncButtonEnabled.value = true;
+    }
+
+    // Set additional options
+    no4k = options.value.includes('no4k');
+    cached = options.value.includes('cached');
+    limit = ['minimal', 'kids'].includes(preset.value) ? 2 : limit;
+    size = maxSize.value ? maxSize.value : '';
+
+    // Set AIOLists options
+    aiolistsConfig.config.tmdbLanguage = language.value;
+    aiolistsConfig.config = _.merge(
+      {},
+      aiolistsConfig.config,
+      language.value !== 'en' ? aiolistsConfig[language.value] : {}
+    );
+
+    // Set RPDB key
+    if (rpdbKey.value) {
+      aiolistsConfig.config.rpdbApiKey = rpdbKey.value;
+      aiolistsConfig.config.isConnected.rpdb = true;
+    }
+
+    // AIOLists request
+    if (presetConfig.aiolists) {
+      try {
+        const encryptedAIOListsUserData = await encryptUserData(
+          'https://aiolists.elfhosted.com/api/config/create',
+          aiolistsConfig
+        );
+
+        if (encryptedAIOListsUserData.success) {
+          presetConfig.aiolists.transportUrl = `https://aiolists.elfhosted.com/${encryptedAIOListsUserData.configHash}/manifest.json`;
+
+          const manifestAIOListsUserData = await fetchUserData(
+            presetConfig.aiolists.transportUrl
+          );
+
+          if (manifestAIOListsUserData) {
+            presetConfig.aiolists.manifest = manifestAIOListsUserData;
+          } else {
+            presetConfig = _.omit(presetConfig, 'aiolists');
+            console.log('Error fetching AIOLists user manifest.');
+          }
+        } else {
+          presetConfig = _.omit(presetConfig, 'aiolists');
+          console.log('Error fetching AIOLists encrypted user data.');
+        }
+      } catch (error) {
+        console.error('An error occurred:', error);
+      }
+    }
+
+    // Set options for debrid service
+    if (isValidApiKey(debridService.value)) {
+      debridServiceName = debridServiceInfo[debridService.value].name;
+
+      // Torrentio
+      if (presetConfig.torrentio) {
+        torrentioConfig = `|sort=qualitysize|debridoptions=${cached ? 'nodownloadlinks,' : ''}nocatalog|${debridService.value}=${debridApiKey.value}`;
+      }
+
+      // Comet
+      if (presetConfig.comet) {
+        cometTransportUrl = getDataTransportUrl(
+          presetConfig.comet.transportUrl
+        );
+        presetConfig.comet.manifest.name += ` | ${debridServiceName}`;
+        presetConfig.comet.transportUrl = getUrlTransportUrl(
+          cometTransportUrl,
+          {
+            ...cometTransportUrl.data,
+            debridApiKey: debridApiKey.value,
+            debridService: debridService.value,
+            cachedOnly: cached
+          }
+        );
+      }
+
+      // MediaFusion
+      if (presetConfig.mediafusion) {
+        presetConfig.mediafusion.manifest.name += ` | ${debridServiceName}`;
+        mediaFusionConfig.streaming_provider = {
+          service: debridService.value,
+          token: debridApiKey.value,
+          enable_watchlist_catalogs: false,
+          download_via_browser: false,
+          only_show_cached_streams: cached
+        };
+      }
+
+      // TorrentsDB
+      if (presetConfig.torrentsdb) {
+        torrentsdbTransportUrl = getDataTransportUrl(
+          presetConfig.torrentsdb.transportUrl
+        );
+        presetConfig.torrentsdb.manifest.name += ` | ${debridServiceName}`;
+        presetConfig.torrentsdb.transportUrl = getUrlTransportUrl(
+          torrentsdbTransportUrl,
+          {
+            ...torrentsdbTransportUrl.data,
+            sort: 'qualitysize',
+            [debridService.value]: debridApiKey.value
+          }
+        );
+      }
+
+      // Jackettio
+      if (presetConfig.jackettio) {
+        jackettioTransportUrl = getDataTransportUrl(
+          presetConfig.jackettio.transportUrl
+        );
+        presetConfig.jackettio.manifest.name += ` | ${debridServiceName}`;
+        presetConfig.jackettio.transportUrl = getUrlTransportUrl(
+          jackettioTransportUrl,
+          {
+            ...jackettioTransportUrl.data,
+            debridApiKey: debridApiKey.value,
+            debridId: debridService.value,
+            hideUncached: cached,
+            qualities: no4k
+              ? _.pull(jackettioTransportUrl.data.qualities, 2160)
+              : jackettioTransportUrl.data.qualities
+          }
+        );
+      }
+
+      // StremThru Torz
+      if (presetConfig.stremthrutorz) {
+        const stremthrutorzDebridService = {
+          realdebrid: 'rd',
+          alldebrid: 'ad',
+          premiumize: 'pm',
+          debridlink: 'dl',
+          torbox: 'tb'
+        };
+
+        stremthrutorzTransportUrl = getDataTransportUrl(
+          presetConfig.stremthrutorz.transportUrl
+        );
+        presetConfig.stremthrutorz.manifest.name += ` | ${debridServiceName}`;
+        presetConfig.stremthrutorz.transportUrl = getUrlTransportUrl(
+          stremthrutorzTransportUrl,
+          {
+            stores: [
+              {
+                c: stremthrutorzDebridService[debridService.value],
+                t: debridApiKey.value
+              }
+            ],
+            cached: cached
+          }
+        );
+      }
+
+      // Peerflix
+      if (presetConfig.peerflix) {
+        if (debridService.value !== 'easydebrid') {
+          peerflixConfig = `%7Cdebridoptions=nocatalog${cached ? ',nodownloadlinks' : ''}%7C${debridService.value}=${debridApiKey.value}`;
+        } else {
+          presetConfig = _.omit(presetConfig, 'peerflix');
+        }
+      }
+
+      // Torbox
+      if (debridService.value === 'torbox' && presetConfig.torbox) {
+        presetConfig.torbox.transportUrl = Sqrl.render(
+          presetConfig.torbox.transportUrl,
+          { transportUrl: debridApiKey.value }
+        );
+      } else {
+        presetConfig = _.omit(presetConfig, 'torbox');
+      }
+
+      // StreamAsia
+      if (presetConfig.streamasia && debridService.value !== 'easydebrid') {
+        const streamAsiaDebridService = {
+          realdebrid: 'Real Debrid',
+          alldebrid: 'AllDebrid',
+          premiumize: 'Premiumize',
+          debridlink: 'Debrid-Link',
+          torbox: 'Torbox'
+        };
+
+        streamAsiaTransportUrl = getDataTransportUrl(
+          presetConfig.streamasia.transportUrl
+        );
+        presetConfig.streamasia.transportUrl = getUrlTransportUrl(
+          streamAsiaTransportUrl,
+          {
+            ...streamAsiaTransportUrl.data,
+            debridConfig: [
+              {
+                debridProvider: streamAsiaDebridService[debridService.value],
+                token: debridApiKey.value
+              }
+            ]
+          }
+        );
+      }
+
+      // StremThru Store
+      if (presetConfig.stremthrustore) {
+        stremthrustoreTransportUrl = getDataTransportUrl(
+          presetConfig.stremthrustore.transportUrl
+        );
+        presetConfig.stremthrustore.transportUrl = getUrlTransportUrl(
+          stremthrustoreTransportUrl,
+          {
+            ...stremthrustoreTransportUrl.data,
+            store_name: debridService.value,
+            store_token: debridApiKey.value
+          }
+        );
+
+        try {
+          const manifestStremthruStoreUserData = await fetchUserData(
+            `https://cloudflare-cors-anywhere.drykilllogic.workers.dev/?${presetConfig.stremthrustore.transportUrl}`
+          );
+
+          if (manifestStremthruStoreUserData) {
+            presetConfig.stremthrustore.manifest =
+              manifestStremthruStoreUserData;
+          }
+        } catch (error) {
+          presetConfig = _.omit(presetConfig, 'stremthrustore');
+          console.error('Error fetching StremThru Store manifest:', error);
+        }
+      }
+
+      // Remove TPB+
+      presetConfig = _.omit(presetConfig, 'tpbplus');
+    } else {
+      debridServiceName = '';
+      // Remove Jackettio
+      presetConfig = _.omit(presetConfig, 'jackettio');
+      // Remove Torbox
+      presetConfig = _.omit(presetConfig, 'torbox');
+    }
+
+    // Set stream addons options
+    if (presetConfig.torrentio) {
+      // Torrentio
+      presetConfig.torrentio.transportUrl = Sqrl.render(
+        presetConfig.torrentio.transportUrl,
+        {
+          transportUrl: torrentioConfig,
+          no4k: no4k ? '4k,' : '',
+          limit: limit,
+          maxSize: size ? `|sizefilter=${size}GB` : ''
+        }
+      );
+      presetConfig.torrentio.manifest.name += ` ${debridServiceName}`;
+    }
+
+    // Comet
+    if (presetConfig.comet) {
+      cometTransportUrl = getDataTransportUrl(presetConfig.comet.transportUrl);
+      presetConfig.comet.transportUrl = getUrlTransportUrl(cometTransportUrl, {
+        ...cometTransportUrl.data,
+        maxResultsPerResolution: limit,
+        maxSize: size ? convertToBytes(size) : 0,
+        resolutions: {
+          ...cometTransportUrl.data.resolutions,
+          r2160p: no4k ? false : true
+        }
+      });
+    }
+
+    // MediaFusion
+    if (presetConfig.mediafusion) {
+      if (no4k) {
+        _.pull(mediaFusionConfig.selected_resolutions, '4k', '2160p', '1440p');
+      }
+
+      const languagesToPrioritize = {
+        'es-mx': 'Latino',
+        'es-es': 'Spanish',
+        pt: 'Portuguese',
+        fr: 'French',
+        it: 'Italian',
+        de: 'German'
+      };
+
+      if (languagesToPrioritize[language.value]) {
+        _.pull(
+          mediaFusionConfig.language_sorting,
+          languagesToPrioritize[language.value]
+        );
+        mediaFusionConfig.language_sorting.unshift(
+          languagesToPrioritize[language.value]
+        );
+      }
+
+      if (size) {
+        mediaFusionConfig.max_size = convertToBytes(size);
+      }
+
+      const encryptedMediaFusionData = await encryptUserData(
+        'https://cloudflare-cors-anywhere.drykilllogic.workers.dev/?https://mediafusion.elfhosted.com/encrypt-user-data',
+        mediaFusionConfig
+      );
+
+      if (encryptedMediaFusionData?.status === 'success') {
+        presetConfig.mediafusion.transportUrl = `https://mediafusion.elfhosted.com/${encryptedMediaFusionData.encrypted_str}/manifest.json`;
+      } else {
+        presetConfig = _.omit(presetConfig, 'mediafusion');
+        console.log('Error fetching MediaFusion encrypted user data.');
+      }
+    }
+
+    // TorrentsDB
+    if (presetConfig.torrentsdb) {
+      torrentsdbTransportUrl = getDataTransportUrl(
+        presetConfig.torrentsdb.transportUrl
+      );
+      presetConfig.torrentsdb.transportUrl = getUrlTransportUrl(
+        torrentsdbTransportUrl,
+        {
+          ...torrentsdbTransportUrl.data,
+          sizefilter: size ? convertToMegabytes(size) : '',
+          qualityfilter: [
+            ...torrentsdbTransportUrl.data.qualityfilter,
+            ...(no4k
+              ? ['4k', 'brremux', 'hdrall', 'dolbyvisionwithhdr', 'dolbyvision']
+              : [])
+          ]
+        }
+      );
+    }
+
+    // Peerflix
+    if (presetConfig.peerflix) {
+      if (debridService.value !== '' && debridService.value !== 'easydebrid') {
+        presetConfig.peerflix.transportUrl = Sqrl.render(
+          presetConfig.peerflix.transportUrl,
+          {
+            transportUrl: peerflixConfig,
+            no4k: no4k ? ',remux4k,4k,micro4k' : '',
+            sort: debridService.value ? ',size-desc' : ',seed-desc'
+          }
+        );
+        presetConfig.peerflix.manifest.name += ` ${debridServiceName}`;
+      }
+    }
+
+    // Create addons list
+    const selectedAddons = [];
+
+    Object.keys(presetConfig).forEach((key) => {
+      selectedAddons.push(presetConfig[key]);
     });
+
+    addons.value = selectedAddons;
+  } catch (error) {
+    console.error('Error fetching preset config', error);
+    addNotification(t('failed_fetching_presets'), 'error');
+  } finally {
+    isSyncButtonEnabled.value = true;
+    isLoadingPreset.value = false;
+  }
 }
 
 function syncUserAddons() {
@@ -508,24 +492,31 @@ function syncUserAddons() {
     console.error('No auth key provided');
     return;
   }
+
+  isSyncAddons.value = true;
   console.log('Syncing addons...');
 
   setAddonCollection(addons.value, key)
     .then((data) => {
       if (!('result' in data) || data.result == null) {
         console.error('Sync failed: ', data);
-        alert(t('failed_syncing_addons'));
+        addNotification(t('failed_syncing_addons', 'error'));
         return;
       } else if (!data.result.success) {
-        alert(data.result.error || t('failed_syncing_addons'));
+        addNotification(
+          data.result.error || t('failed_syncing_addons', 'error')
+        );
       } else {
         console.log('Sync complete: + ', data);
-        alert(t('sync_complete'));
+        addNotification(t('sync_complete', 'success'));
       }
     })
     .catch((error) => {
-      alert(error.message || t('failed_syncing_addons'));
+      addNotification(error.message || t('failed_syncing_addons', 'error'));
       console.error('Error fetching user addons', error);
+    })
+    .finally(() => {
+      isSyncAddons.value = false;
     });
 }
 
@@ -560,7 +551,7 @@ function saveManifestEdit(updatedManifest) {
     addons.value[currentEditIdx.value].manifest = updatedManifest;
     closeEditModal();
   } catch (e) {
-    alert(t('failed_update_manifest'));
+    addNotification(t('failed_update_manifest', 'error'));
   }
 }
 
@@ -660,194 +651,323 @@ function convertToMegabytes(gb) {
 </script>
 
 <template>
-  <section id="configure">
-    <h2>{{ $t('configure') }}</h2>
-    <form onsubmit="return false;">
-      <fieldset id="form_step1">
-        <legend>{{ $t('step1_select_preset') }}</legend>
-        <div>
-          <label>
-            <input type="radio" value="minimal" v-model="preset" />
-            {{ $t('minimal') }}
+  <section id="configure" class="max-w-4xl mx-auto p-4">
+    <h3 class="text-2xl font-bold mb-6">
+      {{ $t('configure') }}
+    </h3>
+
+    <form class="space-y-4" onsubmit="return false;">
+      <!-- Step 1: Select Preset -->
+      <fieldset class="bg-base-100 p-6 rounded-lg border border-base-300">
+        <legend class="text-sm">
+          {{ $t('step1_select_preset') }}
+        </legend>
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-2">
+          <label class="label cursor-pointer">
+            <input
+              type="radio"
+              value="minimal"
+              v-model="preset"
+              class="radio radio-primary"
+            />
+            <span class="label-text ml-2">{{ $t('minimal') }}</span>
           </label>
-          <label>
-            <input type="radio" value="standard" v-model="preset" />
-            {{ $t('standard') }}
+          <label class="label cursor-pointer">
+            <input
+              type="radio"
+              value="standard"
+              v-model="preset"
+              class="radio radio-primary"
+            />
+            <span class="label-text ml-2">{{ $t('standard') }}</span>
           </label>
-          <label>
-            <input type="radio" value="full" v-model="preset" />
-            {{ $t('full') }}
+          <label class="label cursor-pointer">
+            <input
+              type="radio"
+              value="full"
+              v-model="preset"
+              class="radio radio-primary"
+            />
+            <span class="label-text ml-2">{{ $t('full') }}</span>
           </label>
-          <label>
-            <input type="radio" value="kids" v-model="preset" />
-            {{ $t('kids') }}
+          <label class="label cursor-pointer">
+            <input
+              type="radio"
+              value="kids"
+              v-model="preset"
+              class="radio radio-primary"
+            />
+            <span class="label-text ml-2">{{ $t('kids') }}</span>
           </label>
-          <label>
-            <input type="radio" value="factory" v-model="preset" />
-            {{ $t('factory') }}
-          </label>
-        </div>
-      </fieldset>
-      <fieldset id="form_step2">
-        <legend>{{ $t('step2_select_language') }}</legend>
-        <div>
-          <label>
-            <input type="radio" value="en" v-model="language" />
-            🇺🇸 {{ $t('english') }}
-          </label>
-          <label>
-            <input type="radio" value="es-mx" v-model="language" />
-            🇲🇽 {{ $t('spanish_latino') }}
-          </label>
-          <label>
-            <input type="radio" value="es-es" v-model="language" />
-            🇪🇸 {{ $t('spanish_spain') }}
-          </label>
-          <label>
-            <input type="radio" value="pt" v-model="language" />
-            🇧🇷 {{ $t('portuguese_brazil') }}
-          </label>
-          <label>
-            <input type="radio" value="fr" v-model="language" />
-            🇫🇷 {{ $t('french') }}
-          </label>
-          <label>
-            <input type="radio" value="it" v-model="language" />
-            🇮🇹 {{ $t('italian') }}
-          </label>
-          <label>
-            <input type="radio" value="de" v-model="language" />
-            🇩🇪 {{ $t('german') }}
+          <label class="label cursor-pointer">
+            <input
+              type="radio"
+              value="factory"
+              v-model="preset"
+              class="radio radio-primary"
+            />
+            <span class="label-text ml-2">{{ $t('factory') }}</span>
           </label>
         </div>
       </fieldset>
-      <fieldset id="form_step3">
-        <legend>{{ $t('step3_debrid_api_key') }} <a href="#faq">(?)</a></legend>
-        <div>
-          <label>
+
+      <!-- Step 2: Select Language -->
+      <fieldset class="bg-base-100 p-6 rounded-lg border border-base-300">
+        <legend class="text-sm">
+          {{ $t('step2_select_language') }}
+        </legend>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+          <label class="label cursor-pointer">
+            <input
+              type="radio"
+              value="en"
+              v-model="language"
+              class="radio radio-primary"
+            />
+            <span class="label-text ml-2">🇺🇸 {{ $t('english') }}</span>
+          </label>
+          <label class="label cursor-pointer">
+            <input
+              type="radio"
+              value="es-mx"
+              v-model="language"
+              class="radio radio-primary"
+            />
+            <span class="label-text ml-2">🇲🇽 {{ $t('spanish_latino') }}</span>
+          </label>
+          <label class="label cursor-pointer">
+            <input
+              type="radio"
+              value="es-es"
+              v-model="language"
+              class="radio radio-primary"
+            />
+            <span class="label-text ml-2">🇪🇸 {{ $t('spanish_spain') }}</span>
+          </label>
+          <label class="label cursor-pointer">
+            <input
+              type="radio"
+              value="pt"
+              v-model="language"
+              class="radio radio-primary"
+            />
+            <span class="label-text ml-2"
+              >🇧🇷 {{ $t('portuguese_brazil') }}</span
+            >
+          </label>
+          <label class="label cursor-pointer">
+            <input
+              type="radio"
+              value="fr"
+              v-model="language"
+              class="radio radio-primary"
+            />
+            <span class="label-text ml-2">🇫🇷 {{ $t('french') }}</span>
+          </label>
+          <label class="label cursor-pointer">
+            <input
+              type="radio"
+              value="it"
+              v-model="language"
+              class="radio radio-primary"
+            />
+            <span class="label-text ml-2">🇮🇹 {{ $t('italian') }}</span>
+          </label>
+          <label class="label cursor-pointer">
+            <input
+              type="radio"
+              value="de"
+              v-model="language"
+              class="radio radio-primary"
+            />
+            <span class="label-text ml-2">🇩🇪 {{ $t('german') }}</span>
+          </label>
+        </div>
+      </fieldset>
+
+      <!-- Step 3: Debrid API Key -->
+      <fieldset class="bg-base-100 p-6 rounded-lg border border-base-300">
+        <legend class="text-sm">
+          {{ $t('step3_debrid_api_key') }}
+          <a href="#debrid" class="inline-block align-middle">
+            <QuestionMarkCircleIcon class="h-5 w-5 text-primary align-middle" />
+          </a>
+        </legend>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-2 mb-4">
+          <label class="label cursor-pointer">
             <input
               type="radio"
               value="realdebrid"
               v-model="debridService"
               @change="updateDebridApiUrl"
+              class="radio radio-primary"
             />
-            RealDebrid
+            <span class="label-text ml-2">RealDebrid</span>
           </label>
-          <label>
+          <label class="label cursor-pointer">
             <input
               type="radio"
               value="alldebrid"
               v-model="debridService"
               @change="updateDebridApiUrl"
+              class="radio radio-primary"
             />
-            AllDebrid
+            <span class="label-text ml-2">AllDebrid</span>
           </label>
-          <label>
+          <label class="label cursor-pointer">
             <input
               type="radio"
               value="premiumize"
               v-model="debridService"
               @change="updateDebridApiUrl"
+              class="radio radio-primary"
             />
-            Premiumize
+            <span class="label-text ml-2">Premiumize</span>
           </label>
-          <label>
+          <label class="label cursor-pointer">
             <input
               type="radio"
               value="debridlink"
               v-model="debridService"
               @change="updateDebridApiUrl"
+              class="radio radio-primary"
             />
-            Debrid-Link
+            <span class="label-text ml-2">Debrid-Link</span>
           </label>
-          <label>
+          <label class="label cursor-pointer">
             <input
               type="radio"
               value="easydebrid"
               v-model="debridService"
               @change="updateDebridApiUrl"
+              class="radio radio-primary"
             />
-            EasyDebrid
+            <span class="label-text ml-2">EasyDebrid</span>
           </label>
-          <label>
+          <label class="label cursor-pointer">
             <input
               type="radio"
               value="torbox"
               v-model="debridService"
               @change="updateDebridApiUrl"
+              class="radio radio-primary"
             />
-            TorBox
-          </label>
-          <label>
-            <input
-              v-model="debridApiKey"
-              :disabled="!debridService"
-              :class="{ 'bd-error': debridApiKey && !isDebridApiKeyValid }"
-              :aria-invalid="
-                debridApiKey ? (!isDebridApiKeyValid).toString() : 'false'
-              "
-              type="text"
-            />
-            <a v-if="debridApiUrl" target="_blank" :href="`${debridApiUrl}`">{{
-              $t('get_api_key_here')
-            }}</a>
-            <small
-              v-if="debridApiKey && !isDebridApiKeyValid"
-              class="text-error pull-right"
-            >
-              {{ $t('invalid_debrid_api_key') }}
-            </small>
+            <span class="label-text ml-2">TorBox</span>
           </label>
         </div>
+        <div class="form-control w-full">
+          <input
+            v-model="debridApiKey"
+            :disabled="!debridService"
+            :class="{ 'input-error': debridApiKey && !isDebridApiKeyValid }"
+            type="text"
+            class="input input-bordered w-full"
+            :placeholder="$t('enter_api_key')"
+          />
+          <div class="flex justify-between items-center mt-1">
+            <span class="label-text-alt">
+              <a
+                v-if="debridApiUrl"
+                target="_blank"
+                :href="debridApiUrl"
+                class="link link-primary"
+              >
+                {{ $t('get_api_key_here') }}
+              </a>
+            </span>
+            <span
+              v-if="debridApiKey && !isDebridApiKeyValid"
+              class="label-text-alt text-error ml-2 text-xs"
+            >
+              {{ $t('invalid_debrid_api_key') }}
+            </span>
+          </div>
+        </div>
       </fieldset>
-      <fieldset id="form_step4">
-        <legend>{{ $t('step4_additional_addons') }}</legend>
-        <div>
-          <label>
-            <input type="checkbox" value="kitsu" v-model="extras" />
-            Anime Kitsu
+
+      <!-- Step 4: Additional Addons -->
+      <fieldset class="bg-base-100 p-6 rounded-lg border border-base-300">
+        <legend class="text-sm">
+          {{ $t('step4_additional_addons') }}
+        </legend>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+          <label class="label cursor-pointer">
+            <input
+              type="checkbox"
+              value="kitsu"
+              v-model="extras"
+              class="checkbox checkbox-primary"
+            />
+            <span class="label-text ml-2">Anime Kitsu</span>
           </label>
-          <label>
-            <input type="checkbox" value="usatv" v-model="extras" />
-            USA TV
+          <label class="label cursor-pointer">
+            <input
+              type="checkbox"
+              value="usatv"
+              v-model="extras"
+              class="checkbox checkbox-primary"
+            />
+            <span class="label-text ml-2">USA TV</span>
           </label>
-          <label>
-            <input type="checkbox" value="argentinatv" v-model="extras" />
-            Argentina TV
+          <label class="label cursor-pointer">
+            <input
+              type="checkbox"
+              value="argentinatv"
+              v-model="extras"
+              class="checkbox checkbox-primary"
+            />
+            <span class="label-text ml-2">Argentina TV</span>
           </label>
-          <label>
-            <input type="checkbox" value="streamasia" v-model="extras" />
-            StreamAsia
+          <label class="label cursor-pointer">
+            <input
+              type="checkbox"
+              value="streamasia"
+              v-model="extras"
+              class="checkbox checkbox-primary"
+            />
+            <span class="label-text ml-2">StreamAsia</span>
           </label>
-          <label>
+          <label class="label cursor-pointer">
             <input
               type="checkbox"
               value="stremthrustore"
               :disabled="!isDebridApiKeyValid"
               v-model="extras"
+              class="checkbox checkbox-primary"
             />
-            StremThru Store
+            <span class="label-text ml-2">StremThru Store</span>
           </label>
         </div>
       </fieldset>
-      <fieldset id="form_step5">
-        <legend>{{ $t('step5_additional_options') }}</legend>
-        <div>
-          <label>
-            <input type="checkbox" value="no4k" v-model="options" />
-            {{ $t('no_4k') }}
+
+      <!-- Step 5: Additional Options -->
+      <fieldset class="bg-base-100 p-6 rounded-lg border border-base-300">
+        <legend class="text-sm">
+          {{ $t('step5_additional_options') }}
+        </legend>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+          <label class="label cursor-pointer">
+            <input
+              type="checkbox"
+              value="no4k"
+              v-model="options"
+              class="checkbox checkbox-primary"
+            />
+            <span class="label-text ml-2">{{ $t('no_4k') }}</span>
           </label>
-          <label>
+          <label class="label cursor-pointer">
             <input
               type="checkbox"
               value="cached"
               v-model="options"
               :disabled="!isDebridApiKeyValid"
+              class="checkbox checkbox-primary"
             />
-            {{ $t('cached_only_debrid') }}
+            <span class="label-text ml-2">{{ $t('cached_only_debrid') }}</span>
           </label>
-          <label>
-            <select v-model="maxSize" class="max-size-select">
+          <label class="label cursor-pointer">
+            <span class="label-text">{{ $t('max_size') }}</span>
+            <select v-model="maxSize" class="select select-bordered w-32">
               <option :value="''">{{ $t('no_size_limit') }}</option>
               <option
                 v-for="size in [2, 5, 10, 15, 20, 25, 30]"
@@ -857,41 +977,63 @@ function convertToMegabytes(gb) {
                 {{ size }} GB
               </option>
             </select>
-            {{ $t('max_size') }}
           </label>
         </div>
       </fieldset>
-      <fieldset id="form_step6">
-        <legend>
+
+      <!-- Step 6: RPDB Key -->
+      <fieldset class="bg-base-100 p-6 rounded-lg border border-base-300">
+        <legend class="text-sm">
           {{ $t('step6_rpdb_key') }}
-          <a target="_blank" href="https://ratingposterdb.com">(?)</a>
+          <a
+            target="_blank"
+            href="https://ratingposterdb.com"
+            class="inline-block align-middle"
+          >
+            <QuestionMarkCircleIcon class="h-5 w-5 text-primary align-middle" />
+          </a>
         </legend>
-        <div>
-          <label>
-            <input v-model="rpdbKey" />
-          </label>
-        </div>
+        <input
+          v-model="rpdbKey"
+          class="input input-bordered w-full"
+          :placeholder="$t('enter_rpdb_key')"
+        />
       </fieldset>
-      <fieldset id="form_step7">
-        <legend>{{ $t('step7_load_preset') }}</legend>
+
+      <!-- Step 7: Load Preset -->
+      <fieldset class="bg-base-100 p-6 rounded-lg border border-base-300">
+        <legend class="text-sm">
+          {{ $t('step7_load_preset') }}
+        </legend>
         <button
-          class="button secondary"
+          class="btn btn-primary"
           @click="loadUserAddons"
           :disabled="
             !props.stremioAuthKey ||
-            (debridService ? !isDebridApiKeyValid : false)
+            (debridService ? !isDebridApiKeyValid : false) ||
+            isLoadingPreset
           "
         >
-          {{ $t('load_addons_preset') }}
+          <span
+            v-if="isLoadingPreset"
+            class="loading loading-spinner loading-sm"
+          ></span>
+          {{
+            isLoadingPreset ? $t('loading_addons') : $t('load_addons_preset')
+          }}
         </button>
       </fieldset>
-      <fieldset id="form_step8">
-        <legend>{{ $t('step8_customize_addons') }}</legend>
+
+      <!-- Step 8: Customize Addons -->
+      <fieldset class="bg-base-100 p-6 rounded-lg border border-base-300">
+        <legend class="text-sm">
+          {{ $t('step8_customize_addons') }}
+        </legend>
         <draggable
           :list="addons"
           item-key="transportUrl"
-          class="sortable-list"
-          ghost-class="ghost"
+          class="space-y-2"
+          ghost-class="opacity-50"
           @start="dragging = true"
           @end="dragging = false"
         >
@@ -917,91 +1059,39 @@ function convertToMegabytes(gb) {
           </template>
         </draggable>
       </fieldset>
-      <fieldset id="form_step9">
-        <legend>{{ $t('step9_bootstrap_account') }}</legend>
+
+      <!-- Step 9: Bootstrap Account -->
+      <fieldset class="bg-base-100 p-6 rounded-lg border border-base-300">
+        <legend class="text-sm">
+          {{ $t('step9_bootstrap_account') }}
+        </legend>
         <button
           type="button"
-          class="button secondary icon"
-          :disabled="!isSyncButtonEnabled"
+          class="btn btn-primary"
+          :disabled="!isSyncButtonEnabled || isLoadingPreset || isSyncAddons"
           @click="syncUserAddons"
         >
-          {{ $t('sync_to_stremio') }}
+          <span
+            v-if="isSyncAddons"
+            class="loading loading-spinner loading-sm"
+          ></span>
+          {{ isSyncAddons ? $t('sync_addons') : $t('sync_to_stremio') }}
         </button>
       </fieldset>
     </form>
   </section>
 
-  <div v-if="isEditModalVisible" class="modal" @click.self="closeEditModal">
-    <div class="modal-content">
-      <h3>{{ $t('edit_manifest') }}</h3>
+  <!-- Edit Modal -->
+  <dialog v-if="isEditModalVisible" class="modal modal-open">
+    <div class="modal-box w-11/12 max-w-5xl">
+      <h3 class="font-bold text-lg mb-4">{{ $t('edit_manifest') }}</h3>
       <DynamicForm
         :manifest="currentManifest"
         @update-manifest="saveManifestEdit"
       />
+      <div class="modal-action">
+        <button class="btn" @click="closeEditModal">{{ $t('close') }}</button>
+      </div>
     </div>
-  </div>
+  </dialog>
 </template>
-
-<style scoped>
-.sortable-list {
-  padding: 25px;
-  border-radius: 7px;
-  padding: 30px 25px 20px;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-}
-
-.item.dragging {
-  opacity: 0.6;
-}
-
-.item.dragging :where(.details, i) {
-  opacity: 0;
-}
-
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 1000;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: auto;
-}
-
-.modal-content {
-  background: #2e2e2e;
-  color: #e0e0e0;
-  width: 75vw;
-  max-width: 900px;
-  max-height: 90vh;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.7);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-}
-
-button {
-  padding: 10px 20px;
-  border: none;
-  background-color: #ffa600;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-.max-size-select {
-  font-size: 1em;
-  padding: 6px 16px;
-  border-radius: 4px;
-  max-width: 120px;
-  margin: 0 8px;
-  display: inline-block;
-}
-</style>

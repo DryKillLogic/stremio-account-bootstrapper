@@ -20,28 +20,15 @@ defineProps({
 </script>
 
 <template>
-  <div class="hero">
-    <div class="logo is-center is-vertical-align">
-      <img v-if="addonLogo" :src="addonLogo" alt="Addon logo" />
-      <h1 v-else>{{ addonName }}</h1>
-      <h3>{{ addonSummary }}</h3>
+  <div class="hero min-h-[350px] bg-gradient-to-r from-primary to-warning">
+    <div class="hero-content text-center">
+      <div class="max-w-lg">
+        <img :src="addonLogo" :alt="addonName" class="w-32 h-32 mx-auto my-4" />
+        <h1 class="text-4xl font-bold text-primary-content">{{ addonName }}</h1>
+        <h2 class="py-6 text-xl text-primary-content/80">
+          {{ addonSummary }}
+        </h2>
+      </div>
     </div>
   </div>
 </template>
-
-<style scoped>
-.logo {
-  flex: 1;
-  flex-direction: column;
-}
-
-.logo img {
-  width: 100%;
-  max-width: 450px;
-}
-
-.logo h3 {
-  font-weight: 300;
-  text-align: center;
-}
-</style>

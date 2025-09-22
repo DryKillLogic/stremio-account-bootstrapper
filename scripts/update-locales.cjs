@@ -32,14 +32,20 @@ const addedKeys = Object.keys(currEn).filter((k) => !(k in prevEn));
 const changedKeys = Object.keys(currEn).filter(
   (k) => k in prevEn && prevEn[k] !== currEn[k]
 );
+const removedKeys = Object.keys(prevEn).filter((k) => !(k in currEn));
 
-if (addedKeys.length === 0 && changedKeys.length === 0) {
+if (
+  addedKeys.length === 0 &&
+  changedKeys.length === 0 &&
+  removedKeys.length === 0
+) {
   console.log('No added or changed keys detected in en.json compared to HEAD.');
   process.exit(0);
 }
 
 console.log('Added keys:', addedKeys);
 console.log('Changed keys:', changedKeys, dryRun ? '(dry-run)' : '');
+console.log('Removed keys:', removedKeys);
 
 const localeFiles = fs
   .readdirSync(localesDir)
@@ -57,6 +63,7 @@ localeFiles.forEach((file) => {
 
   const addedApplied = [];
   const changedApplied = [];
+  const removedApplied = [];
   const skipped = [];
 
   // Apply added keys (always add missing keys)
@@ -97,15 +104,25 @@ localeFiles.forEach((file) => {
     skipped.push(k);
   });
 
-  if (addedApplied.length || changedApplied.length) {
+  // Apply removed keys
+  removedKeys.forEach((k) => {
+    if (k in locale) {
+      delete locale[k];
+      removedApplied.push(k);
+    }
+  });
+
+  if (addedApplied.length || changedApplied.length || removedApplied.length) {
     if (dryRun) {
       console.log(
-        `${file}: (dry-run) +${addedApplied.length} would be added, +${changedApplied.length} would be updated${skipped.length ? `, ${skipped.length} skipped` : ''}`
+        `${file}: (dry-run) +${addedApplied.length} would be added, +${changedApplied.length} would be updated, -${removedApplied.length} would be removed${skipped.length ? `, ${skipped.length} skipped` : ''}`
       );
       if (addedApplied.length)
         console.log('  would add:', addedApplied.join(', '));
       if (changedApplied.length)
         console.log('  would update:', changedApplied.join(', '));
+      if (removedApplied.length)
+        console.log('  would remove:', removedApplied.join(', '));
       if (skipped.length)
         console.log('  skipped (manual review required):', skipped.join(', '));
     } else {
@@ -116,11 +133,13 @@ localeFiles.forEach((file) => {
         'utf8'
       );
       console.log(
-        `${file}: +${addedApplied.length} added, +${changedApplied.length} updated${skipped.length ? `, ${skipped.length} skipped` : ''}`
+        `${file}: +${addedApplied.length} added, +${changedApplied.length} updated, -${removedApplied.length} removed${skipped.length ? `, ${skipped.length} skipped` : ''}`
       );
       if (addedApplied.length) console.log('  added:', addedApplied.join(', '));
       if (changedApplied.length)
         console.log('  updated:', changedApplied.join(', '));
+      if (removedApplied.length)
+        console.log('  removed:', removedApplied.join(', '));
       if (skipped.length)
         console.log('  skipped (manual review required):', skipped.join(', '));
     }

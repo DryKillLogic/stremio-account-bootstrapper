@@ -48,17 +48,6 @@ npm run build
 npm run format
 ```
 
-## Docker
-
-Run the following commands to build and run the app in a Docker container:
-
-```bash
-$ docker build -t stremio-account-bootstrapper .
-$ docker run -p 8080:80 stremio-account-bootstrapper
-```
-
-The app will be accessible at `http://localhost:8080`.
-
 ## Credits
 
 This tool is based on the original pancake3000 work and redd-ravenn fork, with the collaboration of Sleeyax and &#60;Code/&#62;. This idea couldn't have come to fruition without their contribution to the Stremio community 🙏.
