@@ -3,7 +3,7 @@
     <div v-if="!isAdvancedMode" class="space-y-4">
       <div class="form-control">
         <label class="label" for="name">
-          <span class="label-text">Name</span>
+          <span class="label-text">{{ t('edit_addons_name') }}</span>
         </label>
         <input
           id="name"
@@ -16,7 +16,7 @@
 
       <div class="form-control">
         <label class="label" for="description">
-          <span class="label-text">Description</span>
+          <span class="label-text">{{ t('edit_addons_description') }}</span>
         </label>
         <textarea
           id="description"
@@ -29,7 +29,7 @@
 
       <div class="form-control">
         <label class="label" for="logo">
-          <span class="label-text">Logo URL</span>
+          <span class="label-text">{{ t('edit_addons_logo') }}</span>
         </label>
         <input
           id="logo"
@@ -42,7 +42,7 @@
 
       <div class="form-control">
         <label class="label" for="background">
-          <span class="label-text">Background URL</span>
+          <span class="label-text">{{ t('edit_addons_background') }}</span>
         </label>
         <input
           id="background"
@@ -58,7 +58,7 @@
         class="form-control"
       >
         <label class="label">
-          <span class="label-text">Catalogs</span>
+          <span class="label-text">{{ t('edit_addons_catalogs') }}</span>
         </label>
         <div class="space-y-3">
           <div
@@ -76,7 +76,7 @@
               :id="'catalog-' + catalog.type"
               type="text"
               v-model="catalog.name"
-              placeholder="Catalog Name"
+              :placeholder="t('edit_addons_catalogName')"
               class="input input-bordered input-sm flex-1"
             />
             <button
@@ -91,9 +91,11 @@
       </div>
 
       <div class="flex flex-col sm:flex-row gap-3 pt-4">
-        <button class="btn btn-primary" type="submit">Save</button>
+        <button class="btn btn-primary" type="submit">
+          {{ t('edit_addons_save') }}
+        </button>
         <button type="button" class="btn btn-secondary" @click="toggleEditMode">
-          Advanced mode
+          {{ t('edit_addons_advanced_mode') }}
         </button>
       </div>
     </div>
@@ -101,7 +103,7 @@
     <div v-else class="space-y-4">
       <div class="form-control">
         <label class="label">
-          <span class="label-text">JSON Editor</span>
+          <span class="label-text">{{ t('edit_addons_json_editor') }}</span>
         </label>
         <textarea
           v-model="jsonModel"
@@ -112,10 +114,10 @@
 
       <div class="flex flex-col sm:flex-row gap-3">
         <button class="btn btn-primary" type="button" @click="updateFromJson">
-          Save
+          {{ t('edit_addons_save') }}
         </button>
         <button type="button" class="btn btn-secondary" @click="toggleEditMode">
-          Classic mode
+          {{ t('edit_addons_classic_mode') }}
         </button>
       </div>
     </div>
@@ -123,9 +125,12 @@
 </template>
 
 <script setup>
-import { ref, watch, defineProps, defineEmits, onMounted } from 'vue';
+import { ref, watch, defineProps, defineEmits } from 'vue';
+import { useI18n } from 'vue-i18n';
 import { TrashIcon } from '@heroicons/vue/24/outline';
 import { addNotification } from '../composables/useNotifications';
+
+const { t } = useI18n();
 
 const props = defineProps({
   manifest: {
@@ -161,7 +166,7 @@ function toggleEditMode() {
     try {
       formModel.value = JSON.parse(jsonModel.value);
     } catch (e) {
-      addNotification('Invalid JSON format', 'error');
+      addNotification(t('edit_addons_invalid_json'), 'error');
     }
   }
 }
@@ -182,7 +187,7 @@ function updateFromJson() {
     emits('update-manifest', formModel.value);
     isAdvancedMode.value = false;
   } catch (e) {
-    addNotification('Invalid JSON format', 'error');
+    addNotification(t('edit_addons_invalid_json'), 'error');
   }
 }
 </script>

@@ -14,7 +14,11 @@ const { t } = useI18n();
     <div class="alert alert-info my-4">
       <InformationCircleIcon class="w-5 h-5" />
 
-      <button type="button" onclick="get_instructions.showModal()">
+      <button
+        type="button"
+        class="cursor-pointer"
+        onclick="get_instructions.showModal()"
+      >
         {{ t('instructions_summary') }}
       </button>
     </div>

@@ -47,7 +47,7 @@
   "how_step1_end": "avec vos identifiants Stremio dans votre navigateur.",
   "how_step2": "Ouvrez la console développeur",
   "how_step2_middle": " et collez le code suivant :",
-  "how_step3": "Prenez la valeur de sortie et collez-la dans le formulaire ci-dessus.",
+  "how_step3": "Prenez la valeur de sortie et collez-la dans le champ.",
   "faq_title": "FAQ",
   "faq_debrid_summary": "Qu'est-ce qu'un service de débridage ?",
   "faq_debrid_desc1": "Un service de débridage est un multi-hébergeur illimité qui vous permet de streamer et télécharger des vidéos instantanément à la meilleure vitesse. En clair, le service de débridage agit comme intermédiaire entre le tracker BitTorrent et vous, afin que vous téléchargiez le contenu directement depuis leurs serveurs à grande vitesse. La plupart du contenu est déjà en cache, ce qui permet un accès instantané.",
@@ -109,5 +109,16 @@
   "enter_api_key": "Saisir la clé API",
   "enter_rpdb_key": "Saisir la clé RPDB",
   "loading_addons": "Chargement des addons...",
-  "sync_addons": "Synchronisation des addons..."
+  "sync_addons": "Synchronisation des addons...",
+  "edit_addons_name": "Nom",
+  "edit_addons_description": "Description",
+  "edit_addons_logo": "URL du logo",
+  "edit_addons_background": "URL de l'arrière-plan",
+  "edit_addons_catalogs": "Catalogues",
+  "edit_addons_catalog_name": "Nom du catalogue",
+  "edit_addons_save": "Enregistrer",
+  "edit_addons_advanced_mode": "Mode avancé",
+  "edit_addons_json_editor": "Éditeur JSON",
+  "edit_addons_classic_mode": "Mode classique",
+  "edit_addons_invalid_json": "Format JSON invalide"
 }

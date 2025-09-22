@@ -1084,6 +1084,12 @@ function convertToMegabytes(gb) {
   <!-- Edit Modal -->
   <dialog v-if="isEditModalVisible" class="modal modal-open">
     <div class="modal-box w-11/12 max-w-5xl">
+      <button
+        class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+        @click="closeEditModal"
+      >
+        ✕
+      </button>
       <h3 class="font-bold text-lg mb-4">{{ $t('edit_manifest') }}</h3>
       <DynamicForm
         :manifest="currentManifest"
