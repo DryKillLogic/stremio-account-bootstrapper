@@ -9,6 +9,7 @@ import _ from 'lodash';
 import { setAddonCollection } from '../composables/useStremioApi';
 import { QuestionMarkCircleIcon } from '@heroicons/vue/24/outline';
 import { addNotification } from '../composables/useNotifications';
+import { useAnalytics } from '../composables/useAnalytics';
 
 const { t } = useI18n();
 
@@ -487,6 +488,7 @@ async function loadUserAddons() {
 }
 
 function syncUserAddons() {
+  const { track } = useAnalytics();
   const key = props.stremioAuthKey;
   if (!key) {
     console.error('No auth key provided');
@@ -498,17 +500,16 @@ function syncUserAddons() {
 
   setAddonCollection(addons.value, key)
     .then((data) => {
-      if (!('result' in data) || data.result == null) {
+      if (!data?.result?.success) {
         console.error('Sync failed: ', data);
-        addNotification(t('failed_syncing_addons', 'error'));
-        return;
-      } else if (!data.result.success) {
         addNotification(
-          data.result.error || t('failed_syncing_addons', 'error')
+          data?.result?.error || t('failed_syncing_addons', 'error')
         );
+        return;
       } else {
         console.log('Sync complete: + ', data);
-        addNotification(t('sync_complete', 'success'));
+        addNotification(t('sync_complete'), 'success');
+        track('sync_stremio_click', { title: 'Sync to Stremio' });
       }
     })
     .catch((error) => {
