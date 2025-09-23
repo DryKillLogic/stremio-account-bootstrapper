@@ -7,6 +7,7 @@ import {
 import { format } from 'date-fns';
 import { useI18n } from 'vue-i18n';
 import { addNotification } from '../composables/useNotifications';
+import { useAnalytics } from '../composables/useAnalytics';
 
 const { stremioAuthKey } = defineProps({
   stremioAuthKey: { type: String }
@@ -17,6 +18,7 @@ const loadingBackup = ref(false);
 const loadingRestore = ref(false);
 const error = ref(null);
 const fileInputRef = ref(null);
+const { track } = useAnalytics();
 
 function backupConfig() {
   loadingBackup.value = true;
@@ -37,6 +39,9 @@ function backupConfig() {
       URL.revokeObjectURL(url);
 
       addNotification(t('backup_saved'), 'success');
+      track('backup_config_click', {
+        title: 'Backup config'
+      });
     })
     .catch((e) => {
       error.value = e?.message || String(e);
@@ -76,6 +81,9 @@ async function restoreConfigFile(event) {
 
     await setAddonCollection(addonsPayload, stremioAuthKey);
     addNotification(t('restore_successful'), 'success');
+    track('restore_config_click', {
+      title: 'Restore config'
+    });
   } catch (e) {
     error.value = e?.message || String(e);
     addNotification(error.value || t('restore_failed'), 'error');
