@@ -162,7 +162,7 @@ async function loadUserAddons() {
     }
 
     // Set options for debrid service
-    if (isDebridApiKeyValid) {
+    if (isDebridApiKeyValid.value) {
       debridServiceName = debridServicesInfo[debridService.value].name;
 
       // Torrentio
@@ -360,7 +360,8 @@ async function loadUserAddons() {
           maxSize: size ? `|sizefilter=${size}GB` : ''
         }
       );
-      presetConfig.torrentio.manifest.name += ` | ${debridServiceName}`;
+      presetConfig.torrentio.manifest.name +=
+        debridServiceName && ` | ${debridServiceName}`;
     }
 
     // Comet
@@ -493,7 +494,14 @@ function syncUserAddons() {
       } else {
         console.log('Sync complete: + ', data);
         addNotification(t('sync_complete'), 'success');
-        track('sync_stremio_click', { title: 'Sync to Stremio' });
+        track('sync_stremio_click', {
+          title: 'Sync to Stremio',
+          vars: {
+            language: language.value,
+            preset: preset.value,
+            debrid: debridService.value || ''
+          }
+        });
       }
     })
     .catch((error) => {

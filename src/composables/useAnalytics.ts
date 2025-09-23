@@ -1,7 +1,12 @@
 declare global {
   interface Window {
     goatcounter?: {
-      count: (opts: { path: string; title: string; event: string }) => void;
+      count: (opts: {
+        path: string;
+        title: string;
+        event: string;
+        vars?: Record<string, string>;
+      }) => void;
     };
   }
 }
@@ -12,13 +17,21 @@ export function useAnalytics() {
     !!window.goatcounter &&
     typeof window.goatcounter.count === 'function';
 
-  function track(event: string, opts?: { path?: string; title?: string }) {
+  function track(
+    event: string,
+    opts?: {
+      path?: string;
+      title?: string;
+      vars?: Record<string, string>;
+    }
+  ) {
     if (!isAvailable()) return;
     try {
       window.goatcounter!.count({
         path: opts?.path ?? `/event/${event}`,
         title: opts?.title ?? event,
-        event
+        event,
+        vars: opts?.vars
       });
     } catch (e) {
       console.debug('analytics error', e);
