@@ -10,10 +10,11 @@ import fr from './locales/fr.json';
 import it from './locales/it.json';
 import de from './locales/de.json';
 import pt from './locales/pt.json';
+import nl from './locales/nl.json';
 
 inject();
 
-const supported = ['en', 'es', 'fr', 'it', 'de', 'pt'] as const;
+const supported = ['en', 'es', 'fr', 'it', 'de', 'pt', 'nl'] as const;
 type SupportedLang = (typeof supported)[number];
 let savedLang = (localStorage.getItem('language') as SupportedLang) || '';
 if (!savedLang) {
@@ -34,7 +35,8 @@ const messages = {
   fr,
   it,
   de,
-  pt
+  pt,
+  nl
 } as unknown as Record<string, any>;
 
 const i18n = createI18n({

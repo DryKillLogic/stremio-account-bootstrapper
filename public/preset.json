@@ -1430,7 +1430,7 @@
         }
       }
     },
-    "es-mx": {
+    "es-MX": {
       "torrentio": {
         "transportUrl": "https://torrentio.strem.fun/providers=yts,eztv,rarbg,1337x,thepiratebay,kickasstorrents,torrentgalaxy,magnetdl,horriblesubs,nyaasi,tokyotosho,anidex,cinecalidad|language=latino|qualityfilter=threed,{{it.no4k}}scr,cam,unknown{{it.maxSize}}|limit={{it.limit}}{{it.transportUrl}}/manifest.json"
       },
@@ -1466,7 +1466,7 @@
         "transportUrl": "https://subsource.strem.top/c3BhbmlzaF9sYXRpbl9hbWVyaWNhL2hpRXhjbHVkZS8=/manifest.json"
       }
     },
-    "es-es": {
+    "es-ES": {
       "torrentio": {
         "transportUrl": "https://torrentio.strem.fun/providers=yts,eztv,rarbg,1337x,thepiratebay,kickasstorrents,torrentgalaxy,magnetdl,horriblesubs,nyaasi,tokyotosho,anidex,cinecalidad|language=spanish|qualityfilter=threed,{{it.no4k}}scr,cam,unknown{{it.maxSize}}|limit={{it.limit}}{{it.transportUrl}}/manifest.json"
       },
@@ -1492,7 +1492,7 @@
         "transportUrl": "https://subsource.strem.top/ZW5nbGlzaC9oaUV4Y2x1ZGUv/manifest.json"
       }
     },
-    "pt": {
+    "pt-BR": {
       "torrentio": {
         "transportUrl": "https://torrentio.strem.fun/providers=yts,eztv,rarbg,1337x,thepiratebay,kickasstorrents,torrentgalaxy,magnetdl,horriblesubs,nyaasi,tokyotosho,anidex,comando,bludv|language=portuguese|qualityfilter=threed,{{it.no4k}}scr,cam,unknown{{it.maxSize}}|limit={{it.limit}}{{it.transportUrl}}/manifest.json"
       },
@@ -1568,6 +1568,9 @@
       "jackettio": {
         "transportUrl": "https://jackettio.elfhosted.com/eyJtYXhUb3JyZW50cyI6OCwicHJpb3RpemVQYWNrVG9ycmVudHMiOjIsImV4Y2x1ZGVLZXl3b3JkcyI6WyJjYW0iLCJzY3JlZW5lciJdLCJkZWJyaWRJZCI6IiIsImhpZGVVbmNhY2hlZCI6ZmFsc2UsInNvcnRDYWNoZWQiOltbInF1YWxpdHkiLHRydWVdLFsic2l6ZSIsdHJ1ZV1dLCJzb3J0VW5jYWNoZWQiOltbInF1YWxpdHkiLHRydWVdLFsic2VlZGVycyIsdHJ1ZV1dLCJmb3JjZUNhY2hlTmV4dEVwaXNvZGUiOmZhbHNlLCJwcmlvdGl6ZUxhbmd1YWdlcyI6WyJnZXJtYW4iXSwiaW5kZXhlclRpbWVvdXRTZWMiOjYwLCJtZXRhTGFuZ3VhZ2UiOiIiLCJlbmFibGVNZWRpYUZsb3ciOmZhbHNlLCJtZWRpYWZsb3dQcm94eVVybCI6IiIsIm1lZGlhZmxvd0FwaVBhc3N3b3JkIjoiIiwibWVkaWFmbG93UHVibGljSXAiOiIiLCJ1c2VTdHJlbVRocnUiOnRydWUsInN0cmVtdGhydVVybCI6Imh0dHA6Ly9lbGZob3N0ZWQtaW50ZXJuYWwuc3RyZW10aHJ1IiwicXVhbGl0aWVzIjpbNDgwLDcyMCwxMDgwLDIxNjBdLCJpbmRleGVycyI6WyJiaXRzZWFyY2giLCJlenR2IiwidGhlcGlyYXRlYmF5IiwidGhlcmFyYmciLCJ5dHMiXSwiZGVicmlkQXBpS2V5IjoiIn0=/manifest.json"
       },
+      "torrentsdb": {
+        "transportUrl": "https://torrentsdb.com/eyJwcm92aWRlcnMiOlsieXRzIiwiZXp0diIsIjEzMzd4IiwidG9ycmVudGNzdiIsIm55YWEiLCJsaW1ldG9ycmVudCIsInJhcmdiIiwia25hYmVuIiwidGhlcGlyYXRlYmF5Iiwia2lja2Fzc3RvcnJlbnRzIiwiYW5pbWV0b3NobyIsInRva3lvdG9zaG8iLCJtYW51YWwiXSwibGFuZ3VhZ2UiOlsiZ2VybWFuIl0sInF1YWxpdHlmaWx0ZXIiOlsic2NyIiwiY2FtIiwidW5rbm93biJdLCJsaW1pdCI6IjEwIiwiZGVicmlkb3B0aW9ucyI6WyJub2NhdGFsb2ciXX0=/manifest.json"
+      },
       "webstreamr": {
         "transportUrl": "https://webstreamr.hayd.uk/%7B%22de%22%3A%22on%22%2C%22en%22%3A%22on%22%2C%22excludeExternalUrls%22%3A%22on%22%7D/manifest.json"
       },
@@ -1576,6 +1579,26 @@
       },
       "subsource": {
         "transportUrl": "https://subsource.strem.top/Z2VybWFuL2hpRXhjbHVkZS8=/manifest.json"
+      }
+    },
+    "nl": {
+      "torrentio": {
+        "transportUrl": "https://torrentio.strem.fun/providers=yts,eztv,rarbg,1337x,thepiratebay,kickasstorrents,torrentgalaxy,magnetdl,horriblesubs,nyaasi,tokyotosho,anidex|language=dutch|qualityfilter=threed,{{it.no4k}}scr,cam,unknown{{it.maxSize}}|limit={{it.limit}}{{it.transportUrl}}/manifest.json"
+      },
+      "comet": {
+        "transportUrl": "https://comet.elfhosted.com/eyJtYXhSZXN1bHRzUGVyUmVzb2x1dGlvbiI6MTAsIm1heFNpemUiOjAsImNhY2hlZE9ubHkiOmZhbHNlLCJyZW1vdmVUcmFzaCI6dHJ1ZSwicmVzdWx0Rm9ybWF0IjpbImFsbCJdLCJkZWJyaWRTZXJ2aWNlIjoidG9ycmVudCIsImRlYnJpZEFwaUtleSI6IiIsImRlYnJpZFN0cmVhbVByb3h5UGFzc3dvcmQiOiIiLCJsYW5ndWFnZXMiOnsiZXhjbHVkZSI6W10sInByZWZlcnJlZCI6WyJubCJdfSwicmVzb2x1dGlvbnMiOnsicjM2MHAiOmZhbHNlLCJ1bmtub3duIjpmYWxzZX0sIm9wdGlvbnMiOnsicmVtb3ZlX3JhbmtzX3VuZGVyIjotMTAwMDAwMDAwMDAsImFsbG93X2VuZ2xpc2hfaW5fbGFuZ3VhZ2VzIjpmYWxzZSwicmVtb3ZlX3Vua25vd25fbGFuZ3VhZ2VzIjpmYWxzZX19/manifest.json"
+      },
+      "jackettio": {
+        "transportUrl": "https://jackettio.elfhosted.com/eyJtYXhUb3JyZW50cyI6OCwicHJpb3RpemVQYWNrVG9ycmVudHMiOjIsImV4Y2x1ZGVLZXl3b3JkcyI6WyJjYW0iLCJzY3JlZW5lciJdLCJkZWJyaWRJZCI6IiIsImhpZGVVbmNhY2hlZCI6ZmFsc2UsInNvcnRDYWNoZWQiOltbInF1YWxpdHkiLHRydWVdLFsic2l6ZSIsdHJ1ZV1dLCJzb3J0VW5jYWNoZWQiOltbInF1YWxpdHkiLHRydWVdLFsic2VlZGVycyIsdHJ1ZV1dLCJmb3JjZUNhY2hlTmV4dEVwaXNvZGUiOmZhbHNlLCJwcmlvdGl6ZUxhbmd1YWdlcyI6WyJkdXRjaCJdLCJpbmRleGVyVGltZW91dFNlYyI6NjAsIm1ldGFMYW5ndWFnZSI6IiIsImVuYWJsZU1lZGlhRmxvdyI6ZmFsc2UsIm1lZGlhZmxvd1Byb3h5VXJsIjoiIiwibWVkaWFmbG93QXBpUGFzc3dvcmQiOiIiLCJtZWRpYWZsb3dQdWJsaWNJcCI6IiIsInVzZVN0cmVtVGhydSI6dHJ1ZSwic3RyZW10aHJ1VXJsIjoiaHR0cDovL2VsZmhvc3RlZC1pbnRlcm5hbC5zdHJlbXRocnUiLCJxdWFsaXRpZXMiOls0ODAsNzIwLDEwODAsMjE2MF0sImluZGV4ZXJzIjpbImJpdHNlYXJjaCIsImV6dHYiLCJ0aGVwaXJhdGViYXkiLCJ0aGVyYXJiZyIsInl0cyJdLCJkZWJyaWRBcGlLZXkiOiIifQ==/manifest.json"
+      },
+      "torrentsdb": {
+        "transportUrl": "https://torrentsdb.com/eyJwcm92aWRlcnMiOlsieXRzIiwiZXp0diIsIjEzMzd4IiwidG9ycmVudGNzdiIsIm55YWEiLCJsaW1ldG9ycmVudCIsInJhcmdiIiwia25hYmVuIiwidGhlcGlyYXRlYmF5Iiwia2lja2Fzc3RvcnJlbnRzIiwiYW5pbWV0b3NobyIsInRva3lvdG9zaG8iLCJtYW51YWwiXSwibGFuZ3VhZ2UiOlsiZHV0Y2giXSwicXVhbGl0eWZpbHRlciI6WyJzY3IiLCJjYW0iLCJ1bmtub3duIl0sImxpbWl0IjoiMTAiLCJkZWJyaWRvcHRpb25zIjpbIm5vY2F0YWxvZyJdfQ==/manifest.json"
+      },
+      "subhero": {
+        "transportUrl": "https://subhero.onrender.com/%7B%22language%22%3A%22nl%22%7D/manifest.json"
+      },
+      "subsource": {
+        "transportUrl": "https://subsource.strem.top/ZHV0Y2gvaGlFeGNsdWRlLw==/manifest.json"
       }
     }
   },
@@ -2804,7 +2827,7 @@
         "upstash": false
       }
     },
-    "es-mx": {
+    "es-MX": {
       "customListNames": {
         "mdblisturl_top-10": "Películas Tendencia",
         "mdblisturl_trending-now-shows": "Series Tendencia",
@@ -2843,7 +2866,7 @@
         "mdblisturl_war": "Guerra"
       }
     },
-    "es-es": {
+    "es-ES": {
       "customListNames": {
         "mdblisturl_top-10": "Películas Tendencia",
         "mdblisturl_trending-now-shows": "Series Tendencia",
@@ -2882,7 +2905,7 @@
         "mdblisturl_war": "Guerra"
       }
     },
-    "pt": {
+    "pt-BR": {
       "customListNames": {
         "mdblisturl_top-10": "Filmes em Tendência",
         "mdblisturl_trending-now-shows": "Séries em Tendência",
@@ -3036,6 +3059,45 @@
         "mdblisturl_sci-fi": "Science-Fiction",
         "mdblisturl_thriller": "Thriller",
         "mdblisturl_war": "Krieg"
+      }
+    },
+    "nl": {
+      "customListNames": {
+        "mdblisturl_top-10": "Populaire Films",
+        "mdblisturl_trending-now-shows": "Populaire Series",
+        "mdblisturl_latest-digital-releases": "Nieuwste Films",
+        "mdblisturl_latest-tv-shows": "Nieuwste Series",
+        "mdblisturl_top-movies-of-the-week": "Films van de Week",
+        "mdblisturl_netflix-movies": "Netflix Films",
+        "mdblisturl_netflix-shows": "Netflix Series",
+        "mdblisturl_disney-movies": "Disney Films",
+        "mdblisturl_disney-shows": "Disney Series",
+        "mdblisturl_amazon-prime-movies": "Amazon Prime Films",
+        "mdblisturl_amazon-prime-shows": "Amazon Prime Series",
+        "mdblisturl_hulu-movies": "Hulu Films",
+        "mdblisturl_hulu-shows": "Hulu Series",
+        "mdblisturl_hbo-movies": "HBO Films",
+        "mdblisturl_hbo-shows": "HBO Series",
+        "mdblisturl_movies-paramount-plus": "Paramount+ Films",
+        "mdblisturl_cbs-all-access": "Paramount+ Series",
+        "mdblisturl_apple-tv-movies": "Apple TV+ Films",
+        "mdblisturl_apple-tv": "Apple TV+ Series",
+        "mdblisturl_action": "Actie",
+        "mdblisturl_animation": "Animatie",
+        "mdblisturl_adventure-movies": "Avontuur",
+        "mdblisturl_comedy": "Komedie",
+        "mdblisturl_crime": "Misdaad",
+        "mdblisturl_documentary": "Documentaires",
+        "mdblisturl_drama": "Drama",
+        "mdblisturl_family-movies": "Familie",
+        "mdblisturl_fantasy-movies": "Fantasie",
+        "mdblisturl_history": "Geschiedenis",
+        "mdblisturl_horror": "Horror",
+        "mdblisturl_mystery-movies": "Mysterie",
+        "mdblisturl_romance": "Romantiek",
+        "mdblisturl_sci-fi": "Sciencefiction",
+        "mdblisturl_thriller": "Thriller",
+        "mdblisturl_war": "Oorlog"
       }
     }
   },
@@ -3294,7 +3356,7 @@
         "upstash": false
       }
     },
-    "es-mx": {
+    "es-MX": {
       "customListNames": {
         "mdblisturl_kids": "Películas Populares",
         "mdblisturl_kids-tv-shows": "Series Populares",
@@ -3313,7 +3375,7 @@
         "mdblisturl_nickelodeon-kids": "Series de Nickelodeon Kids"
       }
     },
-    "es-es": {
+    "es-ES": {
       "customListNames": {
         "mdblisturl_kids": "Películas Populares",
         "mdblisturl_kids-tv-shows": "Series Populares",
@@ -3332,7 +3394,7 @@
         "mdblisturl_nickelodeon-kids": "Series de Nickelodeon Kids"
       }
     },
-    "pt": {
+    "pt-BR": {
       "customListNames": {
         "mdblisturl_kids": "Filmes Populares",
         "mdblisturl_kids-tv-shows": "Séries Populares",
@@ -3406,6 +3468,25 @@
         "mdblisturl_tv-show-netflix-kids": "Netflix Kids Serien",
         "mdblisturl_nickelodeon-movies": "Nickelodeon Filme",
         "mdblisturl_nickelodeon-kids": "Nickelodeon Kids Serien"
+      }
+    },
+    "nl": {
+      "customListNames": {
+        "mdblisturl_kids": "Populaire Films",
+        "mdblisturl_kids-tv-shows": "Populaire Series",
+        "mdblisturl_kids-movies": "Nieuwste Films",
+        "mdblisturl_latest-kids-shows": "Nieuwste Series",
+        "mdblisturl_top-watched-movies-of-the-week-for-kids": "Meest Bekeken Films van de Week",
+        "mdblisturl_childish-movies-8": "Familiefilms",
+        "mdblisturl_walt-disney-animated-films": "Disney Animatiefilms",
+        "mdblisturl_disney-live-action-adaptations-and-remakes-of-disney-animated-films": "Disney Live-Action Films",
+        "mdblisturl_pixar": "Pixar Films",
+        "mdblisturl_disney-junior-tv": "Disney Junior Series",
+        "mdblisturl_kids-tv-cartoon-network": "Cartoon Network Series",
+        "mdblisturl_movie-netflix-kids-u0cpofqeue": "Netflix Kids Films",
+        "mdblisturl_tv-show-netflix-kids": "Netflix Kids Series",
+        "mdblisturl_nickelodeon-movies": "Nickelodeon Films",
+        "mdblisturl_nickelodeon-kids": "Nickelodeon Kids Series"
       }
     }
   }

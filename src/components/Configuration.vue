@@ -118,7 +118,10 @@ async function loadUserAddons() {
     size = maxSize.value ? maxSize.value : '';
 
     // Set AIOLists options
-    aiolistsConfig.config.tmdbLanguage = language.value;
+    aiolistsConfig.config.tmdbLanguage =
+      language.value === 'es-MX' || language.value === 'es-ES'
+        ? 'es'
+        : language.value;
     aiolistsConfig.config = _.merge(
       {},
       aiolistsConfig.config,
@@ -385,12 +388,13 @@ async function loadUserAddons() {
       }
 
       const languagesToPrioritize = {
-        'es-mx': 'Latino',
-        'es-es': 'Spanish',
-        pt: 'Portuguese',
+        'es-MX': 'Latino',
+        'es-ES': 'Spanish',
+        'pt-BR': 'Portuguese',
         fr: 'French',
         it: 'Italian',
-        de: 'German'
+        de: 'German',
+        nl: 'Dutch'
       };
 
       if (languagesToPrioritize[language.value]) {
@@ -640,7 +644,7 @@ function convertToMegabytes(gb) {
           <label class="label cursor-pointer">
             <input
               type="radio"
-              value="es-mx"
+              value="es-MX"
               v-model="language"
               class="radio radio-primary"
             />
@@ -649,7 +653,7 @@ function convertToMegabytes(gb) {
           <label class="label cursor-pointer">
             <input
               type="radio"
-              value="es-es"
+              value="es-ES"
               v-model="language"
               class="radio radio-primary"
             />
@@ -658,7 +662,7 @@ function convertToMegabytes(gb) {
           <label class="label cursor-pointer">
             <input
               type="radio"
-              value="pt"
+              value="pt-BR"
               v-model="language"
               class="radio radio-primary"
             />
@@ -692,6 +696,15 @@ function convertToMegabytes(gb) {
               class="radio radio-primary"
             />
             <span class="label-text ml-2">🇩🇪 {{ $t('german') }}</span>
+          </label>
+          <label class="label cursor-pointer">
+            <input
+              type="radio"
+              value="nl"
+              v-model="language"
+              class="radio radio-primary"
+            />
+            <span class="label-text ml-2">🇱🇺 {{ $t('dutch') }}</span>
           </label>
         </div>
       </fieldset>

@@ -11,7 +11,8 @@ const languages = [
   { code: 'fr', name: 'Français', flag: '🇫🇷' },
   { code: 'it', name: 'Italiano', flag: '🇮🇹' },
   { code: 'de', name: 'Deutsch', flag: '🇩🇪' },
-  { code: 'pt', name: 'Português', flag: '🇵🇹' }
+  { code: 'pt', name: 'Português', flag: '🇵🇹' },
+  { code: 'nl', name: 'Nederlands', flag: '🇳🇱' }
 ];
 
 const currentLanguage = computed(() => locale.value);

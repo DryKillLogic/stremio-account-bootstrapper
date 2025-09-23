@@ -120,5 +120,6 @@
   "edit_addons_advanced_mode": "Modo avanzado",
   "edit_addons_json_editor": "Editor JSON",
   "edit_addons_classic_mode": "Modo clásico",
-  "edit_addons_invalid_json": "Formato JSON inválido"
+  "edit_addons_invalid_json": "Formato JSON inválido",
+  "dutch": "Holandés"
 }
