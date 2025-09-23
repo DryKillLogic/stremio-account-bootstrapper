@@ -10,6 +10,14 @@ import { setAddonCollection } from '../composables/useStremioApi';
 import { QuestionMarkCircleIcon } from '@heroicons/vue/24/outline';
 import { addNotification } from '../composables/useNotifications';
 import { useAnalytics } from '../composables/useAnalytics';
+import {
+  decodeDataFromTransportUrl,
+  encodeDataFromTransportUrl,
+  getDataTransportUrl,
+  getUrlTransportUrl
+} from '../utils/transportUrl.ts';
+import { getRequest, postRequest } from '../utils/http.ts';
+import { isValidApiKey, debridServicesInfo } from '../utils/debrid.ts';
 
 const { t } = useI18n();
 
@@ -29,38 +37,14 @@ let isSyncAddons = ref(false);
 let language = ref('en');
 let preset = ref('standard');
 
-const debridServiceInfo = {
-  realdebrid: {
-    name: 'RD',
-    url: 'https://real-debrid.com/apitoken'
-  },
-  alldebrid: {
-    name: 'AD',
-    url: 'https://alldebrid.com/apikeys'
-  },
-  premiumize: {
-    name: 'PM',
-    url: 'https://www.premiumize.me/account'
-  },
-  debridlink: {
-    name: 'DL',
-    url: 'https://debrid-link.com/webapp/apikey'
-  },
-  easydebrid: {
-    name: 'ED',
-    url: 'https://paradise-cloud.com/dashboard'
-  },
-  torbox: {
-    name: 'TB',
-    url: 'https://torbox.app/settings'
-  }
-};
 let debridService = ref('');
 let debridApiKey = ref(null);
 let debridApiUrl = ref('');
 let debridServiceName = '';
 
-const isDebridApiKeyValid = computed(() => isValidApiKey(debridService.value));
+const isDebridApiKeyValid = computed(() =>
+  isValidApiKey(debridService.value, debridApiKey.value)
+);
 
 let torrentioConfig = '';
 let peerflixConfig = '';
@@ -150,7 +134,7 @@ async function loadUserAddons() {
     // AIOLists request
     if (presetConfig.aiolists) {
       try {
-        const encryptedAIOListsUserData = await encryptUserData(
+        const encryptedAIOListsUserData = await postRequest(
           'https://aiolists.elfhosted.com/api/config/create',
           aiolistsConfig
         );
@@ -158,7 +142,7 @@ async function loadUserAddons() {
         if (encryptedAIOListsUserData.success) {
           presetConfig.aiolists.transportUrl = `https://aiolists.elfhosted.com/${encryptedAIOListsUserData.configHash}/manifest.json`;
 
-          const manifestAIOListsUserData = await fetchUserData(
+          const manifestAIOListsUserData = await getRequest(
             presetConfig.aiolists.transportUrl
           );
 
@@ -178,8 +162,8 @@ async function loadUserAddons() {
     }
 
     // Set options for debrid service
-    if (isValidApiKey(debridService.value)) {
-      debridServiceName = debridServiceInfo[debridService.value].name;
+    if (isDebridApiKeyValid) {
+      debridServiceName = debridServicesInfo[debridService.value].name;
 
       // Torrentio
       if (presetConfig.torrentio) {
@@ -340,7 +324,7 @@ async function loadUserAddons() {
         );
 
         try {
-          const manifestStremthruStoreUserData = await fetchUserData(
+          const manifestStremthruStoreUserData = await getRequest(
             `https://cloudflare-cors-anywhere.drykilllogic.workers.dev/?${presetConfig.stremthrustore.transportUrl}`
           );
 
@@ -376,7 +360,7 @@ async function loadUserAddons() {
           maxSize: size ? `|sizefilter=${size}GB` : ''
         }
       );
-      presetConfig.torrentio.manifest.name += ` ${debridServiceName}`;
+      presetConfig.torrentio.manifest.name += ` | ${debridServiceName}`;
     }
 
     // Comet
@@ -422,7 +406,7 @@ async function loadUserAddons() {
         mediaFusionConfig.max_size = convertToBytes(size);
       }
 
-      const encryptedMediaFusionData = await encryptUserData(
+      const encryptedMediaFusionData = await postRequest(
         'https://cloudflare-cors-anywhere.drykilllogic.workers.dev/?https://mediafusion.elfhosted.com/encrypt-user-data',
         mediaFusionConfig
       );
@@ -466,7 +450,7 @@ async function loadUserAddons() {
             sort: debridService.value ? ',size-desc' : ',seed-desc'
           }
         );
-        presetConfig.peerflix.manifest.name += ` ${debridServiceName}`;
+        presetConfig.peerflix.manifest.name += ` | ${debridServiceName}`;
       }
     }
 
@@ -556,90 +540,8 @@ function saveManifestEdit(updatedManifest) {
   }
 }
 
-function decodeDataFromTransportUrl(data) {
-  return JSON.parse(Buffer.from(data, 'base64').toString('utf-8'));
-}
-
-function encodeDataFromTransportUrl(data) {
-  return Buffer.from(JSON.stringify(data)).toString('base64');
-}
-
-function getDataTransportUrl(url, base64 = true) {
-  const parsedUrl = url.match(
-    /(https?:\/\/[^\/]+(?:\/[^\/]+)*\/)([^\/=]+={0,2})(\/manifest\.json)$/
-  );
-
-  return {
-    domain: parsedUrl[1],
-    data: base64
-      ? decodeDataFromTransportUrl(parsedUrl[2])
-      : JSON.parse(decodeURIComponent(parsedUrl[2])),
-    manifest: parsedUrl[3]
-  };
-}
-
-function getUrlTransportUrl(url, data, base64 = true) {
-  return (
-    url.domain +
-    (base64
-      ? encodeDataFromTransportUrl(data)
-      : encodeURIComponent(JSON.stringify(data))) +
-    url.manifest
-  );
-}
-
 function updateDebridApiUrl() {
-  debridApiUrl.value = debridServiceInfo[debridService.value].url;
-}
-
-function isValidApiKey(service) {
-  if (!debridApiKey.value) return false;
-
-  const key = String(debridApiKey.value).trim();
-
-  const patterns = {
-    alldebrid: /^[a-zA-Z0-9]{20}$/,
-    premiumize: /^[a-z0-9]{16}$/i,
-    debridlink: /^[A-Za-z0-9]{35}$/i,
-    easydebrid: /^[a-zA-Z0-9]{16}$/,
-    realdebrid: /^[A-Z0-9]{52}$/,
-    torbox: /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i
-  };
-
-  return patterns[service].test(key);
-}
-
-async function fetchUserData(endpoint) {
-  try {
-    const response = await fetch(endpoint, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    });
-
-    const result = await response.json();
-    return result;
-  } catch (error) {
-    console.error('Fetch user data failed:', error);
-  }
-}
-
-async function encryptUserData(endpoint, data) {
-  try {
-    const response = await fetch(endpoint, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
-    });
-
-    const result = await response.json();
-    return result;
-  } catch (error) {
-    console.error(error);
-  }
+  debridApiUrl.value = debridServicesInfo[debridService.value].url;
 }
 
 function convertToBytes(gb) {
