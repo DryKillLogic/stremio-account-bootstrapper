@@ -22,12 +22,20 @@
     "vuedraggable": "^4.1.0"
   },
   "devDependencies": {
+    "@types/lodash": "^4.17.20",
     "@types/node": "^24.5.2",
+    "@typescript-eslint/eslint-plugin": "^8.44.1",
+    "@typescript-eslint/parser": "^8.44.1",
     "@vitejs/plugin-vue": "^6.0.1",
+    "@vue/compiler-sfc": "^3.5.22",
     "@vue/tsconfig": "^0.8.1",
+    "eslint": "^9.36.0",
+    "eslint-plugin-vue": "^10.5.0",
     "prettier": "3.3.3",
     "typescript": "~5.8.3",
     "vite": "^7.1.6",
+    "volar": "^0.0.2",
+    "vue-eslint-parser": "^10.2.0",
     "vue-tsc": "^3.0.7"
   }
 }

@@ -6,16 +6,14 @@ import draggable from 'vuedraggable';
 import AddonItem from './AddonItem.vue';
 import DynamicForm from './DynamicForm.vue';
 import _ from 'lodash';
-import { setAddonCollection } from '../api/stremioApi.ts';
-import { getAddonConfig as getAiolistsConfig } from '../api/aiolistsApi.ts';
-import { getAddonConfig as getMediaFusionConfig } from '../api/mediafusionApi.ts';
 import { QuestionMarkCircleIcon } from '@heroicons/vue/24/outline';
 import { addNotification } from '../composables/useNotifications';
 import { useAnalytics } from '../composables/useAnalytics';
-import { updateTransportUrl } from '../utils/transportUrl.ts';
-import { getRequest, postRequest } from '../utils/http.ts';
 import { isValidApiKey, debridServicesInfo } from '../utils/debrid.ts';
-import { getAddonConfig } from '../api/stremthru.ts';
+import {
+  buildPresetService,
+  loadPresetService
+} from '../services/presetService.ts';
 
 const { t } = useI18n();
 
@@ -52,6 +50,7 @@ let currentEditIdx = ref(null);
 
 async function loadUserAddons() {
   const key = props.stremioAuthKey;
+
   if (!key) {
     console.error('No auth key provided');
     return;
@@ -62,379 +61,28 @@ async function loadUserAddons() {
   console.log('Loading addons...');
 
   try {
-    const data = await getRequest('/preset.json');
-
-    if (!data) {
-      console.error('Failed to fetch presets: ', data);
-      addNotification(t('failed_fetching_presets'), 'error');
-      return;
-    }
-
-    let presetConfig = {};
-    let no4k = false;
-    let cached = false;
-    let limit = 10;
-    let size = '';
-    const mediaFusionConfig = data.mediafusionConfig;
-    const aiolistsConfig =
-      preset.value === 'kids' ? data.aiolistsKidsConfig : data.aiolistsConfig;
-
-    // Set additional addons based on language selection
-    if (language.value === 'es-mx') {
-      data.presets[preset.value].push('subdivx');
-    }
-
-    // Get preset config
-    presetConfig = _.pick(
-      language.value === 'en'
-        ? data.languages[language.value]
-        : _.merge({}, data.languages.en, data.languages[language.value]),
-      data.presets[preset.value]
-    );
-
-    // Set additional addons
-    if (extras.value.length > 0) {
-      extras.value.forEach((extra) => {
-        presetConfig = _.merge({}, presetConfig, {
-          [extra]: data.extras[extra]
-        });
-      });
-    }
-
-    // Set additional options
-    no4k = options.value.includes('no4k');
-    cached = options.value.includes('cached');
-    limit = ['minimal', 'kids'].includes(preset.value) ? 2 : limit;
-    size = maxSize.value ? maxSize.value : '';
-
-    // Set AIOLists options
-    aiolistsConfig.config.tmdbLanguage =
-      language.value === 'es-MX' || language.value === 'es-ES'
-        ? 'es'
-        : language.value;
-    aiolistsConfig.config = _.merge(
-      {},
-      aiolistsConfig.config,
-      language.value !== 'en' ? aiolistsConfig[language.value] : {}
-    );
-
-    // Set RPDB key
-    if (rpdbKey.value) {
-      aiolistsConfig.config.rpdbApiKey = rpdbKey.value;
-      aiolistsConfig.config.isConnected.rpdb = true;
-    }
-
-    // AIOLists request
-    if (presetConfig.aiolists) {
-      try {
-        const aiolistsData = await getAiolistsConfig(presetConfig.aiolists);
-
-        if (
-          aiolistsData &&
-          aiolistsData.transportUrl &&
-          aiolistsData.manifest
-        ) {
-          presetConfig.aiolists.manifest = aiolistsData.manifest;
-          presetConfig.aiolists.transportUrl = aiolistsData.transportUrl;
-        } else {
-          presetConfig = _.omit(presetConfig, 'aiolists');
-        }
-      } catch (error) {
-        console.error('Failed to fetch aiolists config:', error);
-        presetConfig = _.omit(presetConfig, 'aiolists');
-      }
-    }
-
-    // Set options for debrid service
-    if (isDebridApiKeyValid.value) {
-      debridServiceName = debridServicesInfo[debridService.value].name;
-
-      // Torrentio
-      if (presetConfig.torrentio) {
-        torrentioConfig = `|sort=qualitysize|debridoptions=${cached ? 'nodownloadlinks,' : ''}nocatalog|${debridService.value}=${debridApiKey.value}`;
-      }
-
-      // Comet
-      if (presetConfig.comet) {
-        updateTransportUrl({
-          presetConfig,
-          serviceKey: 'comet',
-          manifestNameSuffix: debridServiceName,
-          updateData: (data) => ({
-            ...data,
-            debridApiKey: debridApiKey.value,
-            debridService: debridService.value,
-            cachedOnly: cached
-          })
-        });
-      }
-
-      // MediaFusion
-      if (presetConfig.mediafusion) {
-        presetConfig.mediafusion.manifest.name += ` | ${debridServiceName}`;
-        mediaFusionConfig.streaming_provider = {
-          service: debridService.value,
-          token: debridApiKey.value,
-          enable_watchlist_catalogs: false,
-          download_via_browser: false,
-          only_show_cached_streams: cached
-        };
-      }
-
-      // TorrentsDB
-      if (presetConfig.torrentsdb) {
-        updateTransportUrl({
-          presetConfig,
-          serviceKey: 'torrentsdb',
-          manifestNameSuffix: debridServiceName,
-          updateData: (data) => ({
-            ...data,
-            sort: 'qualitysize',
-            [debridService.value]: debridApiKey.value
-          })
-        });
-      }
-
-      // Jackettio
-      if (presetConfig.jackettio) {
-        updateTransportUrl({
-          presetConfig,
-          serviceKey: 'jackettio',
-          updateData: (data) => ({
-            ...data,
-            debridApiKey: debridApiKey.value,
-            debridId: debridService.value,
-            hideUncached: cached,
-            qualities: no4k ? _.pull(data.qualities, 2160) : data.qualities
-          })
-        });
-      }
-
-      // StremThru Torz
-      if (presetConfig.stremthrutorz) {
-        const stremthrutorzDebridService = {
-          realdebrid: 'rd',
-          alldebrid: 'ad',
-          premiumize: 'pm',
-          debridlink: 'dl',
-          torbox: 'tb'
-        };
-
-        updateTransportUrl({
-          presetConfig,
-          serviceKey: 'stremthrutorz',
-          manifestNameSuffix: debridServiceName,
-          updateData: (data) => ({
-            ...data,
-            stores: [
-              {
-                c: stremthrutorzDebridService[debridService.value],
-                t: debridApiKey.value
-              }
-            ],
-            cached: cached
-          })
-        });
-      }
-
-      // Peerflix
-      if (presetConfig.peerflix) {
-        if (debridService.value !== 'easydebrid') {
-          peerflixConfig = `%7Cdebridoptions=nocatalog${cached ? ',nodownloadlinks' : ''}%7C${debridService.value}=${debridApiKey.value}`;
-        } else {
-          presetConfig = _.omit(presetConfig, 'peerflix');
-        }
-      }
-
-      // Torbox
-      if (debridService.value === 'torbox' && presetConfig.torbox) {
-        presetConfig.torbox.transportUrl = Sqrl.render(
-          presetConfig.torbox.transportUrl,
-          { transportUrl: debridApiKey.value }
-        );
-      } else {
-        presetConfig = _.omit(presetConfig, 'torbox');
-      }
-
-      // StreamAsia
-      if (presetConfig.streamasia && debridService.value !== 'easydebrid') {
-        const streamAsiaDebridService = {
-          realdebrid: 'Real Debrid',
-          alldebrid: 'AllDebrid',
-          premiumize: 'Premiumize',
-          debridlink: 'Debrid-Link',
-          torbox: 'Torbox'
-        };
-
-        updateTransportUrl({
-          presetConfig,
-          serviceKey: 'streamasia',
-          manifestNameSuffix: debridServiceName,
-          updateData: (data) => ({
-            ...data,
-            debridConfig: [
-              {
-                debridProvider: streamAsiaDebridService[debridService.value],
-                token: debridApiKey.value
-              }
-            ]
-          })
-        });
-      }
-
-      // StremThru Store
-      if (presetConfig.stremthrustore) {
-        updateTransportUrl({
-          presetConfig,
-          serviceKey: 'stremthrustore',
-          manifestNameSuffix: debridServiceName,
-          updateData: (data) => ({
-            ...data,
-            store_name: debridService.value,
-            store_token: debridApiKey.value
-          })
-        });
-
-        try {
-          const manifestStremthruStoreUserData = await getAddonConfig(
-            presetConfig.stremthrustore.transportUrl
-          );
-
-          if (manifestStremthruStoreUserData) {
-            presetConfig.stremthrustore.manifest =
-              manifestStremthruStoreUserData;
-          }
-        } catch (error) {
-          presetConfig = _.omit(presetConfig, 'stremthrustore');
-          console.error('Error fetching StremThru Store manifest:', error);
-        }
-      }
-
-      // Remove TPB+
-      presetConfig = _.omit(presetConfig, 'tpbplus');
-    } else {
-      debridServiceName = '';
-      // Remove Jackettio
-      presetConfig = _.omit(presetConfig, 'jackettio');
-      // Remove Torbox
-      presetConfig = _.omit(presetConfig, 'torbox');
-    }
-
-    // Set stream addons options
-    if (presetConfig.torrentio) {
-      // Torrentio
-      presetConfig.torrentio.transportUrl = Sqrl.render(
-        presetConfig.torrentio.transportUrl,
-        {
-          transportUrl: torrentioConfig,
-          no4k: no4k ? '4k,' : '',
-          limit: limit,
-          maxSize: size ? `|sizefilter=${size}GB` : ''
-        }
-      );
-      presetConfig.torrentio.manifest.name +=
-        debridServiceName && ` | ${debridServiceName}`;
-    }
-
-    // Comet
-    if (presetConfig.comet) {
-      updateTransportUrl({
-        presetConfig,
-        serviceKey: 'comet',
-        updateData: (data) => ({
-          ...data,
-          maxResultsPerResolution: limit,
-          maxSize: size ? convertToBytes(size) : 0,
-          resolutions: {
-            ...data.resolutions,
-            r2160p: no4k ? false : true
-          }
-        })
-      });
-    }
-
-    // MediaFusion
-    if (presetConfig.mediafusion) {
-      if (no4k) {
-        _.pull(mediaFusionConfig.selected_resolutions, '4k', '2160p', '1440p');
-      }
-
-      const languagesToPrioritize = {
-        'es-MX': 'Latino',
-        'es-ES': 'Spanish',
-        'pt-BR': 'Portuguese',
-        fr: 'French',
-        it: 'Italian',
-        de: 'German',
-        nl: 'Dutch'
-      };
-
-      if (languagesToPrioritize[language.value]) {
-        _.pull(
-          mediaFusionConfig.language_sorting,
-          languagesToPrioritize[language.value]
-        );
-        mediaFusionConfig.language_sorting.unshift(
-          languagesToPrioritize[language.value]
-        );
-      }
-
-      if (size) {
-        mediaFusionConfig.max_size = convertToBytes(size);
-      }
-
-      const encryptedMediaFusionUserData =
-        await getMediaFusionConfig(mediaFusionConfig);
-
-      if (encryptedMediaFusionUserData) {
-        presetConfig.mediafusion.transportUrl = encryptedMediaFusionUserData;
-      } else {
-        presetConfig = _.omit(presetConfig, 'mediafusion');
-        console.log('Error fetching MediaFusion encrypted user data.');
-      }
-    }
-
-    // TorrentsDB
-    if (presetConfig.torrentsdb) {
-      updateTransportUrl({
-        presetConfig,
-        serviceKey: 'torrentsdb',
-        updateData: (data) => ({
-          ...data,
-          sizefilter: size ? convertToMegabytes(size) : '',
-          qualityfilter: [
-            ...data.qualityfilter,
-            ...(no4k
-              ? ['4k', 'brremux', 'hdrall', 'dolbyvisionwithhdr', 'dolbyvision']
-              : [])
-          ]
-        })
-      });
-    }
-
-    // Peerflix
-    if (presetConfig.peerflix) {
-      if (debridService.value !== '' && debridService.value !== 'easydebrid') {
-        presetConfig.peerflix.transportUrl = Sqrl.render(
-          presetConfig.peerflix.transportUrl,
-          {
-            transportUrl: peerflixConfig,
-            no4k: no4k ? ',remux4k,4k,micro4k' : '',
-            sort: debridService.value ? ',size-desc' : ',seed-desc'
-          }
-        );
-        presetConfig.peerflix.manifest.name += ` | ${debridServiceName}`;
-      }
-    }
-
-    // Create addons list
-    const selectedAddons = [];
-
-    Object.keys(presetConfig).forEach((key) => {
-      selectedAddons.push(presetConfig[key]);
+    const {
+      selectedAddons,
+      presetConfig: builtPresetConfig,
+      debridServiceName: builtDebridServiceName,
+      torrentioConfig: builtTorrentioConfig,
+      peerflixConfig: builtPeerflixConfig
+    } = await buildPresetService({
+      preset: preset.value,
+      language: language.value,
+      extras: extras.value,
+      options: options.value,
+      maxSize: maxSize.value,
+      rpdbKey: rpdbKey.value,
+      debridService: debridService.value,
+      debridApiKey: debridApiKey.value,
+      isDebridApiKeyValid: isDebridApiKeyValid.value
     });
 
     addons.value = selectedAddons;
+    debridServiceName = builtDebridServiceName;
+    torrentioConfig = builtTorrentioConfig;
+    peerflixConfig = builtPeerflixConfig;
   } catch (error) {
     console.error('Error fetching preset config', error);
     addNotification(t('failed_fetching_presets'), 'error');
@@ -444,7 +92,7 @@ async function loadUserAddons() {
   }
 }
 
-function syncUserAddons() {
+async function syncUserAddons() {
   const { track } = useAnalytics();
   const key = props.stremioAuthKey;
   if (!key) {
@@ -455,34 +103,24 @@ function syncUserAddons() {
   isSyncAddons.value = true;
   console.log('Syncing addons...');
 
-  setAddonCollection(addons.value, key)
-    .then((data) => {
-      if (!data?.result?.success) {
-        console.error('Sync failed: ', data);
-        addNotification(
-          data?.result?.error || t('failed_syncing_addons', 'error')
-        );
-        return;
-      } else {
-        console.log('Sync complete: + ', data);
-        addNotification(t('sync_complete'), 'success');
-        track('sync_stremio_click', {
-          title: 'Sync to Stremio',
-          vars: {
-            language: language.value,
-            preset: preset.value,
-            debrid: debridService.value || ''
-          }
-        });
+  try {
+    const data = await loadPresetService({ addons: addons.value, key });
+    addNotification(t('sync_complete'), 'success');
+    track('sync_stremio_click', {
+      title: 'Sync to Stremio',
+      vars: {
+        language: language.value,
+        preset: preset.value,
+        debrid: debridService.value || ''
       }
-    })
-    .catch((error) => {
-      addNotification(error.message || t('failed_syncing_addons', 'error'));
-      console.error('Error fetching user addons', error);
-    })
-    .finally(() => {
-      isSyncAddons.value = false;
     });
+    console.log('Sync complete: ', data);
+  } catch (error) {
+    addNotification(error.message || t('failed_syncing_addons', 'error'));
+    console.error('Sync failed', error);
+  } finally {
+    isSyncAddons.value = false;
+  }
 }
 
 function removeAddon(idx) {
@@ -522,14 +160,6 @@ function saveManifestEdit(updatedManifest) {
 
 function updateDebridApiUrl() {
   debridApiUrl.value = debridServicesInfo[debridService.value].url;
-}
-
-function convertToBytes(gb) {
-  return Number(gb) * 1024 * 1024 * 1024;
-}
-
-function convertToMegabytes(gb) {
-  return Number(gb) * 1024;
 }
 </script>
 
