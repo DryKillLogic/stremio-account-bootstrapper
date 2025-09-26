@@ -1,9 +1,6 @@
 <script setup>
 import { ref } from 'vue';
-import {
-  getAddonCollection,
-  setAddonCollection
-} from '../composables/useStremioApi';
+import { getAddonCollection, setAddonCollection } from '../api/stremioApi';
 import { format } from 'date-fns';
 import { useI18n } from 'vue-i18n';
 import { addNotification } from '../composables/useNotifications';

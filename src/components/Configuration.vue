@@ -6,18 +6,16 @@ import draggable from 'vuedraggable';
 import AddonItem from './AddonItem.vue';
 import DynamicForm from './DynamicForm.vue';
 import _ from 'lodash';
-import { setAddonCollection } from '../composables/useStremioApi';
+import { setAddonCollection } from '../api/stremioApi.ts';
+import { getAddonConfig as getAiolistsConfig } from '../api/aiolistsApi.ts';
+import { getAddonConfig as getMediaFusionConfig } from '../api/mediafusionApi.ts';
 import { QuestionMarkCircleIcon } from '@heroicons/vue/24/outline';
 import { addNotification } from '../composables/useNotifications';
 import { useAnalytics } from '../composables/useAnalytics';
-import {
-  decodeDataFromTransportUrl,
-  encodeDataFromTransportUrl,
-  getDataTransportUrl,
-  getUrlTransportUrl
-} from '../utils/transportUrl.ts';
+import { updateTransportUrl } from '../utils/transportUrl.ts';
 import { getRequest, postRequest } from '../utils/http.ts';
 import { isValidApiKey, debridServicesInfo } from '../utils/debrid.ts';
+import { getAddonConfig } from '../api/stremthru.ts';
 
 const { t } = useI18n();
 
@@ -26,7 +24,6 @@ const props = defineProps({
 });
 
 let dragging = false;
-
 let addons = ref([]);
 let extras = ref([]);
 let options = ref([]);
@@ -65,8 +62,7 @@ async function loadUserAddons() {
   console.log('Loading addons...');
 
   try {
-    const resp = await fetch('/preset.json');
-    const data = await resp.json();
+    const data = await getRequest('/preset.json');
 
     if (!data) {
       console.error('Failed to fetch presets: ', data);
@@ -79,12 +75,6 @@ async function loadUserAddons() {
     let cached = false;
     let limit = 10;
     let size = '';
-    let cometTransportUrl = {};
-    let jackettioTransportUrl = {};
-    let torrentsdbTransportUrl = {};
-    let stremthrutorzTransportUrl = {};
-    let stremthrustoreTransportUrl = {};
-    let streamAsiaTransportUrl = {};
     const mediaFusionConfig = data.mediafusionConfig;
     const aiolistsConfig =
       preset.value === 'kids' ? data.aiolistsKidsConfig : data.aiolistsConfig;
@@ -137,30 +127,21 @@ async function loadUserAddons() {
     // AIOLists request
     if (presetConfig.aiolists) {
       try {
-        const encryptedAIOListsUserData = await postRequest(
-          'https://aiolists.elfhosted.com/api/config/create',
-          aiolistsConfig
-        );
+        const aiolistsData = await getAiolistsConfig(presetConfig.aiolists);
 
-        if (encryptedAIOListsUserData.success) {
-          presetConfig.aiolists.transportUrl = `https://aiolists.elfhosted.com/${encryptedAIOListsUserData.configHash}/manifest.json`;
-
-          const manifestAIOListsUserData = await getRequest(
-            presetConfig.aiolists.transportUrl
-          );
-
-          if (manifestAIOListsUserData) {
-            presetConfig.aiolists.manifest = manifestAIOListsUserData;
-          } else {
-            presetConfig = _.omit(presetConfig, 'aiolists');
-            console.log('Error fetching AIOLists user manifest.');
-          }
+        if (
+          aiolistsData &&
+          aiolistsData.transportUrl &&
+          aiolistsData.manifest
+        ) {
+          presetConfig.aiolists.manifest = aiolistsData.manifest;
+          presetConfig.aiolists.transportUrl = aiolistsData.transportUrl;
         } else {
           presetConfig = _.omit(presetConfig, 'aiolists');
-          console.log('Error fetching AIOLists encrypted user data.');
         }
       } catch (error) {
-        console.error('An error occurred:', error);
+        console.error('Failed to fetch aiolists config:', error);
+        presetConfig = _.omit(presetConfig, 'aiolists');
       }
     }
 
@@ -175,19 +156,17 @@ async function loadUserAddons() {
 
       // Comet
       if (presetConfig.comet) {
-        cometTransportUrl = getDataTransportUrl(
-          presetConfig.comet.transportUrl
-        );
-        presetConfig.comet.manifest.name += ` | ${debridServiceName}`;
-        presetConfig.comet.transportUrl = getUrlTransportUrl(
-          cometTransportUrl,
-          {
-            ...cometTransportUrl.data,
+        updateTransportUrl({
+          presetConfig,
+          serviceKey: 'comet',
+          manifestNameSuffix: debridServiceName,
+          updateData: (data) => ({
+            ...data,
             debridApiKey: debridApiKey.value,
             debridService: debridService.value,
             cachedOnly: cached
-          }
-        );
+          })
+        });
       }
 
       // MediaFusion
@@ -204,38 +183,31 @@ async function loadUserAddons() {
 
       // TorrentsDB
       if (presetConfig.torrentsdb) {
-        torrentsdbTransportUrl = getDataTransportUrl(
-          presetConfig.torrentsdb.transportUrl
-        );
-        presetConfig.torrentsdb.manifest.name += ` | ${debridServiceName}`;
-        presetConfig.torrentsdb.transportUrl = getUrlTransportUrl(
-          torrentsdbTransportUrl,
-          {
-            ...torrentsdbTransportUrl.data,
+        updateTransportUrl({
+          presetConfig,
+          serviceKey: 'torrentsdb',
+          manifestNameSuffix: debridServiceName,
+          updateData: (data) => ({
+            ...data,
             sort: 'qualitysize',
             [debridService.value]: debridApiKey.value
-          }
-        );
+          })
+        });
       }
 
       // Jackettio
       if (presetConfig.jackettio) {
-        jackettioTransportUrl = getDataTransportUrl(
-          presetConfig.jackettio.transportUrl
-        );
-        presetConfig.jackettio.manifest.name += ` | ${debridServiceName}`;
-        presetConfig.jackettio.transportUrl = getUrlTransportUrl(
-          jackettioTransportUrl,
-          {
-            ...jackettioTransportUrl.data,
+        updateTransportUrl({
+          presetConfig,
+          serviceKey: 'jackettio',
+          updateData: (data) => ({
+            ...data,
             debridApiKey: debridApiKey.value,
             debridId: debridService.value,
             hideUncached: cached,
-            qualities: no4k
-              ? _.pull(jackettioTransportUrl.data.qualities, 2160)
-              : jackettioTransportUrl.data.qualities
-          }
-        );
+            qualities: no4k ? _.pull(data.qualities, 2160) : data.qualities
+          })
+        });
       }
 
       // StremThru Torz
@@ -248,13 +220,12 @@ async function loadUserAddons() {
           torbox: 'tb'
         };
 
-        stremthrutorzTransportUrl = getDataTransportUrl(
-          presetConfig.stremthrutorz.transportUrl
-        );
-        presetConfig.stremthrutorz.manifest.name += ` | ${debridServiceName}`;
-        presetConfig.stremthrutorz.transportUrl = getUrlTransportUrl(
-          stremthrutorzTransportUrl,
-          {
+        updateTransportUrl({
+          presetConfig,
+          serviceKey: 'stremthrutorz',
+          manifestNameSuffix: debridServiceName,
+          updateData: (data) => ({
+            ...data,
             stores: [
               {
                 c: stremthrutorzDebridService[debridService.value],
@@ -262,8 +233,8 @@ async function loadUserAddons() {
               }
             ],
             cached: cached
-          }
-        );
+          })
+        });
       }
 
       // Peerflix
@@ -295,40 +266,38 @@ async function loadUserAddons() {
           torbox: 'Torbox'
         };
 
-        streamAsiaTransportUrl = getDataTransportUrl(
-          presetConfig.streamasia.transportUrl
-        );
-        presetConfig.streamasia.transportUrl = getUrlTransportUrl(
-          streamAsiaTransportUrl,
-          {
-            ...streamAsiaTransportUrl.data,
+        updateTransportUrl({
+          presetConfig,
+          serviceKey: 'streamasia',
+          manifestNameSuffix: debridServiceName,
+          updateData: (data) => ({
+            ...data,
             debridConfig: [
               {
                 debridProvider: streamAsiaDebridService[debridService.value],
                 token: debridApiKey.value
               }
             ]
-          }
-        );
+          })
+        });
       }
 
       // StremThru Store
       if (presetConfig.stremthrustore) {
-        stremthrustoreTransportUrl = getDataTransportUrl(
-          presetConfig.stremthrustore.transportUrl
-        );
-        presetConfig.stremthrustore.transportUrl = getUrlTransportUrl(
-          stremthrustoreTransportUrl,
-          {
-            ...stremthrustoreTransportUrl.data,
+        updateTransportUrl({
+          presetConfig,
+          serviceKey: 'stremthrustore',
+          manifestNameSuffix: debridServiceName,
+          updateData: (data) => ({
+            ...data,
             store_name: debridService.value,
             store_token: debridApiKey.value
-          }
-        );
+          })
+        });
 
         try {
-          const manifestStremthruStoreUserData = await getRequest(
-            `https://cloudflare-cors-anywhere.drykilllogic.workers.dev/?${presetConfig.stremthrustore.transportUrl}`
+          const manifestStremthruStoreUserData = await getAddonConfig(
+            presetConfig.stremthrustore.transportUrl
           );
 
           if (manifestStremthruStoreUserData) {
@@ -369,15 +338,18 @@ async function loadUserAddons() {
 
     // Comet
     if (presetConfig.comet) {
-      cometTransportUrl = getDataTransportUrl(presetConfig.comet.transportUrl);
-      presetConfig.comet.transportUrl = getUrlTransportUrl(cometTransportUrl, {
-        ...cometTransportUrl.data,
-        maxResultsPerResolution: limit,
-        maxSize: size ? convertToBytes(size) : 0,
-        resolutions: {
-          ...cometTransportUrl.data.resolutions,
-          r2160p: no4k ? false : true
-        }
+      updateTransportUrl({
+        presetConfig,
+        serviceKey: 'comet',
+        updateData: (data) => ({
+          ...data,
+          maxResultsPerResolution: limit,
+          maxSize: size ? convertToBytes(size) : 0,
+          resolutions: {
+            ...data.resolutions,
+            r2160p: no4k ? false : true
+          }
+        })
       });
     }
 
@@ -411,13 +383,11 @@ async function loadUserAddons() {
         mediaFusionConfig.max_size = convertToBytes(size);
       }
 
-      const encryptedMediaFusionData = await postRequest(
-        'https://cloudflare-cors-anywhere.drykilllogic.workers.dev/?https://mediafusion.elfhosted.com/encrypt-user-data',
-        mediaFusionConfig
-      );
+      const encryptedMediaFusionUserData =
+        await getMediaFusionConfig(mediaFusionConfig);
 
-      if (encryptedMediaFusionData?.status === 'success') {
-        presetConfig.mediafusion.transportUrl = `https://mediafusion.elfhosted.com/${encryptedMediaFusionData.encrypted_str}/manifest.json`;
+      if (encryptedMediaFusionUserData) {
+        presetConfig.mediafusion.transportUrl = encryptedMediaFusionUserData;
       } else {
         presetConfig = _.omit(presetConfig, 'mediafusion');
         console.log('Error fetching MediaFusion encrypted user data.');
@@ -426,22 +396,20 @@ async function loadUserAddons() {
 
     // TorrentsDB
     if (presetConfig.torrentsdb) {
-      torrentsdbTransportUrl = getDataTransportUrl(
-        presetConfig.torrentsdb.transportUrl
-      );
-      presetConfig.torrentsdb.transportUrl = getUrlTransportUrl(
-        torrentsdbTransportUrl,
-        {
-          ...torrentsdbTransportUrl.data,
+      updateTransportUrl({
+        presetConfig,
+        serviceKey: 'torrentsdb',
+        updateData: (data) => ({
+          ...data,
           sizefilter: size ? convertToMegabytes(size) : '',
           qualityfilter: [
-            ...torrentsdbTransportUrl.data.qualityfilter,
+            ...data.qualityfilter,
             ...(no4k
               ? ['4k', 'brremux', 'hdrall', 'dolbyvisionwithhdr', 'dolbyvision']
               : [])
           ]
-        }
-      );
+        })
+      });
     }
 
     // Peerflix

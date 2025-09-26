@@ -39,3 +39,29 @@ export const getUrlTransportUrl = (
     ? encodeDataFromTransportUrl(data)
     : encodeURIComponent(JSON.stringify(data))) +
   url.manifest;
+
+interface UpdateTransportUrlParams {
+  presetConfig: any;
+  serviceKey: string;
+  manifestNameSuffix?: string;
+  updateData: (data: any) => any;
+}
+
+export const updateTransportUrl = ({
+  presetConfig,
+  serviceKey,
+  manifestNameSuffix,
+  updateData
+}: UpdateTransportUrlParams) => {
+  const service = presetConfig[serviceKey];
+  if (service && service.transportUrl) {
+    const transportUrl = getDataTransportUrl(service.transportUrl);
+    if (manifestNameSuffix && service.manifest && service.manifest.name) {
+      service.manifest.name += ` | ${manifestNameSuffix}`;
+    }
+    service.transportUrl = getUrlTransportUrl(
+      transportUrl,
+      updateData(transportUrl.data)
+    );
+  }
+};

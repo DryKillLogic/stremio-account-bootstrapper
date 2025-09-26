@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue';
 import { useI18n } from 'vue-i18n';
-import { loginUser, createUser } from '../composables/useStremioApi';
+import { loginUser, createUser } from '../api/stremioApi';
 import { QuestionMarkCircleIcon } from '@heroicons/vue/24/outline';
 import HowGetAuthKey from './HowGetAuthKey.vue';
 import { addNotification } from '../composables/useNotifications';
