@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import * as Sqrl from 'squirrelly';
 import { getRequest } from '../utils/http';
 import { getAddonConfig as getAioListsConfig } from '../api/aiolistsApi';
 import { getAddonConfig as getMediaFusionConfig } from '../api/mediafusionApi';
@@ -6,7 +7,7 @@ import { getAddonConfig as getStremthruConfig } from '../api/stremthruApi';
 import { updateTransportUrl } from '../utils/transportUrl';
 import { debridServicesInfo, type DebridService } from '../utils/debrid';
 import { convertToBytes, convertToMegabytes } from '../utils/sizeConverters';
-import { setAddonCollection } from '../api/stremioApi.ts';
+import { setAddonCollection } from '../api/stremioApi';
 
 interface BuildPresetServiceParams {
   preset: string;
@@ -33,7 +34,7 @@ export async function buildPresetService(params: BuildPresetServiceParams) {
     isDebridApiKeyValid
   } = params;
 
-  const data = await getRequest('/preset.json');
+  const data: any = await getRequest('/preset.json');
   if (!data) throw new Error('Failed to fetch presets');
 
   let presetConfig: any = {};
@@ -152,7 +153,7 @@ export async function buildPresetService(params: BuildPresetServiceParams) {
         updateData: (data: any) => ({
           ...data,
           sort: 'qualitysize',
-          [debridService]: debridApiKey
+          [debridService as string]: debridApiKey
         })
       });
     }
@@ -190,7 +191,7 @@ export async function buildPresetService(params: BuildPresetServiceParams) {
           ...data,
           stores: [
             {
-              c: stremthrutorzDebridService[debridService],
+              c: stremthrutorzDebridService[debridService as string],
               t: debridApiKey
             }
           ],
@@ -217,12 +218,12 @@ export async function buildPresetService(params: BuildPresetServiceParams) {
             ...data,
             DebridServices: [
               {
-                provider: sootioDebridService[debridService],
+                provider: sootioDebridService[debridService as string],
                 apiKey: debridApiKey
               }
             ],
             maxSize: size ? size : 200,
-            DebridProvider: sootioDebridService[debridService],
+            DebridProvider: sootioDebridService[debridService as string],
             DebridApiKey: debridApiKey
           }),
           base64: false
@@ -271,7 +272,7 @@ export async function buildPresetService(params: BuildPresetServiceParams) {
           ...data,
           debridConfig: [
             {
-              debridProvider: streamAsiaDebridService[debridService],
+              debridProvider: streamAsiaDebridService[debridService as string],
               token: debridApiKey
             }
           ]
