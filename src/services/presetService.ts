@@ -1,5 +1,4 @@
 import _ from 'lodash';
-import * as Sqrl from 'squirrelly';
 import { getRequest } from '../utils/http';
 import { getAddonConfig as getAioListsConfig } from '../api/aiolistsApi';
 import { getAddonConfig as getMediaFusionConfig } from '../api/mediafusionApi';
@@ -8,6 +7,11 @@ import { updateTransportUrl } from '../utils/transportUrl';
 import { debridServicesInfo, type DebridService } from '../utils/debrid';
 import { convertToBytes, convertToMegabytes } from '../utils/sizeConverters';
 import { setAddonCollection } from '../api/stremioApi';
+
+// Global squirrelly
+declare const Sqrl: {
+  render(template?: string | undefined, data?: unknown): string;
+};
 
 interface BuildPresetServiceParams {
   preset: string;
