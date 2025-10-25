@@ -48,7 +48,7 @@ export async function buildPresetService(params: BuildPresetServiceParams) {
     preset === 'kids' ? data.aiolistsKidsConfig : data.aiolistsConfig;
 
   // Language specific addons
-  if (language === 'es-mx') {
+  if (language === 'es-MX') {
     data.presets[preset].push('subdivx');
   }
 
