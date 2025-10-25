@@ -19,13 +19,13 @@
       "jackettio",
       "torrentsdb",
       "stremthrutorz",
+      "sootio",
       "peerflix",
       "torbox",
       "tpbplus",
       "nuvio",
       "webstreamr",
       "subhero",
-      "subsource",
       "localfiles"
     ],
     "kids": [
@@ -312,6 +312,27 @@
           }
         }
       },
+      "sootio": {
+        "transportUrl": "https://sootio.elfhosted.com/%7B%22DebridServices%22%3A%5B%7B%22provider%22%3A%22%22%2C%22apiKey%22%3A%22%22%7D%5D%2C%22Languages%22%3A%5B%22english%22%5D%2C%22minSize%22%3A0%2C%22maxSize%22%3A200%2C%22ShowCatalog%22%3Afalse%2C%22DebridProvider%22%3A%22%22%2C%22DebridApiKey%22%3A%22%22%7D/manifest.json",
+        "manifest": {
+          "id": "com.sootio.debrid-search",
+          "version": "1.4.1",
+          "name": "Sootio",
+          "description": "Your ultimate debrid companion. Sootio intelligently searches your debrid services for cached torrents, using a smart, tiered scoring system to prioritize the highest quality streams first.",
+          "background": "https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          "logo": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%2364ffda;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%2300A7B5;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath fill='url(%23grad)' d='M50,5 C74.85,5 95,25.15 95,50 C95,74.85 74.85,95 50,95 C35,95 22.33,87.6 15,76 C25,85 40,85 50,80 C60,75 65,65 65,50 C65,35 55,25 40,25 C25,25 15,40 15,50 C15,55 16,60 18,64 C8.5,58 5,45 5,50 C5,25.15 25.15,5 50,5 Z'/%3E%3C/svg%3E",
+          "catalogs": [
+            { "id": "SKIP_CATALOG", "type": "movie", "name": "No Catalogs" }
+          ],
+          "resources": ["catalog", "stream"],
+          "types": ["movie", "series", "anime", "other"],
+          "idPrefixes": ["tt"],
+          "behaviorHints": {
+            "configurable": true,
+            "configurationRequired": false
+          }
+        }
+      },
       "peerflix": {
         "transportUrl": "https://peerflix-addon.onrender.com/language=en%7Cqualityfilter=threed,unknown,screener,vhs,sd{{it.no4k}}{{it.transportUrl}}%7Csort=quality-desc,language-desc{{it.sort}}/manifest.json",
         "manifest": {
@@ -494,29 +515,6 @@
           "idPrefixes": ["tt"],
           "background": "https://w.wallhaven.cc/full/0p/wallhaven-0pjkp9.png",
           "logo": "https://cdn.icon-icons.com/icons2/3606/PNG/512/sculpture_statue_texture_futuristic_art_geometry_organic_abstract_shape_explode_shae_icon_226539.png"
-        }
-      },
-      "subsource": {
-        "transportUrl": "https://subsource.strem.top/ZW5nbGlzaC9oaUV4Y2x1ZGUv/manifest.json",
-        "manifest": {
-          "id": "community.subsource.subtitles",
-          "version": "1.1.4",
-          "name": "SubSource Subtitles - [Exclude HI]",
-          "description": "Unofficial addon for getting subtitles from SubSource.net",
-          "logo": "https://raw.githubusercontent.com/nexusdiscord/tv-logo/master/ss.png",
-          "background": "https://raw.githubusercontent.com/nexusdiscord/tv-logo/master/backgroundcinema.jpg",
-          "resources": ["subtitles"],
-          "types": ["movie", "series", "subtitles"],
-          "idPrefixes": ["tt"],
-          "catalogs": [],
-          "behaviorHints": {
-            "configurable": true,
-            "configurableRequired": false
-          },
-          "stremioAddonsConfig": {
-            "issuer": "https://stremio-addons.net",
-            "signature": "eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..Yw7m0oOLj9gCM47lmL6qWA.zHG2dJVTR6Xxk1DsjYO_Q00EdW0kTedpCb8F7cq32g4cOto2QQq3l09Mtok3O2YLT2R3CCXg-SrnWTljgxZxJagzbSOLHQRAraAwSyCcuWMWuFY3P3KDnslQtjyFuzR2.k1bpKxf6IJ87C01Jc3X_VQ"
-          }
         }
       },
       "opensubtitlesv3": {
@@ -1443,6 +1441,9 @@
       "torrentsdb": {
         "transportUrl": "https://torrentsdb.com/eyJwcm92aWRlcnMiOlsieXRzIiwiZXp0diIsIjEzMzd4IiwidG9ycmVudGNzdiIsIm55YWEiLCJsaW1ldG9ycmVudCIsInJhcmdiIiwia25hYmVuIiwidGhlcGlyYXRlYmF5Iiwia2lja2Fzc3RvcnJlbnRzIiwiYW5pbWV0b3NobyIsInRva3lvdG9zaG8iLCJtYW51YWwiXSwibGFuZ3VhZ2UiOlsibGF0aW5vIl0sInF1YWxpdHlmaWx0ZXIiOlsic2NyIiwiY2FtIiwidW5rbm93biJdLCJsaW1pdCI6IjEwIn0=/manifest.json"
       },
+      "sootio": {
+        "transportUrl": "https://sootio.elfhosted.com/%7B%22DebridServices%22%3A%5B%7B%22provider%22%3A%22%22%2C%22apiKey%22%3A%22%22%7D%5D%2C%22Languages%22%3A%5B%22english%22%2C%22latino%22%5D%2C%22minSize%22%3A0%2C%22maxSize%22%3A200%2C%22ShowCatalog%22%3Afalse%2C%22DebridProvider%22%3A%22%22%2C%22DebridApiKey%22%3A%22%22%7D/manifest.json"
+      },
       "webstreamr": {
         "transportUrl": "https://webstreamr.hayd.uk/%7B%22en%22%3A%22on%22%2C%22mx%22%3A%22on%22%2C%22excludeExternalUrls%22%3A%22on%22%7D/manifest.json"
       },
@@ -1461,9 +1462,6 @@
       },
       "subhero": {
         "transportUrl": "https://subhero.onrender.com/%7B%22language%22%3A%22es%22%7D/manifest.json"
-      },
-      "subsource": {
-        "transportUrl": "https://subsource.strem.top/c3BhbmlzaF9sYXRpbl9hbWVyaWNhL2hpRXhjbHVkZS8=/manifest.json"
       }
     },
     "es-ES": {
@@ -1479,6 +1477,9 @@
       "torrentsdb": {
         "transportUrl": "https://torrentsdb.com/eyJwcm92aWRlcnMiOlsieXRzIiwiZXp0diIsIjEzMzd4IiwidG9ycmVudGNzdiIsIm55YWEiLCJsaW1ldG9ycmVudCIsInJhcmdiIiwia25hYmVuIiwidGhlcGlyYXRlYmF5Iiwia2lja2Fzc3RvcnJlbnRzIiwiYW5pbWV0b3NobyIsInRva3lvdG9zaG8iLCJtYW51YWwiXSwibGFuZ3VhZ2UiOlsic3BhbmlzaCJdLCJxdWFsaXR5ZmlsdGVyIjpbInNjciIsImNhbSIsInVua25vd24iXSwibGltaXQiOiIxMCJ9/manifest.json"
       },
+      "sootio": {
+        "transportUrl": "https://sootio.elfhosted.com/%7B%22DebridServices%22%3A%5B%7B%22provider%22%3A%22%22%2C%22apiKey%22%3A%22%22%7D%5D%2C%22Languages%22%3A%5B%22english%22%2C%22spanish%22%5D%2C%22minSize%22%3A0%2C%22maxSize%22%3A200%2C%22ShowCatalog%22%3Afalse%2C%22DebridProvider%22%3A%22%22%2C%22DebridApiKey%22%3A%22%22%7D/manifest.json"
+      },
       "peerflix": {
         "transportUrl": "https://peerflix-addon.onrender.com/language=es,en%7Cqualityfilter=threed,unknown,screener,vhs,sd{{it.no4k}}{{it.transportUrl}}%7Csort=quality-desc,language-desc{{it.sort}}/manifest.json"
       },
@@ -1486,10 +1487,7 @@
         "transportUrl": "https://webstreamr.hayd.uk/%7B%22en%22%3A%22on%22%2C%22es%22%3A%22on%22%2C%22excludeExternalUrls%22%3A%22on%22%7D/manifest.json"
       },
       "subhero": {
-        "transportUrl": "https://subsource.strem.top/c3BhbmlzaF9zcGFpbi9oaUV4Y2x1ZGUv/manifest.json"
-      },
-      "subsource": {
-        "transportUrl": "https://subsource.strem.top/ZW5nbGlzaC9oaUV4Y2x1ZGUv/manifest.json"
+        "transportUrl": "https://subhero.onrender.com/%7B%22language%22%3A%22es%22%7D/manifest.json"
       }
     },
     "pt-BR": {
@@ -1505,11 +1503,11 @@
       "torrentsdb": {
         "transportUrl": "https://torrentsdb.com/eyJwcm92aWRlcnMiOlsieXRzIiwiZXp0diIsIjEzMzd4IiwidG9ycmVudGNzdiIsIm55YWEiLCJsaW1ldG9ycmVudCIsInJhcmdiIiwia25hYmVuIiwidGhlcGlyYXRlYmF5Iiwia2lja2Fzc3RvcnJlbnRzIiwiYW5pbWV0b3NobyIsInRva3lvdG9zaG8iLCJtYW51YWwiXSwibGFuZ3VhZ2UiOlsicG9ydHVndWVzZSJdLCJxdWFsaXR5ZmlsdGVyIjpbInNjciIsImNhbSIsInVua25vd24iXSwibGltaXQiOiIxMCJ9/manifest.json"
       },
+      "sootio": {
+        "transportUrl": "https://sootio.elfhosted.com/%7B%22DebridServices%22%3A%5B%7B%22provider%22%3A%22%22%2C%22apiKey%22%3A%22%22%7D%5D%2C%22Languages%22%3A%5B%22english%22%2C%22portuguese%22%5D%2C%22minSize%22%3A0%2C%22maxSize%22%3A200%2C%22ShowCatalog%22%3Afalse%2C%22DebridProvider%22%3A%22%22%2C%22DebridApiKey%22%3A%22%22%7D/manifest.json"
+      },
       "subhero": {
         "transportUrl": "https://subhero.onrender.com/%7B%22language%22%3A%22pb%22%7D/manifest.json"
-      },
-      "subsource": {
-        "transportUrl": "https://subsource.strem.top/YnJhemlsaWFuX3BvcnR1Z3Vlc2UvaGlFeGNsdWRlLw==/manifest.json"
       }
     },
     "fr": {
@@ -1525,14 +1523,14 @@
       "torrentsdb": {
         "transportUrl": "https://torrentsdb.com/eyJwcm92aWRlcnMiOlsieXRzIiwiZXp0diIsIjEzMzd4IiwidG9ycmVudGNzdiIsIm55YWEiLCJsaW1ldG9ycmVudCIsInJhcmdiIiwia25hYmVuIiwidGhlcGlyYXRlYmF5Iiwia2lja2Fzc3RvcnJlbnRzIiwiYW5pbWV0b3NobyIsInRva3lvdG9zaG8iLCJtYW51YWwiLCJ0b3JyZW50OSIsInlnZ3RvcnJlbnQiXSwibGFuZ3VhZ2UiOlsiZnJlbmNoIl0sInF1YWxpdHlmaWx0ZXIiOlsic2NyIiwiY2FtIiwidW5rbm93biJdLCJsaW1pdCI6IjEwIn0=/manifest.json"
       },
+      "sootio": {
+        "transportUrl": "https://sootio.elfhosted.com/%7B%22DebridServices%22%3A%5B%7B%22provider%22%3A%22%22%2C%22apiKey%22%3A%22%22%7D%5D%2C%22Languages%22%3A%5B%22english%22%2C%22french%22%5D%2C%22minSize%22%3A0%2C%22maxSize%22%3A200%2C%22ShowCatalog%22%3Afalse%2C%22DebridProvider%22%3A%22%22%2C%22DebridApiKey%22%3A%22%22%7D/manifest.json"
+      },
       "webstreamr": {
         "transportUrl": "https://webstreamr.hayd.uk/%7B%22en%22%3A%22on%22%2C%22fr%22%3A%22on%22%2C%22excludeExternalUrls%22%3A%22on%22%7D/manifest.json"
       },
       "subhero": {
         "transportUrl": "https://subhero.onrender.com/%7B%22language%22%3A%22fr%22%7D/manifest.json"
-      },
-      "subsource": {
-        "transportUrl": "https://subsource.strem.top/ZnJlbmNoX2ZyYW5jZS9oaUV4Y2x1ZGUv/manifest.json"
       }
     },
     "it": {
@@ -1548,14 +1546,14 @@
       "torrentsdb": {
         "transportUrl": "https://torrentsdb.com/eyJwcm92aWRlcnMiOlsieXRzIiwiZXp0diIsIjEzMzd4IiwidG9ycmVudGNzdiIsIm55YWEiLCJsaW1ldG9ycmVudCIsInJhcmdiIiwia25hYmVuIiwidGhlcGlyYXRlYmF5Iiwia2lja2Fzc3RvcnJlbnRzIiwiYW5pbWV0b3NobyIsInRva3lvdG9zaG8iLCJtYW51YWwiLCJpbGNvcnNhcm9uZXJvIl0sImxhbmd1YWdlIjpbIml0YWxpYW4iXSwicXVhbGl0eWZpbHRlciI6WyJzY3IiLCJjYW0iLCJ1bmtub3duIl0sImxpbWl0IjoiMTAiLCJkZWJyaWRvcHRpb25zIjpbIm5vY2F0YWxvZyJdfQ==/manifest.json"
       },
+      "sootio": {
+        "transportUrl": "https://sootio.elfhosted.com/%7B%22DebridServices%22%3A%5B%7B%22provider%22%3A%22%22%2C%22apiKey%22%3A%22%22%7D%5D%2C%22Languages%22%3A%5B%22english%22%2C%22italian%22%5D%2C%22minSize%22%3A0%2C%22maxSize%22%3A200%2C%22ShowCatalog%22%3Afalse%2C%22DebridProvider%22%3A%22%22%2C%22DebridApiKey%22%3A%22%22%7D/manifest.json"
+      },
       "webstreamr": {
         "transportUrl": "https://webstreamr.hayd.uk/%7B%22en%22%3A%22on%22%2C%22it%22%3A%22on%22%2C%22excludeExternalUrls%22%3A%22on%22%7D/manifest.json"
       },
       "subhero": {
         "transportUrl": "https://subhero.onrender.com/%7B%22language%22%3A%22it%22%7D/manifest.json"
-      },
-      "subsource": {
-        "transportUrl": "https://subsource.strem.top/aXRhbGlhbi9oaUV4Y2x1ZGUv/manifest.json"
       }
     },
     "de": {
@@ -1571,14 +1569,14 @@
       "torrentsdb": {
         "transportUrl": "https://torrentsdb.com/eyJwcm92aWRlcnMiOlsieXRzIiwiZXp0diIsIjEzMzd4IiwidG9ycmVudGNzdiIsIm55YWEiLCJsaW1ldG9ycmVudCIsInJhcmdiIiwia25hYmVuIiwidGhlcGlyYXRlYmF5Iiwia2lja2Fzc3RvcnJlbnRzIiwiYW5pbWV0b3NobyIsInRva3lvdG9zaG8iLCJtYW51YWwiXSwibGFuZ3VhZ2UiOlsiZ2VybWFuIl0sInF1YWxpdHlmaWx0ZXIiOlsic2NyIiwiY2FtIiwidW5rbm93biJdLCJsaW1pdCI6IjEwIiwiZGVicmlkb3B0aW9ucyI6WyJub2NhdGFsb2ciXX0=/manifest.json"
       },
+      "sootio": {
+        "transportUrl": "https://sootio.elfhosted.com/%7B%22DebridServices%22%3A%5B%7B%22provider%22%3A%22%22%2C%22apiKey%22%3A%22%22%7D%5D%2C%22Languages%22%3A%5B%22english%22%2C%22german%22%5D%2C%22minSize%22%3A0%2C%22maxSize%22%3A200%2C%22ShowCatalog%22%3Afalse%2C%22DebridProvider%22%3A%22%22%2C%22DebridApiKey%22%3A%22%22%7D/manifest.json"
+      },
       "webstreamr": {
         "transportUrl": "https://webstreamr.hayd.uk/%7B%22de%22%3A%22on%22%2C%22en%22%3A%22on%22%2C%22excludeExternalUrls%22%3A%22on%22%7D/manifest.json"
       },
       "subhero": {
         "transportUrl": "https://subhero.onrender.com/%7B%22language%22%3A%22de%22%7D/manifest.json"
-      },
-      "subsource": {
-        "transportUrl": "https://subsource.strem.top/Z2VybWFuL2hpRXhjbHVkZS8=/manifest.json"
       }
     },
     "nl": {
@@ -1594,11 +1592,11 @@
       "torrentsdb": {
         "transportUrl": "https://torrentsdb.com/eyJwcm92aWRlcnMiOlsieXRzIiwiZXp0diIsIjEzMzd4IiwidG9ycmVudGNzdiIsIm55YWEiLCJsaW1ldG9ycmVudCIsInJhcmdiIiwia25hYmVuIiwidGhlcGlyYXRlYmF5Iiwia2lja2Fzc3RvcnJlbnRzIiwiYW5pbWV0b3NobyIsInRva3lvdG9zaG8iLCJtYW51YWwiXSwibGFuZ3VhZ2UiOlsiZHV0Y2giXSwicXVhbGl0eWZpbHRlciI6WyJzY3IiLCJjYW0iLCJ1bmtub3duIl0sImxpbWl0IjoiMTAiLCJkZWJyaWRvcHRpb25zIjpbIm5vY2F0YWxvZyJdfQ==/manifest.json"
       },
+      "sootio": {
+        "transportUrl": "https://sootio.elfhosted.com/%7B%22DebridServices%22%3A%5B%7B%22provider%22%3A%22%22%2C%22apiKey%22%3A%22%22%7D%5D%2C%22Languages%22%3A%5B%22english%22%2C%22dutch%22%5D%2C%22minSize%22%3A0%2C%22maxSize%22%3A200%2C%22ShowCatalog%22%3Afalse%2C%22DebridProvider%22%3A%22%22%2C%22DebridApiKey%22%3A%22%22%7D/manifest.json"
+      },
       "subhero": {
         "transportUrl": "https://subhero.onrender.com/%7B%22language%22%3A%22nl%22%7D/manifest.json"
-      },
-      "subsource": {
-        "transportUrl": "https://subsource.strem.top/ZHV0Y2gvaGlFeGNsdWRlLw==/manifest.json"
       }
     }
   },

@@ -2,7 +2,7 @@ import _ from 'lodash';
 import { getRequest } from '../utils/http';
 import { getAddonConfig as getAioListsConfig } from '../api/aiolistsApi';
 import { getAddonConfig as getMediaFusionConfig } from '../api/mediafusionApi';
-import { getAddonConfig as getStremthruConfig } from '../api/stremthru';
+import { getAddonConfig as getStremthruConfig } from '../api/stremthruApi';
 import { updateTransportUrl } from '../utils/transportUrl';
 import { debridServicesInfo, type DebridService } from '../utils/debrid';
 import { convertToBytes, convertToMegabytes } from '../utils/sizeConverters';
@@ -199,6 +199,39 @@ export async function buildPresetService(params: BuildPresetServiceParams) {
       });
     }
 
+    // Sootio
+    if (presetConfig.sootio) {
+      if (debridService !== 'debridlink' && debridService !== 'easydebrid') {
+        const sootioDebridService: Record<string, string> = {
+          realdebrid: 'RealDebrid',
+          alldebrid: 'AllDebrid',
+          premiumize: 'Premiumize',
+          torbox: 'TorBox'
+        };
+
+        updateTransportUrl({
+          presetConfig,
+          serviceKey: 'sootio',
+          manifestNameSuffix: debridServiceName,
+          updateData: (data: any) => ({
+            ...data,
+            DebridServices: [
+              {
+                provider: sootioDebridService[debridService],
+                apiKey: debridApiKey
+              }
+            ],
+            maxSize: size ? size : 200,
+            DebridProvider: sootioDebridService[debridService],
+            DebridApiKey: debridApiKey
+          }),
+          base64: false
+        });
+      } else {
+        presetConfig = _.omit(presetConfig, 'sootio');
+      }
+    }
+
     // Peerflix
     if (presetConfig.peerflix) {
       if (debridService !== 'easydebrid') {
@@ -276,6 +309,7 @@ export async function buildPresetService(params: BuildPresetServiceParams) {
     presetConfig = _.omit(presetConfig, 'tpbplus');
   } else {
     presetConfig = _.omit(presetConfig, 'jackettio');
+    presetConfig = _.omit(presetConfig, 'sootio');
     presetConfig = _.omit(presetConfig, 'torbox');
   }
 

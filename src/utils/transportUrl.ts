@@ -45,23 +45,26 @@ interface UpdateTransportUrlParams {
   serviceKey: string;
   manifestNameSuffix?: string;
   updateData: (data: any) => any;
+  base64?: boolean;
 }
 
 export const updateTransportUrl = ({
   presetConfig,
   serviceKey,
   manifestNameSuffix,
-  updateData
+  updateData,
+  base64 = true
 }: UpdateTransportUrlParams) => {
   const service = presetConfig[serviceKey];
   if (service && service.transportUrl) {
-    const transportUrl = getDataTransportUrl(service.transportUrl);
+    const transportUrl = getDataTransportUrl(service.transportUrl, base64);
     if (manifestNameSuffix && service.manifest && service.manifest.name) {
       service.manifest.name += ` | ${manifestNameSuffix}`;
     }
     service.transportUrl = getUrlTransportUrl(
       transportUrl,
-      updateData(transportUrl.data)
+      updateData(transportUrl.data),
+      base64
     );
   }
 };

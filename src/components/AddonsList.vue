@@ -67,6 +67,16 @@
     >
       <div class="avatar">
         <div class="w-12 rounded">
+          <img src="/public/logos/sootio.png" alt="Sootio" />
+        </div>
+      </div>
+      <p class="text-sm mt-2 text-center">Sootio</p>
+    </div>
+    <div
+      class="flex flex-col items-center p-4 hover:bg-base-200 rounded-lg transition-colors"
+    >
+      <div class="avatar">
+        <div class="w-12 rounded">
           <img src="/public/logos/peerflix.png" alt="Peerflix" />
         </div>
       </div>
@@ -141,16 +151,6 @@
         </div>
       </div>
       <p class="text-sm mt-2 text-center">SubHero</p>
-    </div>
-    <div
-      class="flex flex-col items-center p-4 hover:bg-base-200 rounded-lg transition-colors"
-    >
-      <div class="avatar">
-        <div class="w-12 rounded">
-          <img src="/public/logos/subsource.png" alt="SubSource" />
-        </div>
-      </div>
-      <p class="text-sm mt-2 text-center">SubSource</p>
     </div>
     <div
       class="flex flex-col items-center p-4 hover:bg-base-200 rounded-lg transition-colors"
