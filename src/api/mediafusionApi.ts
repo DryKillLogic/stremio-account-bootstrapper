@@ -1,6 +1,6 @@
 import { postRequest } from '../utils/http';
 
-const API_BASE_URL = 'https://mediafusion.elfhosted.com';
+const API_BASE_URL = 'https://mediafusionfortheweebs.midnightignite.me';
 const PROXY_BASE_URL =
   'https://cloudflare-cors-anywhere.drykilllogic.workers.dev/?';
 
