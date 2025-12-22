@@ -6,6 +6,8 @@ import { getAddonConfig as getStremthruConfig } from '../api/stremthruApi';
 import { updateTransportUrl } from '../utils/transportUrl';
 import { debridServicesInfo, type DebridService } from '../utils/debrid';
 import { convertToBytes, convertToMegabytes } from '../utils/sizeConverters';
+import { isValidManifestUrl } from '../utils/url.ts';
+
 import { setAddonCollection } from '../api/stremioApi';
 
 // Global squirrelly
@@ -17,6 +19,7 @@ interface BuildPresetServiceParams {
   preset: string;
   language: string;
   extras: string[];
+  customAddons: string[];
   options: string[];
   maxSize: string | number;
   rpdbKey?: string;
@@ -29,6 +32,7 @@ export async function buildPresetService(params: BuildPresetServiceParams) {
   const {
     preset,
     language,
+    customAddons,
     extras,
     options,
     maxSize,
@@ -63,6 +67,24 @@ export async function buildPresetService(params: BuildPresetServiceParams) {
       : _.merge({}, data.languages.en, data.languages[language]),
     data.presets[preset]
   );
+
+  // Custom addons
+  if (customAddons.length > 0) {
+    for (const [idx, addon] of customAddons.entries()) {
+      try {
+        if (!isValidManifestUrl(addon)) continue;
+        const addonData: any = await getRequest(addon);
+        if (addonData) {
+          presetConfig[`customAddon${idx}`] = {
+            transportUrl: addon,
+            manifest: addonData
+          };
+        }
+      } catch (e) {
+        // ignore failed custom addon request
+      }
+    }
+  }
 
   // Extras
   if (extras.length > 0) {
@@ -422,7 +444,7 @@ export async function buildPresetService(params: BuildPresetServiceParams) {
       }
     }
   }
-
+  console.log('PRESET CONFIG', presetConfig);
   const selectedAddons = Object.keys(presetConfig).map((k) => presetConfig[k]);
 
   return {

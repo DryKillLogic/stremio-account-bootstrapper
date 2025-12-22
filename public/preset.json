@@ -28,6 +28,7 @@
       "subhero",
       "localfiles"
     ],
+    "no_streams": ["cinemeta", "aiolists", "subhero"],
     "kids": [
       "cinemeta",
       "aiolists",

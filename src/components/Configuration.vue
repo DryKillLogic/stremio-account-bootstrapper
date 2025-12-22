@@ -10,6 +10,7 @@ import { QuestionMarkCircleIcon } from '@heroicons/vue/24/outline';
 import { addNotification } from '../composables/useNotifications';
 import { useAnalytics } from '../composables/useAnalytics';
 import { isValidApiKey, debridServicesInfo } from '../utils/debrid.ts';
+import { isValidManifestUrl } from '../utils/url.ts';
 import {
   buildPresetService,
   loadPresetService
@@ -23,6 +24,7 @@ const props = defineProps({
 
 let dragging = false;
 let addons = ref([]);
+let customAddons = ref(['']);
 let extras = ref([]);
 let options = ref([]);
 let maxSize = ref('');
@@ -36,6 +38,11 @@ let debridService = ref('');
 let debridApiKey = ref(null);
 let debridApiUrl = ref('');
 let debridServiceName = '';
+
+const MAX_CUSTOM_ADDONS = 10;
+const canAddCustom = computed(
+  () => customAddons.value.length < MAX_CUSTOM_ADDONS
+);
 
 const isDebridApiKeyValid = computed(() =>
   isValidApiKey(debridService.value, debridApiKey.value)
@@ -71,6 +78,7 @@ async function loadUserAddons() {
       preset: preset.value,
       language: language.value,
       extras: extras.value,
+      customAddons: customAddons.value,
       options: options.value,
       maxSize: maxSize.value,
       rpdbKey: rpdbKey.value,
@@ -125,6 +133,17 @@ async function syncUserAddons() {
 
 function removeAddon(idx) {
   addons.value.splice(idx, 1);
+}
+
+// functions to manage dynamic custom inputs
+function addCustomAddon() {
+  if (!canAddCustom.value) return;
+  customAddons.value.push('');
+}
+
+function removeCustomAddon(idx) {
+  if (idx === 0) return;
+  customAddons.value.splice(idx, 1);
 }
 
 function getNestedObjectProperty(obj, path, defaultValue = null) {
@@ -202,6 +221,15 @@ function updateDebridApiUrl() {
               class="radio radio-primary"
             />
             <span class="label-text ml-2">{{ $t('full') }}</span>
+          </label>
+          <label class="label cursor-pointer">
+            <input
+              type="radio"
+              value="no_streams"
+              v-model="preset"
+              class="radio radio-primary"
+            />
+            <span class="label-text ml-2">{{ $t('no_streams') }}</span>
           </label>
           <label class="label cursor-pointer">
             <input
@@ -462,10 +490,58 @@ function updateDebridApiUrl() {
         </div>
       </fieldset>
 
-      <!-- Step 5: Additional Options -->
+      <!-- Step 5: Custom Addons -->
       <fieldset class="bg-base-100 p-6 rounded-lg border border-base-300">
         <legend class="text-sm">
-          {{ $t('step5_additional_options') }}
+          {{ $t('step5_custom_addons') }}
+        </legend>
+        <div class="space-y-3">
+          <div
+            v-for="(url, idx) in customAddons"
+            :key="idx"
+            class="flex items-center gap-2"
+          >
+            <input
+              v-model="customAddons[idx]"
+              type="text"
+              class="input input-bordered flex-1"
+              :class="{
+                'input-error': url && !isValidManifestUrl(url)
+              }"
+              :placeholder="$t('custom_addon_url')"
+            />
+            <button
+              type="button"
+              class="btn btn-sm btn-error text-white"
+              @click="removeCustomAddon(idx)"
+              :aria-label="$t('remove')"
+              :disabled="idx === 0"
+              :class="{ 'opacity-50 cursor-not-allowed': idx === 0 }"
+            >
+              −
+            </button>
+          </div>
+
+          <div class="flex justify-end items-center gap-2">
+            <button
+              type="button"
+              class="btn btn-primary"
+              @click="addCustomAddon"
+              :disabled="
+                !canAddCustom ||
+                !isValidManifestUrl(customAddons[customAddons.length - 1])
+              "
+            >
+              +
+            </button>
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- Step 6: Additional Options -->
+      <fieldset class="bg-base-100 p-6 rounded-lg border border-base-300">
+        <legend class="text-sm">
+          {{ $t('step6_additional_options') }}
         </legend>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
           <label class="label cursor-pointer">
@@ -503,10 +579,10 @@ function updateDebridApiUrl() {
         </div>
       </fieldset>
 
-      <!-- Step 6: RPDB Key -->
+      <!-- Step 7: RPDB Key -->
       <fieldset class="bg-base-100 p-6 rounded-lg border border-base-300">
         <legend class="text-sm">
-          {{ $t('step6_rpdb_key') }}
+          {{ $t('step7_rpdb_key') }}
           <a
             target="_blank"
             href="https://ratingposterdb.com"
@@ -522,10 +598,10 @@ function updateDebridApiUrl() {
         />
       </fieldset>
 
-      <!-- Step 7: Load Preset -->
+      <!-- Step 8: Load Preset -->
       <fieldset class="bg-base-100 p-6 rounded-lg border border-base-300">
         <legend class="text-sm">
-          {{ $t('step7_load_preset') }}
+          {{ $t('step8_load_preset') }}
         </legend>
         <button
           class="btn btn-primary"
@@ -546,10 +622,10 @@ function updateDebridApiUrl() {
         </button>
       </fieldset>
 
-      <!-- Step 8: Customize Addons -->
+      <!-- Step 9: Customize Addons -->
       <fieldset class="bg-base-100 p-6 rounded-lg border border-base-300">
         <legend class="text-sm">
-          {{ $t('step8_customize_addons') }}
+          {{ $t('step9_customize_addons') }}
         </legend>
         <draggable
           :list="addons"
@@ -582,10 +658,10 @@ function updateDebridApiUrl() {
         </draggable>
       </fieldset>
 
-      <!-- Step 9: Bootstrap Account -->
+      <!-- Step 10: Bootstrap Account -->
       <fieldset class="bg-base-100 p-6 rounded-lg border border-base-300">
         <legend class="text-sm">
-          {{ $t('step9_bootstrap_account') }}
+          {{ $t('step10_bootstrap_account') }}
         </legend>
         <button
           type="button"

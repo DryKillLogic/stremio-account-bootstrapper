@@ -22,11 +22,12 @@ const { t } = useI18n();
           <li>{{ t('instructions_4') }}</li>
           <li v-html="t('instructions_5')"></li>
           <li>{{ t('instructions_6') }}</li>
-          <li v-html="t('instructions_7')"></li>
-          <li>{{ t('instructions_8') }}</li>
+          <li>{{ t('instructions_7') }}</li>
+          <li v-html="t('instructions_8')"></li>
           <li>{{ t('instructions_9') }}</li>
           <li>{{ t('instructions_10') }}</li>
           <li>{{ t('instructions_11') }}</li>
+          <li>{{ t('instructions_12') }}</li>
         </ol>
       </div>
       <div class="modal-action">
