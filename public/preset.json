@@ -53,7 +53,7 @@
         "transportName": "http",
         "manifest": {
           "id": "com.linvo.cinemeta",
-          "version": "3.0.13",
+          "version": "3.0.14",
           "description": "The official addon for movie and series catalogs",
           "name": "Cinemeta",
           "resources": ["catalog", "meta", "addon_catalog"],
