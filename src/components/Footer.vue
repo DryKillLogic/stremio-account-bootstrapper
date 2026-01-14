@@ -37,7 +37,7 @@ const { t } = useI18n();
         </svg>
       </a>
       <a
-        href="https://stremaddon.net/"
+        href="https://stremx.net/"
         target="_blank"
         class="btn btn-ghost btn-sm"
         title="StremAddon"
