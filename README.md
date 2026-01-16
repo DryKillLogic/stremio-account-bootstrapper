@@ -14,7 +14,7 @@ Stremio Account Bootstrapper lets you set up your Stremio account with just a fe
 - Backup your current configuration or restore it.
 - Better multilanguage support in Stremio.
 - TMDB is the default metadata resolver. Cinemeta catalogs were removed without breaking any core functionality.
-- RealDebrid, AllDebrid, Premiumize, Debrid-Link, EasyDebrid, and TorBox support.
+- RealDebrid, AllDebrid, Premiumize, Debrid-Link, and TorBox support.
 - RPDB support.
 - Ability to reset the account to a default state (factory preset).
 - Optimized addons configuration.

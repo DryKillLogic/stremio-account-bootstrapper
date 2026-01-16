@@ -387,16 +387,6 @@ function updateDebridApiUrl() {
           <label class="label cursor-pointer">
             <input
               type="radio"
-              value="easydebrid"
-              v-model="debridService"
-              @change="updateDebridApiUrl"
-              class="radio radio-primary"
-            />
-            <span class="label-text ml-2">EasyDebrid</span>
-          </label>
-          <label class="label cursor-pointer">
-            <input
-              type="radio"
               value="torbox"
               v-model="debridService"
               @change="updateDebridApiUrl"

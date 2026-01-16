@@ -228,7 +228,7 @@ export async function buildPresetService(params: BuildPresetServiceParams) {
 
     // Sootio
     if (presetConfig.sootio) {
-      if (debridService !== 'debridlink' && debridService !== 'easydebrid') {
+      if (debridService !== 'debridlink') {
         const sootioDebridService: Record<string, string> = {
           realdebrid: 'RealDebrid',
           alldebrid: 'AllDebrid',
@@ -261,11 +261,7 @@ export async function buildPresetService(params: BuildPresetServiceParams) {
 
     // Peerflix
     if (presetConfig.peerflix) {
-      if (debridService !== 'easydebrid') {
-        peerflixConfig = `%7Cdebridoptions=nocatalog${cached ? ',nodownloadlinks' : ''}%7C${debridService}=${debridApiKey}`;
-      } else {
-        presetConfig = _.omit(presetConfig, 'peerflix');
-      }
+      peerflixConfig = `%7Cdebridoptions=nocatalog${cached ? ',nodownloadlinks' : ''}%7C${debridService}=${debridApiKey}`;
     }
 
     // Torbox
@@ -281,7 +277,7 @@ export async function buildPresetService(params: BuildPresetServiceParams) {
     }
 
     // StreamAsia
-    if (presetConfig.streamasia && debridService !== 'easydebrid') {
+    if (presetConfig.streamasia) {
       const streamAsiaDebridService: Record<string, string> = {
         realdebrid: 'Real Debrid',
         alldebrid: 'AllDebrid',
@@ -430,7 +426,7 @@ export async function buildPresetService(params: BuildPresetServiceParams) {
 
   // Peerflix
   if (presetConfig.peerflix) {
-    if (debridService !== '' && debridService !== 'easydebrid') {
+    if (debridService !== '') {
       presetConfig.peerflix.transportUrl = Sqrl.render(
         presetConfig.peerflix.transportUrl,
         {
