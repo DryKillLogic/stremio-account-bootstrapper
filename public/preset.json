@@ -1,6 +1,12 @@
 {
   "presets": {
-    "minimal": ["cinemeta", "aiolists", "torrentio", "comet", "subhero"],
+    "minimal": [
+      "cinemeta",
+      "aiolists",
+      "torrentio",
+      "comet",
+      "opensubtitlespro"
+    ],
     "standard": [
       "cinemeta",
       "aiolists",
@@ -8,7 +14,7 @@
       "comet",
       "mediafusion",
       "webstreamr",
-      "subhero"
+      "opensubtitlespro"
     ],
     "full": [
       "cinemeta",
@@ -25,17 +31,17 @@
       "tpbplus",
       "nuvio",
       "webstreamr",
-      "subhero",
+      "opensubtitlespro",
       "localfiles"
     ],
-    "no_streams": ["cinemeta", "aiolists", "subhero"],
+    "no_streams": ["cinemeta", "aiolists", "opensubtitlespro"],
     "kids": [
       "cinemeta",
       "aiolists",
       "torrentio",
       "comet",
       "webstreamr",
-      "subhero"
+      "opensubtitlespro"
     ],
     "factory": [
       "cinemeta-unmodified",
@@ -297,7 +303,7 @@
           "id": "com.stremthru.torz",
           "name": "StremThru Torz",
           "description": "Stremio Addon to access crowdsourced Torz",
-          "version": "0.94.3",
+          "version": "0.96.3",
           "resources": [
             {
               "name": "stream",
@@ -335,10 +341,10 @@
         }
       },
       "peerflix": {
-        "transportUrl": "https://peerflix-addon.onrender.com/language=en%7Cqualityfilter=threed,unknown,screener,vhs,sd{{it.no4k}}{{it.transportUrl}}%7Csort=quality-desc,language-desc{{it.sort}}/manifest.json",
+        "transportUrl": "https://peerflix.mov/language=en%7Cqualityfilter=threed,unknown,screener,vhs,sd{{it.no4k}}{{it.transportUrl}}%7Csort=quality-desc,language-desc{{it.sort}}/manifest.json",
         "manifest": {
           "id": "com.keopps.peerflix",
-          "version": "2.7.1",
+          "version": "2.7.4",
           "name": "Peerflix",
           "description": "Peerflix proporciona los mejores enlaces en español e inglés de películas y series de TV en Stremio.Para configurar proveedores de chache, RealDebrid/Premiumize/AllDebrid/DebridLink/Offcloud/Put.io/Torbox visita https://peerflix-addon.onrender.com",
           "catalogs": [],
@@ -362,7 +368,7 @@
         "transportUrl": "https://stremio.torbox.app/{{it.transportUrl}}/manifest.json",
         "manifest": {
           "id": "app.torbox.stremio",
-          "version": "1.1.1",
+          "version": "1.1.2",
           "name": "TorBox",
           "contactEmail": "contact@torbox.app",
           "description": "Provides torrent streams for users of TorBox. With zero config, and a free account you can instantly start watching your favorite torrents using TorBox. To add with streaming support, go to your TorBox settings and click the Access Stremio Addon button! Configuration can be done from the TorBox settings, which are propagated instantly, no need to reinstall the addon! Requires a TorBox account to stream. Get started for free at https://torbox.app",
@@ -408,10 +414,10 @@
         "flags": {}
       },
       "nuvio": {
-        "transportUrl": "https://nuviostreams.hayd.uk/min_qualities=%7B%22showbox%22%3A%22480p%22%2C%22vidsrc%22%3A%22480p%22%2C%22mp4hydra%22%3A%22480p%22%2C%22uhdmovies%22%3A%22720p%22%2C%22moviesmod%22%3A%22720p%22%2C%22moviesdrive%22%3A%22720p%22%2C%224khdhub%22%3A%22720p%22%2C%22dramadrip%22%3A%22720p%22%2C%22topmovies%22%3A%22720p%22%2C%22animepahe%22%3A%22720p%22%7D/manifest.json",
+        "transportUrl": "https://nuviostreams.hayd.uk/providers=showbox,vidzee,vidsrc,vixsrc,mp4hydra,uhdmovies,moviesmod,moviesdrive,4khdhub,hdhub4u/min_qualities=%7B%22showbox%22%3A%22480p%22%2C%22vidsrc%22%3A%22480p%22%2C%22vixsrc%22%3A%22480p%22%2C%22mp4hydra%22%3A%22480p%22%2C%22uhdmovies%22%3A%22720p%22%2C%22moviesmod%22%3A%22720p%22%2C%22moviesdrive%22%3A%22720p%22%2C%224khdhub%22%3A%22720p%22%2C%22hdhub4u%22%3A%22720p%22%7D/manifest.json",
         "manifest": {
           "id": "org.nuvio.streams",
-          "version": "0.5.0",
+          "version": "0.5.15",
           "name": "Nuvio Streams",
           "description": "Stremio addon for high-quality streaming links.",
           "logo": "https://raw.githubusercontent.com/tapframe/NuvioStreaming/main/assets/titlelogo.png",
@@ -435,13 +441,14 @@
         "transportUrl": "https://webstreamr.hayd.uk/%7B%22en%22%3A%22on%22%2C%22excludeExternalUrls%22%3A%22on%22%7D/manifest.json",
         "manifest": {
           "id": "webstreamr.hayd.uk",
-          "version": "0.49.0",
-          "name": "WebStreamr",
-          "description": "Provides HTTP URLs from streaming websites.",
+          "version": "0.65.7",
+          "name": "WebStreamr | Hayduk",
+          "description": "Provides HTTP URLs from streaming websites. Configure add-on for additional languages. Add MediaFlow proxy for more URLs.\n\nSupported languages: Albanian, German, Castilian Spanish, French, Hindi, Italian, Latin American Spanish, Tamil, Telugu\n\nSupported sources: 4KHDHub, CineHDPlus, Cuevana, Einschalten, Eurostreaming, Frembed, FrenchCloud, HomeCine, KinoGer, Kokoshka, MegaKino, MeineCloud, MostraGuarda, RgShows, StreamKiste, VerHdLink, VidSrc, VixSrc\n\nSupported extractors: DoodStream, Dropload, Fastream, FileLions, FileMoon, Fsst, HubCloud, HubDrive, KinoGer, LuluStream, Mixdrop, RgShows, SaveFiles, StreamEmbed, Streamtape, StreamUP, SuperVideo, Uqload, Vidora, VidSrc, VixSrc, VOE, YouTube, External",
           "resources": ["stream"],
           "types": ["movie", "series"],
           "catalogs": [],
-          "idPrefixes": ["tt"],
+          "idPrefixes": ["tmdb:", "tt"],
+          "logo": "https://emojiapi.dev/api/v1/spider_web/256.png",
           "behaviorHints": {
             "p2p": false,
             "configurable": true,
@@ -449,20 +456,24 @@
           },
           "config": [
             {
-              "key": "de",
+              "key": "multi",
               "type": "checkbox",
-              "title": "German 🇩🇪 (KinoGer, MeineCloud, StreamKiste)"
+              "title": "Multi 🌐 (4KHDHub, RgShows, VidSrc, VixSrc)"
             },
             {
-              "key": "en",
+              "key": "al",
               "type": "checkbox",
-              "title": "English 🇺🇸 (Soaper, VidSrc)",
-              "default": "checked"
+              "title": "Albanian 🇦🇱 (Kokoshka)"
+            },
+            {
+              "key": "de",
+              "type": "checkbox",
+              "title": "German 🇩🇪 (Einschalten, KinoGer, MegaKino, MeineCloud, StreamKiste)"
             },
             {
               "key": "es",
               "type": "checkbox",
-              "title": "Castilian Spanish 🇪🇸 (CineHDPlus, VerHdLink)"
+              "title": "Castilian Spanish 🇪🇸 (CineHDPlus, Cuevana, HomeCine, VerHdLink)"
             },
             {
               "key": "fr",
@@ -470,19 +481,166 @@
               "title": "French 🇫🇷 (Frembed, FrenchCloud)"
             },
             {
+              "key": "hi",
+              "type": "checkbox",
+              "title": "Hindi 🇮🇳 (4KHDHub)"
+            },
+            {
               "key": "it",
               "type": "checkbox",
-              "title": "Italian 🇮🇹 (Eurostreaming, MostraGuarda)"
+              "title": "Italian 🇮🇹 (Eurostreaming, MostraGuarda, VixSrc)"
             },
             {
               "key": "mx",
               "type": "checkbox",
-              "title": "Latin American Spanish 🇲🇽 (CineHDPlus, VerHdLink)"
+              "title": "Latin American Spanish 🇲🇽 (CineHDPlus, Cuevana, HomeCine, VerHdLink)"
             },
             {
-              "key": "excludeExternalUrls",
+              "key": "ta",
               "type": "checkbox",
-              "title": "Exclude external URLs from results"
+              "title": "Tamil 🇮🇳 (4KHDHub)"
+            },
+            {
+              "key": "te",
+              "type": "checkbox",
+              "title": "Telugu 🇮🇳 (4KHDHub)"
+            },
+            {
+              "key": "showErrors",
+              "type": "checkbox",
+              "title": "Show errors"
+            },
+            {
+              "key": "includeExternalUrls",
+              "type": "checkbox",
+              "title": "Include external URLs in results"
+            },
+            {
+              "key": "mediaFlowProxyUrl",
+              "type": "text",
+              "title": "MediaFlow Proxy URL",
+              "default": ""
+            },
+            {
+              "key": "mediaFlowProxyPassword",
+              "type": "password",
+              "title": "MediaFlow Proxy Password",
+              "default": ""
+            },
+            {
+              "key": "disableExtractor_doodstream",
+              "type": "checkbox",
+              "title": "Disable extractor DoodStream"
+            },
+            {
+              "key": "disableExtractor_dropload",
+              "type": "checkbox",
+              "title": "Disable extractor Dropload"
+            },
+            {
+              "key": "disableExtractor_fastream",
+              "type": "checkbox",
+              "title": "Disable extractor Fastream"
+            },
+            {
+              "key": "disableExtractor_filelions",
+              "type": "checkbox",
+              "title": "Disable extractor FileLions"
+            },
+            {
+              "key": "disableExtractor_filemoon",
+              "type": "checkbox",
+              "title": "Disable extractor FileMoon"
+            },
+            {
+              "key": "disableExtractor_fsst",
+              "type": "checkbox",
+              "title": "Disable extractor Fsst"
+            },
+            {
+              "key": "disableExtractor_hubcloud",
+              "type": "checkbox",
+              "title": "Disable extractor HubCloud"
+            },
+            {
+              "key": "disableExtractor_hubdrive",
+              "type": "checkbox",
+              "title": "Disable extractor HubDrive"
+            },
+            {
+              "key": "disableExtractor_kinoger",
+              "type": "checkbox",
+              "title": "Disable extractor KinoGer"
+            },
+            {
+              "key": "disableExtractor_lulustream",
+              "type": "checkbox",
+              "title": "Disable extractor LuluStream"
+            },
+            {
+              "key": "disableExtractor_mixdrop",
+              "type": "checkbox",
+              "title": "Disable extractor Mixdrop"
+            },
+            {
+              "key": "disableExtractor_rgshows",
+              "type": "checkbox",
+              "title": "Disable extractor RgShows"
+            },
+            {
+              "key": "disableExtractor_savefiles",
+              "type": "checkbox",
+              "title": "Disable extractor SaveFiles"
+            },
+            {
+              "key": "disableExtractor_streamembed",
+              "type": "checkbox",
+              "title": "Disable extractor StreamEmbed"
+            },
+            {
+              "key": "disableExtractor_streamtape",
+              "type": "checkbox",
+              "title": "Disable extractor Streamtape"
+            },
+            {
+              "key": "disableExtractor_streamup",
+              "type": "checkbox",
+              "title": "Disable extractor StreamUP"
+            },
+            {
+              "key": "disableExtractor_supervideo",
+              "type": "checkbox",
+              "title": "Disable extractor SuperVideo"
+            },
+            {
+              "key": "disableExtractor_uqload",
+              "type": "checkbox",
+              "title": "Disable extractor Uqload"
+            },
+            {
+              "key": "disableExtractor_vidora",
+              "type": "checkbox",
+              "title": "Disable extractor Vidora"
+            },
+            {
+              "key": "disableExtractor_vidsrc",
+              "type": "checkbox",
+              "title": "Disable extractor VidSrc"
+            },
+            {
+              "key": "disableExtractor_vixsrc",
+              "type": "checkbox",
+              "title": "Disable extractor VixSrc"
+            },
+            {
+              "key": "disableExtractor_voe",
+              "type": "checkbox",
+              "title": "Disable extractor VOE"
+            },
+            {
+              "key": "disableExtractor_youtube",
+              "type": "checkbox",
+              "title": "Disable extractor YouTube"
             }
           ],
           "stremioAddonsConfig": {
@@ -491,31 +649,25 @@
           }
         }
       },
-      "subhero": {
-        "transportUrl": "https://subhero.onrender.com/%7B%22language%22%3A%22en%22%7D/manifest.json",
+      "opensubtitlespro": {
+        "transportUrl": "https://opensubtitlesv3-pro.dexter21767.com/eyJsYW5ncyI6WyJlbmdsaXNoIl0sInNvdXJjZSI6ImFsbCIsImFpVHJhbnNsYXRlZCI6dHJ1ZSwiYXV0b0FkanVzdG1lbnQiOnRydWV9/manifest.json",
+        "transportName": "",
         "manifest": {
-          "id": "community.subhero.wyzie",
-          "version": "1.0.5",
+          "id": "community.opensubtitlesv3.pro",
+          "version": "0.1.0",
+          "name": "opensubtitles PRO",
+          "description": "ad-free and spam-free subtitles addon",
+          "logo": "https://i.imgur.com/cGc1DXB.png",
+          "background": "https://github.com/Stremio/stremio-art/raw/main/originals/reiphantomhive1.png",
+          "contactEmail": "dexter21767@gmail.com",
           "catalogs": [],
           "resources": ["subtitles"],
           "types": ["movie", "series"],
-          "name": "SubHero",
-          "description": "Your all-in-one subtitle addon with language filtering and sources by OpenSubtitles, SubDL & subf2m. Subtitles provided & scraped by Wyzie API.",
+          "idPrefixes": ["tt", "kitsu"],
           "behaviorHints": {
-            "configurable": true
-          },
-          "config": [
-            {
-              "key": "language",
-              "type": "text",
-              "default": "en",
-              "title": "Subtitle Languages (comma separated language codes e.g 'en,ru,sv,fr')",
-              "required": false
-            }
-          ],
-          "idPrefixes": ["tt"],
-          "background": "https://w.wallhaven.cc/full/0p/wallhaven-0pjkp9.png",
-          "logo": "https://cdn.icon-icons.com/icons2/3606/PNG/512/sculpture_statue_texture_futuristic_art_geometry_organic_abstract_shape_explode_shae_icon_226539.png"
+            "configurable": true,
+            "configurationRequired": false
+          }
         }
       },
       "opensubtitlesv3": {
@@ -551,7 +703,7 @@
         "transportName": "http",
         "manifest": {
           "id": "com.linvo.cinemeta",
-          "version": "3.0.13",
+          "version": "3.0.14",
           "description": "The official addon for movie and series catalogs",
           "name": "Cinemeta",
           "resources": ["catalog", "meta", "addon_catalog"],
@@ -1452,7 +1604,7 @@
         "transportUrl": "https://stremio-subdivx.xor.ar/manifest.json",
         "manifest": {
           "id": "ar.xor.subdivx.go",
-          "version": "0.0.6",
+          "version": "0.0.11",
           "name": "Subdivx",
           "description": "Subdivx subtitles addon",
           "types": ["movie", "series"],
@@ -1461,8 +1613,8 @@
           "resources": ["subtitles"]
         }
       },
-      "subhero": {
-        "transportUrl": "https://subhero.onrender.com/%7B%22language%22%3A%22es%22%7D/manifest.json"
+      "opensubtitlespro": {
+        "transportUrl": "https://opensubtitlesv3-pro.dexter21767.com/eyJsYW5ncyI6WyJzcGFuaXNoLWxhIl0sInNvdXJjZSI6ImFsbCIsImFpVHJhbnNsYXRlZCI6dHJ1ZSwiYXV0b0FkanVzdG1lbnQiOnRydWV9/manifest.json"
       }
     },
     "es-ES": {
@@ -1487,8 +1639,8 @@
       "webstreamr": {
         "transportUrl": "https://webstreamr.hayd.uk/%7B%22en%22%3A%22on%22%2C%22es%22%3A%22on%22%2C%22excludeExternalUrls%22%3A%22on%22%7D/manifest.json"
       },
-      "subhero": {
-        "transportUrl": "https://subhero.onrender.com/%7B%22language%22%3A%22es%22%7D/manifest.json"
+      "opensubtitlespro": {
+        "transportUrl": "https://opensubtitlesv3-pro.dexter21767.com/eyJsYW5ncyI6WyJzcGFuaXNoLWV1Il0sInNvdXJjZSI6ImFsbCIsImFpVHJhbnNsYXRlZCI6dHJ1ZSwiYXV0b0FkanVzdG1lbnQiOnRydWV9/manifest.json"
       }
     },
     "pt-BR": {
@@ -1507,8 +1659,8 @@
       "sootio": {
         "transportUrl": "https://sooti.click/%7B%22DebridServices%22%3A%5B%7B%22provider%22%3A%22%22%2C%22apiKey%22%3A%22%22%7D%5D%2C%22Languages%22%3A%5B%22english%22%2C%22portuguese%22%5D%2C%22minSize%22%3A0%2C%22maxSize%22%3A200%2C%22ShowCatalog%22%3Afalse%2C%22DebridProvider%22%3A%22%22%2C%22DebridApiKey%22%3A%22%22%7D/manifest.json"
       },
-      "subhero": {
-        "transportUrl": "https://subhero.onrender.com/%7B%22language%22%3A%22pb%22%7D/manifest.json"
+      "opensubtitlespro": {
+        "transportUrl": "https://opensubtitlesv3-pro.dexter21767.com/eyJsYW5ncyI6WyJwb3J0dWd1ZXNlLWJyIl0sInNvdXJjZSI6ImFsbCIsImFpVHJhbnNsYXRlZCI6dHJ1ZSwiYXV0b0FkanVzdG1lbnQiOnRydWV9/manifest.json"
       }
     },
     "fr": {
@@ -1530,8 +1682,8 @@
       "webstreamr": {
         "transportUrl": "https://webstreamr.hayd.uk/%7B%22en%22%3A%22on%22%2C%22fr%22%3A%22on%22%2C%22excludeExternalUrls%22%3A%22on%22%7D/manifest.json"
       },
-      "subhero": {
-        "transportUrl": "https://subhero.onrender.com/%7B%22language%22%3A%22fr%22%7D/manifest.json"
+      "opensubtitlespro": {
+        "transportUrl": "https://opensubtitlesv3-pro.dexter21767.com/eyJsYW5ncyI6WyJmcmVuY2giXSwic291cmNlIjoiYWxsIiwiYWlUcmFuc2xhdGVkIjp0cnVlLCJhdXRvQWRqdXN0bWVudCI6dHJ1ZX0=/manifest.json"
       }
     },
     "it": {
@@ -1553,8 +1705,8 @@
       "webstreamr": {
         "transportUrl": "https://webstreamr.hayd.uk/%7B%22en%22%3A%22on%22%2C%22it%22%3A%22on%22%2C%22excludeExternalUrls%22%3A%22on%22%7D/manifest.json"
       },
-      "subhero": {
-        "transportUrl": "https://subhero.onrender.com/%7B%22language%22%3A%22it%22%7D/manifest.json"
+      "opensubtitlespro": {
+        "transportUrl": "https://opensubtitlesv3-pro.dexter21767.com/eyJsYW5ncyI6WyJpdGFsaWFuIl0sInNvdXJjZSI6ImFsbCIsImFpVHJhbnNsYXRlZCI6dHJ1ZSwiYXV0b0FkanVzdG1lbnQiOnRydWV9/manifest.json"
       }
     },
     "de": {
@@ -1576,8 +1728,8 @@
       "webstreamr": {
         "transportUrl": "https://webstreamr.hayd.uk/%7B%22de%22%3A%22on%22%2C%22en%22%3A%22on%22%2C%22excludeExternalUrls%22%3A%22on%22%7D/manifest.json"
       },
-      "subhero": {
-        "transportUrl": "https://subhero.onrender.com/%7B%22language%22%3A%22de%22%7D/manifest.json"
+      "opensubtitlespro": {
+        "transportUrl": "https://opensubtitlesv3-pro.dexter21767.com/eyJsYW5ncyI6WyJnZXJtYW4iXSwic291cmNlIjoiYWxsIiwiYWlUcmFuc2xhdGVkIjp0cnVlLCJhdXRvQWRqdXN0bWVudCI6dHJ1ZX0=/manifest.json"
       }
     },
     "nl": {
@@ -1596,8 +1748,8 @@
       "sootio": {
         "transportUrl": "https://sooti.click/%7B%22DebridServices%22%3A%5B%7B%22provider%22%3A%22%22%2C%22apiKey%22%3A%22%22%7D%5D%2C%22Languages%22%3A%5B%22english%22%2C%22dutch%22%5D%2C%22minSize%22%3A0%2C%22maxSize%22%3A200%2C%22ShowCatalog%22%3Afalse%2C%22DebridProvider%22%3A%22%22%2C%22DebridApiKey%22%3A%22%22%7D/manifest.json"
       },
-      "subhero": {
-        "transportUrl": "https://subhero.onrender.com/%7B%22language%22%3A%22nl%22%7D/manifest.json"
+      "opensubtitlespro": {
+        "transportUrl": "https://opensubtitlesv3-pro.dexter21767.com/eyJsYW5ncyI6WyJkdXRjaCJdLCJzb3VyY2UiOiJhbGwiLCJhaVRyYW5zbGF0ZWQiOnRydWUsImF1dG9BZGp1c3RtZW50Ijp0cnVlfQ==/manifest.json"
       }
     }
   },

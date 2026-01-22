@@ -147,10 +147,13 @@
     >
       <div class="avatar">
         <div class="w-12 rounded">
-          <img src="/public/logos/subhero.png" alt="SubHero" />
+          <img
+            src="/public/logos/opensubtitlespro.png"
+            alt="Opensubtitles Pro"
+          />
         </div>
       </div>
-      <p class="text-sm mt-2 text-center">SubHero</p>
+      <p class="text-sm mt-2 text-center">Opensubtitles Pro</p>
     </div>
     <div
       class="flex flex-col items-center p-4 hover:bg-base-200 rounded-lg transition-colors"
