@@ -5,6 +5,7 @@
       "aiolists",
       "torrentio",
       "comet",
+      "streailer",
       "subherov2",
       "opensubtitlespro"
     ],
@@ -14,7 +15,9 @@
       "torrentio",
       "comet",
       "mediafusion",
+      "stremthrutorz",
       "webstreamr",
+      "streailer",
       "subherov2",
       "opensubtitlespro"
     ],
@@ -24,26 +27,34 @@
       "torrentio",
       "comet",
       "mediafusion",
-      "jackettio",
-      "torrentsdb",
       "stremthrutorz",
       "sootio",
-      "peerflix",
       "torbox",
+      "peerflix",
+      "jackettio",
+      "torrentsdb",
       "tpbplus",
       "nuvio",
       "webstreamr",
+      "streailer",
       "subherov2",
       "opensubtitlespro",
       "localfiles"
     ],
-    "no_streams": ["cinemeta", "aiolists", "subherov2", "opensubtitlespro"],
+    "no_streams": [
+      "cinemeta",
+      "aiolists",
+      "streailer",
+      "subherov2",
+      "opensubtitlespro"
+    ],
     "kids": [
       "cinemeta",
       "aiolists",
       "torrentio",
       "comet",
       "webstreamr",
+      "streailer",
       "subherov2",
       "opensubtitlespro"
     ],
@@ -650,6 +661,70 @@
           "stremioAddonsConfig": {
             "issuer": "https://stremio-addons.net",
             "signature": "eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..D3-Wl15vxnYltwx8G52rRg.16-0VzsSgTvnv0wampIR8YPZsFhH8-7IgpuqxcUfC2p7kIJtuk8xQzrzqQOLXANEpaH_w7a4JOEpNo8wv28Zo_nMGCLOXgWbyGM3sQ-tfq6DCK3JU0ol6YMC1UDX2z_c.IOLlZyTYx_swutjYSTES0Q"
+          }
+        }
+      },
+      "streailer": {
+        "transportUrl": "https://streailer.elfhosted.com/%7B%22language%22%3A%22en-US%22%2C%22externalLink%22%3Afalse%2C%22showRecap%22%3Atrue%2C%22onlyRecaps%22%3Afalse%7D/manifest.json",
+        "manifest": {
+          "id": "org.streailer.trailer",
+          "version": "1.5.0",
+          "name": "Streailer",
+          "description": "Trailer provider with multi-language support. TMDB → YouTube fallback → TMDB en-US. Season recaps for TV series.",
+          "logo": "https://i.imgur.com/F7dxBVt.png",
+          "background": "https://i.imgur.com/rEN6X72.jpeg",
+          "resources": ["stream"],
+          "types": ["movie", "series"],
+          "idPrefixes": ["tt", "tmdb:", "kitsu:"],
+          "catalogs": [],
+          "behaviorHints": {
+            "configurable": true
+          },
+          "config": [
+            {
+              "key": "language",
+              "type": "select",
+              "title": "Lingua Trailer / Trailer Language",
+              "options": [
+                "en-US",
+                "es-MX",
+                "pt-BR",
+                "pt-PT",
+                "de-DE",
+                "fr-FR",
+                "es-ES",
+                "it-IT",
+                "ru-RU",
+                "ja-JP",
+                "hi-IN",
+                "ta-IN",
+                "tr-TR",
+                "pl-PL",
+                "nl-NL",
+                "hu-HU"
+              ],
+              "default": "it-IT",
+              "required": true
+            },
+            {
+              "key": "externalLink",
+              "type": "checkbox",
+              "title": "External Link"
+            },
+            {
+              "key": "showRecap",
+              "type": "checkbox",
+              "title": "Season Recaps (TV Series)"
+            },
+            {
+              "key": "onlyRecaps",
+              "type": "checkbox",
+              "title": "Only Recaps (No Trailers)"
+            }
+          ],
+          "stremioAddonsConfig": {
+            "issuer": "https://stremio-addons.net",
+            "signature": "eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..MOCSVn-poAicpFB3yI8QcQ.aEx1Ql37vvzQQHVyihr5z6_LJYCWZYzfFTDStX-icgNnh6YT85Qoy9YqfMyoDSc4-tUxCtKuZ_yEzzr0nXxW4t5TEAM1wMBbbqqE_L22-iV8ErpMNmsDZWESVt6rqlJD._aRFyhZLN7gQAVhy9dKadA"
           }
         }
       },
@@ -1623,6 +1698,9 @@
       "webstreamr": {
         "transportUrl": "https://webstreamr.hayd.uk/%7B%22en%22%3A%22on%22%2C%22mx%22%3A%22on%22%2C%22excludeExternalUrls%22%3A%22on%22%7D/manifest.json"
       },
+      "streailer": {
+        "transportUrl": "https://streailer.elfhosted.com/%7B%22language%22%3A%22es-MX%22%2C%22externalLink%22%3Afalse%2C%22showRecap%22%3Atrue%2C%22onlyRecaps%22%3Afalse%7D/manifest.json"
+      },
       "subherov2": {
         "transportUrl": "https://subhero.chromeknight.dev/%7B%22language%22%3A%22es%22%2C%22onlyReturnMatching%22%3Afalse%7D/manifest.json"
       },
@@ -1652,6 +1730,9 @@
       "webstreamr": {
         "transportUrl": "https://webstreamr.hayd.uk/%7B%22en%22%3A%22on%22%2C%22es%22%3A%22on%22%2C%22excludeExternalUrls%22%3A%22on%22%7D/manifest.json"
       },
+      "streailer": {
+        "transportUrl": "https://streailer.elfhosted.com/%7B%22language%22%3A%22es-ES%22%2C%22externalLink%22%3Afalse%2C%22showRecap%22%3Atrue%2C%22onlyRecaps%22%3Afalse%7D/manifest.json"
+      },
       "subherov2": {
         "transportUrl": "https://subhero.chromeknight.dev/%7B%22language%22%3A%22es%22%2C%22onlyReturnMatching%22%3Afalse%7D/manifest.json"
       },
@@ -1674,6 +1755,9 @@
       },
       "sootio": {
         "transportUrl": "https://sooti.click/%7B%22DebridServices%22%3A%5B%7B%22provider%22%3A%22%22%2C%22apiKey%22%3A%22%22%7D%5D%2C%22Languages%22%3A%5B%22english%22%2C%22portuguese%22%5D%2C%22minSize%22%3A0%2C%22maxSize%22%3A200%2C%22ShowCatalog%22%3Afalse%2C%22DebridProvider%22%3A%22%22%2C%22DebridApiKey%22%3A%22%22%7D/manifest.json"
+      },
+      "streailer": {
+        "transportUrl": "https://streailer.elfhosted.com/%7B%22language%22%3A%22pt-BR%22%2C%22externalLink%22%3Afalse%2C%22showRecap%22%3Atrue%2C%22onlyRecaps%22%3Afalse%7D/manifest.json"
       },
       "subherov2": {
         "transportUrl": "https://subhero.chromeknight.dev/%7B%22language%22%3A%22pt%22%2C%22onlyReturnMatching%22%3Afalse%7D/manifest.json"
@@ -1701,6 +1785,9 @@
       "webstreamr": {
         "transportUrl": "https://webstreamr.hayd.uk/%7B%22en%22%3A%22on%22%2C%22fr%22%3A%22on%22%2C%22excludeExternalUrls%22%3A%22on%22%7D/manifest.json"
       },
+      "streailer": {
+        "transportUrl": "https://streailer.elfhosted.com/%7B%22language%22%3A%22fr-FR%22%2C%22externalLink%22%3Afalse%2C%22showRecap%22%3Atrue%2C%22onlyRecaps%22%3Afalse%7D/manifest.json"
+      },
       "subherov2": {
         "transportUrl": "https://subhero.chromeknight.dev/%7B%22language%22%3A%22fr%22%2C%22onlyReturnMatching%22%3Afalse%7D/manifest.json"
       },
@@ -1726,6 +1813,9 @@
       },
       "webstreamr": {
         "transportUrl": "https://webstreamr.hayd.uk/%7B%22en%22%3A%22on%22%2C%22it%22%3A%22on%22%2C%22excludeExternalUrls%22%3A%22on%22%7D/manifest.json"
+      },
+      "streailer": {
+        "transportUrl": "https://streailer.elfhosted.com/%7B%22language%22%3A%22it-IT%22%2C%22externalLink%22%3Afalse%2C%22showRecap%22%3Atrue%2C%22onlyRecaps%22%3Afalse%7D/manifest.json"
       },
       "subherov2": {
         "transportUrl": "https://subhero.chromeknight.dev/%7B%22language%22%3A%22it%22%2C%22onlyReturnMatching%22%3Afalse%7D/manifest.json"
@@ -1753,6 +1843,9 @@
       "webstreamr": {
         "transportUrl": "https://webstreamr.hayd.uk/%7B%22de%22%3A%22on%22%2C%22en%22%3A%22on%22%2C%22excludeExternalUrls%22%3A%22on%22%7D/manifest.json"
       },
+      "streailer": {
+        "transportUrl": "https://streailer.elfhosted.com/%7B%22language%22%3A%22de-DE%22%2C%22externalLink%22%3Afalse%2C%22showRecap%22%3Atrue%2C%22onlyRecaps%22%3Afalse%7D/manifest.json"
+      },
       "subherov2": {
         "transportUrl": "https://subhero.chromeknight.dev/%7B%22language%22%3A%22de%22%2C%22onlyReturnMatching%22%3Afalse%7D/manifest.json"
       },
@@ -1775,6 +1868,9 @@
       },
       "sootio": {
         "transportUrl": "https://sooti.click/%7B%22DebridServices%22%3A%5B%7B%22provider%22%3A%22%22%2C%22apiKey%22%3A%22%22%7D%5D%2C%22Languages%22%3A%5B%22english%22%2C%22dutch%22%5D%2C%22minSize%22%3A0%2C%22maxSize%22%3A200%2C%22ShowCatalog%22%3Afalse%2C%22DebridProvider%22%3A%22%22%2C%22DebridApiKey%22%3A%22%22%7D/manifest.json"
+      },
+      "streailer": {
+        "transportUrl": "https://streailer.elfhosted.com/%7B%22language%22%3A%22nl-NL%22%2C%22externalLink%22%3Afalse%2C%22showRecap%22%3Atrue%2C%22onlyRecaps%22%3Afalse%7D/manifest.json"
       },
       "subherov2": {
         "transportUrl": "https://subhero.chromeknight.dev/%7B%22language%22%3A%22nl%22%2C%22onlyReturnMatching%22%3Afalse%7D/manifest.json"
