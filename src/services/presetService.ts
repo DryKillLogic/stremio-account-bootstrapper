@@ -55,11 +55,6 @@ export async function buildPresetService(params: BuildPresetServiceParams) {
   const aiolistsConfig =
     preset === 'kids' ? data.aiolistsKidsConfig : data.aiolistsConfig;
 
-  // Language specific addons
-  if (language === 'es-MX') {
-    data.presets[preset].push('subdivx');
-  }
-
   // Preset
   presetConfig = _.pick(
     language === 'en'
@@ -274,32 +269,6 @@ export async function buildPresetService(params: BuildPresetServiceParams) {
       );
     } else {
       presetConfig = _.omit(presetConfig, 'torbox');
-    }
-
-    // StreamAsia
-    if (presetConfig.streamasia) {
-      const streamAsiaDebridService: Record<string, string> = {
-        realdebrid: 'Real Debrid',
-        alldebrid: 'AllDebrid',
-        premiumize: 'Premiumize',
-        debridlink: 'Debrid-Link',
-        torbox: 'Torbox'
-      };
-
-      updateTransportUrl({
-        presetConfig,
-        serviceKey: 'streamasia',
-        manifestNameSuffix: debridServiceName,
-        updateData: (data: any) => ({
-          ...data,
-          debridConfig: [
-            {
-              debridProvider: streamAsiaDebridService[debridService as string],
-              token: debridApiKey
-            }
-          ]
-        })
-      });
     }
 
     // StremThru Store

@@ -1600,19 +1600,6 @@
       "webstreamr": {
         "transportUrl": "https://webstreamr.hayd.uk/%7B%22en%22%3A%22on%22%2C%22mx%22%3A%22on%22%2C%22excludeExternalUrls%22%3A%22on%22%7D/manifest.json"
       },
-      "subdivx": {
-        "transportUrl": "https://stremio-subdivx.xor.ar/manifest.json",
-        "manifest": {
-          "id": "ar.xor.subdivx.go",
-          "version": "0.0.11",
-          "name": "Subdivx",
-          "description": "Subdivx subtitles addon",
-          "types": ["movie", "series"],
-          "idPrefixes": ["tt"],
-          "catalogs": [],
-          "resources": ["subtitles"]
-        }
-      },
       "opensubtitlespro": {
         "transportUrl": "https://opensubtitlesv3-pro.dexter21767.com/eyJsYW5ncyI6WyJzcGFuaXNoLWxhIl0sInNvdXJjZSI6ImFsbCIsImFpVHJhbnNsYXRlZCI6dHJ1ZSwiYXV0b0FkanVzdG1lbnQiOnRydWV9/manifest.json"
       }
@@ -2275,82 +2262,6 @@
         "description": "Argentina TV provee acceso a canales de interes general, noticias, deportes y entretenimiento.",
         "logo": "https://848b3516657c-argentinatv.baby-beamup.club/public/logo.png",
         "background": "https://848b3516657c-argentinatv.baby-beamup.club/public/background.jpg"
-      }
-    },
-    "streamasia": {
-      "transportUrl": "https://stremio-dramacool-addon.xyz/eyJraXNza2gtY2F0YWxvZ3MiOlsia2toLXNlYXJjaC1yZXN1bHRzIl0sImtkaGQtY2F0YWxvZ3MiOltdLCJvdHR2LWNhdGFsb2dzIjpbIm90dHYtc2VhcmNoLXJlc3VsdHMiXSwiZGRsLWNhdGFsb2dzIjpbImRteC1zZWFyY2gtcmVzdWx0cyJdLCJ0cmFrdENvZGUiOm51bGwsInNob3dUTURCU2Vhc29uIjpmYWxzZSwiZW5hYmxlT3BlbnN1YnMiOmZhbHNlLCJoaWRlVXBjb21pbmdTaG93cyI6dHJ1ZSwiZGVidWdGbGFncyI6IiIsIm1lZGlhZmxvd1Byb3h5Q29uZmlncyI6W10sImRlYnJpZENvbmZpZyI6W3siZGVicmlkUHJvdmlkZXIiOiIiLCJ0b2tlbiI6IiJ9XSwiaGlkZVVuc3VwcG9ydGVkSG9zdGVycyI6dHJ1ZSwidmVyc2lvbiI6IjEuMy4xIn0=/manifest.json",
-      "manifest": {
-        "background": "https://stremio-dramacool-addon.xyz/static/addon_background.png",
-        "behaviorHints": {
-          "configurable": true
-        },
-        "catalogs": [
-          {
-            "extra": [
-              {
-                "isRequired": true,
-                "name": "search"
-              }
-            ],
-            "id": "kkh-search-results",
-            "name": "Kisskh Search Results",
-            "type": "kisskh"
-          },
-          {
-            "extra": [
-              {
-                "isRequired": true,
-                "name": "search"
-              }
-            ],
-            "id": "ottv-search-results",
-            "name": "Onetouchtv Search Results",
-            "type": "onetouchtv"
-          },
-          {
-            "extra": [
-              {
-                "isRequired": true,
-                "name": "search"
-              }
-            ],
-            "id": "dmx-search-results",
-            "name": "[DDL] Search Results",
-            "type": "[DDL] Asian Drama"
-          }
-        ],
-        "description": "Watch asian drama, movies and variety shows from various sources",
-        "id": "org.stremio.dramacool",
-        "logo": "https://stremio-dramacool-addon.xyz/static/addon_logo_monochrome.png",
-        "name": "StreamAsia",
-        "resources": [
-          "catalog",
-          {
-            "idPrefixes": ["kkh-", "kdhd-", "ottv-", "dmx-", "mkx-"],
-            "name": "meta",
-            "types": ["series"]
-          },
-          {
-            "idPrefixes": ["kkh-", "kdhd-", "ottv-", "dmx-", "mkx-"],
-            "name": "stream",
-            "types": ["series"]
-          },
-          {
-            "idPrefixes": ["kkh-", "kdhd-", "ottv-"],
-            "name": "subtitles",
-            "types": ["series"]
-          }
-        ],
-        "types": [
-          "movie",
-          "series",
-          "kisskh",
-          "kdramahood",
-          "onetouchtv",
-          "[DDL] Asian Drama",
-          "[DDL 2] Asian Drama"
-        ],
-        "version": "1.3.1"
       }
     },
     "stremthrustore": {

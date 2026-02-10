@@ -461,15 +461,6 @@ function updateDebridApiUrl() {
           <label class="label cursor-pointer">
             <input
               type="checkbox"
-              value="streamasia"
-              v-model="extras"
-              class="checkbox checkbox-primary"
-            />
-            <span class="label-text ml-2">StreamAsia</span>
-          </label>
-          <label class="label cursor-pointer">
-            <input
-              type="checkbox"
               value="stremthrustore"
               :disabled="!isDebridApiKeyValid"
               v-model="extras"
