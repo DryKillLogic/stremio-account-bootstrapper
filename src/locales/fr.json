@@ -122,5 +122,6 @@
   "instructions_8": "Saisissez votre clé RPDB (optionnel)",
   "instructions_9": "Personnalisez le préréglage d'addons (optionnel). Vous pouvez supprimer ou trier les addons, et renommer ou supprimer les catalogues AIOLists/Anime Kitsu.",
   "instructions_10": "Une fois la personnalisation terminée, cliquez sur \"Synchroniser avec Stremio\" pour mettre à jour votre compte.",
-  "instructions_11": "Allez dans les paramètres de Stremio pour ajuster vos options de langue préférées."
+  "instructions_11": "Allez dans les paramètres de Stremio pour ajuster vos options de langue préférées.",
+  "none": "Aucun"
 }

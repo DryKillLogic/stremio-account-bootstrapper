@@ -118,5 +118,6 @@
   "instructions_8": "Voer je RPDB-sleutel in (optioneel)",
   "instructions_9": "Pas de addons-preset aan (optioneel). Je kunt addons verwijderen of sorteren en de AIOLists/Anime Kitsu-catalogi hernoemen of verwijderen.",
   "instructions_10": "Als je klaar bent met aanpassen, klik op \"Sync naar Stremio\" om je account bij te werken.",
-  "instructions_11": "Ga naar de Stremio-instellingen om je taalvoorkeuren aan te passen."
+  "instructions_11": "Ga naar de Stremio-instellingen om je taalvoorkeuren aan te passen.",
+  "none": "Geen"
 }

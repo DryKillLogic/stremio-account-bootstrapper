@@ -122,5 +122,6 @@
   "instructions_8": "Inserisci la tua chiave RPDB (opzionale)",
   "instructions_9": "Personalizza la preimpostazione degli addon (opzionale). Puoi rimuovere o ordinare gli addon e rinominare o eliminare i cataloghi AIOLists/Anime Kitsu.",
   "instructions_10": "Una volta terminata la personalizzazione, clicca \"Sincronizza con Stremio\" per aggiornare il tuo account.",
-  "instructions_11": "Vai alle impostazioni di Stremio per impostare la lingua preferita."
+  "instructions_11": "Vai alle impostazioni di Stremio per impostare la lingua preferita.",
+  "none": "Nessuno"
 }

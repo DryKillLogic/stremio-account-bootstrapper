@@ -63,6 +63,7 @@
   "no_streams": "No streams",
   "factory": "Factory",
   "step3_debrid_api_key": "Step 3: Enter debrid API key (optional)",
+  "none": "None",
   "enter_api_key": "Enter API key",
   "get_api_key_here": "Get it from here",
   "invalid_debrid_api_key": "Invalid debrid API key",

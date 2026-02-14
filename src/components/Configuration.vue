@@ -35,17 +35,35 @@ let language = ref('en');
 let preset = ref('standard');
 
 let debridService = ref('');
-let debridApiKey = ref(null);
-let debridApiUrl = ref('');
+let debridEntries = ref([{ service: '', key: '' }]);
 let debridServiceName = '';
 
 const MAX_CUSTOM_ADDONS = 10;
+const MAX_DEBRID_ENTRIES = 5;
+
 const canAddCustom = computed(
   () => customAddons.value.length < MAX_CUSTOM_ADDONS
 );
 
-const isDebridApiKeyValid = computed(() =>
-  isValidApiKey(debridService.value, debridApiKey.value)
+const canAddDebridEntry = computed(() => {
+  if (debridEntries.value.length >= MAX_DEBRID_ENTRIES) return false;
+  const last = debridEntries.value[debridEntries.value.length - 1];
+  if (!last) return false;
+  if (!last.service) return false;
+  if (!last.key) return false;
+  return isValidApiKey(last.service, last.key);
+});
+
+const isDebridApiKeyValid = computed(() => {
+  const hasSelected = debridEntries.value.some((e) => e.service);
+  if (!hasSelected) return true;
+  return debridEntries.value.some(
+    (e) => e.service && e.key && isValidApiKey(e.service, e.key)
+  );
+});
+
+const hasDebridSelected = computed(() =>
+  debridEntries.value.some((e) => e.service)
 );
 
 let torrentioConfig = '';
@@ -82,8 +100,7 @@ async function loadUserAddons() {
       options: options.value,
       maxSize: maxSize.value,
       rpdbKey: rpdbKey.value,
-      debridService: debridService.value,
-      debridApiKey: debridApiKey.value,
+      debridEntries: debridEntries.value,
       isDebridApiKeyValid: isDebridApiKeyValid.value
     });
 
@@ -177,8 +194,19 @@ function saveManifestEdit(updatedManifest) {
   }
 }
 
-function updateDebridApiUrl() {
-  debridApiUrl.value = debridServicesInfo[debridService.value].url;
+function addDebridEntry() {
+  if (!canAddDebridEntry.value) return;
+  if (debridEntries.value.length >= MAX_DEBRID_ENTRIES) return;
+  debridEntries.value.push({ service: '', key: '' });
+}
+
+function removeDebridEntry(idx) {
+  if (debridEntries.value.length === 1) return;
+  debridEntries.value.splice(idx, 1);
+}
+
+function resetEntryKey(idx) {
+  debridEntries.value[idx].key = '';
 }
 </script>
 
@@ -343,84 +371,98 @@ function updateDebridApiUrl() {
             <QuestionMarkCircleIcon class="h-5 w-5 text-primary align-middle" />
           </a>
         </legend>
-        <div class="grid grid-cols-2 md:grid-cols-3 gap-2 mb-4">
-          <label class="label cursor-pointer">
-            <input
-              type="radio"
-              value="realdebrid"
-              v-model="debridService"
-              @change="updateDebridApiUrl"
-              class="radio radio-primary"
-            />
-            <span class="label-text ml-2">RealDebrid</span>
-          </label>
-          <label class="label cursor-pointer">
-            <input
-              type="radio"
-              value="alldebrid"
-              v-model="debridService"
-              @change="updateDebridApiUrl"
-              class="radio radio-primary"
-            />
-            <span class="label-text ml-2">AllDebrid</span>
-          </label>
-          <label class="label cursor-pointer">
-            <input
-              type="radio"
-              value="premiumize"
-              v-model="debridService"
-              @change="updateDebridApiUrl"
-              class="radio radio-primary"
-            />
-            <span class="label-text ml-2">Premiumize</span>
-          </label>
-          <label class="label cursor-pointer">
-            <input
-              type="radio"
-              value="debridlink"
-              v-model="debridService"
-              @change="updateDebridApiUrl"
-              class="radio radio-primary"
-            />
-            <span class="label-text ml-2">Debrid-Link</span>
-          </label>
-          <label class="label cursor-pointer">
-            <input
-              type="radio"
-              value="torbox"
-              v-model="debridService"
-              @change="updateDebridApiUrl"
-              class="radio radio-primary"
-            />
-            <span class="label-text ml-2">TorBox</span>
-          </label>
-        </div>
-        <div class="form-control w-full">
-          <input
-            v-model="debridApiKey"
-            :disabled="!debridService"
-            :class="{ 'input-error': debridApiKey && !isDebridApiKeyValid }"
-            type="text"
-            class="input input-bordered w-full"
-            :placeholder="$t('enter_api_key')"
-          />
-          <div class="flex justify-between items-center mt-1">
-            <span class="label-text-alt">
-              <a
-                v-if="debridApiUrl"
-                target="_blank"
-                :href="debridApiUrl"
-                class="link link-primary"
-              >
-                {{ $t('get_api_key_here') }}
-              </a>
-            </span>
-            <span
-              v-if="debridApiKey && !isDebridApiKeyValid"
-              class="label-text-alt text-error ml-2 text-xs"
+
+        <div class="form-control w-full space-y-3">
+          <div class="space-y-2 pt-2">
+            <div
+              v-for="(entry, idx) in debridEntries"
+              :key="idx"
+              class="flex flex-col gap-1"
             >
-              {{ $t('invalid_debrid_api_key') }}
-            </span>
+              <div class="flex items-center gap-2">
+                <select
+                  v-model="entry.service"
+                  @change="() => resetEntryKey(idx)"
+                  class="select select-bordered w-40"
+                >
+                  <option value="">{{ $t('none') }}</option>
+                  <option
+                    v-for="(info, key) in debridServicesInfo"
+                    :key="key"
+                    :value="key"
+                  >
+                    {{ info.label || key }}
+                  </option>
+                </select>
+
+                <input
+                  v-model="entry.key"
+                  :disabled="!entry.service"
+                  :class="{
+                    'input-error':
+                      entry.key && !isValidApiKey(entry.service, entry.key)
+                  }"
+                  type="text"
+                  class="input input-bordered flex-1"
+                  :placeholder="$t('enter_api_key')"
+                />
+
+                <button
+                  type="button"
+                  class="btn btn-sm btn-error text-white"
+                  @click="removeDebridEntry(idx)"
+                  :disabled="idx === 0"
+                  :class="{ 'opacity-50 cursor-not-allowed': idx === 0 }"
+                  :aria-label="$t('remove')"
+                >
+                  −
+                </button>
+              </div>
+
+              <div
+                class="w-full grid"
+                :style="{ gridTemplateColumns: '10rem 1fr' }"
+              >
+                <div></div>
+                <div class="flex justify-between items-center w-full">
+                  <span
+                    class="label-text-alt text-error text-xs"
+                    :class="{
+                      invisible: !(
+                        entry.key && !isValidApiKey(entry.service, entry.key)
+                      )
+                    }"
+                  >
+                    {{ $t('invalid_debrid_api_key') }}
+                  </span>
+
+                  <a
+                    :href="debridServicesInfo[entry.service]?.url || '#'"
+                    target="_blank"
+                    class="link link-primary text-sm"
+                    :class="{
+                      invisible: !(
+                        entry.service && debridServicesInfo[entry.service]?.url
+                      )
+                    }"
+                    rel="noreferrer noopener"
+                  >
+                    {{ $t('get_api_key_here') }}
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex justify-end items-center gap-2">
+              <button
+                type="button"
+                class="btn btn-primary"
+                @click="addDebridEntry"
+                :disabled="!canAddDebridEntry"
+              >
+                +
+              </button>
+            </div>
           </div>
         </div>
       </fieldset>
