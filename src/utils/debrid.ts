@@ -6,11 +6,27 @@ export type DebridService =
   | 'torbox';
 
 export const debridServicesInfo = {
-  realdebrid: { name: 'RD', url: 'https://real-debrid.com/apitoken' },
-  alldebrid: { name: 'AD', url: 'https://alldebrid.com/apikeys' },
-  premiumize: { name: 'PM', url: 'https://www.premiumize.me/account' },
-  debridlink: { name: 'DL', url: 'https://debrid-link.com/webapp/apikey' },
-  torbox: { name: 'TB', url: 'https://torbox.app/settings' }
+  realdebrid: {
+    name: 'RD',
+    label: 'RealDebrid',
+    url: 'https://real-debrid.com/apitoken'
+  },
+  alldebrid: {
+    name: 'AD',
+    label: 'AllDebrid',
+    url: 'https://alldebrid.com/apikeys'
+  },
+  premiumize: {
+    name: 'PM',
+    label: 'Premiumize',
+    url: 'https://www.premiumize.me/account'
+  },
+  debridlink: {
+    name: 'DL',
+    label: 'DebridLink',
+    url: 'https://debrid-link.com/webapp/apikey'
+  },
+  torbox: { name: 'TB', label: 'TorBox', url: 'https://torbox.app/settings' }
 };
 
 export const isValidApiKey = (
