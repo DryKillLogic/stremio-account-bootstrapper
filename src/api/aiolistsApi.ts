@@ -1,6 +1,6 @@
 import { getRequest, postRequest } from '../utils/http';
 
-const API_BASE_URL = 'https://aiolistsfortheweebs.midnightignite.me';
+const API_BASE_URL = 'https://aiolists.elfhosted.com';
 
 type aiolistsResponse = {
   success: boolean;
