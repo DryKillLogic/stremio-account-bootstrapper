@@ -1,5 +1,5 @@
 export * from './types';
-export * from './aiolists';
+export { configureAioMetadata } from './aiometadata';
 export { configureTorrentio } from './torrentio';
 export { configurePeerflix } from './peerflix';
 export { configureMediaFusion } from './mediafusion';

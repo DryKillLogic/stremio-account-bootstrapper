@@ -4,13 +4,7 @@ import { createI18n } from 'vue-i18n';
 import { inject } from '@vercel/analytics';
 import App from './App.vue';
 import Notifications from './components/Notifications.vue';
-import en from './locales/en.json';
-import es from './locales/es.json';
-import fr from './locales/fr.json';
-import it from './locales/it.json';
-import de from './locales/de.json';
-import pt from './locales/pt.json';
-import nl from './locales/nl.json';
+import { LOCALE_MESSAGES } from './locales';
 
 inject();
 
@@ -29,20 +23,10 @@ if (!savedLang) {
   localStorage.setItem('language', savedLang);
 }
 
-const messages = {
-  en,
-  es,
-  fr,
-  it,
-  de,
-  pt,
-  nl
-} as unknown as Record<string, any>;
-
 const i18n = createI18n({
   legacy: false,
   locale: savedLang,
-  messages
+  messages: LOCALE_MESSAGES
 } as any);
 
 const app = createApp(App);

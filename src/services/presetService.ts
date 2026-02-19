@@ -9,7 +9,7 @@ import type {
   SquirrellyRenderer
 } from './addons';
 import {
-  configureAIOLists,
+  configureAioMetadata,
   configureTorrentio,
   configurePeerflix,
   configureMediaFusion,
@@ -33,6 +33,7 @@ interface BuildPresetServiceParams {
   maxSize: string | number;
   rpdbKey?: string;
   debridEntries?: DebridEntry[];
+  password: string;
 }
 
 export async function buildPresetService(params: BuildPresetServiceParams) {
@@ -44,7 +45,8 @@ export async function buildPresetService(params: BuildPresetServiceParams) {
     options,
     maxSize,
     rpdbKey,
-    debridEntries = []
+    debridEntries = [],
+    password
   } = params;
 
   const data: any = await getRequest('/preset.json');
@@ -53,7 +55,8 @@ export async function buildPresetService(params: BuildPresetServiceParams) {
   let presetConfig: any = {};
   let no4k = options.includes('no4k');
   let cached = options.includes('cached');
-  let limit = ['minimal', 'kids'].includes(preset) ? 2 : 10;
+  let kids = options.includes('kids');
+  let limit = preset === 'minimal' ? 5 : 10;
   let size = maxSize ? maxSize : '';
 
   const mediaFusionConfig = data.mediafusionConfig;
@@ -91,8 +94,15 @@ export async function buildPresetService(params: BuildPresetServiceParams) {
     });
   }
 
-  // Configure AIOLists
-  await configureAIOLists(presetConfig, data, preset, language, rpdbKey);
+  // Configure AIOMetadata
+  await configureAioMetadata(
+    presetConfig,
+    data,
+    language,
+    kids,
+    password,
+    rpdbKey
+  );
 
   // Normalize and validate debrid services
   const validatedDebridEntries: DebridEntry[] = (debridEntries || [])

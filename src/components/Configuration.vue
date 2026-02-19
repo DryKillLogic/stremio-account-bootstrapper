@@ -15,6 +15,7 @@ import {
   buildPresetService,
   loadPresetService
 } from '../services/presetService.ts';
+import { generatePassword } from '../utils/password.ts';
 
 const { t } = useI18n();
 
@@ -37,6 +38,9 @@ let preset = ref('standard');
 let debridService = ref('');
 let debridEntries = ref([{ service: '', key: '' }]);
 let debridServiceName = '';
+
+let isPasswordModalVisible = ref(false);
+let generatedPassword = ref(generatePassword());
 
 const MAX_CUSTOM_ADDONS = 10;
 const MAX_DEBRID_ENTRIES = 5;
@@ -101,7 +105,8 @@ async function loadUserAddons() {
       maxSize: maxSize.value,
       rpdbKey: rpdbKey.value,
       debridEntries: debridEntries.value,
-      isDebridApiKeyValid: isDebridApiKeyValid.value
+      isDebridApiKeyValid: isDebridApiKeyValid.value,
+      password: generatedPassword.value
     });
 
     addons.value = selectedAddons;
@@ -139,6 +144,7 @@ async function syncUserAddons() {
         debrid: debridService.value || ''
       }
     });
+    isPasswordModalVisible.value = true;
     console.log('Sync complete: ', data);
   } catch (error) {
     addNotification(error.message || t('failed_syncing_addons', 'error'));
@@ -146,6 +152,16 @@ async function syncUserAddons() {
   } finally {
     isSyncAddons.value = false;
   }
+}
+
+function closePasswordModal() {
+  isPasswordModalVisible.value = false;
+  document.body.classList.remove('modal-open');
+}
+
+function copyPassword() {
+  navigator.clipboard.writeText(generatedPassword.value);
+  addNotification(t('password_copied'), 'success');
 }
 
 function removeAddon(idx) {
@@ -258,15 +274,6 @@ function resetEntryKey(idx) {
               class="radio radio-primary"
             />
             <span class="label-text ml-2">{{ $t('no_streams') }}</span>
-          </label>
-          <label class="label cursor-pointer">
-            <input
-              type="radio"
-              value="kids"
-              v-model="preset"
-              class="radio radio-primary"
-            />
-            <span class="label-text ml-2">{{ $t('kids') }}</span>
           </label>
           <label class="label cursor-pointer">
             <input
@@ -599,6 +606,15 @@ function resetEntryKey(idx) {
               </option>
             </select>
           </label>
+          <label class="label cursor-pointer">
+            <input
+              type="checkbox"
+              value="kids"
+              v-model="options"
+              class="checkbox checkbox-primary"
+            />
+            <span class="label-text ml-2">{{ $t('kids') }}</span>
+          </label>
         </div>
       </fieldset>
 
@@ -701,6 +717,33 @@ function resetEntryKey(idx) {
       </fieldset>
     </form>
   </section>
+
+  <!-- Password Modal -->
+  <dialog v-if="isPasswordModalVisible" class="modal modal-open">
+    <div class="modal-box">
+      <button
+        class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+        @click="closePasswordModal"
+      >
+        ✕
+      </button>
+      <h3 class="font-bold text-lg mb-4">{{ $t('password_title') }}</h3>
+      <p class="mb-4">{{ $t('password_message') }}</p>
+      <div
+        class="bg-base-200 p-4 rounded-lg mb-4 font-mono text-center text-lg"
+      >
+        {{ generatedPassword }}
+      </div>
+      <div class="modal-action">
+        <button class="btn btn-primary" @click="copyPassword">
+          {{ $t('password_copy') }}
+        </button>
+        <button class="btn" @click="closePasswordModal">
+          {{ $t('close') }}
+        </button>
+      </div>
+    </div>
+  </dialog>
 
   <!-- Edit Modal -->
   <dialog v-if="isEditModalVisible" class="modal modal-open">
