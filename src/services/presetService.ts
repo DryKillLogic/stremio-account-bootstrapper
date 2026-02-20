@@ -52,22 +52,33 @@ export async function buildPresetService(params: BuildPresetServiceParams) {
   const data: any = await getRequest('/preset.json');
   if (!data) throw new Error('Failed to fetch presets');
 
+  const mediaFusionConfig = data.mediafusionConfig;
   let presetConfig: any = {};
   let no4k = options.includes('no4k');
   let cached = options.includes('cached');
   let kids = options.includes('kids');
   let limit = preset === 'minimal' ? 5 : 10;
   let size = maxSize ? maxSize : '';
+  let presetKeys = data.presets[preset];
 
-  const mediaFusionConfig = data.mediafusionConfig;
-
-  // Preset
-  presetConfig = _.pick(
+  let presetData =
     language === 'en'
       ? data.languages[language]
-      : _.merge({}, data.languages.en, data.languages[language]),
-    data.presets[preset]
-  );
+      : _.merge({}, data.languages.en, data.languages[language]);
+
+  // Region-specific addons
+  if (language === 'es-ES') {
+    presetKeys = [...presetKeys, 'cometa', 'peerflix'];
+  } else if (language === 'es-MX') {
+    presetKeys = [...presetKeys, 'cometa', 'notorrent'];
+  } else if (language === 'pt-BR') {
+    presetKeys = [...presetKeys, 'brazucatorrents'];
+  } else if (language === 'fr') {
+    presetKeys = [...presetKeys, 'cometfr'];
+  }
+
+  // Preset config
+  presetConfig = _.pick(presetData, presetKeys);
 
   // Custom addons
   if (customAddons.length > 0) {
@@ -190,11 +201,32 @@ export async function buildPresetService(params: BuildPresetServiceParams) {
   // Comet
   configureComet(presetConfig, context);
 
+  // Cometa
+  configureComet(presetConfig, context, 'cometa');
+
+  // CometFR
+  configureComet(presetConfig, context, 'cometfr');
+
   // TorrentsDB
   configureTorrentsDB(presetConfig, context);
 
   // StremThru Torz
   configureStremThruTorz(presetConfig, context);
+
+  // Brazuca Torrents
+  const brazucaTorrentsResult = configureTorrentio(
+    presetConfig,
+    context,
+    Sqrl,
+    'brazucatorrents'
+  );
+  if (brazucaTorrentsResult.shouldReplace && brazucaTorrentsResult.rebuilt) {
+    presetConfig = replaceAddonKey(
+      presetConfig,
+      'brazucatorrents',
+      brazucaTorrentsResult.rebuilt
+    );
+  }
 
   // Configure or remove debrid-only addons
   if (validatedDebridEntries.length > 0) {

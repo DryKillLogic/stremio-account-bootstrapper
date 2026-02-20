@@ -29,7 +29,6 @@
       "stremthrutorz",
       "sootio",
       "torbox",
-      "peerflix",
       "jackettio",
       "torrentsdb",
       "tpbplus",
@@ -219,8 +218,8 @@
             }
           ],
           "types": ["movie", "series", "anime", "other"],
-          "logo": "https://i.imgur.com/jmVoVMu.jpeg",
-          "background": "https://i.imgur.com/WwnXB3k.jpeg",
+          "logo": "https://raw.githubusercontent.com/g0ldyy/comet/refs/heads/main/comet/assets/icon.png",
+          "background": "https://raw.githubusercontent.com/g0ldyy/comet/refs/heads/main/comet/assets/background.png",
           "behaviorHints": {
             "configurable": true,
             "configurationRequired": false
@@ -338,30 +337,6 @@
           "resources": ["catalog", "stream"],
           "types": ["movie", "series", "anime", "other"],
           "idPrefixes": ["tt"],
-          "behaviorHints": {
-            "configurable": true,
-            "configurationRequired": false
-          }
-        }
-      },
-      "peerflix": {
-        "transportUrl": "https://addon.peerflix.mov/language=en%7Cqualityfilter=threed,unknown,screener,vhs,sd{{it.no4k}}{{it.transportUrl}}%7Csort=quality-desc,language-desc{{it.sort}}/manifest.json",
-        "manifest": {
-          "id": "com.keopps.peerflix",
-          "version": "2.7.4",
-          "name": "Peerflix",
-          "description": "Peerflix proporciona los mejores enlaces en español e inglés de películas y series de TV en Stremio.Para configurar proveedores de chache, RealDebrid/Premiumize/AllDebrid/DebridLink/Offcloud/Put.io/Torbox visita https://addon.peerflix.mov/configure",
-          "catalogs": [],
-          "resources": [
-            {
-              "name": "stream",
-              "types": ["movie", "series"],
-              "idPrefixes": ["tt", "kitsu"]
-            }
-          ],
-          "types": ["movie", "series"],
-          "background": "https://i.ibb.co/vL3SKgX/peerflix-background-2.jpg",
-          "logo": "https://peerflix.mov/static/logo.png",
           "behaviorHints": {
             "configurable": true,
             "configurationRequired": false
@@ -1675,6 +1650,30 @@
       "comet": {
         "transportUrl": "https://comet.feels.legal/eyJtYXhSZXN1bHRzUGVyUmVzb2x1dGlvbiI6MTAsIm1heFNpemUiOjAsImNhY2hlZE9ubHkiOmZhbHNlLCJyZW1vdmVUcmFzaCI6dHJ1ZSwicmVzdWx0Rm9ybWF0IjpbImFsbCJdLCJkZWJyaWRTZXJ2aWNlIjoidG9ycmVudCIsImRlYnJpZEFwaUtleSI6IiIsImRlYnJpZFN0cmVhbVByb3h5UGFzc3dvcmQiOiIiLCJsYW5ndWFnZXMiOnsiZXhjbHVkZSI6W10sInByZWZlcnJlZCI6WyJsYSJdfSwicmVzb2x1dGlvbnMiOnsicjI0MHAiOmZhbHNlLCJyMzYwcCI6ZmFsc2UsInVua25vd24iOmZhbHNlfSwib3B0aW9ucyI6eyJyZW1vdmVfcmFua3NfdW5kZXIiOi0xMDAwMDAwMDAwMCwiYWxsb3dfZW5nbGlzaF9pbl9sYW5ndWFnZXMiOmZhbHNlLCJyZW1vdmVfdW5rbm93bl9sYW5ndWFnZXMiOmZhbHNlfX0=/manifest.json"
       },
+      "cometa": {
+        "transportUrl": "https://cometa.stremx.net/eyJtYXhSZXN1bHRzUGVyUmVzb2x1dGlvbiI6MTAsIm1heFNpemUiOjAsImNhY2hlZE9ubHkiOmZhbHNlLCJyZW1vdmVUcmFzaCI6dHJ1ZSwicmVzdWx0Rm9ybWF0IjpbImFsbCJdLCJkZWJyaWRTZXJ2aWNlIjoidG9ycmVudCIsImRlYnJpZEFwaUtleSI6IiIsImRlYnJpZFN0cmVhbVByb3h5UGFzc3dvcmQiOiIiLCJsYW5ndWFnZXMiOnsiZXhjbHVkZSI6W10sInByZWZlcnJlZCI6WyJsYSJdfSwicmVzb2x1dGlvbnMiOnsicjI0MHAiOmZhbHNlLCJyMzYwcCI6ZmFsc2UsInVua25vd24iOmZhbHNlfSwib3B0aW9ucyI6eyJyZW1vdmVfcmFua3NfdW5kZXIiOi0xMDAwMDAwMDAwMCwiYWxsb3dfZW5nbGlzaF9pbl9sYW5ndWFnZXMiOmZhbHNlLCJyZW1vdmVfdW5rbm93bl9sYW5ndWFnZXMiOmZhbHNlfX0=/manifest.json",
+        "manifest": {
+          "id": "stremio.comet.fast",
+          "description": "Stremio's fastest torrent/debrid search add-on.",
+          "version": "2.0.0",
+          "catalogs": [],
+          "resources": [
+            {
+              "name": "stream",
+              "types": ["movie", "series"],
+              "idPrefixes": ["tt", "kitsu"]
+            }
+          ],
+          "types": ["movie", "series", "anime", "other"],
+          "logo": "https://i.ibb.co/DfD7n4xv/meteor.png",
+          "background": "https://raw.githubusercontent.com/g0ldyy/comet/refs/heads/main/comet/assets/background.png",
+          "behaviorHints": {
+            "configurable": true,
+            "configurationRequired": false
+          },
+          "name": "Cometa"
+        }
+      },
       "jackettio": {
         "transportUrl": "https://jackettio.elfhosted.com/eyJtYXhUb3JyZW50cyI6OCwicHJpb3RpemVQYWNrVG9ycmVudHMiOjIsImV4Y2x1ZGVLZXl3b3JkcyI6WyJjYW0iLCJzY3JlZW5lciJdLCJkZWJyaWRJZCI6IiIsImhpZGVVbmNhY2hlZCI6ZmFsc2UsInNvcnRDYWNoZWQiOltbInF1YWxpdHkiLHRydWVdLFsic2l6ZSIsdHJ1ZV1dLCJzb3J0VW5jYWNoZWQiOltbInF1YWxpdHkiLHRydWVdLFsic2VlZGVycyIsdHJ1ZV1dLCJmb3JjZUNhY2hlTmV4dEVwaXNvZGUiOmZhbHNlLCJwcmlvdGl6ZUxhbmd1YWdlcyI6WyJzcGFuaXNoIl0sImluZGV4ZXJUaW1lb3V0U2VjIjo2MCwibWV0YUxhbmd1YWdlIjoiIiwiZW5hYmxlTWVkaWFGbG93IjpmYWxzZSwibWVkaWFmbG93UHJveHlVcmwiOiIiLCJtZWRpYWZsb3dBcGlQYXNzd29yZCI6IiIsIm1lZGlhZmxvd1B1YmxpY0lwIjoiIiwidXNlU3RyZW1UaHJ1Ijp0cnVlLCJzdHJlbXRocnVVcmwiOiJodHRwOi8vZWxmaG9zdGVkLWludGVybmFsLnN0cmVtdGhydSIsInF1YWxpdGllcyI6WzQ4MCw3MjAsMTA4MCwyMTYwXSwiaW5kZXhlcnMiOlsiYml0c2VhcmNoIiwiZXp0diIsInRoZXBpcmF0ZWJheSIsInRoZXJhcmJnIiwieXRzIl0sImRlYnJpZEFwaUtleSI6IiJ9/manifest.json"
       },
@@ -1686,6 +1685,21 @@
       },
       "webstreamr": {
         "transportUrl": "https://webstreamr.hayd.uk/%7B%22multi%22%3A%22on%22%2C%22mx%22%3A%22on%22%2C%22mediaFlowProxyUrl%22%3A%22%22%2C%22mediaFlowProxyPassword%22%3A%22%22%7D/manifest.json"
+      },
+      "notorrent": {
+        "transportUrl": "https://addon-osvh.onrender.com/manifest.json",
+        "manifest": {
+          "id": "com.notorrent.addon",
+          "version": "2.0.0",
+          "name": "NoTorrent",
+          "description": "All TV shows from Netflix, Disney+, Prime Video, Apple TV+, Paramount+, HBO Max, Crunchyroll, and over 24K movies in English & Spanish.",
+          "resources": ["catalog", "stream", "meta"],
+          "types": ["series", "movie"],
+          "idPrefixes": ["tmdb_", "tt"],
+          "catalogs": [],
+          "background": "https://aqua-vulture-337623.hostingersite.com/addon//background.jpg",
+          "logo": "https://styles.redditmedia.com/t5_fvvpco/styles/profileIcon_c8ye4t9j6x2g1.png"
+        }
       },
       "streailer": {
         "transportUrl": "https://streailer.elfhosted.com/%7B%22language%22%3A%22es-MX%22%2C%22externalLink%22%3Afalse%2C%22showRecap%22%3Atrue%2C%22onlyRecaps%22%3Afalse%7D/manifest.json"
@@ -1704,6 +1718,30 @@
       "comet": {
         "transportUrl": "https://comet.feels.legal/eyJtYXhSZXN1bHRzUGVyUmVzb2x1dGlvbiI6MTAsIm1heFNpemUiOjAsImNhY2hlZE9ubHkiOmZhbHNlLCJyZW1vdmVUcmFzaCI6dHJ1ZSwicmVzdWx0Rm9ybWF0IjpbImFsbCJdLCJkZWJyaWRTZXJ2aWNlIjoidG9ycmVudCIsImRlYnJpZEFwaUtleSI6IiIsImRlYnJpZFN0cmVhbVByb3h5UGFzc3dvcmQiOiIiLCJsYW5ndWFnZXMiOnsiZXhjbHVkZSI6W10sInByZWZlcnJlZCI6WyJlcyJdfSwicmVzb2x1dGlvbnMiOnsicjI0MHAiOmZhbHNlLCJyMzYwcCI6ZmFsc2UsInVua25vd24iOmZhbHNlfSwib3B0aW9ucyI6eyJyZW1vdmVfcmFua3NfdW5kZXIiOi0xMDAwMDAwMDAwMCwiYWxsb3dfZW5nbGlzaF9pbl9sYW5ndWFnZXMiOmZhbHNlLCJyZW1vdmVfdW5rbm93bl9sYW5ndWFnZXMiOmZhbHNlfX0=/manifest.json"
       },
+      "cometa": {
+        "transportUrl": "https://cometa.stremx.net/eyJtYXhSZXN1bHRzUGVyUmVzb2x1dGlvbiI6MTAsIm1heFNpemUiOjAsImNhY2hlZE9ubHkiOmZhbHNlLCJyZW1vdmVUcmFzaCI6dHJ1ZSwicmVzdWx0Rm9ybWF0IjpbImFsbCJdLCJkZWJyaWRTZXJ2aWNlIjoidG9ycmVudCIsImRlYnJpZEFwaUtleSI6IiIsImRlYnJpZFN0cmVhbVByb3h5UGFzc3dvcmQiOiIiLCJsYW5ndWFnZXMiOnsiZXhjbHVkZSI6W10sInByZWZlcnJlZCI6WyJlcyJdfSwicmVzb2x1dGlvbnMiOnsicjI0MHAiOmZhbHNlLCJyMzYwcCI6ZmFsc2UsInVua25vd24iOmZhbHNlfSwib3B0aW9ucyI6eyJyZW1vdmVfcmFua3NfdW5kZXIiOi0xMDAwMDAwMDAwMCwiYWxsb3dfZW5nbGlzaF9pbl9sYW5ndWFnZXMiOmZhbHNlLCJyZW1vdmVfdW5rbm93bl9sYW5ndWFnZXMiOmZhbHNlfX0=/manifest.json",
+        "manifest": {
+          "id": "stremio.comet.fast",
+          "description": "Stremio's fastest torrent/debrid search add-on.",
+          "version": "2.0.0",
+          "catalogs": [],
+          "resources": [
+            {
+              "name": "stream",
+              "types": ["movie", "series"],
+              "idPrefixes": ["tt", "kitsu"]
+            }
+          ],
+          "types": ["movie", "series", "anime", "other"],
+          "logo": "https://i.ibb.co/DfD7n4xv/meteor.png",
+          "background": "https://raw.githubusercontent.com/g0ldyy/comet/refs/heads/main/comet/assets/background.png",
+          "behaviorHints": {
+            "configurable": true,
+            "configurationRequired": false
+          },
+          "name": "Cometa"
+        }
+      },
       "jackettio": {
         "transportUrl": "https://jackettio.elfhosted.com/eyJtYXhUb3JyZW50cyI6OCwicHJpb3RpemVQYWNrVG9ycmVudHMiOjIsImV4Y2x1ZGVLZXl3b3JkcyI6WyJjYW0iLCJzY3JlZW5lciJdLCJkZWJyaWRJZCI6IiIsImhpZGVVbmNhY2hlZCI6ZmFsc2UsInNvcnRDYWNoZWQiOltbInF1YWxpdHkiLHRydWVdLFsic2l6ZSIsdHJ1ZV1dLCJzb3J0VW5jYWNoZWQiOltbInF1YWxpdHkiLHRydWVdLFsic2VlZGVycyIsdHJ1ZV1dLCJmb3JjZUNhY2hlTmV4dEVwaXNvZGUiOmZhbHNlLCJwcmlvdGl6ZUxhbmd1YWdlcyI6WyJzcGFuaXNoIl0sImluZGV4ZXJUaW1lb3V0U2VjIjo2MCwibWV0YUxhbmd1YWdlIjoiIiwiZW5hYmxlTWVkaWFGbG93IjpmYWxzZSwibWVkaWFmbG93UHJveHlVcmwiOiIiLCJtZWRpYWZsb3dBcGlQYXNzd29yZCI6IiIsIm1lZGlhZmxvd1B1YmxpY0lwIjoiIiwidXNlU3RyZW1UaHJ1Ijp0cnVlLCJzdHJlbXRocnVVcmwiOiJodHRwOi8vZWxmaG9zdGVkLWludGVybmFsLnN0cmVtdGhydSIsInF1YWxpdGllcyI6WzQ4MCw3MjAsMTA4MCwyMTYwXSwiaW5kZXhlcnMiOlsiYml0c2VhcmNoIiwiZXp0diIsInRoZXBpcmF0ZWJheSIsInRoZXJhcmJnIiwieXRzIl0sImRlYnJpZEFwaUtleSI6IiJ9/manifest.json"
       },
@@ -1714,7 +1752,28 @@
         "transportUrl": "https://sootiofortheweebs.midnightignite.me/%7B%22DebridServices%22%3A%5B%7B%22provider%22%3A%22%22%2C%22apiKey%22%3A%22%22%7D%5D%2C%22Languages%22%3A%5B%22english%22%2C%22spanish%22%5D%2C%22minSize%22%3A0%2C%22maxSize%22%3A200%2C%22ShowCatalog%22%3Afalse%2C%22DebridProvider%22%3A%22%22%2C%22DebridApiKey%22%3A%22%22%7D/manifest.json"
       },
       "peerflix": {
-        "transportUrl": "https://addon.peerflix.mov/language=es,en%7Cqualityfilter=threed,unknown,screener,vhs,sd{{it.no4k}}{{it.transportUrl}}%7Csort=quality-desc,language-desc{{it.sort}}/manifest.json"
+        "transportUrl": "https://addon.peerflix.mov/language=es,en%7Cqualityfilter=threed,unknown,screener,vhs,sd{{it.no4k}}{{it.transportUrl}}%7Csort=quality-desc,language-desc{{it.sort}}/manifest.json",
+        "manifest": {
+          "id": "com.keopps.peerflix",
+          "version": "2.7.4",
+          "name": "Peerflix",
+          "description": "Peerflix proporciona los mejores enlaces en español e inglés de películas y series de TV en Stremio.Para configurar proveedores de chache, RealDebrid/Premiumize/AllDebrid/DebridLink/Offcloud/Put.io/Torbox visita https://addon.peerflix.mov/configure",
+          "catalogs": [],
+          "resources": [
+            {
+              "name": "stream",
+              "types": ["movie", "series"],
+              "idPrefixes": ["tt", "kitsu"]
+            }
+          ],
+          "types": ["movie", "series"],
+          "background": "https://i.ibb.co/vL3SKgX/peerflix-background-2.jpg",
+          "logo": "https://peerflix.mov/static/logo.png",
+          "behaviorHints": {
+            "configurable": true,
+            "configurationRequired": false
+          }
+        }
       },
       "webstreamr": {
         "transportUrl": "https://webstreamr.hayd.uk/%7B%22multi%22%3A%22on%22%2C%22es%22%3A%22on%22%2C%22mediaFlowProxyUrl%22%3A%22%22%2C%22mediaFlowProxyPassword%22%3A%22%22%7D/manifest.json"
@@ -1753,6 +1812,31 @@
       },
       "opensubtitlespro": {
         "transportUrl": "https://opensubtitlesv3-pro.dexter21767.com/eyJsYW5ncyI6WyJwb3J0dWd1ZXNlLWJyIl0sInNvdXJjZSI6ImFsbCIsImFpVHJhbnNsYXRlZCI6dHJ1ZSwiYXV0b0FkanVzdG1lbnQiOnRydWV9/manifest.json"
+      },
+      "brazucatorrents": {
+        "transportUrl": "https://94c8cb9f702d-brazuca-torrents.baby-beamup.club/qualityfilter=scr,cam,unknown,threed,{{it.no4k}}|limit={{it.limit}}{{it.maxSize}}{{it.transportUrl}}/manifest.json",
+        "manifest": {
+          "id": "com.stremio.brazuca.addon",
+          "version": "0.1.1",
+          "name": "Brazuca Torrents",
+          "description": "Fornece streams de filmes e series dublados de provedores de torrent. Suporta atualmente ApacheTorrent(+), BaixaFilmesTorrentHD(+), EraiRaws(+), HDRTorrent(+), NyaaSi(+), RedeTorrent(+), VacaTorrent(+). (This addon was made based on Torrentio, all credits are to its creator).",
+          "catalogs": [],
+          "resources": [
+            {
+              "name": "stream",
+              "types": ["movie", "series", "anime"],
+              "idPrefixes": ["tt", "kitsu"]
+            }
+          ],
+          "types": ["movie", "series", "anime", "other"],
+          "background": "https://i.imgur.com/QnbEGow.png",
+          "logo": "https://i.imgur.com/KVpfrAk.png",
+          "behaviorHints": {
+            "configurable": true,
+            "configurationRequired": false,
+            "p2p": true
+          }
+        }
       }
     },
     "pt-PT": {
@@ -1787,6 +1871,30 @@
       },
       "comet": {
         "transportUrl": "https://comet.feels.legal/eyJtYXhSZXN1bHRzUGVyUmVzb2x1dGlvbiI6MTAsIm1heFNpemUiOjAsImNhY2hlZE9ubHkiOmZhbHNlLCJyZW1vdmVUcmFzaCI6dHJ1ZSwicmVzdWx0Rm9ybWF0IjpbImFsbCJdLCJkZWJyaWRTZXJ2aWNlIjoidG9ycmVudCIsImRlYnJpZEFwaUtleSI6IiIsImRlYnJpZFN0cmVhbVByb3h5UGFzc3dvcmQiOiIiLCJsYW5ndWFnZXMiOnsiZXhjbHVkZSI6W10sInByZWZlcnJlZCI6WyJmciJdfSwicmVzb2x1dGlvbnMiOnsicjI0MHAiOmZhbHNlLCJyMzYwcCI6ZmFsc2UsInVua25vd24iOmZhbHNlfSwib3B0aW9ucyI6eyJyZW1vdmVfcmFua3NfdW5kZXIiOi0xMDAwMDAwMDAwMCwiYWxsb3dfZW5nbGlzaF9pbl9sYW5ndWFnZXMiOmZhbHNlLCJyZW1vdmVfdW5rbm93bl9sYW5ndWFnZXMiOmZhbHNlfX0=/manifest.json"
+      },
+      "cometfr": {
+        "transportUrl": "https://comet.stremiofr.com/eyJtYXhSZXN1bHRzUGVyUmVzb2x1dGlvbiI6MTAsIm1heFNpemUiOjAsImNhY2hlZE9ubHkiOmZhbHNlLCJyZW1vdmVUcmFzaCI6dHJ1ZSwicmVzdWx0Rm9ybWF0IjpbImFsbCJdLCJkZWJyaWRTZXJ2aWNlIjoidG9ycmVudCIsImRlYnJpZEFwaUtleSI6IiIsImRlYnJpZFN0cmVhbVByb3h5UGFzc3dvcmQiOiIiLCJsYW5ndWFnZXMiOnsiZXhjbHVkZSI6W10sInByZWZlcnJlZCI6WyJmciJdfSwicmVzb2x1dGlvbnMiOnsicjI0MHAiOmZhbHNlLCJyMzYwcCI6ZmFsc2UsInVua25vd24iOmZhbHNlfSwib3B0aW9ucyI6eyJyZW1vdmVfcmFua3NfdW5kZXIiOi0xMDAwMDAwMDAwMCwiYWxsb3dfZW5nbGlzaF9pbl9sYW5ndWFnZXMiOmZhbHNlLCJyZW1vdmVfdW5rbm93bl9sYW5ndWFnZXMiOmZhbHNlfX0=/manifest.json",
+        "manifest": {
+          "id": "stremio.comet.fr",
+          "description": "Stremio's fastest torrent/debrid search add-on.",
+          "version": "2.0.0",
+          "catalogs": [],
+          "resources": [
+            {
+              "name": "stream",
+              "types": ["movie", "series"],
+              "idPrefixes": ["tt", "kitsu"]
+            }
+          ],
+          "types": ["movie", "series", "anime", "other"],
+          "logo": "https://stremiofr.com/upload/logo2.png?t=1734084391554",
+          "background": "https://raw.githubusercontent.com/g0ldyy/comet/refs/heads/main/comet/assets/background.png",
+          "behaviorHints": {
+            "configurable": true,
+            "configurationRequired": false
+          },
+          "name": "CometFR"
+        }
       },
       "jackettio": {
         "transportUrl": "https://jackettio.elfhosted.com/eyJtYXhUb3JyZW50cyI6OCwicHJpb3RpemVQYWNrVG9ycmVudHMiOjIsImV4Y2x1ZGVLZXl3b3JkcyI6WyJjYW0iLCJzY3JlZW5lciJdLCJkZWJyaWRJZCI6IiIsImhpZGVVbmNhY2hlZCI6ZmFsc2UsInNvcnRDYWNoZWQiOltbInF1YWxpdHkiLHRydWVdLFsic2l6ZSIsdHJ1ZV1dLCJzb3J0VW5jYWNoZWQiOltbInF1YWxpdHkiLHRydWVdLFsic2VlZGVycyIsdHJ1ZV1dLCJmb3JjZUNhY2hlTmV4dEVwaXNvZGUiOmZhbHNlLCJwcmlvdGl6ZUxhbmd1YWdlcyI6WyJmcmVuY2giXSwiaW5kZXhlclRpbWVvdXRTZWMiOjYwLCJtZXRhTGFuZ3VhZ2UiOiIiLCJlbmFibGVNZWRpYUZsb3ciOmZhbHNlLCJtZWRpYWZsb3dQcm94eVVybCI6IiIsIm1lZGlhZmxvd0FwaVBhc3N3b3JkIjoiIiwibWVkaWFmbG93UHVibGljSXAiOiIiLCJ1c2VTdHJlbVRocnUiOnRydWUsInN0cmVtdGhydVVybCI6Imh0dHA6Ly9lbGZob3N0ZWQtaW50ZXJuYWwuc3RyZW10aHJ1IiwicXVhbGl0aWVzIjpbNDgwLDcyMCwxMDgwLDIxNjBdLCJpbmRleGVycyI6WyJiaXRzZWFyY2giLCJlenR2IiwidGhlcGlyYXRlYmF5IiwidGhlcmFyYmciLCJ5dHMiXSwiZGVicmlkQXBpS2V5IjoiIn0=/manifest.json"

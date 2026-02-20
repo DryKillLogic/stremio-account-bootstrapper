@@ -4,9 +4,10 @@ import type { AddonConfigContext } from './types';
 
 export function configureComet(
   presetConfig: any,
-  context: AddonConfigContext
+  context: AddonConfigContext,
+  variantName: string = 'comet'
 ): void {
-  if (!presetConfig.comet) return;
+  if (!presetConfig[variantName]) return;
 
   const { debridEntries, cached, limit, size, no4k, debridServiceName } =
     context;
@@ -18,7 +19,7 @@ export function configureComet(
 
   updateTransportUrl({
     presetConfig,
-    serviceKey: 'comet',
+    serviceKey: variantName,
     manifestNameSuffix: debridServiceName,
     updateData: (data: any) => ({
       ...data,

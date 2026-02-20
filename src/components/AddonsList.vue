@@ -77,16 +77,6 @@
     >
       <div class="avatar">
         <div class="w-12 rounded">
-          <img src="/public/logos/peerflix.png" alt="Peerflix" />
-        </div>
-      </div>
-      <p class="text-sm mt-2 text-center">Peerflix</p>
-    </div>
-    <div
-      class="flex flex-col items-center p-4 hover:bg-base-200 rounded-lg transition-colors"
-    >
-      <div class="avatar">
-        <div class="w-12 rounded">
           <img src="/public/logos/torbox.png" alt="TorBox" />
         </div>
       </div>
@@ -107,6 +97,46 @@
     >
       <div class="avatar">
         <div class="w-12 rounded">
+          <img src="/public/logos/peerflix.png" alt="Peerflix" />
+        </div>
+      </div>
+      <p class="text-sm mt-2 text-center">Peerflix</p>
+    </div>
+    <div
+      class="flex flex-col items-center p-4 hover:bg-base-200 rounded-lg transition-colors"
+    >
+      <div class="avatar">
+        <div class="w-12 rounded">
+          <img src="/public/logos/cometa.png" alt="Cometa" />
+        </div>
+      </div>
+      <p class="text-sm mt-2 text-center">Cometa</p>
+    </div>
+    <div
+      class="flex flex-col items-center p-4 hover:bg-base-200 rounded-lg transition-colors"
+    >
+      <div class="avatar">
+        <div class="w-12 rounded">
+          <img src="/public/logos/cometfr.png" alt="CometFR" />
+        </div>
+      </div>
+      <p class="text-sm mt-2 text-center">CometFR</p>
+    </div>
+    <div
+      class="flex flex-col items-center p-4 hover:bg-base-200 rounded-lg transition-colors"
+    >
+      <div class="avatar">
+        <div class="w-12 rounded">
+          <img src="/public/logos/brazucatorrents.png" alt="Brazuca Torrents" />
+        </div>
+      </div>
+      <p class="text-sm mt-2 text-center">Brazuca Torrents</p>
+    </div>
+    <div
+      class="flex flex-col items-center p-4 hover:bg-base-200 rounded-lg transition-colors"
+    >
+      <div class="avatar">
+        <div class="w-12 rounded">
           <img src="/public/logos/nuvio.png" alt="Nuvio Streams" />
         </div>
       </div>
@@ -121,6 +151,16 @@
         </div>
       </div>
       <p class="text-sm mt-2 text-center">WebStreamr</p>
+    </div>
+    <div
+      class="flex flex-col items-center p-4 hover:bg-base-200 rounded-lg transition-colors"
+    >
+      <div class="avatar">
+        <div class="w-12 rounded">
+          <img src="/public/logos/notorrent.png" alt="NoTorrent" />
+        </div>
+      </div>
+      <p class="text-sm mt-2 text-center">NoTorrent</p>
     </div>
     <div
       class="flex flex-col items-center p-4 hover:bg-base-200 rounded-lg transition-colors"

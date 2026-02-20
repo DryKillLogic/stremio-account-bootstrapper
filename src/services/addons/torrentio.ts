@@ -5,15 +5,16 @@ import { debridServicesInfo } from '../../utils/debrid';
 export function configureTorrentio(
   presetConfig: any,
   context: AddonConfigContext,
-  Sqrl: SquirrellyRenderer
+  Sqrl: SquirrellyRenderer,
+  variantName: string = 'torrentio'
 ): { rebuilt?: any; shouldReplace: boolean } {
-  if (!presetConfig.torrentio) return { shouldReplace: false };
+  if (!presetConfig[variantName]) return { shouldReplace: false };
 
   const { debridEntries, no4k, cached, limit, size } = context;
 
   if (debridEntries.length === 0) {
-    presetConfig.torrentio.transportUrl = Sqrl.render(
-      presetConfig.torrentio.transportUrl,
+    presetConfig[variantName].transportUrl = Sqrl.render(
+      presetConfig[variantName].transportUrl,
       {
         transportUrl: '',
         no4k: no4k ? '4k,' : '',
@@ -26,13 +27,13 @@ export function configureTorrentio(
 
   const shouldClone = debridEntries.length >= 2;
   const baseTorrentio = shouldClone
-    ? _.cloneDeep(presetConfig.torrentio)
-    : presetConfig.torrentio;
+    ? _.cloneDeep(presetConfig[variantName])
+    : presetConfig[variantName];
   const rebuilt: any = {};
 
   for (const debrid of debridEntries) {
     const addon = shouldClone ? _.cloneDeep(baseTorrentio) : baseTorrentio;
-    const name = shouldClone ? `torrentio_${debrid.service}` : 'torrentio';
+    const name = shouldClone ? `${variantName}_${debrid.service}` : variantName;
     const servicePair = `${debrid.service}=${debrid.key}`;
 
     addon.transportUrl = Sqrl.render(baseTorrentio.transportUrl, {
