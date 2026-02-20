@@ -334,6 +334,17 @@ function resetEntryKey(idx) {
           <label class="label cursor-pointer">
             <input
               type="radio"
+              value="pt-PT"
+              v-model="language"
+              class="radio radio-primary"
+            />
+            <span class="label-text ml-2"
+              >🇵🇹 {{ $t('portuguese_portugal') }}</span
+            >
+          </label>
+          <label class="label cursor-pointer">
+            <input
+              type="radio"
               value="fr"
               v-model="language"
               class="radio radio-primary"

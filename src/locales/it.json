@@ -184,5 +184,6 @@
   "password_message": "È stata generata una password per te per accedere ai componenti aggiuntivi che richiedono l'autenticazione. Assicurati di copiarla e salvarla in un luogo sicuro, poiché non potrai recuperarla di nuovo.",
   "password_copy": "Copia password",
   "password_copied": "Password copiata negli appunti",
-  "remove": "Rimuovi"
+  "remove": "Rimuovi",
+  "portuguese_portugal": "Portoghese (Portogallo)"
 }

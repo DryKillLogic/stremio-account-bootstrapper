@@ -10,7 +10,7 @@ Stremio Account Bootstrapper lets you set up your Stremio account with just a fe
 
 - Automated process of setting up an account in a couple of minutes.
 - Option to select different presets: minimal, standard, full, and factory.
-- Option to set the preset to different languages: English (US), Spanish (MX), Spanish (ES), Portuguese (BR), French (FR), Italian (IT), German (DE), and Dutch (NL) are currently supported.
+- Option to set the preset to different languages: English (US), Spanish (MX), Spanish (ES), Portuguese (BR), Portuguese (PT), French (FR), Italian (IT), German (DE), and Dutch (NL) are currently supported.
 - Option to create a kid-friendly setup.
 - Backup your current configuration or restore it.
 - Better multilanguage support in Stremio.

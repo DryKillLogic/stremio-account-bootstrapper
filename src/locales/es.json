@@ -181,9 +181,10 @@
   "catalogs_streaming_series_apple_tv_plus_shows": "Series de Apple TV+",
   "catalogs_streaming_movie_netflix_kids_movies": "Películas de Netflix Kids",
   "catalogs_streaming_series_netflix_kids_shows": "Series de Netflix Kids",
-  "password_title": "Generated password",
-  "password_message": "A password has been generated for you to access the addons that require authentication. Please make sure to copy and save it in a safe place, as you won't be able to retrieve it again.",
-  "password_copy": "Copy password",
-  "password_copied": "Password copied to clipboard",
-  "remove": "Remove"
+  "password_title": "Contraseña generada",
+  "password_message": "Se ha generado una contraseña para que accedas a los complementos que requieren autenticación. Asegúrate de copiarla y guardarla en un lugar seguro, ya que no podrás recuperarla nuevamente.",
+  "password_copy": "Copiar contraseña",
+  "password_copied": "Contraseña copiada al portapapeles",
+  "remove": "Eliminar",
+  "portuguese_portugal": "Portugués (Portugal)"
 }

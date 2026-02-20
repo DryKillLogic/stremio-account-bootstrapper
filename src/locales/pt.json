@@ -184,5 +184,6 @@
   "password_message": "Uma senha foi gerada para você acessar os addons que exigem autenticação. Certifique-se de copiar e salvar em um local seguro, pois você não conseguirá recuperá-la novamente.",
   "password_copy": "Copiar senha",
   "password_copied": "Senha copiada para a área de transferência",
-  "remove": "Remover"
+  "remove": "Remover",
+  "portuguese_portugal": "Português (Portugal)"
 }

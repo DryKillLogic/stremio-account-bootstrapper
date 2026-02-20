@@ -181,5 +181,6 @@
   "password_message": "Ein Passwort wurde für dich generiert, um auf die Addons zuzugreifen, die eine Authentifizierung erfordern. Stelle sicher, dass du es kopierst und an einem sicheren Ort speicherst, da du es nicht erneut abrufen kannst.",
   "password_copy": "Passwort kopieren",
   "password_copied": "Passwort in die Zwischenablage kopiert",
-  "remove": "Entfernen"
+  "remove": "Entfernen",
+  "portuguese_portugal": "Portugiesisch (Portugal)"
 }

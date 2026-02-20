@@ -18,6 +18,7 @@ export async function configureMediaFusion(
       'es-MX': 'Latino',
       'es-ES': 'Spanish',
       'pt-BR': 'Portuguese',
+      'pt-PT': 'Portuguese',
       fr: 'French',
       it: 'Italian',
       de: 'German',

@@ -180,5 +180,6 @@
   "password_message": "Er is een wachtwoord voor je gegenereerd om toegang te krijgen tot de addons waarvoor verificatie vereist is. Zorg ervoor dat je het kopieert en op een veilige plek opslaat, want je kunt het niet opnieuw ophalen.",
   "password_copy": "Wachtwoord kopiëren",
   "password_copied": "Wachtwoord gekopieerd naar klembord",
-  "remove": "Verwijderen"
+  "remove": "Verwijderen",
+  "portuguese_portugal": "Portugees (Portugal)"
 }

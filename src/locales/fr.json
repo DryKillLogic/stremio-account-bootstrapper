@@ -184,5 +184,6 @@
   "password_message": "Un mot de passe a été généré pour vous permettre d'accéder aux addons qui nécessitent une authentification. Assurez-vous de le copier et de l'enregistrer dans un endroit sûr, car vous ne pourrez pas le récupérer à nouveau.",
   "password_copy": "Copier le mot de passe",
   "password_copied": "Mot de passe copié dans le presse-papiers",
-  "remove": "Supprimer"
+  "remove": "Supprimer",
+  "portuguese_portugal": "Portugais (Portugal)"
 }
