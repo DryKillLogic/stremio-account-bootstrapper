@@ -85,7 +85,6 @@
   "step3_debrid_api_key": "Passo 3: Inserisci la chiave API debrid (opzionale)",
   "step4_additional_addons": "Passo 4: Addon aggiuntivi (opzionale)",
   "step6_additional_options": "Passo 6: Opzioni aggiuntive (opzionale)",
-  "step7_rpdb_key": "Passo 7: Inserisci la chiave RPDB (opzionale)",
   "step8_load_preset": "Passo 8: Carica preimpostazione",
   "step10_bootstrap_account": "Passo 10: Avvia account",
   "instructions_4": "Seleziona la lingua preferita.",
@@ -119,7 +118,7 @@
   "custom_addon_url": "Inserisci l'URL del manifest dell'addon personalizzato",
   "instructions_12": "Goditi i tuoi film, le tue serie TV e la TV in diretta preferite!",
   "instructions_7": "Inserisci addon personalizzati (opzionale).",
-  "instructions_8": "Inserisci la tua chiave RPDB (opzionale)",
+  "instructions_8": "Configura le opzioni avanzate (opzionale)",
   "instructions_9": "Personalizza la preimpostazione degli addon (opzionale). Puoi rimuovere o ordinare gli addon e rinominare o eliminare i cataloghi AIOMetadata/Anime Kitsu.",
   "instructions_10": "Una volta terminata la personalizzazione, clicca \"Sincronizza con Stremio\" per aggiornare il tuo account.",
   "instructions_11": "Vai alle impostazioni di Stremio per impostare la lingua preferita.",
@@ -185,5 +184,8 @@
   "password_copy": "Copia password",
   "password_copied": "Password copiata negli appunti",
   "remove": "Rimuovi",
-  "portuguese_portugal": "Portoghese (Portogallo)"
+  "portuguese_portugal": "Portoghese (Portogallo)",
+  "step7_advanced_options": "Passo 7: Opzioni avanzate (opzionale)",
+  "enter_tmdb_key": "Inserisci chiave TMDB",
+  "allinone": "Tutto-in-Uno"
 }

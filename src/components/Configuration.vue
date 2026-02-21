@@ -72,10 +72,14 @@ const hasDebridSelected = computed(() =>
 
 let torrentioConfig = '';
 let peerflixConfig = '';
-let rpdbKey = ref('');
 let isEditModalVisible = ref(false);
 let currentManifest = ref({});
 let currentEditIdx = ref(null);
+
+let advancedOptions = ref({
+  rpdbKey: '',
+  tmdbKey: ''
+});
 
 async function loadUserAddons() {
   const key = props.stremioAuthKey;
@@ -103,7 +107,10 @@ async function loadUserAddons() {
       customAddons: customAddons.value,
       options: options.value,
       maxSize: maxSize.value,
-      rpdbKey: rpdbKey.value,
+      advanced: {
+        rpdbKey: advancedOptions.value.rpdbKey,
+        tmdbKey: advancedOptions.value.tmdbKey
+      },
       debridEntries: debridEntries.value,
       isDebridApiKeyValid: isDebridApiKeyValid.value,
       password: generatedPassword.value
@@ -265,6 +272,15 @@ function resetEntryKey(idx) {
               class="radio radio-primary"
             />
             <span class="label-text ml-2">{{ $t('full') }}</span>
+          </label>
+          <label class="label cursor-pointer">
+            <input
+              type="radio"
+              value="allinone"
+              v-model="preset"
+              class="radio radio-primary"
+            />
+            <span class="label-text ml-2">{{ $t('allinone') }}</span>
           </label>
           <label class="label cursor-pointer">
             <input
@@ -629,23 +645,41 @@ function resetEntryKey(idx) {
         </div>
       </fieldset>
 
-      <!-- Step 7: RPDB Key -->
+      <!-- Step 7: Advanced Options -->
       <fieldset class="bg-base-100 p-6 rounded-lg border border-base-300">
         <legend class="text-sm">
-          {{ $t('step7_rpdb_key') }}
-          <a
-            target="_blank"
-            href="https://ratingposterdb.com"
-            class="inline-block align-middle"
-          >
-            <QuestionMarkCircleIcon class="h-5 w-5 text-primary align-middle" />
-          </a>
+          {{ $t('step7_advanced_options') }}
         </legend>
-        <input
-          v-model="rpdbKey"
-          class="input input-bordered w-full"
-          :placeholder="$t('enter_rpdb_key')"
-        />
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+          <div class="flex items-center gap-2">
+            <input
+              v-model="advancedOptions.rpdbKey"
+              class="input input-bordered w-full"
+              :placeholder="$t('enter_rpdb_key')"
+            />
+            <a
+              target="_blank"
+              href="https://ratingposterdb.com"
+              class="inline-block align-middle"
+            >
+              <QuestionMarkCircleIcon class="h-5 w-5 text-primary" />
+            </a>
+          </div>
+          <div class="flex items-center gap-2">
+            <input
+              v-model="advancedOptions.tmdbKey"
+              class="input input-bordered w-full"
+              :placeholder="$t('enter_tmdb_key')"
+            />
+            <a
+              target="_blank"
+              href="https://www.themoviedb.org/settings/api"
+              class="inline-block align-middle"
+            >
+              <QuestionMarkCircleIcon class="h-5 w-5 text-primary" />
+            </a>
+          </div>
+        </div>
       </fieldset>
 
       <!-- Step 8: Load Preset -->

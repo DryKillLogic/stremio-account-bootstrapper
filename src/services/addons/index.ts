@@ -10,3 +10,4 @@ export { configureStremThruTorz } from './stremthrutorz';
 export { configureStremThruStore } from './stremthrustore';
 export { configureSootio } from './sootio';
 export { configureTorbox } from './torbox';
+export { configureAioStreams } from './aiostreams';

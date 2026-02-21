@@ -1,8 +1,6 @@
-import { postRequest } from '../utils/http';
+import { postRequest, PROXY_BASE_URL } from '../utils/http';
 
 const API_BASE_URL = 'https://mediafusionfortheweebs.midnightignite.me';
-const PROXY_BASE_URL =
-  'https://cloudflare-cors-anywhere.drykilllogic.workers.dev/?';
 
 type mediafusionResponse = {
   status: string;

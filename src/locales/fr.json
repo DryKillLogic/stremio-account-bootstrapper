@@ -85,7 +85,6 @@
   "step3_debrid_api_key": "Étape 3 : Saisir la clé API de débridage (optionnel)",
   "step4_additional_addons": "Étape 4 : Addons supplémentaires (optionnel)",
   "step6_additional_options": "Étape 6 : Options supplémentaires (optionnel)",
-  "step7_rpdb_key": "Étape 7 : Saisir la clé RPDB (optionnel)",
   "step8_load_preset": "Étape 8 : Charger le préréglage",
   "step9_customize_addons": "Étape 9 : Personnaliser les addons (optionnel)",
   "step10_bootstrap_account": "Étape 10 : Initialiser le compte",
@@ -119,7 +118,7 @@
   "custom_addon_url": "Entrez l'URL du manifeste de l'addon personnalisé",
   "instructions_12": "Profitez de vos films, séries et TV en direct préférés !",
   "instructions_7": "Saisissez des addons personnalisés (optionnel).",
-  "instructions_8": "Saisissez votre clé RPDB (optionnel)",
+  "instructions_8": "Configurez les options avancées (optionnel)",
   "instructions_9": "Personnalisez le préréglage d'addons (optionnel). Vous pouvez supprimer ou trier les addons, et renommer ou supprimer les catalogues AIOMetadata/Anime Kitsu.",
   "instructions_10": "Une fois la personnalisation terminée, cliquez sur \"Synchroniser avec Stremio\" pour mettre à jour votre compte.",
   "instructions_11": "Allez dans les paramètres de Stremio pour ajuster vos options de langue préférées.",
@@ -185,5 +184,8 @@
   "password_copy": "Copier le mot de passe",
   "password_copied": "Mot de passe copié dans le presse-papiers",
   "remove": "Supprimer",
-  "portuguese_portugal": "Portugais (Portugal)"
+  "portuguese_portugal": "Portugais (Portugal)",
+  "step7_advanced_options": "Étape 7 : Options avancées (optionnel)",
+  "enter_tmdb_key": "Saisir la clé TMDB",
+  "allinone": "Tout-en-un"
 }

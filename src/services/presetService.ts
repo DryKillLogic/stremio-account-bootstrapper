@@ -6,7 +6,8 @@ import { setAddonCollection } from '../api/stremioApi';
 import type {
   DebridEntry,
   AddonConfigContext,
-  SquirrellyRenderer
+  SquirrellyRenderer,
+  AdvancedOptions
 } from './addons';
 import {
   configureAioMetadata,
@@ -19,7 +20,8 @@ import {
   configureStremThruTorz,
   configureStremThruStore,
   configureSootio,
-  configureTorbox
+  configureTorbox,
+  configureAioStreams
 } from './addons';
 
 declare const Sqrl: SquirrellyRenderer;
@@ -31,7 +33,7 @@ interface BuildPresetServiceParams {
   customAddons: string[];
   options: string[];
   maxSize: string | number;
-  rpdbKey?: string;
+  advanced?: AdvancedOptions;
   debridEntries?: DebridEntry[];
   password: string;
 }
@@ -44,7 +46,7 @@ export async function buildPresetService(params: BuildPresetServiceParams) {
     extras,
     options,
     maxSize,
-    rpdbKey,
+    advanced = {},
     debridEntries = [],
     password
   } = params;
@@ -67,14 +69,18 @@ export async function buildPresetService(params: BuildPresetServiceParams) {
       : _.merge({}, data.languages.en, data.languages[language]);
 
   // Region-specific addons
-  if (language === 'es-ES') {
-    presetKeys = [...presetKeys, 'cometa', 'peerflix'];
-  } else if (language === 'es-MX') {
-    presetKeys = [...presetKeys, 'cometa', 'notorrent'];
-  } else if (language === 'pt-BR') {
-    presetKeys = [...presetKeys, 'brazucatorrents'];
-  } else if (language === 'fr') {
-    presetKeys = [...presetKeys, 'cometfr'];
+  const languageAddons: Record<string, string[]> = {
+    'es-ES': ['cometa', 'peerflix'],
+    'es-MX': ['cometa', 'notorrent'],
+    'pt-BR': ['brazucatorrents'],
+    fr: ['cometfr']
+  };
+
+  if (preset !== 'allinone' && preset !== 'factory') {
+    const addons = languageAddons[language];
+    if (addons) {
+      presetKeys = [...presetKeys, ...addons];
+    }
   }
 
   // Preset config
@@ -112,7 +118,7 @@ export async function buildPresetService(params: BuildPresetServiceParams) {
     language,
     kids,
     password,
-    rpdbKey
+    advanced
   );
 
   // Normalize and validate debrid services
@@ -140,7 +146,8 @@ export async function buildPresetService(params: BuildPresetServiceParams) {
     size,
     debridEntries: validatedDebridEntries,
     debridServiceName,
-    preset
+    preset,
+    password
   };
 
   // Helper function to replace an addon key with cloned entries while maintaining order
@@ -212,6 +219,9 @@ export async function buildPresetService(params: BuildPresetServiceParams) {
 
   // StremThru Torz
   configureStremThruTorz(presetConfig, context);
+
+  // AIOStreams
+  await configureAioStreams(presetConfig, context);
 
   // Brazuca Torrents
   const brazucaTorrentsResult = configureTorrentio(

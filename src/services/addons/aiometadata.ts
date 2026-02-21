@@ -1,6 +1,6 @@
-import _ from 'lodash';
 import { getAddonConfig as getAioMetadataConfig } from '../../api/aioMetadataApi';
 import { LOCALE_MESSAGES } from '../../locales';
+import type { AdvancedOptions } from './types';
 
 function generateCatalogI18nKey(catalog: any): string {
   const source = catalog.source;
@@ -41,7 +41,7 @@ export async function configureAioMetadata(
   language: string,
   kids: boolean,
   password: string,
-  rpdbKey?: string
+  advanced?: AdvancedOptions
 ): Promise<void> {
   if (!presetConfig.aiometadata) return;
 
@@ -72,8 +72,13 @@ export async function configureAioMetadata(
   }
 
   // Set RPDB key if provided
-  if (rpdbKey) {
-    aioMetadataConfig.config.apiKeys.rpdb = rpdbKey;
+  if (advanced?.rpdbKey) {
+    aioMetadataConfig.config.apiKeys.rpdb = advanced.rpdbKey;
+  }
+
+  // Set TMDB key if provided
+  if (advanced?.tmdbKey) {
+    aioMetadataConfig.config.apiKeys.tmdb = advanced.tmdbKey;
   }
 
   // Request AIOMetadata configuration

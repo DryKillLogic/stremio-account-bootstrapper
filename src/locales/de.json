@@ -111,12 +111,11 @@
   "no_streams": "Keine streams",
   "custom_addon_url": "Manifest-URL des benutzerdefinierten Addons eingeben",
   "instructions_12": "Genieße deine Lieblingsfilme, Serien und Live-TV!",
-  "step7_rpdb_key": "Schritt 7: RPDB-Schlüssel eingeben (optional)",
   "step8_load_preset": "Schritt 8: Preset laden",
   "step9_customize_addons": "Schritt 9: Addons anpassen (optional)",
   "step10_bootstrap_account": "Schritt 10: Konto einrichten",
   "instructions_7": "Eigene Addons eingeben (optional).",
-  "instructions_8": "Gib deinen RPDB-Schlüssel ein (optional)",
+  "instructions_8": "Erweiterte Optionen konfigurieren (optional)",
   "instructions_9": "Passe das Addon-Preset an (optional). Du kannst Addons entfernen oder sortieren sowie die AIOMetadata-/Anime Kitsu-Kataloge umbenennen oder löschen.",
   "instructions_10": "Sobald du mit dem Anpassen fertig bist, klicke auf „Mit Stremio synchronisieren“, um dein Konto zu aktualisieren.",
   "instructions_11": "Gehe zu den Stremio-Einstellungen, um deine bevorzugten Spracheinstellungen anzupassen.",
@@ -182,5 +181,8 @@
   "password_copy": "Passwort kopieren",
   "password_copied": "Passwort in die Zwischenablage kopiert",
   "remove": "Entfernen",
-  "portuguese_portugal": "Portugiesisch (Portugal)"
+  "portuguese_portugal": "Portugiesisch (Portugal)",
+  "step7_advanced_options": "Schritt 7: Erweiterte Optionen (optional)",
+  "enter_tmdb_key": "TMDB-Schlüssel eingeben",
+  "allinone": "All-in-One"
 }

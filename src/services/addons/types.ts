@@ -14,6 +14,13 @@ export interface AddonConfigContext {
   debridEntries: DebridEntry[];
   debridServiceName: string;
   preset: string;
+  password?: string;
+  advanced?: AdvancedOptions;
+}
+
+export interface AdvancedOptions {
+  rpdbKey?: string;
+  tmdbKey?: string;
 }
 
 export interface SquirrellyRenderer {

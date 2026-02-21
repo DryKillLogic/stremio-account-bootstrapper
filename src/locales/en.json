@@ -12,7 +12,7 @@
   "instructions_5": "Select your debrid service and enter the API key (optional).<br />If you choose not to include it, ⚠️ <strong class=\"text-error\">you will be torrenting</strong> ⚠️. Please review your country's policies on torrenting before proceeding.",
   "instructions_6": "Select additional addons/options (optional).",
   "instructions_7": "Enter custom addons (optional).",
-  "instructions_8": "Enter your RPDB key (optional)",
+  "instructions_8": "Configure advanced options (optional)",
   "instructions_9": "Customize the addons preset (optional). You have the option to remove or sort addons, and rename or delete the AIOMetadata/Anime Kitsu catalogs.",
   "instructions_10": "Once you have finished customizing, click \"Sync to Stremio\" to update your account.",
   "instructions_11": "Go to Stremio settings to adjust your preferred language options.",
@@ -76,8 +76,9 @@
   "max_size": "Max size",
   "no_size_limit": "No limit",
   "cached_only_debrid": "Cached-only (debrid)",
-  "step7_rpdb_key": "Step 7: Enter RPDB key (optional)",
+  "step7_advanced_options": "Step 7: Advanced options (optional)",
   "enter_rpdb_key": "Enter RPDB key",
+  "enter_tmdb_key": "Enter TMDB key",
   "step8_load_preset": "Step 8: Load preset",
   "load_addons_preset": "Load addons preset",
   "loading_addons": "Loading addons...",
@@ -181,5 +182,6 @@
   "password_message": "A password has been generated for you to access the addons that require authentication. Please make sure to copy and save it in a safe place, as you won't be able to retrieve it again.",
   "password_copy": "Copy password",
   "password_copied": "Password copied to clipboard",
-  "remove": "Remove"
+  "remove": "Remove",
+  "allinone": "All-in-One"
 }

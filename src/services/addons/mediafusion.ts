@@ -3,6 +3,7 @@ import { getAddonConfig as getMediaFusionConfig } from '../../api/mediafusionApi
 import { convertToBytes } from '../../utils/sizeConverters';
 import { debridServicesInfo } from '../../utils/debrid';
 import type { AddonConfigContext } from './types';
+import { getLanguageName } from '../../utils/language';
 
 export async function configureMediaFusion(
   presetConfig: any,
@@ -14,20 +15,9 @@ export async function configureMediaFusion(
   const { debridEntries, language, no4k, cached, size } = context;
 
   const prepareConfig = (config: any) => {
-    const languagesToPrioritize: Record<string, string> = {
-      'es-MX': 'Latino',
-      'es-ES': 'Spanish',
-      'pt-BR': 'Portuguese',
-      'pt-PT': 'Portuguese',
-      fr: 'French',
-      it: 'Italian',
-      de: 'German',
-      nl: 'Dutch'
-    };
-
-    if (languagesToPrioritize[language]) {
-      _.pull(config.language_sorting, languagesToPrioritize[language]);
-      config.language_sorting.unshift(languagesToPrioritize[language]);
+    if (language !== 'en') {
+      _.pull(config.language_sorting, getLanguageName(language));
+      config.language_sorting.unshift(getLanguageName(language));
     }
 
     if (no4k) {

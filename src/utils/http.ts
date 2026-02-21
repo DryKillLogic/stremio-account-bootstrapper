@@ -29,3 +29,6 @@ export const postRequest = async <T, U>(
   const data: U = await res.json();
   return data;
 };
+
+export const PROXY_BASE_URL =
+  'https://cloudflare-cors-anywhere.drykilllogic.workers.dev/?';

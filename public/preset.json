@@ -39,6 +39,14 @@
       "opensubtitlespro",
       "localfiles"
     ],
+    "allinone": [
+      "cinemeta",
+      "aiometadata",
+      "aiostreams",
+      "streailer",
+      "subherov2",
+      "opensubtitlespro"
+    ],
     "no_streams": [
       "cinemeta",
       "aiometadata",
@@ -374,6 +382,10 @@
           },
           "logo": "https://torbox.app/android-chrome-512x512.png"
         }
+      },
+      "aiostreams": {
+        "transportUrl": "",
+        "manifest": {}
       },
       "tpbplus": {
         "transportUrl": "https://thepiratebay-plus.strem.fun/manifest.json",
