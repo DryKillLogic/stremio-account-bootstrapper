@@ -188,5 +188,13 @@
   "portuguese_portugal": "Portugués (Portugal)",
   "step7_advanced_options": "Paso 7: Opciones avanzadas (opcional)",
   "enter_tmdb_key": "Ingresa la clave TMDB",
-  "allinone": "Todo en uno"
+  "allinone": "Todo en uno",
+  "preset_minimal_details": "Una configuración básica que incluye complementos Torrentio y Comet. Los resultados se limitan a cinco por resolución.",
+  "preset_standard_details": "Una configuración completa que incluye complementos populares como Torrentio, Comet, MediaFusion y Webstreamr.",
+  "preset_full_details": "Perfecto para usuarios avanzados que desean máxima flexibilidad para personalizar su configuración y tener acceso a todas las opciones disponibles.",
+  "preset_allinone_details": "Consolida múltiples complementos en un único complemento altamente personalizable, AIOStreams.",
+  "preset_factory_details": "Útil si deseas empezar desde cero o simplemente deseas una cuenta limpia sin tener que crear una nueva.",
+  "preset_no_streams_details": "Para usuarios que eligieron mantener su configuración existente de complementos de transmisión.",
+  "custom_addons_details": "Puedes agregar complementos ya configurados, instancias privadas o complementos no disponibles en el preset. Advertencia: los complementos se agregarán sin validación, así que asegúrate de que estén debidamente configurados para evitar problemas.",
+  "kids_option_details": "La configuración perfecta para padres. Esta opción filtra contenido para adultos e incluye solo catálogos aptos para niños. La clasificación de contenido se establece en \"G\" (todas las edades)"
 }

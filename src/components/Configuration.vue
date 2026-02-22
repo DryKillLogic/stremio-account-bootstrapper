@@ -253,7 +253,15 @@ function resetEntryKey(idx) {
               v-model="preset"
               class="radio radio-primary"
             />
-            <span class="label-text ml-2">{{ $t('minimal') }}</span>
+            <span class="label-text ml-2 flex items-center gap-1"
+              >{{ $t('minimal') }}
+              <div
+                class="tooltip inline-block"
+                :data-tip="$t('preset_minimal_details')"
+              >
+                <QuestionMarkCircleIcon class="h-5 w-5 text-primary" />
+              </div>
+            </span>
           </label>
           <label class="label cursor-pointer">
             <input
@@ -262,7 +270,15 @@ function resetEntryKey(idx) {
               v-model="preset"
               class="radio radio-primary"
             />
-            <span class="label-text ml-2">{{ $t('standard') }}</span>
+            <span class="label-text ml-2 flex items-center gap-1"
+              >{{ $t('standard') }}
+              <div
+                class="tooltip inline-block"
+                :data-tip="$t('preset_standard_details')"
+              >
+                <QuestionMarkCircleIcon class="h-5 w-5 text-primary" />
+              </div>
+            </span>
           </label>
           <label class="label cursor-pointer">
             <input
@@ -271,7 +287,15 @@ function resetEntryKey(idx) {
               v-model="preset"
               class="radio radio-primary"
             />
-            <span class="label-text ml-2">{{ $t('full') }}</span>
+            <span class="label-text ml-2 flex items-center gap-1"
+              >{{ $t('full') }}
+              <div
+                class="tooltip inline-block"
+                :data-tip="$t('preset_full_details')"
+              >
+                <QuestionMarkCircleIcon class="h-5 w-5 text-primary" />
+              </div>
+            </span>
           </label>
           <label class="label cursor-pointer">
             <input
@@ -280,7 +304,15 @@ function resetEntryKey(idx) {
               v-model="preset"
               class="radio radio-primary"
             />
-            <span class="label-text ml-2">{{ $t('allinone') }}</span>
+            <span class="label-text ml-2 flex items-center gap-1"
+              >{{ $t('allinone') }}
+              <div
+                class="tooltip inline-block"
+                :data-tip="$t('preset_allinone_details')"
+              >
+                <QuestionMarkCircleIcon class="h-5 w-5 text-primary" />
+              </div>
+            </span>
           </label>
           <label class="label cursor-pointer">
             <input
@@ -289,7 +321,15 @@ function resetEntryKey(idx) {
               v-model="preset"
               class="radio radio-primary"
             />
-            <span class="label-text ml-2">{{ $t('no_streams') }}</span>
+            <span class="label-text ml-2 flex items-center gap-1"
+              >{{ $t('no_streams') }}
+              <div
+                class="tooltip inline-block"
+                :data-tip="$t('preset_no_streams_details')"
+              >
+                <QuestionMarkCircleIcon class="h-5 w-5 text-primary" />
+              </div>
+            </span>
           </label>
           <label class="label cursor-pointer">
             <input
@@ -298,7 +338,15 @@ function resetEntryKey(idx) {
               v-model="preset"
               class="radio radio-primary"
             />
-            <span class="label-text ml-2">{{ $t('factory') }}</span>
+            <span class="label-text ml-2 flex items-center gap-1"
+              >{{ $t('factory') }}
+              <div
+                class="tooltip inline-block"
+                :data-tip="$t('preset_factory_details')"
+              >
+                <QuestionMarkCircleIcon class="h-5 w-5 text-primary" />
+              </div>
+            </span>
           </label>
         </div>
       </fieldset>
@@ -551,6 +599,12 @@ function resetEntryKey(idx) {
       <fieldset class="bg-base-100 p-6 rounded-lg border border-base-300">
         <legend class="text-sm">
           {{ $t('step5_custom_addons') }}
+          <div
+            class="tooltip inline-block align-middle"
+            :data-tip="$t('custom_addons_details')"
+          >
+            <QuestionMarkCircleIcon class="h-5 w-5 text-primary" />
+          </div>
         </legend>
         <div class="space-y-3">
           <div
@@ -640,7 +694,15 @@ function resetEntryKey(idx) {
               v-model="options"
               class="checkbox checkbox-primary"
             />
-            <span class="label-text ml-2">{{ $t('kids') }}</span>
+            <span class="label-text ml-2 flex items-center gap-1"
+              >{{ $t('kids') }}
+              <div
+                class="tooltip inline-block"
+                :data-tip="$t('kids_option_details')"
+              >
+                <QuestionMarkCircleIcon class="h-5 w-5 text-primary" />
+              </div>
+            </span>
           </label>
         </div>
       </fieldset>

@@ -184,5 +184,13 @@
   "portuguese_portugal": "Portugiesisch (Portugal)",
   "step7_advanced_options": "Schritt 7: Erweiterte Optionen (optional)",
   "enter_tmdb_key": "TMDB-Schlüssel eingeben",
-  "allinone": "All-in-One"
+  "allinone": "All-in-One",
+  "preset_minimal_details": "Ein grundlegendes Setup mit Torrentio- und Comet-Addons. Die Ergebnisse sind auf fünf pro Auflösung begrenzt.",
+  "preset_standard_details": "Ein ausgewogenes Setup mit beliebten Addons wie Torrentio, Comet, MediaFusion und Webstreamr.",
+  "preset_full_details": "Perfekt für fortgeschrittene Benutzer, die maximale Flexibilität beim Anpassen ihres Setups wünschen und Zugriff auf alle verfügbaren Optionen haben.",
+  "preset_allinone_details": "Konsolidiert mehrere Addons zu einem einzigen hochgradig anpassbaren Addon, AIOStreams.",
+  "preset_factory_details": "Nützlich, wenn du von vorne anfangen möchtest oder einfach ein sauberes Konto ohne Neuerstellung wünschst.",
+  "preset_no_streams_details": "Für Benutzer, die ihr bestehendes Streaming-Addon-Setup behalten möchten.",
+  "custom_addons_details": "Du kannst bereits konfigurierte Addons, private Instanzen oder Addons hinzufügen, die nicht im Preset verfügbar sind. Warnung: Die Addons werden ohne Validierung hinzugefügt. Stelle sicher, dass sie ordnungsgemäß konfiguriert sind, um Probleme zu vermeiden.",
+  "kids_option_details": "Das perfekte Setup für Eltern. Diese Option filtert Inhalte für Erwachsene aus und enthält nur kinderfreundliche Kataloge. Die Inhaltsfreigabe ist auf \"G\" gesetzt. (Alle Altersgruppen)"
 }

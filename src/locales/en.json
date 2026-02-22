@@ -183,5 +183,13 @@
   "password_copy": "Copy password",
   "password_copied": "Password copied to clipboard",
   "remove": "Remove",
-  "allinone": "All-in-One"
+  "allinone": "All-in-One",
+  "preset_minimal_details": "A basic setup that includes Torrentio and Comet addons. Results are limited to five per resolution.",
+  "preset_standard_details": "A well-rounded setup that includes popular addons like Torrentio, Comet, MediaFusion, and Webstreamr.",
+  "preset_full_details": "Perfect for advanced users who want maximum flexibility to customize their setup and have access to every option available.",
+  "preset_allinone_details": "Consolidates multiple addons into a single highly customizable addon, AIOStreams.",
+  "preset_factory_details": "Useful if you want to start from scratch or just want a clean account without having to create a new one.",
+  "preset_no_streams_details": "For users who chose to keep their existing streaming addons setup.",
+  "custom_addons_details": "You can add already configured addons, private instances, or addons not available in the preset. Warning: the addons will be added without any validation, so make sure they are properly configured to avoid any issues.",
+  "kids_option_details": "The perfect setup for parents. This option filters out adult content and includes only kid-friendly catalogs. Content rating is set to \"G.\" (all ages)"
 }
