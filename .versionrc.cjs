@@ -16,7 +16,6 @@ module.exports = {
     changelog: false
   },
   releaseCommitMessageFormat: 'chore(release): {{currentTag}}',
-  header: '# Changelog\n\nAll notable changes to the Stremio Account Bootstrapper will be documented in this file.\n\nThe format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),\nand this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).\n\n',
   scripts: {
     postchangelog: 'prettier --write CHANGELOG.md'
   }
