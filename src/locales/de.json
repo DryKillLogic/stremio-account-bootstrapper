@@ -192,5 +192,12 @@
   "preset_factory_details": "Nützlich, wenn du von vorne anfangen möchtest oder einfach ein sauberes Konto ohne Neuerstellung wünschst.",
   "preset_no_streams_details": "Für Benutzer, die ihr bestehendes Streaming-Addon-Setup behalten möchten.",
   "custom_addons_details": "Du kannst bereits konfigurierte Addons, private Instanzen oder Addons hinzufügen, die nicht im Preset verfügbar sind. Warnung: Die Addons werden ohne Validierung hinzugefügt. Stelle sicher, dass sie ordnungsgemäß konfiguriert sind, um Probleme zu vermeiden.",
-  "kids_option_details": "Das perfekte Setup für Eltern. Diese Option filtert Inhalte für Erwachsene aus und enthält nur kinderfreundliche Kataloge. Die Inhaltsfreigabe ist auf \"G\" gesetzt. (Alle Altersgruppen)"
+  "kids_option_details": "Das perfekte Setup für Eltern. Diese Option filtert Inhalte für Erwachsene aus und enthält nur kinderfreundliche Kataloge. Die Inhaltsfreigabe ist auf \"G\" gesetzt. (Alle Altersgruppen)",
+  "catalogs_tmdb_movie_best_movies_of_the_80s": "Beste Filme der 80er",
+  "catalogs_tmdb_movie_best_movies_of_the_90s": "Beste Filme der 90er",
+  "catalogs_tmdb_movie_best_movies_of_the_2000s": "Beste Filme der 2000er",
+  "catalogs_tmdb_movie_best_movies_of_the_2010s": "Beste Filme der 2010er",
+  "catalogs_tmdb_movie_mcu_movies": "MCU Filme",
+  "catalogs_tmdb_movie_dceu_movies": "DCEU Filme",
+  "catalogs_tmdb_movie_superhero_movies": "Superhelden Filme"
 }

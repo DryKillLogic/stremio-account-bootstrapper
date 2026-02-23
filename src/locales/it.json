@@ -195,5 +195,12 @@
   "preset_factory_details": "Utile se vuoi ricominciare da zero o semplicemente un account pulito senza dover crearne uno nuovo.",
   "preset_no_streams_details": "Per gli utenti che hanno scelto di mantenere la loro configurazione di componenti aggiuntivi di streaming esistente.",
   "custom_addons_details": "Puoi aggiungere componenti aggiuntivi già configurati, istanze private o componenti aggiuntivi non disponibili nella preimpostazione. Avviso: i componenti aggiuntivi verranno aggiunti senza alcuna convalida, quindi assicurati che siano configurati correttamente per evitare problemi.",
-  "kids_option_details": "La configurazione perfetta per i genitori. Questa opzione filtra i contenuti per adulti e include solo cataloghi adatti ai bambini. La classificazione del contenuto è impostata su \"G.\" (tutti gli età)"
+  "kids_option_details": "La configurazione perfetta per i genitori. Questa opzione filtra i contenuti per adulti e include solo cataloghi adatti ai bambini. La classificazione del contenuto è impostata su \"G.\" (tutti gli età)",
+  "catalogs_tmdb_movie_best_movies_of_the_80s": "Migliori Film degli Anni 80",
+  "catalogs_tmdb_movie_best_movies_of_the_90s": "Migliori Film degli Anni 90",
+  "catalogs_tmdb_movie_best_movies_of_the_2000s": "Migliori Film degli Anni 2000",
+  "catalogs_tmdb_movie_best_movies_of_the_2010s": "Migliori Film degli Anni 2010",
+  "catalogs_tmdb_movie_mcu_movies": "Film MCU",
+  "catalogs_tmdb_movie_dceu_movies": "Film DCEU",
+  "catalogs_tmdb_movie_superhero_movies": "Film Supereroi"
 }

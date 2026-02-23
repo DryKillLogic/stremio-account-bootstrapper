@@ -3356,6 +3356,294 @@
           }
         },
         {
+          "id": "tmdb.discover.movie.best_movies_of_80s.mlyccp2c",
+          "type": "movie",
+          "name": "Best Movies of the 80s",
+          "enabled": false,
+          "showInHome": true,
+          "source": "tmdb",
+          "cacheTTL": 86400,
+          "metadata": {
+            "description": "TMDB Discover (movie)",
+            "discover": {
+              "version": 2,
+              "source": "tmdb",
+              "mediaType": "movie",
+              "params": {
+                "sort_by": "popularity.desc",
+                "include_adult": false,
+                "without_genres": "99",
+                "vote_average.gte": 7,
+                "vote_count.gte": 1000,
+                "primary_release_date.gte": "1980-01-01",
+                "primary_release_date.lte": "1989-12-31"
+              },
+              "formState": {
+                "catalogName": "Best Movies of the 80s",
+                "discoverSource": "tmdb",
+                "sortBy": "popularity.desc",
+                "cacheTTL": 86400,
+                "catalogType": "movie",
+                "includeGenres": [],
+                "excludeGenres": [
+                  {
+                    "id": 99,
+                    "label": "Documentary"
+                  }
+                ],
+                "genreJoinMode": "or",
+                "originalLanguage": "",
+                "originCountry": "",
+                "certificationCountry": "",
+                "certificationValue": "",
+                "includeAdult": false,
+                "releasedOnly": false,
+                "selectedPeople": [],
+                "peopleJoinMode": "or",
+                "withCompanies": [],
+                "withoutCompanies": [],
+                "companyJoinMode": "or",
+                "withKeywords": [],
+                "withoutKeywords": [],
+                "keywordJoinMode": "or",
+                "watchRegion": "",
+                "watchProviders": [],
+                "providerJoinMode": "or",
+                "voteAverageRange": [7, 10],
+                "voteCountMin": 1000,
+                "runtimeRange": [0, 400],
+                "primaryReleaseFrom": "1980-01-01",
+                "primaryReleaseTo": "1989-12-31",
+                "movieDatePreset": "era_1980s",
+                "firstAirFrom": "",
+                "firstAirTo": "",
+                "seriesDatePreset": "clear",
+                "airDateFrom": "",
+                "airDateTo": "",
+                "releaseRegion": ""
+              }
+            }
+          },
+          "randomizePerPage": true,
+          "displayType": "movie"
+        },
+        {
+          "id": "tmdb.discover.movie.best_movies_of_90s.mlycef71",
+          "type": "movie",
+          "name": "Best Movies of the 90s",
+          "enabled": false,
+          "showInHome": true,
+          "source": "tmdb",
+          "cacheTTL": 86400,
+          "metadata": {
+            "description": "TMDB Discover (movie)",
+            "discover": {
+              "version": 2,
+              "source": "tmdb",
+              "mediaType": "movie",
+              "params": {
+                "sort_by": "popularity.desc",
+                "include_adult": false,
+                "without_genres": "99",
+                "vote_average.gte": 7,
+                "vote_count.gte": 1000,
+                "primary_release_date.gte": "1990-01-01",
+                "primary_release_date.lte": "1999-12-31"
+              },
+              "formState": {
+                "catalogName": "Best Movies of the 90s",
+                "discoverSource": "tmdb",
+                "sortBy": "popularity.desc",
+                "cacheTTL": 86400,
+                "catalogType": "movie",
+                "includeGenres": [],
+                "excludeGenres": [
+                  {
+                    "id": 99,
+                    "label": "Documentary"
+                  }
+                ],
+                "genreJoinMode": "or",
+                "originalLanguage": "",
+                "originCountry": "",
+                "certificationCountry": "",
+                "certificationValue": "",
+                "includeAdult": false,
+                "releasedOnly": false,
+                "selectedPeople": [],
+                "peopleJoinMode": "or",
+                "withCompanies": [],
+                "withoutCompanies": [],
+                "companyJoinMode": "or",
+                "withKeywords": [],
+                "withoutKeywords": [],
+                "keywordJoinMode": "or",
+                "watchRegion": "",
+                "watchProviders": [],
+                "providerJoinMode": "or",
+                "voteAverageRange": [7, 10],
+                "voteCountMin": 1000,
+                "runtimeRange": [0, 400],
+                "primaryReleaseFrom": "1990-01-01",
+                "primaryReleaseTo": "1999-12-31",
+                "movieDatePreset": "era_1990s",
+                "firstAirFrom": "",
+                "firstAirTo": "",
+                "seriesDatePreset": "clear",
+                "airDateFrom": "",
+                "airDateTo": "",
+                "releaseRegion": ""
+              }
+            }
+          },
+          "randomizePerPage": true,
+          "displayType": "movie"
+        },
+        {
+          "id": "tmdb.discover.movie.best_movies_of_2000s.mlycfa97",
+          "type": "movie",
+          "name": "Best Movies of the 2000s",
+          "enabled": false,
+          "showInHome": true,
+          "source": "tmdb",
+          "cacheTTL": 86400,
+          "metadata": {
+            "description": "TMDB Discover (movie)",
+            "discover": {
+              "version": 2,
+              "source": "tmdb",
+              "mediaType": "movie",
+              "params": {
+                "sort_by": "popularity.desc",
+                "include_adult": false,
+                "without_genres": "99",
+                "vote_average.gte": 7,
+                "vote_count.gte": 1000,
+                "primary_release_date.gte": "2000-01-01",
+                "primary_release_date.lte": "2009-12-31"
+              },
+              "formState": {
+                "catalogName": "Best Movies of the 2000s",
+                "discoverSource": "tmdb",
+                "sortBy": "popularity.desc",
+                "cacheTTL": 86400,
+                "catalogType": "movie",
+                "includeGenres": [],
+                "excludeGenres": [
+                  {
+                    "id": 99,
+                    "label": "Documentary"
+                  }
+                ],
+                "genreJoinMode": "or",
+                "originalLanguage": "",
+                "originCountry": "",
+                "certificationCountry": "",
+                "certificationValue": "",
+                "includeAdult": false,
+                "releasedOnly": false,
+                "selectedPeople": [],
+                "peopleJoinMode": "or",
+                "withCompanies": [],
+                "withoutCompanies": [],
+                "companyJoinMode": "or",
+                "withKeywords": [],
+                "withoutKeywords": [],
+                "keywordJoinMode": "or",
+                "watchRegion": "",
+                "watchProviders": [],
+                "providerJoinMode": "or",
+                "voteAverageRange": [7, 10],
+                "voteCountMin": 1000,
+                "runtimeRange": [0, 400],
+                "primaryReleaseFrom": "2000-01-01",
+                "primaryReleaseTo": "2009-12-31",
+                "movieDatePreset": "era_2000s",
+                "firstAirFrom": "",
+                "firstAirTo": "",
+                "seriesDatePreset": "clear",
+                "airDateFrom": "",
+                "airDateTo": "",
+                "releaseRegion": ""
+              }
+            }
+          },
+          "randomizePerPage": true,
+          "displayType": "movie"
+        },
+        {
+          "id": "tmdb.discover.movie.best_movies_of_2010s.mlycgh72",
+          "type": "movie",
+          "name": "Best Movies of the 2010s",
+          "enabled": false,
+          "showInHome": true,
+          "source": "tmdb",
+          "cacheTTL": 86400,
+          "metadata": {
+            "description": "TMDB Discover (movie)",
+            "discover": {
+              "version": 2,
+              "source": "tmdb",
+              "mediaType": "movie",
+              "params": {
+                "sort_by": "popularity.desc",
+                "include_adult": false,
+                "without_genres": "99",
+                "vote_average.gte": 7,
+                "vote_count.gte": 1000,
+                "primary_release_date.gte": "2010-01-01",
+                "primary_release_date.lte": "2019-12-31"
+              },
+              "formState": {
+                "catalogName": "Best Movies of the 2010s",
+                "discoverSource": "tmdb",
+                "sortBy": "popularity.desc",
+                "cacheTTL": 86400,
+                "catalogType": "movie",
+                "includeGenres": [],
+                "excludeGenres": [
+                  {
+                    "id": 99,
+                    "label": "Documentary"
+                  }
+                ],
+                "genreJoinMode": "or",
+                "originalLanguage": "",
+                "originCountry": "",
+                "certificationCountry": "",
+                "certificationValue": "",
+                "includeAdult": false,
+                "releasedOnly": false,
+                "selectedPeople": [],
+                "peopleJoinMode": "or",
+                "withCompanies": [],
+                "withoutCompanies": [],
+                "companyJoinMode": "or",
+                "withKeywords": [],
+                "withoutKeywords": [],
+                "keywordJoinMode": "or",
+                "watchRegion": "",
+                "watchProviders": [],
+                "providerJoinMode": "or",
+                "voteAverageRange": [7, 10],
+                "voteCountMin": 1000,
+                "runtimeRange": [0, 400],
+                "primaryReleaseFrom": "2010-01-01",
+                "primaryReleaseTo": "2019-12-31",
+                "movieDatePreset": "era_2010s",
+                "firstAirFrom": "",
+                "firstAirTo": "",
+                "seriesDatePreset": "clear",
+                "airDateFrom": "",
+                "airDateTo": "",
+                "releaseRegion": ""
+              }
+            }
+          },
+          "randomizePerPage": true,
+          "displayType": "movie"
+        },
+        {
           "id": "tmdb.discover.movie.comedy_movies.35",
           "type": "movie",
           "name": "Comedy Movies",
@@ -3484,6 +3772,80 @@
               }
             }
           }
+        },
+        {
+          "id": "tmdb.discover.movie.dceu_movies.mlycle19",
+          "type": "movie",
+          "name": "DCEU Movies",
+          "enabled": false,
+          "showInHome": true,
+          "source": "tmdb",
+          "cacheTTL": 86400,
+          "metadata": {
+            "description": "TMDB Discover (movie)",
+            "discover": {
+              "version": 2,
+              "source": "tmdb",
+              "mediaType": "movie",
+              "params": {
+                "sort_by": "popularity.desc",
+                "include_adult": false,
+                "without_genres": "99",
+                "with_keywords": "229266",
+                "with_runtime.gte": 90
+              },
+              "formState": {
+                "catalogName": "DCEU Movies",
+                "discoverSource": "tmdb",
+                "sortBy": "popularity.desc",
+                "cacheTTL": 86400,
+                "catalogType": "movie",
+                "includeGenres": [],
+                "excludeGenres": [
+                  {
+                    "id": 99,
+                    "label": "Documentary"
+                  }
+                ],
+                "genreJoinMode": "or",
+                "originalLanguage": "",
+                "originCountry": "",
+                "certificationCountry": "",
+                "certificationValue": "",
+                "includeAdult": false,
+                "releasedOnly": false,
+                "selectedPeople": [],
+                "peopleJoinMode": "or",
+                "withCompanies": [],
+                "withoutCompanies": [],
+                "companyJoinMode": "or",
+                "withKeywords": [
+                  {
+                    "id": 229266,
+                    "label": "dc extended universe (dceu)"
+                  }
+                ],
+                "withoutKeywords": [],
+                "keywordJoinMode": "or",
+                "watchRegion": "",
+                "watchProviders": [],
+                "providerJoinMode": "or",
+                "voteAverageRange": [0, 10],
+                "voteCountMin": 0,
+                "runtimeRange": [90, 400],
+                "primaryReleaseFrom": "",
+                "primaryReleaseTo": "",
+                "movieDatePreset": "clear",
+                "firstAirFrom": "",
+                "firstAirTo": "",
+                "seriesDatePreset": "clear",
+                "airDateFrom": "",
+                "airDateTo": "",
+                "releaseRegion": ""
+              }
+            }
+          },
+          "randomizePerPage": true
         },
         {
           "id": "tmdb.discover.movie.documentary_movies.99",
@@ -3876,6 +4238,80 @@
           }
         },
         {
+          "id": "tmdb.discover.movie.mcu_movies.mlycixqp",
+          "type": "movie",
+          "name": "MCU Movies",
+          "enabled": false,
+          "showInHome": true,
+          "source": "tmdb",
+          "cacheTTL": 86400,
+          "metadata": {
+            "description": "TMDB Discover (movie)",
+            "discover": {
+              "version": 2,
+              "source": "tmdb",
+              "mediaType": "movie",
+              "params": {
+                "sort_by": "popularity.desc",
+                "include_adult": false,
+                "without_genres": "99",
+                "with_keywords": "180547",
+                "with_runtime.gte": 90
+              },
+              "formState": {
+                "catalogName": "MCU Movies",
+                "discoverSource": "tmdb",
+                "sortBy": "popularity.desc",
+                "cacheTTL": 86400,
+                "catalogType": "movie",
+                "includeGenres": [],
+                "excludeGenres": [
+                  {
+                    "id": 99,
+                    "label": "Documentary"
+                  }
+                ],
+                "genreJoinMode": "or",
+                "originalLanguage": "",
+                "originCountry": "",
+                "certificationCountry": "",
+                "certificationValue": "",
+                "includeAdult": false,
+                "releasedOnly": false,
+                "selectedPeople": [],
+                "peopleJoinMode": "or",
+                "withCompanies": [],
+                "withoutCompanies": [],
+                "companyJoinMode": "or",
+                "withKeywords": [
+                  {
+                    "id": 180547,
+                    "label": "marvel cinematic universe (mcu)"
+                  }
+                ],
+                "withoutKeywords": [],
+                "keywordJoinMode": "or",
+                "watchRegion": "",
+                "watchProviders": [],
+                "providerJoinMode": "or",
+                "voteAverageRange": [0, 10],
+                "voteCountMin": 0,
+                "runtimeRange": [90, 400],
+                "primaryReleaseFrom": "",
+                "primaryReleaseTo": "",
+                "movieDatePreset": "clear",
+                "firstAirFrom": "",
+                "firstAirTo": "",
+                "seriesDatePreset": "clear",
+                "airDateFrom": "",
+                "airDateTo": "",
+                "releaseRegion": ""
+              }
+            }
+          },
+          "randomizePerPage": true
+        },
+        {
           "id": "tmdb.discover.movie.music_movies.10402",
           "type": "movie",
           "name": "Music Movies",
@@ -4134,6 +4570,90 @@
               }
             }
           }
+        },
+        {
+          "id": "tmdb.discover.movie.superhero_movies.mlydfewf",
+          "type": "movie",
+          "name": "Superhero Movies",
+          "enabled": false,
+          "showInHome": true,
+          "source": "tmdb",
+          "cacheTTL": 86400,
+          "metadata": {
+            "description": "TMDB Discover (movie)",
+            "discover": {
+              "version": 2,
+              "source": "tmdb",
+              "mediaType": "movie",
+              "params": {
+                "sort_by": "popularity.desc",
+                "include_adult": false,
+                "without_genres": "16|99|10751",
+                "with_keywords": "9715",
+                "vote_average.gte": 5,
+                "vote_count.gte": 1000,
+                "with_runtime.gte": 90
+              },
+              "formState": {
+                "catalogName": "Superhero Movies",
+                "discoverSource": "tmdb",
+                "sortBy": "popularity.desc",
+                "cacheTTL": 86400,
+                "catalogType": "movie",
+                "includeGenres": [],
+                "excludeGenres": [
+                  {
+                    "id": 16,
+                    "label": "Animation"
+                  },
+                  {
+                    "id": 99,
+                    "label": "Documentary"
+                  },
+                  {
+                    "id": 10751,
+                    "label": "Family"
+                  }
+                ],
+                "genreJoinMode": "or",
+                "originalLanguage": "",
+                "originCountry": "",
+                "certificationCountry": "",
+                "certificationValue": "",
+                "includeAdult": false,
+                "releasedOnly": false,
+                "selectedPeople": [],
+                "peopleJoinMode": "or",
+                "withCompanies": [],
+                "withoutCompanies": [],
+                "companyJoinMode": "or",
+                "withKeywords": [
+                  {
+                    "id": 9715,
+                    "label": "superhero"
+                  }
+                ],
+                "withoutKeywords": [],
+                "keywordJoinMode": "or",
+                "watchRegion": "",
+                "watchProviders": [],
+                "providerJoinMode": "or",
+                "voteAverageRange": [5, 10],
+                "voteCountMin": 1000,
+                "runtimeRange": [90, 400],
+                "primaryReleaseFrom": "",
+                "primaryReleaseTo": "",
+                "movieDatePreset": "clear",
+                "firstAirFrom": "",
+                "firstAirTo": "",
+                "seriesDatePreset": "clear",
+                "airDateFrom": "",
+                "airDateTo": "",
+                "releaseRegion": ""
+              }
+            }
+          },
+          "randomizePerPage": true
         },
         {
           "id": "tmdb.discover.movie.thriller_movies.53",

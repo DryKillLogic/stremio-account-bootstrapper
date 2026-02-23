@@ -191,5 +191,12 @@
   "preset_factory_details": "Nuttig als je helemaal opnieuw wilt beginnen of simpelweg een schoon account wilt zonder een nieuw account te hoeven aanmaken.",
   "preset_no_streams_details": "Voor gebruikers die hun bestaande streaming addons setup willen behouden.",
   "custom_addons_details": "Je kunt al geconfigureerde addons, privé-instanties of addons die niet in de preset beschikbaar zijn, toevoegen. Waarschuwing: de addons worden zonder validatie toegevoegd, zorg ervoor dat ze correct zijn geconfigureerd om problemen te voorkomen.",
-  "kids_option_details": "De perfecte setup voor ouders. Deze optie filtert volwassen inhoud eruit en bevat alleen kindvriendelijke catalogi. Inhoudsrating is ingesteld op \"G.\" (alle leeftijden)"
+  "kids_option_details": "De perfecte setup voor ouders. Deze optie filtert volwassen inhoud eruit en bevat alleen kindvriendelijke catalogi. Inhoudsrating is ingesteld op \"G.\" (alle leeftijden)",
+  "catalogs_tmdb_movie_best_movies_of_the_80s": "Beste films uit de jaren 80",
+  "catalogs_tmdb_movie_best_movies_of_the_90s": "Beste films uit de jaren 90",
+  "catalogs_tmdb_movie_best_movies_of_the_2000s": "Beste films uit de jaren 2000",
+  "catalogs_tmdb_movie_best_movies_of_the_2010s": "Beste films uit de jaren 2010",
+  "catalogs_tmdb_movie_mcu_movies": "MCU Films",
+  "catalogs_tmdb_movie_dceu_movies": "DCEU Films",
+  "catalogs_tmdb_movie_superhero_movies": "Superheld-films"
 }
