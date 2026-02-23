@@ -2,6 +2,8 @@
 import { useI18n } from 'vue-i18n';
 import { CodeBracketIcon, GlobeAltIcon } from '@heroicons/vue/24/outline';
 const { t } = useI18n();
+
+const version = __APP_VERSION__;
 </script>
 
 <template>
@@ -9,7 +11,17 @@ const { t } = useI18n();
     class="footer sm:footer-horizontal bg-base-200 text-base-content items-center p-4"
   >
     <aside class="grid-flow-col items-center">
-      <p>{{ t('footer_credit') }}</p>
+      <div class="flex flex-col sm:flex-row items-start sm:items-center gap-2">
+        <p>{{ t('footer_credit') }}</p>
+        <a
+          href="https://github.com/DryKillLogic/stremio-account-bootstrapper/blob/main/CHANGELOG.md"
+          target="_blank"
+          class="badge badge-outline badge-sm gap-1 hover:badge-primary transition-colors"
+          title="View Changelog"
+        >
+          v{{ version }}
+        </a>
+      </div>
     </aside>
     <nav class="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
       <a

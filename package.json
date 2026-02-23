@@ -1,12 +1,18 @@
 {
   "name": "stremio-account-bootstrapper-redesigned",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.9.9",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc -b && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "release": "standard-version",
+    "release:minor": "standard-version --release-as minor",
+    "release:major": "standard-version --release-as major",
+    "release:patch": "standard-version --release-as patch",
+    "release:first": "standard-version --first-release",
+    "prepare": "husky"
   },
   "dependencies": {
     "@heroicons/vue": "^2.2.0",
@@ -22,6 +28,8 @@
     "vuedraggable": "^4.1.0"
   },
   "devDependencies": {
+    "@commitlint/cli": "^20.4.2",
+    "@commitlint/config-conventional": "^20.4.2",
     "@types/lodash": "^4.17.20",
     "@types/node": "^24.5.2",
     "@typescript-eslint/eslint-plugin": "^8.44.1",
@@ -31,7 +39,9 @@
     "@vue/tsconfig": "^0.8.1",
     "eslint": "^9.36.0",
     "eslint-plugin-vue": "^10.5.0",
+    "husky": "^9.1.7",
     "prettier": "3.3.3",
+    "standard-version": "^9.5.0",
     "typescript": "~5.8.3",
     "vite": "^7.1.6",
     "volar": "^0.0.2",
