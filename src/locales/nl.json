@@ -173,8 +173,8 @@
   "catalogs_streaming_series_hulu_shows": "Hulu Series",
   "catalogs_streaming_series_peacock_premium_shows": "Peacock Premium Series",
   "catalogs_streaming_series_apple_tv_plus_shows": "Apple TV+ Series",
-  "catalogs_streaming_movie_netflix_kids_movies": "Netflix Kinderfilms",
-  "catalogs_streaming_series_netflix_kids_shows": "Netflix Kinderseries",
+  "catalogs_streaming_movie_netflix_kids_movies": "Netflix Kids Films",
+  "catalogs_streaming_series_netflix_kids_shows": "Netflix Kids Series",
   "password_title": "Gegenereerd wachtwoord",
   "password_message": "Er is een wachtwoord voor je gegenereerd om toegang te krijgen tot de addons waarvoor verificatie vereist is. Zorg ervoor dat je het kopieert en op een veilige plek opslaat, want je kunt het niet opnieuw ophalen.",
   "password_copy": "Wachtwoord kopiëren",
@@ -198,5 +198,9 @@
   "catalogs_tmdb_movie_best_movies_of_the_2010s": "Beste films uit de jaren 2010",
   "catalogs_tmdb_movie_mcu_movies": "MCU Films",
   "catalogs_tmdb_movie_dceu_movies": "DCEU Films",
-  "catalogs_tmdb_movie_superhero_movies": "Superheld-films"
+  "catalogs_tmdb_movie_superhero_movies": "Superheld-films",
+  "catalogs_streaming_movie_crunchyroll_movies": "Crunchyroll Films",
+  "catalogs_streaming_series_crunchyroll_shows": "Crunchyroll Series",
+  "catalogs_tmdb_movie_top_rated_movies": "Topaanbevolen Films",
+  "catalogs_tmdb_series_top_rated_shows": "Topaanbevolen Series"
 }

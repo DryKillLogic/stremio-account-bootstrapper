@@ -177,8 +177,8 @@
   "catalogs_streaming_series_hulu_shows": "Séries Hulu",
   "catalogs_streaming_series_peacock_premium_shows": "Séries Peacock Premium",
   "catalogs_streaming_series_apple_tv_plus_shows": "Séries Apple TV+",
-  "catalogs_streaming_movie_netflix_kids_movies": "Films Enfants Netflix",
-  "catalogs_streaming_series_netflix_kids_shows": "Séries Enfants Netflix",
+  "catalogs_streaming_movie_netflix_kids_movies": "Films Netflix Kids",
+  "catalogs_streaming_series_netflix_kids_shows": "Séries Netflix Kids",
   "password_title": "Mot de passe généré",
   "password_message": "Un mot de passe a été généré pour vous permettre d'accéder aux addons qui nécessitent une authentification. Assurez-vous de le copier et de l'enregistrer dans un endroit sûr, car vous ne pourrez pas le récupérer à nouveau.",
   "password_copy": "Copier le mot de passe",
@@ -202,5 +202,9 @@
   "catalogs_tmdb_movie_best_movies_of_the_2010s": "Meilleurs Films des Années 2010",
   "catalogs_tmdb_movie_mcu_movies": "Films MCU",
   "catalogs_tmdb_movie_dceu_movies": "Films DCEU",
-  "catalogs_tmdb_movie_superhero_movies": "Films de Super-héros"
+  "catalogs_tmdb_movie_superhero_movies": "Films de Super-héros",
+  "catalogs_streaming_movie_crunchyroll_movies": "Films Crunchyroll",
+  "catalogs_streaming_series_crunchyroll_shows": "Séries Crunchyroll",
+  "catalogs_tmdb_movie_top_rated_movies": "Films les Mieux Notés",
+  "catalogs_tmdb_series_top_rated_shows": "Séries les Mieux Notées"
 }

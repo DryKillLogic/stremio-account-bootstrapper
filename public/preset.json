@@ -2764,124 +2764,24 @@
     "catalogs": {
       "standard": [
         {
-          "id": "tmdb.discover.movie.popular_movies.mltmixlw",
-          "type": "movie",
+          "id": "tmdb.trending",
           "name": "Trending Movies",
+          "type": "movie",
+          "source": "tmdb",
           "enabled": true,
           "showInHome": true,
-          "source": "tmdb",
-          "cacheTTL": 86400,
-          "metadata": {
-            "description": "TMDB Discover (movie)",
-            "discover": {
-              "version": 2,
-              "source": "tmdb",
-              "mediaType": "movie",
-              "params": {
-                "sort_by": "popularity.desc",
-                "include_adult": false,
-                "vote_average.gte": 5,
-                "vote_count.gte": 100
-              },
-              "formState": {
-                "catalogName": "Popular Movies",
-                "discoverSource": "tmdb",
-                "sortBy": "popularity.desc",
-                "cacheTTL": 86400,
-                "catalogType": "movie",
-                "includeGenres": [],
-                "excludeGenres": [],
-                "genreJoinMode": "or",
-                "originalLanguage": "",
-                "originCountry": "",
-                "certificationCountry": "",
-                "certificationValue": "",
-                "includeAdult": false,
-                "releasedOnly": false,
-                "selectedPeople": [],
-                "peopleJoinMode": "or",
-                "withCompanies": [],
-                "withoutCompanies": [],
-                "companyJoinMode": "or",
-                "withKeywords": [],
-                "withoutKeywords": [],
-                "keywordJoinMode": "or",
-                "watchRegion": "",
-                "watchProviders": [],
-                "providerJoinMode": "or",
-                "voteAverageRange": [5, 10],
-                "voteCountMin": 100,
-                "runtimeRange": [0, 400],
-                "primaryReleaseFrom": "",
-                "primaryReleaseTo": "",
-                "firstAirFrom": "",
-                "firstAirTo": "",
-                "airDateFrom": "",
-                "airDateTo": "",
-                "releaseRegion": ""
-              }
-            }
-          }
+          "enableRatingPosters": true,
+          "randomizePerPage": false
         },
         {
-          "id": "tmdb.discover.tv.popular_shows.mltmmfek",
-          "type": "series",
+          "id": "tmdb.trending",
           "name": "Trending Shows",
+          "type": "series",
+          "source": "tmdb",
           "enabled": true,
           "showInHome": true,
-          "source": "tmdb",
-          "cacheTTL": 86400,
-          "metadata": {
-            "description": "TMDB Discover (tv)",
-            "discover": {
-              "version": 2,
-              "source": "tmdb",
-              "mediaType": "tv",
-              "params": {
-                "sort_by": "popularity.desc",
-                "include_adult": false,
-                "vote_average.gte": 5,
-                "vote_count.gte": 100
-              },
-              "formState": {
-                "catalogName": "Popular Shows",
-                "discoverSource": "tmdb",
-                "sortBy": "popularity.desc",
-                "cacheTTL": 86400,
-                "catalogType": "series",
-                "includeGenres": [],
-                "excludeGenres": [],
-                "genreJoinMode": "or",
-                "originalLanguage": "",
-                "originCountry": "",
-                "certificationCountry": "",
-                "certificationValue": "",
-                "includeAdult": false,
-                "releasedOnly": false,
-                "selectedPeople": [],
-                "peopleJoinMode": "or",
-                "withCompanies": [],
-                "withoutCompanies": [],
-                "companyJoinMode": "or",
-                "withKeywords": [],
-                "withoutKeywords": [],
-                "keywordJoinMode": "or",
-                "watchRegion": "",
-                "watchProviders": [],
-                "providerJoinMode": "or",
-                "voteAverageRange": [5, 10],
-                "voteCountMin": 100,
-                "runtimeRange": [0, 400],
-                "primaryReleaseFrom": "",
-                "primaryReleaseTo": "",
-                "firstAirFrom": "",
-                "firstAirTo": "",
-                "airDateFrom": "",
-                "airDateTo": "",
-                "releaseRegion": ""
-              }
-            }
-          }
+          "enableRatingPosters": true,
+          "randomizePerPage": false
         },
         {
           "id": "tmdb.discover.movie.latest_movies.mltmmzhu",
@@ -2970,7 +2870,20 @@
                 "cacheTTL": 86400,
                 "catalogType": "series",
                 "includeGenres": [],
-                "excludeGenres": [],
+                "excludeGenres": [
+                  {
+                    "id": 10764,
+                    "label": "Reality"
+                  },
+                  {
+                    "id": 10763,
+                    "label": "News"
+                  },
+                  {
+                    "id": 10767,
+                    "label": "Talk"
+                  }
+                ],
                 "genreJoinMode": "or",
                 "originalLanguage": "",
                 "originCountry": "",
@@ -3004,6 +2917,166 @@
           }
         },
         {
+          "id": "tmdb.discover.movie.top_rated.mlz4ps5f",
+          "type": "movie",
+          "name": "Top Rated Movies",
+          "enabled": false,
+          "showInHome": true,
+          "source": "tmdb",
+          "cacheTTL": 86400,
+          "metadata": {
+            "description": "TMDB Discover (movie)",
+            "discover": {
+              "version": 2,
+              "source": "tmdb",
+              "mediaType": "movie",
+              "params": {
+                "sort_by": "vote_average.desc",
+                "include_adult": false,
+                "without_genres": "99|16",
+                "watch_region": "US",
+                "vote_average.gte": 7,
+                "vote_count.gte": 3000
+              },
+              "formState": {
+                "catalogName": "Top Rated",
+                "discoverSource": "tmdb",
+                "sortBy": "vote_average.desc",
+                "cacheTTL": 86400,
+                "catalogType": "movie",
+                "includeGenres": [],
+                "excludeGenres": [
+                  {
+                    "id": 99,
+                    "label": "Documentary"
+                  },
+                  {
+                    "id": 16,
+                    "label": "Animation"
+                  }
+                ],
+                "genreJoinMode": "or",
+                "originalLanguage": "",
+                "originCountry": "",
+                "certificationCountry": "",
+                "certificationValue": "",
+                "includeAdult": false,
+                "releasedOnly": false,
+                "selectedPeople": [],
+                "peopleJoinMode": "or",
+                "withCompanies": [],
+                "withoutCompanies": [],
+                "companyJoinMode": "or",
+                "withKeywords": [],
+                "withoutKeywords": [],
+                "keywordJoinMode": "or",
+                "watchRegion": "US",
+                "watchProviders": [],
+                "providerJoinMode": "or",
+                "voteAverageRange": [7, 10],
+                "voteCountMin": 1000,
+                "runtimeRange": [0, 400],
+                "primaryReleaseFrom": "",
+                "primaryReleaseTo": "",
+                "movieDatePreset": "clear",
+                "firstAirFrom": "",
+                "firstAirTo": "",
+                "seriesDatePreset": "clear",
+                "airDateFrom": "",
+                "airDateTo": "",
+                "releaseRegion": ""
+              }
+            }
+          },
+          "randomizePerPage": true
+        },
+        {
+          "id": "tmdb.discover.series.top_rated.mlz4rjj0",
+          "type": "series",
+          "name": "Top Rated Shows",
+          "enabled": false,
+          "showInHome": true,
+          "source": "tmdb",
+          "cacheTTL": 86400,
+          "metadata": {
+            "description": "TMDB Discover (tv)",
+            "discover": {
+              "version": 2,
+              "source": "tmdb",
+              "mediaType": "tv",
+              "params": {
+                "sort_by": "vote_average.desc",
+                "include_adult": false,
+                "without_genres": "99|10767|10764|16|10763",
+                "watch_region": "US",
+                "vote_average.gte": 7,
+                "vote_count.gte": 3000
+              },
+              "formState": {
+                "catalogName": "Top Rated",
+                "discoverSource": "tmdb",
+                "sortBy": "vote_average.desc",
+                "cacheTTL": 86400,
+                "catalogType": "series",
+                "includeGenres": [],
+                "excludeGenres": [
+                  {
+                    "id": 99,
+                    "label": "Documentary"
+                  },
+                  {
+                    "id": 10767,
+                    "label": "Talk"
+                  },
+                  {
+                    "id": 10764,
+                    "label": "Reality"
+                  },
+                  {
+                    "id": 16,
+                    "label": "Animation"
+                  },
+                  {
+                    "id": 10763,
+                    "label": "News"
+                  }
+                ],
+                "genreJoinMode": "or",
+                "originalLanguage": "",
+                "originCountry": "",
+                "certificationCountry": "",
+                "certificationValue": "",
+                "includeAdult": false,
+                "releasedOnly": false,
+                "selectedPeople": [],
+                "peopleJoinMode": "or",
+                "withCompanies": [],
+                "withoutCompanies": [],
+                "companyJoinMode": "or",
+                "withKeywords": [],
+                "withoutKeywords": [],
+                "keywordJoinMode": "or",
+                "watchRegion": "US",
+                "watchProviders": [],
+                "providerJoinMode": "or",
+                "voteAverageRange": [7, 10],
+                "voteCountMin": 1000,
+                "runtimeRange": [0, 400],
+                "primaryReleaseFrom": "",
+                "primaryReleaseTo": "",
+                "movieDatePreset": "clear",
+                "firstAirFrom": "",
+                "firstAirTo": "",
+                "seriesDatePreset": "clear",
+                "airDateFrom": "",
+                "airDateTo": "",
+                "releaseRegion": ""
+              }
+            }
+          },
+          "randomizePerPage": true
+        },
+        {
           "id": "streaming.nfx",
           "name": "Netflix Movies",
           "sort": "release_date",
@@ -3021,6 +3094,26 @@
           "source": "streaming",
           "enabled": true,
           "showInHome": true,
+          "sortDirection": "desc"
+        },
+        {
+          "id": "streaming.nfk",
+          "name": "Netflix Kids Movies",
+          "type": "movie",
+          "source": "streaming",
+          "enabled": false,
+          "showInHome": true,
+          "sort": "popularity",
+          "sortDirection": "desc"
+        },
+        {
+          "id": "streaming.nfk",
+          "name": "Netflix Kids Shows",
+          "type": "series",
+          "source": "streaming",
+          "enabled": false,
+          "showInHome": true,
+          "sort": "popularity",
           "sortDirection": "desc"
         },
         {
@@ -3161,6 +3254,26 @@
           "source": "streaming",
           "enabled": true,
           "showInHome": true,
+          "sortDirection": "desc"
+        },
+        {
+          "id": "streaming.cru",
+          "name": "Crunchyroll Movies",
+          "type": "movie",
+          "source": "streaming",
+          "enabled": false,
+          "showInHome": true,
+          "sort": "popularity",
+          "sortDirection": "desc"
+        },
+        {
+          "id": "streaming.cru",
+          "name": "Crunchyroll Shows",
+          "type": "series",
+          "source": "streaming",
+          "enabled": false,
+          "showInHome": true,
+          "sort": "popularity",
           "sortDirection": "desc"
         },
         {
@@ -4966,7 +5079,7 @@
                 "providerJoinMode": "or",
                 "voteAverageRange": [5, 10],
                 "voteCountMin": 50,
-                "runtimeRange": [0, 180],
+                "runtimeRange": [10, 180],
                 "primaryReleaseFrom": "",
                 "primaryReleaseTo": "",
                 "firstAirFrom": "",

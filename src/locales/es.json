@@ -203,5 +203,9 @@
   "catalogs_tmdb_movie_best_movies_of_the_2010s": "Mejores Películas de los 2010",
   "catalogs_tmdb_movie_mcu_movies": "Películas del MCU",
   "catalogs_tmdb_movie_dceu_movies": "Películas del DCEU",
-  "catalogs_tmdb_movie_superhero_movies": "Películas de Superhéroes"
+  "catalogs_tmdb_movie_superhero_movies": "Películas de Superhéroes",
+  "catalogs_streaming_movie_crunchyroll_movies": "Películas de Crunchyroll",
+  "catalogs_streaming_series_crunchyroll_shows": "Series de Crunchyroll",
+  "catalogs_tmdb_movie_top_rated_movies": "Películas Mejor Valoradas",
+  "catalogs_tmdb_series_top_rated_shows": "Series Mejor Valoradas"
 }

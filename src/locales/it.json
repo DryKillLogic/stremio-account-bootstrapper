@@ -177,8 +177,8 @@
   "catalogs_streaming_series_hulu_shows": "Serie Hulu",
   "catalogs_streaming_series_peacock_premium_shows": "Serie Peacock Premium",
   "catalogs_streaming_series_apple_tv_plus_shows": "Serie Apple TV+",
-  "catalogs_streaming_movie_netflix_kids_movies": "Film Netflix per Bambini",
-  "catalogs_streaming_series_netflix_kids_shows": "Serie Netflix per Bambini",
+  "catalogs_streaming_movie_netflix_kids_movies": "Film Netflix Kids",
+  "catalogs_streaming_series_netflix_kids_shows": "Serie Netflix Kids",
   "password_title": "Password generata",
   "password_message": "È stata generata una password per te per accedere ai componenti aggiuntivi che richiedono l'autenticazione. Assicurati di copiarla e salvarla in un luogo sicuro, poiché non potrai recuperarla di nuovo.",
   "password_copy": "Copia password",
@@ -202,5 +202,9 @@
   "catalogs_tmdb_movie_best_movies_of_the_2010s": "Migliori Film degli Anni 2010",
   "catalogs_tmdb_movie_mcu_movies": "Film MCU",
   "catalogs_tmdb_movie_dceu_movies": "Film DCEU",
-  "catalogs_tmdb_movie_superhero_movies": "Film Supereroi"
+  "catalogs_tmdb_movie_superhero_movies": "Film Supereroi",
+  "catalogs_streaming_movie_crunchyroll_movies": "Film Crunchyroll",
+  "catalogs_streaming_series_crunchyroll_shows": "Serie Crunchyroll",
+  "catalogs_tmdb_movie_top_rated_movies": "Film Più Valutati",
+  "catalogs_tmdb_series_top_rated_shows": "Serie Più Valutate"
 }
