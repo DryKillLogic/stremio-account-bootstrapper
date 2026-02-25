@@ -57,7 +57,3 @@ npm run format
 ## Credits
 
 This tool is based on the original pancake3000 work and redd-ravenn fork, with the collaboration of Sleeyax and &#60;Code/&#62;. This idea couldn't have come to fruition without their contribution to the Stremio community 🙏.
-
-- Added a new "All-in-One" preset that sets AIOStreams as the only configured streams add-on using Tam-Taro's template.
-- Replaced the RPDB step with "Advanced options"
-- Added support for entering a TMDB API key.

@@ -23,6 +23,7 @@ import {
   configureTorbox,
   configureAioStreams
 } from './addons';
+import { configureMeteor } from './addons/meteor.ts';
 
 declare const Sqrl: SquirrellyRenderer;
 
@@ -219,6 +220,16 @@ export async function buildPresetService(params: BuildPresetServiceParams) {
 
   // StremThru Torz
   configureStremThruTorz(presetConfig, context);
+
+  // Meteor
+  const meteorResult = await configureMeteor(presetConfig, context);
+  if (meteorResult.shouldReplace && meteorResult.rebuilt) {
+    presetConfig = replaceAddonKey(
+      presetConfig,
+      'meteor',
+      meteorResult.rebuilt
+    );
+  }
 
   // AIOStreams
   await configureAioStreams(presetConfig, context);

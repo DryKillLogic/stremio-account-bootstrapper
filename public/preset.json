@@ -31,6 +31,7 @@
       "torbox",
       "jackettio",
       "torrentsdb",
+      "meteor",
       "tpbplus",
       "nuvio",
       "webstreamr",
@@ -381,6 +382,30 @@
             "configurationRequired": false
           },
           "logo": "https://torbox.app/android-chrome-512x512.png"
+        }
+      },
+      "meteor": {
+        "transportUrl": "https://meteorfortheweebs.midnightignite.me/eyJjYWNoZWRPbmx5IjpmYWxzZSwicmVtb3ZlVHJhc2giOnRydWUsInJlbW92ZVNhbXBsZXMiOnRydWUsInJlbW92ZUFkdWx0Ijp0cnVlLCJleGNsdWRlM0QiOnRydWUsImVuYWJsZVNlYURleCI6dHJ1ZSwibWluU2VlZGVycyI6MCwibWF4UmVzdWx0cyI6MCwibWF4UmVzdWx0c1BlclJlcyI6MTAsIm1heFNpemUiOjAsInJlc29sdXRpb25zIjpbIjRrIiwiMTA4MHAiLCI3MjBwIiwiNDgwcCJdLCJsYW5ndWFnZXMiOnsicHJlZmVycmVkIjpbImVuIiwibXVsdGkiXSwicmVxdWlyZWQiOltdLCJleGNsdWRlIjpbXX0sInJlc3VsdEZvcm1hdCI6WyJ0aXRsZSIsInF1YWxpdHkiLCJzaXplIiwiYXVkaW8iXSwic29ydE9yZGVyIjpbInBhY2siLCJjYWNoZWQiLCJzZWFkZXgiLCJyZXNvbHV0aW9uIiwic2l6ZSIsInF1YWxpdHkiLCJzZWVkZXJzIiwibGFuZ3VhZ2UiXX0=/manifest.json",
+        "manifest": {
+          "behaviorHints": {
+            "configurable": true,
+            "configurationRequired": false
+          },
+          "catalogs": [],
+          "description": "High-performance streaming addon with debrid support",
+          "id": "community.meteor",
+          "idPrefixes": ["tt", "kitsu"],
+          "logo": "https://i.ibb.co/0V90bryY/image.png",
+          "name": "Meteor",
+          "resources": [
+            {
+              "idPrefixes": ["tt", "kitsu"],
+              "name": "stream",
+              "types": ["movie", "series"]
+            }
+          ],
+          "types": ["movie", "series"],
+          "version": "1.0.0"
         }
       },
       "aiostreams": {

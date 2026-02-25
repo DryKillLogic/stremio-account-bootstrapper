@@ -5,6 +5,7 @@ export { configurePeerflix } from './peerflix';
 export { configureMediaFusion } from './mediafusion';
 export { configureJackettio } from './jackettio';
 export { configureComet } from './comet';
+export { configureMeteor } from './meteor';
 export { configureTorrentsDB } from './torrentsdb';
 export { configureStremThruTorz } from './stremthrutorz';
 export { configureStremThruStore } from './stremthrustore';
