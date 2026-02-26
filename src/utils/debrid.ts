@@ -38,7 +38,7 @@ export const isValidApiKey = (
   const patterns: Record<DebridService, RegExp> = {
     alldebrid: /^[a-zA-Z0-9]{20}$/,
     premiumize: /^[a-z0-9]{16}$/i,
-    debridlink: /^[A-Za-z0-9]{35}$/i,
+    debridlink: /^[A-Z0-9]{6}-[A-Z0-9]{6}-[A-Z0-9]{6}-[A-Z0-9]{5}$/,
     realdebrid: /^[A-Z0-9]{52}$/,
     torbox: /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i
   };
