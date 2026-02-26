@@ -1,5 +1,14 @@
 # Changelog
 
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## [2.1.0](https://github.com/DryKillLogic/stremio-account-bootstrapper/compare/v1.9.9...v2.1.0) (2026-02-26)
+
+### Features
+
+- add automated versioning and release management ([825b596](https://github.com/DryKillLogic/stremio-account-bootstrapper/commit/825b596a4e6ffa53475737c2a7021f82fc26d35b))
+- Added Meteor addon ([5dee599](https://github.com/DryKillLogic/stremio-account-bootstrapper/commit/5dee599925861a99fdc8fea8b7d74023d4027f94))
+
 ## [2.0.0](https://github.com/DryKillLogic/stremio-account-bootstrapper/compare/v1.9.9...v2.0.0) (2026-02-23)
 
 ### Features
