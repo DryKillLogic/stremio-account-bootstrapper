@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.1.1](https://github.com/DryKillLogic/stremio-account-bootstrapper/compare/v2.1.0...v2.1.1) (2026-02-26)
+
+### Bug Fixes
+
+- fixed Debrid-Link key validation ([6de359b](https://github.com/DryKillLogic/stremio-account-bootstrapper/commit/6de359be7fc6c61511dd349434be64271a071c43))
+
 ## [2.1.0](https://github.com/DryKillLogic/stremio-account-bootstrapper/compare/v1.9.9...v2.1.0) (2026-02-26)
 
 ### Features
