@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.1.2](https://github.com/DryKillLogic/stremio-account-bootstrapper/compare/v2.1.1...v2.1.2) (2026-02-27)
+
+### Bug Fixes
+
+- Replaced the tooltip component with floating-vue to resolve mobile layout issues ([7ffacb4](https://github.com/DryKillLogic/stremio-account-bootstrapper/commit/7ffacb4c3c217a4e809827d5913b3f72ee1a4811))
+
 ### [2.1.1](https://github.com/DryKillLogic/stremio-account-bootstrapper/compare/v2.1.0...v2.1.1) (2026-02-26)
 
 ### Bug Fixes
