@@ -21,6 +21,7 @@
     "buffer": "^6.0.3",
     "daisyui": "^5.1.13",
     "date-fns": "^4.1.0",
+    "floating-vue": "^5.2.2",
     "lodash": "^4.17.21",
     "tailwindcss": "^4.1.13",
     "vue": "^3.5.21",

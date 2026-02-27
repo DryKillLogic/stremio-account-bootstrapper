@@ -16,6 +16,8 @@ import {
   loadPresetService
 } from '../services/presetService.ts';
 import { generatePassword } from '../utils/password.ts';
+import { Tooltip as VTooltip } from 'floating-vue';
+import 'floating-vue/dist/style.css';
 
 const { t } = useI18n();
 
@@ -253,14 +255,23 @@ function resetEntryKey(idx) {
               v-model="preset"
               class="radio radio-primary"
             />
-            <span class="label-text ml-2 flex items-center gap-1"
-              >{{ $t('minimal') }}
-              <div
-                class="tooltip inline-block"
-                :data-tip="$t('preset_minimal_details')"
+            <span class="label-text ml-2 flex items-center gap-1">
+              {{ $t('minimal') }}
+              <VTooltip
+                placement="auto"
+                :triggers="['hover', 'click', 'touch']"
+                :auto-hide="true"
+                @click.stop
               >
-                <QuestionMarkCircleIcon class="h-5 w-5 text-primary" />
-              </div>
+                <QuestionMarkCircleIcon
+                  class="h-5 w-5 text-primary shrink-0 cursor-pointer"
+                />
+                <template #popper>
+                  <div class="text-sm max-w-xs">
+                    {{ $t('preset_minimal_details') }}
+                  </div>
+                </template>
+              </VTooltip>
             </span>
           </label>
           <label class="label cursor-pointer">
@@ -270,14 +281,23 @@ function resetEntryKey(idx) {
               v-model="preset"
               class="radio radio-primary"
             />
-            <span class="label-text ml-2 flex items-center gap-1"
-              >{{ $t('standard') }}
-              <div
-                class="tooltip inline-block"
-                :data-tip="$t('preset_standard_details')"
+            <span class="label-text ml-2 flex items-center gap-1">
+              {{ $t('standard') }}
+              <VTooltip
+                placement="auto"
+                :triggers="['hover', 'click', 'touch']"
+                :auto-hide="true"
+                @click.stop
               >
-                <QuestionMarkCircleIcon class="h-5 w-5 text-primary" />
-              </div>
+                <QuestionMarkCircleIcon
+                  class="h-5 w-5 text-primary shrink-0 cursor-pointer"
+                />
+                <template #popper>
+                  <div class="text-sm max-w-xs">
+                    {{ $t('preset_standard_details') }}
+                  </div>
+                </template>
+              </VTooltip>
             </span>
           </label>
           <label class="label cursor-pointer">
@@ -287,14 +307,23 @@ function resetEntryKey(idx) {
               v-model="preset"
               class="radio radio-primary"
             />
-            <span class="label-text ml-2 flex items-center gap-1"
-              >{{ $t('full') }}
-              <div
-                class="tooltip inline-block"
-                :data-tip="$t('preset_full_details')"
+            <span class="label-text ml-2 flex items-center gap-1">
+              {{ $t('full') }}
+              <VTooltip
+                placement="auto"
+                :triggers="['hover', 'click', 'touch']"
+                :auto-hide="true"
+                @click.stop
               >
-                <QuestionMarkCircleIcon class="h-5 w-5 text-primary" />
-              </div>
+                <QuestionMarkCircleIcon
+                  class="h-5 w-5 text-primary shrink-0 cursor-pointer"
+                />
+                <template #popper>
+                  <div class="text-sm max-w-xs">
+                    {{ $t('preset_full_details') }}
+                  </div>
+                </template>
+              </VTooltip>
             </span>
           </label>
           <label class="label cursor-pointer">
@@ -304,14 +333,23 @@ function resetEntryKey(idx) {
               v-model="preset"
               class="radio radio-primary"
             />
-            <span class="label-text ml-2 flex items-center gap-1"
-              >{{ $t('allinone') }}
-              <div
-                class="tooltip inline-block"
-                :data-tip="$t('preset_allinone_details')"
+            <span class="label-text ml-2 flex items-center gap-1">
+              {{ $t('allinone') }}
+              <VTooltip
+                placement="auto"
+                :triggers="['hover', 'click', 'touch']"
+                :auto-hide="true"
+                @click.stop
               >
-                <QuestionMarkCircleIcon class="h-5 w-5 text-primary" />
-              </div>
+                <QuestionMarkCircleIcon
+                  class="h-5 w-5 text-primary shrink-0 cursor-pointer"
+                />
+                <template #popper>
+                  <div class="text-sm max-w-xs">
+                    {{ $t('preset_allinone_details') }}
+                  </div>
+                </template>
+              </VTooltip>
             </span>
           </label>
           <label class="label cursor-pointer">
@@ -321,14 +359,23 @@ function resetEntryKey(idx) {
               v-model="preset"
               class="radio radio-primary"
             />
-            <span class="label-text ml-2 flex items-center gap-1"
-              >{{ $t('no_streams') }}
-              <div
-                class="tooltip inline-block"
-                :data-tip="$t('preset_no_streams_details')"
+            <span class="label-text ml-2 flex items-center gap-1">
+              {{ $t('no_streams') }}
+              <VTooltip
+                placement="auto"
+                :triggers="['hover', 'click', 'touch']"
+                :auto-hide="true"
+                @click.stop
               >
-                <QuestionMarkCircleIcon class="h-5 w-5 text-primary" />
-              </div>
+                <QuestionMarkCircleIcon
+                  class="h-5 w-5 text-primary shrink-0 cursor-pointer"
+                />
+                <template #popper>
+                  <div class="text-sm max-w-xs">
+                    {{ $t('preset_no_streams_details') }}
+                  </div>
+                </template>
+              </VTooltip>
             </span>
           </label>
           <label class="label cursor-pointer">
@@ -338,14 +385,23 @@ function resetEntryKey(idx) {
               v-model="preset"
               class="radio radio-primary"
             />
-            <span class="label-text ml-2 flex items-center gap-1"
-              >{{ $t('factory') }}
-              <div
-                class="tooltip inline-block"
-                :data-tip="$t('preset_factory_details')"
+            <span class="label-text ml-2 flex items-center gap-1">
+              {{ $t('factory') }}
+              <VTooltip
+                placement="auto"
+                :triggers="['hover', 'click', 'touch']"
+                :auto-hide="true"
+                @click.stop
               >
-                <QuestionMarkCircleIcon class="h-5 w-5 text-primary" />
-              </div>
+                <QuestionMarkCircleIcon
+                  class="h-5 w-5 text-primary shrink-0 cursor-pointer"
+                />
+                <template #popper>
+                  <div class="text-sm max-w-xs">
+                    {{ $t('preset_factory_details') }}
+                  </div>
+                </template>
+              </VTooltip>
             </span>
           </label>
         </div>
@@ -597,14 +653,23 @@ function resetEntryKey(idx) {
 
       <!-- Step 5: Custom Addons -->
       <fieldset class="bg-base-100 p-6 rounded-lg border border-base-300">
-        <legend class="text-sm">
+        <legend class="text-sm inline-flex items-center gap-1">
           {{ $t('step5_custom_addons') }}
-          <div
-            class="tooltip inline-block align-middle"
-            :data-tip="$t('custom_addons_details')"
+          <VTooltip
+            placement="auto"
+            :triggers="['hover', 'click', 'touch']"
+            :auto-hide="true"
+            @click.stop
           >
-            <QuestionMarkCircleIcon class="h-5 w-5 text-primary" />
-          </div>
+            <QuestionMarkCircleIcon
+              class="h-5 w-5 text-primary shrink-0 cursor-pointer"
+            />
+            <template #popper>
+              <div class="text-sm max-w-xs">
+                {{ $t('custom_addons_details') }}
+              </div>
+            </template>
+          </VTooltip>
         </legend>
         <div class="space-y-3">
           <div
@@ -694,14 +759,23 @@ function resetEntryKey(idx) {
               v-model="options"
               class="checkbox checkbox-primary"
             />
-            <span class="label-text ml-2 flex items-center gap-1"
-              >{{ $t('kids') }}
-              <div
-                class="tooltip inline-block"
-                :data-tip="$t('kids_option_details')"
+            <span class="label-text ml-2 flex items-center gap-1">
+              {{ $t('kids') }}
+              <VTooltip
+                placement="auto"
+                :triggers="['hover', 'click', 'touch']"
+                :auto-hide="true"
+                @click.stop
               >
-                <QuestionMarkCircleIcon class="h-5 w-5 text-primary" />
-              </div>
+                <QuestionMarkCircleIcon
+                  class="h-5 w-5 text-primary shrink-0 cursor-pointer"
+                />
+                <template #popper>
+                  <div class="text-sm max-w-xs">
+                    {{ $t('kids_option_details') }}
+                  </div>
+                </template>
+              </VTooltip>
             </span>
           </label>
         </div>
