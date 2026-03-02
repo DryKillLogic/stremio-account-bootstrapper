@@ -2,9 +2,9 @@ import { getRequest, postRequest, PROXY_BASE_URL } from '../utils/http';
 
 const API_BASE_URL = 'https://aiostreamsfortheweebs.midnightignite.me';
 const P2P_TEMPLATE_URL =
-  'https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/AIOStreams%20Templates/Tamtaro-complete-setup-P2P-template.json';
+  'https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/05ceea0d4bf640272e0f7292a281869be789845e/AIOStreams%20Templates/Tamtaro-complete-setup-P2P-template.json';
 const DEBRID_TEMPLATE_URL =
-  'https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/AIOStreams%20Templates/Tamtaro-complete-setup-template.json';
+  'https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/05ceea0d4bf640272e0f7292a281869be789845e/AIOStreams%20Templates/Tamtaro-complete-setup-template.json';
 
 type AIOStreamsResponse = {
   success: boolean;

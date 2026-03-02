@@ -182,22 +182,48 @@ export async function configureAioStreams(
   template.config.presets.push(webstreamrConfig);
 
   // Build config overrides
-  const languagePassthrough = `/*yourLanguage*/  passthrough(slice(language(merge(cached(streams), type(streams,'p2p','http')), '${getLanguageName(language)}'), 0, 5), 'title', 'excluded')`;
-
   const configOverrides = {
     services: debridServices,
     preferredLanguages:
       language !== 'en'
         ? [getLanguageName(language), ...template.config.preferredLanguages]
         : template.config.preferredLanguages,
-    ...(language !== 'en' && {
-      includedStreamExpressions: [
-        {
-          expression: languagePassthrough,
-          enabled: true
-        }
-      ]
-    }),
+    excludedStreamExpressions: [
+      ...template.config.excludedStreamExpressions,
+      {
+        expression:
+          "/*☑ ɴᴢʙ-Only Filter*/ negate(addon(message(streams,'includes','✅','🧝'),'US','UNS','Usenet Streamer','UsenetStreamer'),addon(streams,'US','UNS','Usenet Streamer','UsenetStreamer'))",
+        enabled: false
+      },
+      {
+        expression:
+          "/*DV Only Non-Remux*/ isAnime?[]:negate(merge(quality(streams,'BluRay REMUX'),releaseGroup(streams, 'Flights'),regexMatched(streams, 'Hulu')),visualTag(streams,'DV Only'))",
+        enabled: false
+      },
+      {
+        expression:
+          "/*TB Non-Pro Download Limit*/ size(uncached(service(streams, 'torbox')), '200GB')",
+        enabled: false
+      },
+      {
+        expression:
+          "/*TB Pro Download Limit*/ size(uncached(service(streams, 'torbox')), '1TB')",
+        enabled: false
+      },
+      {
+        expression: `/*Pin Top 5 ${getLanguageName(language)} Passthrough*/ pin(passthrough(slice(language(merge(cached(streams), type(streams, 'p2p','http','usenet','stremio-usenet')), '${getLanguageName(language)}'), 0, 5),'excluded'), 'top')`,
+        enabled: language !== 'en' ? true : false
+      },
+      {
+        expression: `/*Top 5 ${getLanguageName(language)} Passthrough*/ passthrough(slice(language(merge(cached(streams), type(streams, 'p2p','http','usenet','stremio-usenet')), '${getLanguageName(language)}'), 0, 5),'excluded')`,
+        enabled: false
+      },
+      {
+        expression:
+          "/*Bitrate Softcap for Travel*/ merge(bitrate(resolution(streams,'2160p'), count(bitrate(resolution(merge(cached(streams), type(streams, 'p2p','http','usenet','stremio-usenet')),'2160p'),1,'6Mbps'))>5?'6Mbps': count(bitrate(resolution(merge(cached(streams), type(streams, 'p2p','http','usenet','stremio-usenet')),'2160p'),1,'9Mbps'))>5?'9Mbps': count(bitrate(resolution(merge(cached(streams), type(streams, 'p2p','http','usenet','stremio-usenet')),'2160p'),1,'12Mbps'))>5?'12Mbps': count(bitrate(resolution(merge(cached(streams), type(streams, 'p2p','http','usenet','stremio-usenet')),'2160p'),1,'15Mbps'))>5?'15Mbps': count(bitrate(resolution(merge(cached(streams), type(streams, 'p2p','http','usenet','stremio-usenet')),'2160p'),1,'20Mbps'))>5?'20Mbps': max(values(resolution(merge(cached(streams), type(streams, 'p2p','http','usenet','stremio-usenet')),'2160p'),'bitrate')) ), bitrate(resolution(streams,'1440p','1080p'), count(bitrate(resolution(merge(cached(streams), type(streams, 'p2p','http','usenet','stremio-usenet')),'1440p','1080p'),1,'6Mbps'))>5?'6Mbps': count(bitrate(resolution(merge(cached(streams), type(streams, 'p2p','http','usenet','stremio-usenet')),'1440p','1080p'),1,'9Mbps'))>5?'9Mbps': count(bitrate(resolution(merge(cached(streams), type(streams, 'p2p','http','usenet','stremio-usenet')),'1440p','1080p'),1,'12Mbps'))>5?'12Mbps': count(bitrate(resolution(merge(cached(streams), type(streams, 'p2p','http','usenet','stremio-usenet')),'1440p','1080p'),1,'15Mbps'))>5?'15Mbps': count(bitrate(resolution(merge(cached(streams), type(streams, 'p2p','http','usenet','stremio-usenet')),'1440p','1080p'),1,'20Mbps'))>5?'20Mbps': max(values(resolution(merge(cached(streams), type(streams, 'p2p','http','usenet','stremio-usenet')),'1440p','1080p'),'bitrate')) ), bitrate(resolution(streams,'720p'), count(bitrate(resolution(merge(cached(streams), type(streams, 'p2p','http','usenet','stremio-usenet')),'720p'),1,'6Mbps'))>5?'6Mbps': count(bitrate(resolution(merge(cached(streams), type(streams, 'p2p','http','usenet','stremio-usenet')),'720p'),1,'9Mbps'))>5?'9Mbps': count(bitrate(resolution(merge(cached(streams), type(streams, 'p2p','http','usenet','stremio-usenet')),'720p'),1,'12Mbps'))>5?'12Mbps': count(bitrate(resolution(merge(cached(streams), type(streams, 'p2p','http','usenet','stremio-usenet')),'720p'),1,'15Mbps'))>5?'15Mbps': count(bitrate(resolution(merge(cached(streams), type(streams, 'p2p','http','usenet','stremio-usenet')),'720p'),1,'20Mbps'))>5?'20Mbps': max(values(resolution(merge(cached(streams), type(streams, 'p2p','http','usenet','stremio-usenet')),'720p'),'bitrate')) ))",
+        enabled: false
+      }
+    ],
     excludedQualities: ['CAM', 'TS', 'TC', 'SCR'],
     excludedResolutions: [
       ...(no4k ? ['2160p', '1440p'] : []),
@@ -215,7 +241,9 @@ export async function configureAioStreams(
       }
     }),
     ...(cached && { excludeUncached: true }),
-    formatter: { id: 'lightgdrive' },
+    formatter: {
+      id: 'lightgdrive'
+    },
     tmdbAccessToken: '',
     tvdbApiKey: '',
     tmdbApiKey: advanced?.tmdbKey || '',
