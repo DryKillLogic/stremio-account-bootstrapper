@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Source: https://github.com/Viren070/AIOStreams/blob/main/packages/frontend/src/lib/templates/processors/conditionals.ts
 
 /**

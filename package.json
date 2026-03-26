@@ -12,7 +12,8 @@
     "release:major": "standard-version --release-as major",
     "release:patch": "standard-version --release-as patch",
     "release:first": "standard-version --first-release",
-    "prepare": "husky"
+    "prepare": "husky",
+    "deploy": "pnpm run build && wrangler deploy"
   },
   "dependencies": {
     "@heroicons/vue": "^2.2.0",
