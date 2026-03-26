@@ -5,6 +5,8 @@ import {
 import type { AddonConfigContext } from './types';
 import { getLanguageName } from '../../utils/language';
 import { convertToBytes } from '../../utils/sizeConverters';
+import { merge } from 'lodash';
+import { applyTemplateConditionals } from '../../utils/templateConditionals';
 
 function addLanguageSpecificAddons(
   presets: any[],
@@ -116,6 +118,38 @@ function getWebStreamrConfig(language: string): any {
   };
 }
 
+// Extract default values
+function extractInputDefaults(inputs: any[]): Record<string, any> {
+  const defaults: Record<string, any> = {};
+  if (!Array.isArray(inputs)) return defaults;
+  for (const input of inputs) {
+    if (
+      !input ||
+      typeof input !== 'object' ||
+      typeof input.id !== 'string' ||
+      !input.id.trim()
+    )
+      continue;
+    if (input.type === 'subsection' && Array.isArray(input.subOptions)) {
+      defaults[input.id] = extractInputDefaults(input.subOptions);
+    } else if ('default' in input) {
+      defaults[input.id] = input.default;
+    }
+  }
+  return defaults;
+}
+
+// Call AIOStreams template processing logic to apply conditionals
+function processTemplate(
+  template: any,
+  props: Record<string, any>,
+  selectedSvcs: string[]
+): any {
+  const inputDefaults = extractInputDefaults(template?.metadata?.inputs || []);
+  const mergedProps = merge({}, inputDefaults, props);
+  return applyTemplateConditionals(template, mergedProps, selectedSvcs);
+}
+
 export async function configureAioStreams(
   presetConfig: any,
   context: AddonConfigContext
@@ -137,8 +171,7 @@ export async function configureAioStreams(
   // Fetch template
   let template: any;
   try {
-    const templateType = isDebridUser ? 'debrid' : 'p2p';
-    template = await getTemplate(templateType);
+    template = await getTemplate();
 
     if (!template) {
       delete presetConfig.aiostreams;
@@ -159,78 +192,41 @@ export async function configureAioStreams(
     }
   }));
 
-  // Enable Torbox addon if debrid service available
-  const hasTorbox = debridEntries.some((debrid) => debrid.service === 'torbox');
-  const torboxAddon = template.config.presets.find(
-    (preset: any) => preset.type === 'torbox-search'
+  // Process template
+  const processedTemplate = processTemplate(
+    template,
+    {
+      languages: [getLanguageName(language)],
+      includeAddon: {
+        subtitleLanguages: ['disabled']
+      },
+      passthrough: {
+        language: getLanguageName(language),
+        languagePin: language !== 'en' ? true : false
+      },
+      torboxTier: 'nonPro',
+      ...(no4k ? { deviceExclude: ['4k'] } : {})
+    },
+    debridServices.map((svc) => svc.id)
   );
 
-  if (torboxAddon) {
-    torboxAddon.enabled = hasTorbox;
-  }
+  template = processedTemplate;
 
   // Add language-specific addons
   addLanguageSpecificAddons(template.config.presets, language, isDebridUser);
 
-  // Remove Webstreamr if it exists
+  // Remove Webstreamr if it exists and add it with language-specific providers
   template.config.presets = template.config.presets.filter(
     (preset: any) => preset.type !== 'webstreamr'
   );
-
-  // Add Webstreamr with language-specific providers
   const webstreamrConfig = getWebStreamrConfig(language);
   template.config.presets.push(webstreamrConfig);
 
   // Build config overrides
   const configOverrides = {
     services: debridServices,
-    preferredLanguages:
-      language !== 'en'
-        ? [getLanguageName(language), ...template.config.preferredLanguages]
-        : template.config.preferredLanguages,
-    excludedStreamExpressions: [
-      ...template.config.excludedStreamExpressions,
-      {
-        expression:
-          "/*☑ ɴᴢʙ-Only Filter*/ negate(addon(message(streams,'includes','✅','🧝'),'US','UNS','Usenet Streamer','UsenetStreamer'),addon(streams,'US','UNS','Usenet Streamer','UsenetStreamer'))",
-        enabled: false
-      },
-      {
-        expression:
-          "/*DV Only Non-Remux*/ isAnime?[]:negate(merge(quality(streams,'BluRay REMUX'),releaseGroup(streams, 'Flights'),regexMatched(streams, 'Hulu')),visualTag(streams,'DV Only'))",
-        enabled: false
-      },
-      {
-        expression:
-          "/*TB Non-Pro Download Limit*/ size(uncached(service(streams, 'torbox')), '200GB')",
-        enabled: false
-      },
-      {
-        expression:
-          "/*TB Pro Download Limit*/ size(uncached(service(streams, 'torbox')), '1TB')",
-        enabled: false
-      },
-      {
-        expression: `/*Pin Top 5 ${getLanguageName(language)} Passthrough*/ pin(passthrough(slice(language(merge(cached(streams), type(streams, 'p2p','http','usenet','stremio-usenet')), '${getLanguageName(language)}'), 0, 5),'excluded'), 'top')`,
-        enabled: language !== 'en' ? true : false
-      },
-      {
-        expression: `/*Top 5 ${getLanguageName(language)} Passthrough*/ passthrough(slice(language(merge(cached(streams), type(streams, 'p2p','http','usenet','stremio-usenet')), '${getLanguageName(language)}'), 0, 5),'excluded')`,
-        enabled: false
-      },
-      {
-        expression:
-          "/*Bitrate Softcap for Travel*/ merge(bitrate(resolution(streams,'2160p'), count(bitrate(resolution(merge(cached(streams), type(streams, 'p2p','http','usenet','stremio-usenet')),'2160p'),1,'6Mbps'))>5?'6Mbps': count(bitrate(resolution(merge(cached(streams), type(streams, 'p2p','http','usenet','stremio-usenet')),'2160p'),1,'9Mbps'))>5?'9Mbps': count(bitrate(resolution(merge(cached(streams), type(streams, 'p2p','http','usenet','stremio-usenet')),'2160p'),1,'12Mbps'))>5?'12Mbps': count(bitrate(resolution(merge(cached(streams), type(streams, 'p2p','http','usenet','stremio-usenet')),'2160p'),1,'15Mbps'))>5?'15Mbps': count(bitrate(resolution(merge(cached(streams), type(streams, 'p2p','http','usenet','stremio-usenet')),'2160p'),1,'20Mbps'))>5?'20Mbps': max(values(resolution(merge(cached(streams), type(streams, 'p2p','http','usenet','stremio-usenet')),'2160p'),'bitrate')) ), bitrate(resolution(streams,'1440p','1080p'), count(bitrate(resolution(merge(cached(streams), type(streams, 'p2p','http','usenet','stremio-usenet')),'1440p','1080p'),1,'6Mbps'))>5?'6Mbps': count(bitrate(resolution(merge(cached(streams), type(streams, 'p2p','http','usenet','stremio-usenet')),'1440p','1080p'),1,'9Mbps'))>5?'9Mbps': count(bitrate(resolution(merge(cached(streams), type(streams, 'p2p','http','usenet','stremio-usenet')),'1440p','1080p'),1,'12Mbps'))>5?'12Mbps': count(bitrate(resolution(merge(cached(streams), type(streams, 'p2p','http','usenet','stremio-usenet')),'1440p','1080p'),1,'15Mbps'))>5?'15Mbps': count(bitrate(resolution(merge(cached(streams), type(streams, 'p2p','http','usenet','stremio-usenet')),'1440p','1080p'),1,'20Mbps'))>5?'20Mbps': max(values(resolution(merge(cached(streams), type(streams, 'p2p','http','usenet','stremio-usenet')),'1440p','1080p'),'bitrate')) ), bitrate(resolution(streams,'720p'), count(bitrate(resolution(merge(cached(streams), type(streams, 'p2p','http','usenet','stremio-usenet')),'720p'),1,'6Mbps'))>5?'6Mbps': count(bitrate(resolution(merge(cached(streams), type(streams, 'p2p','http','usenet','stremio-usenet')),'720p'),1,'9Mbps'))>5?'9Mbps': count(bitrate(resolution(merge(cached(streams), type(streams, 'p2p','http','usenet','stremio-usenet')),'720p'),1,'12Mbps'))>5?'12Mbps': count(bitrate(resolution(merge(cached(streams), type(streams, 'p2p','http','usenet','stremio-usenet')),'720p'),1,'15Mbps'))>5?'15Mbps': count(bitrate(resolution(merge(cached(streams), type(streams, 'p2p','http','usenet','stremio-usenet')),'720p'),1,'20Mbps'))>5?'20Mbps': max(values(resolution(merge(cached(streams), type(streams, 'p2p','http','usenet','stremio-usenet')),'720p'),'bitrate')) ))",
-        enabled: false
-      }
-    ],
     excludedQualities: ['CAM', 'TS', 'TC', 'SCR'],
-    excludedResolutions: [
-      ...(no4k ? ['2160p', '1440p'] : []),
-      '360p',
-      '240p',
-      '144p'
-    ],
+    excludedResolutions: ['360p', '240p', '144p'],
     ...(size && {
       size: {
         global: {

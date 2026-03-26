@@ -1,10 +1,8 @@
 import { getRequest, postRequest, PROXY_BASE_URL } from '../utils/http';
 
 const API_BASE_URL = 'https://aiostreamsfortheweebs.midnightignite.me';
-const P2P_TEMPLATE_URL =
-  'https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/05ceea0d4bf640272e0f7292a281869be789845e/AIOStreams%20Templates/Tamtaro-complete-setup-P2P-template.json';
-const DEBRID_TEMPLATE_URL =
-  'https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/05ceea0d4bf640272e0f7292a281869be789845e/AIOStreams%20Templates/Tamtaro-complete-setup-template.json';
+const TEMPLATE_URL =
+  'https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/63930b747818b3e1e27b58f60789f77313ee37dd/AIOStreams%20Templates/Tamtaro-complete-setup-template.json'; // v2.2.0
 
 type AIOStreamsResponse = {
   success: boolean;
@@ -56,10 +54,10 @@ export const getAddonConfig = async (config: object): Promise<any> => {
   }
 };
 
-export const getTemplate = async (type: 'p2p' | 'debrid'): Promise<any> => {
-  const url = type === 'p2p' ? P2P_TEMPLATE_URL : DEBRID_TEMPLATE_URL;
+export const getTemplate = async (): Promise<any> => {
   try {
-    const template = await getRequest(url);
+    const template = await getRequest(TEMPLATE_URL);
+
     if (!template) {
       console.error('Error fetching AIOStreams template');
       return null;
