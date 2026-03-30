@@ -61,11 +61,10 @@ const canAddDebridEntry = computed(() => {
 });
 
 const isDebridApiKeyValid = computed(() => {
-  const hasSelected = debridEntries.value.some((e) => e.service);
-  if (!hasSelected) return true;
-  return debridEntries.value.some(
-    (e) => e.service && e.key && isValidApiKey(e.service, e.key)
-  );
+  if (!debridEntries.value.some((e) => e.service)) return false;
+  return debridEntries.value
+    .filter((e) => e.service)
+    .every((e) => e.key && isValidApiKey(e.service, e.key));
 });
 
 const hasDebridSelected = computed(() =>
