@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.3.0](https://github.com/DryKillLogic/stremio-account-bootstrapper/compare/v2.2.1...v2.3.0) (2026-04-14)
+
+### Features
+
+- moved Webstreamr to WebstreamrMBG fork ([b743436](https://github.com/DryKillLogic/stremio-account-bootstrapper/commit/b743436af360abef375911c592f8cabda3d625ad))
+
 ### [2.2.1](https://github.com/DryKillLogic/stremio-account-bootstrapper/compare/v2.2.0...v2.2.1) (2026-03-30)
 
 ### Bug Fixes
