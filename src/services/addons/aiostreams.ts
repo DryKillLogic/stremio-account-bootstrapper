@@ -104,12 +104,13 @@ function getWebStreamrConfig(language: string): any {
 
   return {
     type: 'webstreamr',
-    instanceId: '645',
+    instanceId: '48e',
     enabled: true,
     options: {
-      name: 'WebStreamr',
+      name: 'WebStreamrMBG',
       timeout: 7000,
       resources: ['stream'],
+      url: 'https://87d6a6ef6b58-webstreamrmbg.baby-beamup.club',
       mediaTypes: [],
       providers: [...baseProviders, ...additionalProviders],
       includeExternalUrls: false,

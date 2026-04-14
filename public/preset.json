@@ -15,7 +15,7 @@
       "torrentio",
       "comet",
       "mediafusion",
-      "webstreamr",
+      "webstreamrmbg",
       "streailer",
       "subherov2",
       "opensubtitlespro"
@@ -34,7 +34,7 @@
       "meteor",
       "tpbplus",
       "nuvio",
-      "webstreamr",
+      "webstreamrmbg",
       "streailer",
       "subherov2",
       "opensubtitlespro",
@@ -453,13 +453,13 @@
           "config": []
         }
       },
-      "webstreamr": {
-        "transportUrl": "https://webstreamr.hayd.uk/%7B%22multi%22%3A%22on%22%2C%22mediaFlowProxyUrl%22%3A%22%22%2C%22mediaFlowProxyPassword%22%3A%22%22%7D/manifest.json",
+      "webstreamrmbg": {
+        "transportUrl": "https://87d6a6ef6b58-webstreamrmbg.baby-beamup.club/%7B%22multi%22%3A%22on%22%2C%22mediaFlowProxyUrl%22%3A%22%22%2C%22mediaFlowProxyPassword%22%3A%22%22%7D/manifest.json",
         "manifest": {
-          "id": "webstreamr.hayd.uk",
-          "version": "0.66.3",
-          "name": "WebStreamr",
-          "description": "Provides HTTP URLs from streaming websites. Configure add-on for additional languages. Add MediaFlow proxy for more URLs.\n\nSupported languages: Albanian, German, Castilian Spanish, French, Hindi, Italian, Latin American Spanish, Tamil, Telugu\n\nSupported sources: 4KHDHub, CineHDPlus, Cuevana, Einschalten, Eurostreaming, Frembed, FrenchCloud, HomeCine, KinoGer, Kokoshka, MegaKino, MeineCloud, MostraGuarda, RgShows, StreamKiste, VerHdLink, VidSrc, VixSrc\n\nSupported extractors: DoodStream, Dropload, Fastream, FileLions, FileMoon, Fsst, HubCloud, HubDrive, KinoGer, LuluStream, Mixdrop, RgShows, SaveFiles, StreamEmbed, Streamtape, StreamUP, SuperVideo, Uqload, Vidora, VidSrc, VixSrc, VOE, YouTube, External",
+          "id": "webstreamr-mbg",
+          "version": "0.70.1",
+          "name": "WebStreamrMBG",
+          "description": "Provides HTTP URLs from streaming websites. Configure add-on for additional languages. Add MediaFlow proxy for more URLs.\n\nSupported languages: Albanian, German, Castilian Spanish, French, Gujarati, Hindi, Italian, Malayalam, Latin American Spanish, Punjabi, Tamil, Telugu\n\nSupported sources: 4KHDHub, CineHDPlus, Cuevana, Einschalten, Eurostreaming, Filmpalast, Frembed, FrenchCloud, HDHub4u, HomeCine, KinoGer, Kokoshka, MegaKino, MeineCloud, MostraGuarda, Movix, RgShows, StreamKiste, VerHdLink, VidSrc, VixSrc\n\nSupported extractors: DoodStream, Dropload, Fastream, FileLions, FileMoon, Fsst, HubCloud, HubDrive, KinoGer, LuluStream, Mixdrop, RgShows, SaveFiles, StreamEmbed, Streamtape, SuperVideo, Uqload, Vidora, VidSrc, VixSrc, VOE, YouTube, External",
           "resources": ["stream"],
           "types": ["movie", "series"],
           "catalogs": [],
@@ -474,7 +474,7 @@
             {
               "key": "multi",
               "type": "checkbox",
-              "title": "Multi 🌐 (4KHDHub, RgShows, VidSrc, VixSrc)"
+              "title": "Multi 🌐 (4KHDHub, HDHub4u, RgShows, VidSrc, VixSrc)"
             },
             {
               "key": "al",
@@ -484,7 +484,7 @@
             {
               "key": "de",
               "type": "checkbox",
-              "title": "German 🇩🇪 (Einschalten, KinoGer, MegaKino, MeineCloud, StreamKiste)"
+              "title": "German 🇩🇪 (Einschalten, Filmpalast, KinoGer, MegaKino, MeineCloud, StreamKiste)"
             },
             {
               "key": "es",
@@ -494,12 +494,17 @@
             {
               "key": "fr",
               "type": "checkbox",
-              "title": "French 🇫🇷 (Frembed, FrenchCloud)"
+              "title": "French 🇫🇷 (Frembed, FrenchCloud, Movix)"
+            },
+            {
+              "key": "gu",
+              "type": "checkbox",
+              "title": "Gujarati 🇮🇳 (HDHub4u)"
             },
             {
               "key": "hi",
               "type": "checkbox",
-              "title": "Hindi 🇮🇳 (4KHDHub)"
+              "title": "Hindi 🇮🇳 (4KHDHub, HDHub4u)"
             },
             {
               "key": "it",
@@ -507,19 +512,29 @@
               "title": "Italian 🇮🇹 (Eurostreaming, MostraGuarda, VixSrc)"
             },
             {
+              "key": "ml",
+              "type": "checkbox",
+              "title": "Malayalam 🇮🇳 (HDHub4u)"
+            },
+            {
               "key": "mx",
               "type": "checkbox",
               "title": "Latin American Spanish 🇲🇽 (CineHDPlus, Cuevana, HomeCine, VerHdLink)"
             },
             {
+              "key": "pa",
+              "type": "checkbox",
+              "title": "Punjabi 🇮🇳 (HDHub4u)"
+            },
+            {
               "key": "ta",
               "type": "checkbox",
-              "title": "Tamil 🇮🇳 (4KHDHub)"
+              "title": "Tamil 🇮🇳 (4KHDHub, HDHub4u)"
             },
             {
               "key": "te",
               "type": "checkbox",
-              "title": "Telugu 🇮🇳 (4KHDHub)"
+              "title": "Telugu 🇮🇳 (4KHDHub, HDHub4u)"
             },
             {
               "key": "showErrors",
@@ -542,6 +557,56 @@
               "type": "password",
               "title": "MediaFlow Proxy Password",
               "default": ""
+            },
+            {
+              "key": "excludeResolution_2160p",
+              "type": "checkbox",
+              "title": "Exclude resolution 2160p"
+            },
+            {
+              "key": "excludeResolution_1440p",
+              "type": "checkbox",
+              "title": "Exclude resolution 1440p"
+            },
+            {
+              "key": "excludeResolution_1080p",
+              "type": "checkbox",
+              "title": "Exclude resolution 1080p"
+            },
+            {
+              "key": "excludeResolution_720p",
+              "type": "checkbox",
+              "title": "Exclude resolution 720p"
+            },
+            {
+              "key": "excludeResolution_576p",
+              "type": "checkbox",
+              "title": "Exclude resolution 576p"
+            },
+            {
+              "key": "excludeResolution_480p",
+              "type": "checkbox",
+              "title": "Exclude resolution 480p"
+            },
+            {
+              "key": "excludeResolution_360p",
+              "type": "checkbox",
+              "title": "Exclude resolution 360p"
+            },
+            {
+              "key": "excludeResolution_240p",
+              "type": "checkbox",
+              "title": "Exclude resolution 240p"
+            },
+            {
+              "key": "excludeResolution_144p",
+              "type": "checkbox",
+              "title": "Exclude resolution 144p"
+            },
+            {
+              "key": "excludeResolution_Unknown",
+              "type": "checkbox",
+              "title": "Exclude resolution Unknown"
             },
             {
               "key": "disableExtractor_doodstream",
@@ -619,11 +684,6 @@
               "title": "Disable extractor Streamtape"
             },
             {
-              "key": "disableExtractor_streamup",
-              "type": "checkbox",
-              "title": "Disable extractor StreamUP"
-            },
-            {
               "key": "disableExtractor_supervideo",
               "type": "checkbox",
               "title": "Disable extractor SuperVideo"
@@ -661,7 +721,7 @@
           ],
           "stremioAddonsConfig": {
             "issuer": "https://stremio-addons.net",
-            "signature": "eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..D3-Wl15vxnYltwx8G52rRg.16-0VzsSgTvnv0wampIR8YPZsFhH8-7IgpuqxcUfC2p7kIJtuk8xQzrzqQOLXANEpaH_w7a4JOEpNo8wv28Zo_nMGCLOXgWbyGM3sQ-tfq6DCK3JU0ol6YMC1UDX2z_c.IOLlZyTYx_swutjYSTES0Q"
+            "signature": "eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..h1oW2E0XXKLldUqO-ReSUA.fejuyGAvmc_CdT9dnq2srZCgoC42ak-Rqeo7IKsEN3DPRpz8x-hmvbuBI_7BUU2PsFMSni35m_Lv0teUNQDPvlrm7t1FCZINMR4ty_Hee6If5m6J4kSzafD75HhWvxFU.FAcDZ5qZrTPDeRAVOUI2tQ"
           }
         }
       },
@@ -1720,8 +1780,8 @@
       "sootio": {
         "transportUrl": "https://sootiofortheweebs.midnightignite.me/%7B%22DebridServices%22%3A%5B%7B%22provider%22%3A%22%22%2C%22apiKey%22%3A%22%22%7D%5D%2C%22Languages%22%3A%5B%22english%22%2C%22latino%22%5D%2C%22minSize%22%3A0%2C%22maxSize%22%3A200%2C%22ShowCatalog%22%3Afalse%2C%22DebridProvider%22%3A%22%22%2C%22DebridApiKey%22%3A%22%22%7D/manifest.json"
       },
-      "webstreamr": {
-        "transportUrl": "https://webstreamr.hayd.uk/%7B%22multi%22%3A%22on%22%2C%22mx%22%3A%22on%22%2C%22mediaFlowProxyUrl%22%3A%22%22%2C%22mediaFlowProxyPassword%22%3A%22%22%7D/manifest.json"
+      "webstreamrmbg": {
+        "transportUrl": "https://87d6a6ef6b58-webstreamrmbg.baby-beamup.club/%7B%22multi%22%3A%22on%22%2C%22mx%22%3A%22on%22%2C%22mediaFlowProxyUrl%22%3A%22%22%2C%22mediaFlowProxyPassword%22%3A%22%22%7D/manifest.json"
       },
       "notorrent": {
         "transportUrl": "https://addon-osvh.onrender.com/manifest.json",
@@ -1812,8 +1872,8 @@
           }
         }
       },
-      "webstreamr": {
-        "transportUrl": "https://webstreamr.hayd.uk/%7B%22multi%22%3A%22on%22%2C%22es%22%3A%22on%22%2C%22mediaFlowProxyUrl%22%3A%22%22%2C%22mediaFlowProxyPassword%22%3A%22%22%7D/manifest.json"
+      "webstreamrmbg": {
+        "transportUrl": "https://87d6a6ef6b58-webstreamrmbg.baby-beamup.club/%7B%22multi%22%3A%22on%22%2C%22es%22%3A%22on%22%2C%22mediaFlowProxyUrl%22%3A%22%22%2C%22mediaFlowProxyPassword%22%3A%22%22%7D/manifest.json"
       },
       "streailer": {
         "transportUrl": "https://streailer.elfhosted.com/%7B%22language%22%3A%22es-ES%22%2C%22externalLink%22%3Afalse%2C%22showRecap%22%3Atrue%2C%22onlyRecaps%22%3Afalse%7D/manifest.json"
@@ -1942,8 +2002,8 @@
       "sootio": {
         "transportUrl": "https://sootiofortheweebs.midnightignite.me/%7B%22DebridServices%22%3A%5B%7B%22provider%22%3A%22%22%2C%22apiKey%22%3A%22%22%7D%5D%2C%22Languages%22%3A%5B%22english%22%2C%22french%22%5D%2C%22minSize%22%3A0%2C%22maxSize%22%3A200%2C%22ShowCatalog%22%3Afalse%2C%22DebridProvider%22%3A%22%22%2C%22DebridApiKey%22%3A%22%22%7D/manifest.json"
       },
-      "webstreamr": {
-        "transportUrl": "https://webstreamr.hayd.uk/%7B%22multi%22%3A%22on%22%2C%22fr%22%3A%22on%22%2C%22mediaFlowProxyUrl%22%3A%22%22%2C%22mediaFlowProxyPassword%22%3A%22%22%7D/manifest.json"
+      "webstreamrmbg": {
+        "transportUrl": "https://87d6a6ef6b58-webstreamrmbg.baby-beamup.club/%7B%22multi%22%3A%22on%22%2C%22fr%22%3A%22on%22%2C%22mediaFlowProxyUrl%22%3A%22%22%2C%22mediaFlowProxyPassword%22%3A%22%22%7D/manifest.json"
       },
       "streailer": {
         "transportUrl": "https://streailer.elfhosted.com/%7B%22language%22%3A%22fr-FR%22%2C%22externalLink%22%3Afalse%2C%22showRecap%22%3Atrue%2C%22onlyRecaps%22%3Afalse%7D/manifest.json"
@@ -1971,8 +2031,8 @@
       "sootio": {
         "transportUrl": "https://sootiofortheweebs.midnightignite.me/%7B%22DebridServices%22%3A%5B%7B%22provider%22%3A%22%22%2C%22apiKey%22%3A%22%22%7D%5D%2C%22Languages%22%3A%5B%22english%22%2C%22italian%22%5D%2C%22minSize%22%3A0%2C%22maxSize%22%3A200%2C%22ShowCatalog%22%3Afalse%2C%22DebridProvider%22%3A%22%22%2C%22DebridApiKey%22%3A%22%22%7D/manifest.json"
       },
-      "webstreamr": {
-        "transportUrl": "https://webstreamr.hayd.uk/%7B%22multi%22%3A%22on%22%2C%22it%22%3A%22on%22%2C%22mediaFlowProxyUrl%22%3A%22%22%2C%22mediaFlowProxyPassword%22%3A%22%22%7D/manifest.json"
+      "webstreamrmbg": {
+        "transportUrl": "https://87d6a6ef6b58-webstreamrmbg.baby-beamup.club/%7B%22multi%22%3A%22on%22%2C%22it%22%3A%22on%22%2C%22mediaFlowProxyUrl%22%3A%22%22%2C%22mediaFlowProxyPassword%22%3A%22%22%7D/manifest.json"
       },
       "streailer": {
         "transportUrl": "https://streailer.elfhosted.com/%7B%22language%22%3A%22it-IT%22%2C%22externalLink%22%3Afalse%2C%22showRecap%22%3Atrue%2C%22onlyRecaps%22%3Afalse%7D/manifest.json"
@@ -2000,8 +2060,8 @@
       "sootio": {
         "transportUrl": "https://sootiofortheweebs.midnightignite.me/%7B%22DebridServices%22%3A%5B%7B%22provider%22%3A%22%22%2C%22apiKey%22%3A%22%22%7D%5D%2C%22Languages%22%3A%5B%22english%22%2C%22german%22%5D%2C%22minSize%22%3A0%2C%22maxSize%22%3A200%2C%22ShowCatalog%22%3Afalse%2C%22DebridProvider%22%3A%22%22%2C%22DebridApiKey%22%3A%22%22%7D/manifest.json"
       },
-      "webstreamr": {
-        "transportUrl": "https://webstreamr.hayd.uk/%7B%22multi%22%3A%22on%22%2C%22de%22%3A%22on%22%2C%22mediaFlowProxyUrl%22%3A%22%22%2C%22mediaFlowProxyPassword%22%3A%22%22%7D/manifest.json"
+      "webstreamrmbg": {
+        "transportUrl": "https://87d6a6ef6b58-webstreamrmbg.baby-beamup.club/%7B%22multi%22%3A%22on%22%2C%22de%22%3A%22on%22%2C%22mediaFlowProxyUrl%22%3A%22%22%2C%22mediaFlowProxyPassword%22%3A%22%22%7D/manifest.json"
       },
       "streailer": {
         "transportUrl": "https://streailer.elfhosted.com/%7B%22language%22%3A%22de-DE%22%2C%22externalLink%22%3Afalse%2C%22showRecap%22%3Atrue%2C%22onlyRecaps%22%3Afalse%7D/manifest.json"
