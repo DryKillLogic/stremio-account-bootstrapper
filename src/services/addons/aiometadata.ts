@@ -97,8 +97,14 @@ export async function configureAioMetadata(
       presetConfig.aiometadata.transportUrl = aiometadataData.transportUrl;
     } else {
       delete presetConfig.aiometadata;
+      throw new Error(
+        'Failed to get AIOMetadata configuration - invalid response'
+      );
     }
   } catch (e) {
     delete presetConfig.aiometadata;
+    throw new Error(
+      `Failed to configure AIOMetadata: ${e instanceof Error ? e.message : String(e)}`
+    );
   }
 }

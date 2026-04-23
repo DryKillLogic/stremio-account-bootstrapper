@@ -52,6 +52,8 @@ export async function buildPresetService(params: BuildPresetServiceParams) {
     password
   } = params;
 
+  const errors: string[] = [];
+
   const data: any = await getRequest('/preset.json');
   if (!data) throw new Error('Failed to fetch presets');
 
@@ -91,16 +93,31 @@ export async function buildPresetService(params: BuildPresetServiceParams) {
   if (customAddons.length > 0) {
     for (const [idx, addon] of customAddons.entries()) {
       try {
-        if (!isValidManifestUrl(addon)) continue;
+        if (!addon?.trim()) {
+          continue;
+        }
+
+        if (!isValidManifestUrl(addon)) {
+          errors.push(
+            `Custom addon ${idx + 1}: Invalid manifest URL (${addon})`
+          );
+          continue;
+        }
         const addonData: any = await getRequest(addon);
         if (addonData) {
           presetConfig[`customAddon${idx}`] = {
             transportUrl: addon,
             manifest: addonData
           };
+        } else {
+          errors.push(
+            `Custom addon ${idx + 1}: No data received from ${addon}`
+          );
         }
       } catch (e) {
-        // ignore failed custom addon request
+        errors.push(
+          `Custom addon ${idx + 1}: ${e instanceof Error ? e.message : String(e)}`
+        );
       }
     }
   }
@@ -113,14 +130,18 @@ export async function buildPresetService(params: BuildPresetServiceParams) {
   }
 
   // Configure AIOMetadata
-  await configureAioMetadata(
-    presetConfig,
-    data,
-    language,
-    kids,
-    password,
-    advanced
-  );
+  try {
+    await configureAioMetadata(
+      presetConfig,
+      data,
+      language,
+      kids,
+      password,
+      advanced
+    );
+  } catch (e) {
+    errors.push(`AIOMetadata: ${e instanceof Error ? e.message : String(e)}`);
+  }
 
   // Normalize and validate debrid services
   const validatedDebridEntries: DebridEntry[] = (debridEntries || [])
@@ -183,17 +204,22 @@ export async function buildPresetService(params: BuildPresetServiceParams) {
   }
 
   // MediaFusion
-  const mediaFusionResult = await configureMediaFusion(
-    presetConfig,
-    mediaFusionConfig,
-    context
-  );
-  if (mediaFusionResult.shouldReplace && mediaFusionResult.rebuilt) {
-    presetConfig = replaceAddonKey(
+  try {
+    const mediaFusionResult = await configureMediaFusion(
       presetConfig,
-      'mediafusion',
-      mediaFusionResult.rebuilt
+      mediaFusionConfig,
+      context
     );
+    if (mediaFusionResult.shouldReplace && mediaFusionResult.rebuilt) {
+      presetConfig = replaceAddonKey(
+        presetConfig,
+        'mediafusion',
+        mediaFusionResult.rebuilt
+      );
+    }
+  } catch (e) {
+    errors.push(e instanceof Error ? e.message : String(e));
+    delete presetConfig.mediafusion;
   }
 
   // Peerflix
@@ -222,7 +248,7 @@ export async function buildPresetService(params: BuildPresetServiceParams) {
   configureStremThruTorz(presetConfig, context);
 
   // Meteor
-  const meteorResult = await configureMeteor(presetConfig, context);
+  const meteorResult = configureMeteor(presetConfig, context);
   if (meteorResult.shouldReplace && meteorResult.rebuilt) {
     presetConfig = replaceAddonKey(
       presetConfig,
@@ -232,7 +258,12 @@ export async function buildPresetService(params: BuildPresetServiceParams) {
   }
 
   // AIOStreams
-  await configureAioStreams(presetConfig, context);
+  try {
+    await configureAioStreams(presetConfig, context);
+  } catch (e) {
+    errors.push(e instanceof Error ? e.message : String(e));
+    delete presetConfig.aiostreams;
+  }
 
   // Brazuca Torrents
   const brazucaTorrentsResult = configureTorrentio(
@@ -268,16 +299,21 @@ export async function buildPresetService(params: BuildPresetServiceParams) {
     configureTorbox(presetConfig, context, Sqrl);
 
     // StremThru Store
-    const stremthruStoreResult = await configureStremThruStore(
-      presetConfig,
-      context
-    );
-    if (stremthruStoreResult.shouldReplace && stremthruStoreResult.rebuilt) {
-      presetConfig = replaceAddonKey(
+    try {
+      const stremthruStoreResult = await configureStremThruStore(
         presetConfig,
-        'stremthrustore',
-        stremthruStoreResult.rebuilt
+        context
       );
+      if (stremthruStoreResult.shouldReplace && stremthruStoreResult.rebuilt) {
+        presetConfig = replaceAddonKey(
+          presetConfig,
+          'stremthrustore',
+          stremthruStoreResult.rebuilt
+        );
+      }
+    } catch (e) {
+      errors.push(e instanceof Error ? e.message : String(e));
+      delete presetConfig.stremthrustore;
     }
 
     // Delete TPB+
@@ -291,10 +327,21 @@ export async function buildPresetService(params: BuildPresetServiceParams) {
   console.log('PRESET CONFIG', presetConfig);
   const selectedAddons = Object.keys(presetConfig).map((k) => presetConfig[k]);
 
+  if (selectedAddons.length === 0 && errors.length > 0) {
+    throw new Error(errors.join('\n'));
+  }
+
+  // If there are errors, we include them in the response
+  if (errors.length > 0) {
+    const errorMessage = errors.join('\n');
+    console.warn('Errors during preset configuration:', errorMessage);
+  }
+
   return {
     presetConfig,
     selectedAddons,
-    debridServiceName
+    debridServiceName,
+    errors
   };
 }
 

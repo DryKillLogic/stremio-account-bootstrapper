@@ -20,6 +20,7 @@ export async function configureStremThruStore(
     ? _.cloneDeep(presetConfig.stremthrustore)
     : presetConfig.stremthrustore;
   const rebuilt: any = {};
+  const errors: string[] = [];
 
   for (const debrid of debridEntries) {
     const addon = shouldClone ? _.cloneDeep(baseAddon) : baseAddon;
@@ -46,15 +47,26 @@ export async function configureStremThruStore(
           rebuilt[name] = addon;
         }
       } else {
+        const errorMsg = `No manifest data returned for ${debrid.service}`;
         if (!shouldClone) {
           delete presetConfig.stremthrustore;
+          throw new Error(`StremThru Store: ${errorMsg}`);
         }
+        errors.push(errorMsg);
       }
     } catch (error) {
+      const errorMsg = error instanceof Error ? error.message : String(error);
       if (!shouldClone) {
         delete presetConfig.stremthrustore;
+        throw new Error(`StremThru Store configuration failed for ${debrid.service}: ${errorMsg}`);
       }
+      errors.push(`${debrid.service}: ${errorMsg}`);
     }
+  }
+
+  // If all configurations failed in clone mode, throw an error
+  if (shouldClone && errors.length === debridEntries.length) {
+    throw new Error(`StremThru Store: All configurations failed - ${errors.join('; ')}`);
   }
 
   return shouldClone

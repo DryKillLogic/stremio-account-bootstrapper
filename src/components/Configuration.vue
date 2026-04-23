@@ -100,7 +100,8 @@ async function loadUserAddons() {
       presetConfig: builtPresetConfig,
       debridServiceName: builtDebridServiceName,
       torrentioConfig: builtTorrentioConfig,
-      peerflixConfig: builtPeerflixConfig
+      peerflixConfig: builtPeerflixConfig,
+      errors: presetErrors = []
     } = await buildPresetService({
       preset: preset.value,
       language: language.value,
@@ -121,9 +122,15 @@ async function loadUserAddons() {
     debridServiceName = builtDebridServiceName;
     torrentioConfig = builtTorrentioConfig;
     peerflixConfig = builtPeerflixConfig;
+
+    if (presetErrors.length > 0) {
+      addNotification(presetErrors.join('\n'), 'warning');
+    }
   } catch (error) {
     console.error('Error fetching preset config', error);
-    addNotification(t('failed_fetching_presets'), 'error');
+    const errorMessage =
+      error instanceof Error ? error.message : t('failed_fetching_presets');
+    addNotification(errorMessage, 'error');
   } finally {
     isSyncButtonEnabled.value = true;
     isLoadingPreset.value = false;
@@ -155,7 +162,9 @@ async function syncUserAddons() {
     isPasswordModalVisible.value = true;
     console.log('Sync complete: ', data);
   } catch (error) {
-    addNotification(error.message || t('failed_syncing_addons', 'error'));
+    const errorMessage =
+      error instanceof Error ? error.message : t('failed_syncing_addons');
+    addNotification(errorMessage, 'error');
     console.error('Sync failed', error);
   } finally {
     isSyncAddons.value = false;

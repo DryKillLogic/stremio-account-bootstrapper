@@ -173,15 +173,11 @@ export async function configureAioStreams(
   let template: any;
   try {
     template = await getTemplate();
-
-    if (!template) {
-      delete presetConfig.aiostreams;
-      return;
-    }
   } catch (e) {
-    console.log('Failed to fetch AIOStreams template:', e);
     delete presetConfig.aiostreams;
-    return;
+    throw new Error(
+      `AIOStreams template fetch failed: ${e instanceof Error ? e.message : String(e)}`
+    );
   }
 
   // Set debrid services
@@ -268,9 +264,12 @@ export async function configureAioStreams(
       presetConfig.aiostreams.transportUrl = aioStreamsData.transportUrl;
     } else {
       delete presetConfig.aiostreams;
+      throw new Error('AIOStreams returned an invalid configuration response');
     }
   } catch (e) {
-    console.log('Failed to configure AIOStreams:', e);
     delete presetConfig.aiostreams;
+    throw new Error(
+      `AIOStreams configuration failed: ${e instanceof Error ? e.message : String(e)}`
+    );
   }
 }

@@ -14,6 +14,7 @@ import {
         'alert shadow-lg max-w-sm',
         note.type === 'error' ? 'alert-error' : '',
         note.type === 'success' ? 'alert-success' : '',
+        note.type === 'warning' ? 'alert-warning' : '',
         note.type === 'info' ? 'alert-info' : ''
       ]"
     >

@@ -1,5 +1,32 @@
 const DEFAULT_TIMEOUT = 15000;
 
+const extractErrorMessage = (
+  rawText: string,
+  status: number,
+  statusText: string
+): string => {
+  if (!rawText) {
+    return `HTTP ${status} ${statusText}`;
+  }
+
+  try {
+    const parsed = JSON.parse(rawText) as {
+      message?: string;
+      detail?: string | null;
+      error?: { message?: string } | null;
+    };
+
+    return (
+      parsed.error?.message ||
+      parsed.detail ||
+      parsed.message ||
+      `HTTP ${status} ${statusText}`
+    );
+  } catch {
+    return rawText;
+  }
+};
+
 const fetchWithTimeout = async (
   url: string,
   opts: RequestInit = {},
@@ -32,7 +59,7 @@ export const getRequest = async <T>(
   const res = await fetchWithTimeout(url, opts, timeout);
   if (!res.ok) {
     const txt = await res.text().catch(() => '');
-    throw new Error(txt || `HTTP ${res.status} ${res.statusText}`);
+    throw new Error(extractErrorMessage(txt, res.status, res.statusText));
   }
   const data: T = await res.json();
   return data;
@@ -56,7 +83,7 @@ export const postRequest = async <T, U>(
   );
   if (!res.ok) {
     const txt = await res.text().catch(() => '');
-    throw new Error(txt || `HTTP ${res.status} ${res.statusText}`);
+    throw new Error(extractErrorMessage(txt, res.status, res.statusText));
   }
   const data: U = await res.json();
   return data;
