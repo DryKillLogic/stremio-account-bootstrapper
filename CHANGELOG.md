@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.6.0](https://github.com/DryKillLogic/stremio-account-bootstrapper/compare/v2.5.0...v2.6.0) (2026-04-25)
+
+### Features
+
+- added HdHub addon ([9162914](https://github.com/DryKillLogic/stremio-account-bootstrapper/commit/9162914d2af99ae35aaa67b1c4912be5519a860f))
+
 ## [2.5.0](https://github.com/DryKillLogic/stremio-account-bootstrapper/compare/v2.4.0...v2.5.0) (2026-04-25)
 
 ### Features
