@@ -34,6 +34,7 @@
       "meteor",
       "tpbplus",
       "webstreamrmbg",
+      "hdhub",
       "streailer",
       "subherov2",
       "opensubtitlespro",
@@ -698,6 +699,28 @@
             "issuer": "https://stremio-addons.net",
             "signature": "eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..h1oW2E0XXKLldUqO-ReSUA.fejuyGAvmc_CdT9dnq2srZCgoC42ak-Rqeo7IKsEN3DPRpz8x-hmvbuBI_7BUU2PsFMSni35m_Lv0teUNQDPvlrm7t1FCZINMR4ty_Hee6If5m6J4kSzafD75HhWvxFU.FAcDZ5qZrTPDeRAVOUI2tQ"
           }
+        }
+      },
+      "hdhub": {
+        "transportUrl": "https://hdhub.thevolecitor.qzz.io/eyJ0b3Jib3giOiJ1bnNldCIsInF1YWxpdGllcyI6IjIxNjBwLDEwODBwLDcyMHAsNDgwcCIsInNvcnQiOiJkZXNjIn0/manifest.json",
+        "manifest": {
+          "id": "com.stremio.HdHub",
+          "version": "1.0.5",
+          "name": "HdHub",
+          "description": "Watch movies and series from HdHub.",
+          "resources": ["stream"],
+          "types": ["movie", "series"],
+          "idPrefixes": ["tt", "tmdb:", "kitsu:"],
+          "catalogs": [],
+          "behaviorHints": {
+            "configurable": true
+          },
+          "stremioAddonsConfig": {
+            "issuer": "https://stremio-addons.net",
+            "signature": "eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..pRjXITzp0VTRiydLSk2Svg.heGdaIAaYKzvtMyRt-BoHjuOSjeaohT_ex2n652SFyMAGR8ZYNFawFBK5PwW5tzLhresK1uCbCmQ6NHxGnus4UdT1q5akDzW5TKP1tQgs3l6Vq2VelHXpG8j_F44n_0B.W4Hup7qve9NfY5pNR9WvbA"
+          },
+          "logo": "http://hdhub.thevolecitor.qzz.io/logo.png",
+          "background": "http://hdhub.thevolecitor.qzz.io/logo.png"
         }
       },
       "streailer": {

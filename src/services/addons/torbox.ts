@@ -1,4 +1,5 @@
 import type { AddonConfigContext, SquirrellyRenderer } from './types';
+import { isTorbox } from '../../utils/debrid';
 
 interface TorboxAddonConfig {
   transportUrl: string;
@@ -19,9 +20,7 @@ export function configureTorbox(
   const { debridEntries } = context;
 
   // Check if we have a Torbox entry in debrid services
-  const torboxEntry = debridEntries.find(
-    (debrid) => debrid.service === 'torbox'
-  );
+  const torboxEntry = isTorbox(debridEntries);
 
   if (torboxEntry) {
     presetConfig.torbox.transportUrl = Sqrl.render(

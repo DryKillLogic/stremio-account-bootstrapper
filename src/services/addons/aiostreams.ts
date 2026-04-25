@@ -124,6 +124,22 @@ function getWebStreamrConfig(language: string): any {
   };
 }
 
+function getHdHubConfig(): any {
+  return {
+    type: 'hdhub',
+    instanceId: '44a',
+    enabled: true,
+    options: {
+      name: 'HdHub',
+      timeout: 15000,
+      resources: ['stream'],
+      mediaTypes: [],
+      tb_only: false
+    },
+    category: 'HTTP'
+  };
+}
+
 // Extract default values
 function extractInputDefaults(inputs: any[]): Record<string, any> {
   const defaults: Record<string, any> = {};
@@ -223,6 +239,10 @@ export async function configureAioStreams(
   );
   const webstreamrConfig = getWebStreamrConfig(language);
   template.config.presets.push(webstreamrConfig);
+
+  // Add HdHub
+  const hdHubConfig = getHdHubConfig();
+  template.config.presets.push(hdHubConfig);
 
   // TODO: Remove Nuvio Streams until the template gets updated
   template.config.presets = template.config.presets.filter(

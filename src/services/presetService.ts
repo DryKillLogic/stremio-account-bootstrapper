@@ -21,7 +21,8 @@ import {
   configureStremThruStore,
   configureSootio,
   configureTorbox,
-  configureAioStreams
+  configureAioStreams,
+  configureHdHub
 } from './addons';
 import { configureMeteor } from './addons/meteor.ts';
 
@@ -279,6 +280,9 @@ export async function buildPresetService(params: BuildPresetServiceParams) {
       brazucaTorrentsResult.rebuilt
     );
   }
+
+  // HdHub
+  configureHdHub(presetConfig, context);
 
   // Configure or remove debrid-only addons
   if (validatedDebridEntries.length > 0) {

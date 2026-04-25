@@ -44,3 +44,7 @@ export const isValidApiKey = (
   };
   return !!patterns[service]?.test(key);
 };
+
+export const isTorbox = (
+  debridEntries: { service: DebridService; key: string }[]
+) => debridEntries.find((debrid) => debrid.service === 'torbox');

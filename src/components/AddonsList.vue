@@ -167,6 +167,16 @@
     >
       <div class="avatar">
         <div class="w-12 rounded">
+          <img src="/public/logos/hdhub.png" alt="HdHub" />
+        </div>
+      </div>
+      <p class="text-sm mt-2 text-center">HdHub</p>
+    </div>
+    <div
+      class="flex flex-col items-center p-4 hover:bg-base-200 rounded-lg transition-colors"
+    >
+      <div class="avatar">
+        <div class="w-12 rounded">
           <img src="/public/logos/notorrent.png" alt="NoTorrent" />
         </div>
       </div>
