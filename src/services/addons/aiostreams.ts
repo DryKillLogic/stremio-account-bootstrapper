@@ -27,7 +27,8 @@ function addLanguageSpecificAddons(
       scrapeDebridAccountTorrents: false,
       useMultipleInstances: false,
       mediaTypes: []
-    }
+    },
+    category: isDebridUser ? 'Debrid' : 'P2P'
   };
 
   const languageAddons: Record<string, any[]> = {
@@ -47,7 +48,8 @@ function addLanguageSpecificAddons(
                 mediaTypes: [],
                 useMultipleInstances: false,
                 showTorrentLinks: false
-              }
+              },
+              category: 'Debrid'
             }
           ]
         : [])
@@ -61,7 +63,8 @@ function addLanguageSpecificAddons(
           name: 'Brazuca Torrents',
           timeout: 15000,
           resources: ['stream']
-        }
+        },
+        category: isDebridUser ? 'Debrid' : 'P2P'
       }
     ],
     fr: [
@@ -79,7 +82,8 @@ function addLanguageSpecificAddons(
           scrapeDebridAccountTorrents: false,
           useMultipleInstances: false,
           mediaTypes: []
-        }
+        },
+        category: isDebridUser ? 'Debrid' : 'P2P'
       }
     ]
   };
@@ -115,7 +119,8 @@ function getWebStreamrConfig(language: string): any {
       providers: [...baseProviders, ...additionalProviders],
       includeExternalUrls: false,
       showErrors: false
-    }
+    },
+    category: 'HTTP'
   };
 }
 
@@ -218,6 +223,11 @@ export async function configureAioStreams(
   );
   const webstreamrConfig = getWebStreamrConfig(language);
   template.config.presets.push(webstreamrConfig);
+
+  // TODO: Remove Nuvio Streams until the template gets updated
+  template.config.presets = template.config.presets.filter(
+    (preset: any) => preset.type !== 'nuvio-streams'
+  );
 
   // Build config overrides
   const configOverrides = {

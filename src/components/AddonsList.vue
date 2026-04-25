@@ -157,16 +157,6 @@
     >
       <div class="avatar">
         <div class="w-12 rounded">
-          <img src="/public/logos/nuvio.png" alt="Nuvio Streams" />
-        </div>
-      </div>
-      <p class="text-sm mt-2 text-center">Nuvio Streams</p>
-    </div>
-    <div
-      class="flex flex-col items-center p-4 hover:bg-base-200 rounded-lg transition-colors"
-    >
-      <div class="avatar">
-        <div class="w-12 rounded">
           <img src="/public/logos/webstreamr.png" alt="WebStreamrMBG" />
         </div>
       </div>
