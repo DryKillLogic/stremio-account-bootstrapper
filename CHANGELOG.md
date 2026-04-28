@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.7.0](https://github.com/DryKillLogic/stremio-account-bootstrapper/compare/v2.6.0...v2.7.0) (2026-04-28)
+
+### Features
+
+- removed CometFR addon ([3e412d3](https://github.com/DryKillLogic/stremio-account-bootstrapper/commit/3e412d31015ec7d2ddcd6aebcc1e19ffef1f2425))
+
+### Bug Fixes
+
+- hide password modal when factory preset is selected ([2227e94](https://github.com/DryKillLogic/stremio-account-bootstrapper/commit/2227e94196d0312d0ba3dae8bbe257cb2eaf5cbe))
+
 ## [2.6.0](https://github.com/DryKillLogic/stremio-account-bootstrapper/compare/v2.5.0...v2.6.0) (2026-04-25)
 
 ### Features
