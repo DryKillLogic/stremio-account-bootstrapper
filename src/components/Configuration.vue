@@ -159,7 +159,7 @@ async function syncUserAddons() {
         debrid: debridService.value || ''
       }
     });
-    isPasswordModalVisible.value = true;
+    isPasswordModalVisible.value = preset.value !== 'factory';
     console.log('Sync complete: ', data);
   } catch (error) {
     const errorMessage =
