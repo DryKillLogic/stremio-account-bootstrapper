@@ -19,7 +19,7 @@ function addLanguageSpecificAddons(
     enabled: true,
     options: {
       name: 'Cometa',
-      timeout: 15000,
+      timeout: 5000,
       resources: ['stream'],
       url: 'https://cometa.stremx.net',
       includeP2P: !isDebridUser,
@@ -43,7 +43,7 @@ function addLanguageSpecificAddons(
               enabled: true,
               options: {
                 name: 'Peerflix',
-                timeout: 15000,
+                timeout: 5000,
                 resources: ['stream'],
                 mediaTypes: [],
                 useMultipleInstances: false,
@@ -61,27 +61,8 @@ function addLanguageSpecificAddons(
         enabled: true,
         options: {
           name: 'Brazuca Torrents',
-          timeout: 15000,
+          timeout: 5000,
           resources: ['stream']
-        },
-        category: isDebridUser ? 'Debrid' : 'P2P'
-      }
-    ],
-    fr: [
-      {
-        type: 'comet',
-        instanceId: '6dc',
-        enabled: true,
-        options: {
-          name: 'CometFR',
-          timeout: 15000,
-          resources: ['stream'],
-          url: 'https://comet.stremiofr.com',
-          includeP2P: !isDebridUser,
-          removeTrash: false,
-          scrapeDebridAccountTorrents: false,
-          useMultipleInstances: false,
-          mediaTypes: []
         },
         category: isDebridUser ? 'Debrid' : 'P2P'
       }
@@ -131,7 +112,7 @@ function getHdHubConfig(): any {
     enabled: true,
     options: {
       name: 'HdHub',
-      timeout: 15000,
+      timeout: 5000,
       resources: ['stream'],
       mediaTypes: [],
       tb_only: false

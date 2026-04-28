@@ -76,8 +76,7 @@ export async function buildPresetService(params: BuildPresetServiceParams) {
   const languageAddons: Record<string, string[]> = {
     'es-ES': ['cometa', 'peerflix'],
     'es-MX': ['cometa', 'notorrent'],
-    'pt-BR': ['brazucatorrents'],
-    fr: ['cometfr']
+    'pt-BR': ['brazucatorrents']
   };
 
   if (preset !== 'allinone' && preset !== 'factory') {
@@ -238,9 +237,6 @@ export async function buildPresetService(params: BuildPresetServiceParams) {
 
   // Cometa
   configureComet(presetConfig, context, 'cometa');
-
-  // CometFR
-  configureComet(presetConfig, context, 'cometfr');
 
   // TorrentsDB
   configureTorrentsDB(presetConfig, context);

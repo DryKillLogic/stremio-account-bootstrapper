@@ -71,7 +71,7 @@ All notable changes to this project will be documented in this file. See [standa
 - **Automated Versioning**: Add automated version management with conventional commits and changelog generation ([825b596](https://github.com/DryKillLogic/stremio-account-bootstrapper/commit/825b596a4e6ffa53475737c2a7021f82fc26d35b))
 - **Multi-Debrid Support**: Support for multiple debrid services simultaneously
 - **Portuguese (Portugal)**: Added pt-PT language support
-- **Region-Specific Addons**: Added Cometa, CometFR, Brazuca Torrents, and NoTorrent addons
+- **Region-Specific Addons**: Added Cometa, Brazuca Torrents, and NoTorrent addons
 - **All-in-One Preset**: New preset featuring AIOStreams with Tam-Taro's template as the only configured streams addon
 - **Advanced Options**: Replaced standalone RPDB step with comprehensive advanced options section
 - **TMDB API Key Support**: Added ability to enter custom TMDB API key
