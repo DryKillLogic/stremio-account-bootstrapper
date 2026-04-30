@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.8.0](https://github.com/DryKillLogic/stremio-account-bootstrapper/compare/v2.7.0...v2.8.0) (2026-04-30)
+
+### Features
+
+- added HTTP-only preset ([5617b8a](https://github.com/DryKillLogic/stremio-account-bootstrapper/commit/5617b8a8d854ee6ff2d207d7ef95814e40c03341))
+- added Sootio HTTP addon ([0e51eae](https://github.com/DryKillLogic/stremio-account-bootstrapper/commit/0e51eae7c541d6539f12d4d320a8ba32c25eff10))
+
 ## [2.7.0](https://github.com/DryKillLogic/stremio-account-bootstrapper/compare/v2.6.0...v2.7.0) (2026-04-28)
 
 ### Features
