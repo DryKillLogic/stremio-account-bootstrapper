@@ -3,9 +3,12 @@ import type { AddonConfigContext } from './types';
 
 export function configureSootio(
   presetConfig: any,
-  context: AddonConfigContext
+  context: AddonConfigContext,
+  variantName?: string
 ): void {
-  if (!presetConfig.sootio) return;
+  if (!presetConfig.sootio || !presetConfig.sootiohttp) return;
+
+  const serviceKey = variantName === 'http' ? 'sootiohttp' : 'sootio';
 
   const { debridEntries, debridServiceName, size } = context;
 
@@ -20,21 +23,30 @@ export function configureSootio(
     (debrid) => debrid.service !== 'debridlink'
   );
 
-  if (sootioDebridEntries.length === 0) {
-    delete presetConfig.sootio;
+  const isSootioHttp = variantName === 'http';
+
+  if (sootioDebridEntries.length === 0 && !isSootioHttp) {
+    delete presetConfig[serviceKey];
   } else {
     updateTransportUrl({
       presetConfig,
-      serviceKey: 'sootio',
-      manifestNameSuffix: debridServiceName,
-      updateData: (data: any) => ({
-        ...data,
-        DebridServices: sootioDebridEntries.map((e) => ({
-          provider: providerMap[e.service] || e.service,
-          apiKey: e.key
-        })),
-        maxSize: size ? size : 200
-      }),
+      serviceKey,
+      manifestNameSuffix: !isSootioHttp ? debridServiceName : '',
+      updateData: (data: any) => {
+        const updatedData = {
+          ...data,
+          maxSize: size ? size : 200
+        };
+
+        if (!isSootioHttp) {
+          updatedData.DebridServices = sootioDebridEntries.map((e) => ({
+            provider: providerMap[e.service] || e.service,
+            apiKey: e.key
+          }));
+        }
+
+        return updatedData;
+      },
       base64: false
     });
   }

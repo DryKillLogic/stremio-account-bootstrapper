@@ -280,6 +280,9 @@ export async function buildPresetService(params: BuildPresetServiceParams) {
   // HdHub
   configureHdHub(presetConfig, context);
 
+  // Sootio HTTP
+  configureSootio(presetConfig, context, 'http');
+
   // Configure or remove debrid-only addons
   if (validatedDebridEntries.length > 0) {
     // Jackettio
