@@ -49,6 +49,16 @@
       "subherov2",
       "opensubtitlespro"
     ],
+    "http_only": [
+      "cinemeta",
+      "aiometadata",
+      "webstreamrmbg",
+      "sootiohttp",
+      "hdhub",
+      "streailer",
+      "subherov2",
+      "opensubtitlespro"
+    ],
     "no_streams": [
       "cinemeta",
       "aiometadata",

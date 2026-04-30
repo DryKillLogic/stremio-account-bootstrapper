@@ -206,5 +206,7 @@
   "catalogs_streaming_movie_crunchyroll_movies": "Filmes Crunchyroll",
   "catalogs_streaming_series_crunchyroll_shows": "Séries Crunchyroll",
   "catalogs_tmdb_movie_top_rated_movies": "Filmes Melhor Avaliados",
-  "catalogs_tmdb_series_top_rated_shows": "Séries Melhor Avaliadas"
+  "catalogs_tmdb_series_top_rated_shows": "Séries Melhor Avaliadas",
+  "http_only": "Apenas HTTP",
+  "preset_http_only_details": "Uma configuração apenas para streaming para usuários que preferem streams HTTP diretos e desejam evitar torrenting ou pagar por serviços de debrid."
 }

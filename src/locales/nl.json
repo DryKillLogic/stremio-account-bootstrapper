@@ -202,5 +202,7 @@
   "catalogs_streaming_movie_crunchyroll_movies": "Crunchyroll Films",
   "catalogs_streaming_series_crunchyroll_shows": "Crunchyroll Series",
   "catalogs_tmdb_movie_top_rated_movies": "Topaanbevolen Films",
-  "catalogs_tmdb_series_top_rated_shows": "Topaanbevolen Series"
+  "catalogs_tmdb_series_top_rated_shows": "Topaanbevolen Series",
+  "http_only": "Alleen HTTP",
+  "preset_http_only_details": "Een alleen-streaming setup voor gebruikers die directe HTTP-streams prefereren en torrenten of betalen voor debrid-services willen vermijden."
 }

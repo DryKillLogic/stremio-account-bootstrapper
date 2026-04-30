@@ -363,6 +363,32 @@ function resetEntryKey(idx) {
           <label class="label cursor-pointer">
             <input
               type="radio"
+              value="http_only"
+              v-model="preset"
+              class="radio radio-primary"
+            />
+            <span class="label-text ml-2 flex items-center gap-1">
+              {{ $t('http_only') }}
+              <VTooltip
+                placement="auto"
+                :triggers="['hover', 'click', 'touch']"
+                :auto-hide="true"
+                @click.stop
+              >
+                <QuestionMarkCircleIcon
+                  class="h-5 w-5 text-primary shrink-0 cursor-pointer"
+                />
+                <template #popper>
+                  <div class="text-sm max-w-xs">
+                    {{ $t('preset_http_only_details') }}
+                  </div>
+                </template>
+              </VTooltip>
+            </span>
+          </label>
+          <label class="label cursor-pointer">
+            <input
+              type="radio"
               value="no_streams"
               v-model="preset"
               class="radio radio-primary"
