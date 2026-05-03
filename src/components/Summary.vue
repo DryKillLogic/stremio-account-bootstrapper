@@ -7,6 +7,9 @@ import {
 } from '@heroicons/vue/24/outline';
 import Instructions from './Instructions.vue';
 const { t } = useI18n();
+const props = defineProps({
+  platform: { type: String, default: 'stremio' }
+});
 </script>
 
 <template>
@@ -28,6 +31,6 @@ const { t } = useI18n();
       <span v-html="t('warning')"></span>
     </div>
 
-    <Instructions />
+    <Instructions :platform="props.platform" />
   </section>
 </template>

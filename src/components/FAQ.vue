@@ -1,7 +1,14 @@
 <script setup>
+import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 import AddonsList from './AddonsList.vue';
 const { t } = useI18n();
+const props = defineProps({
+  platform: { type: String, default: 'stremio' }
+});
+const platformLabel = computed(() =>
+  props.platform === 'nuvio' ? 'Nuvio' : 'Stremio'
+);
 </script>
 
 <template>
@@ -13,7 +20,10 @@ const { t } = useI18n();
           {{ t('what_does_it_do_title') }}
         </summary>
         <div class="collapse-content">
-          <p v-html="t('what_does_it_do_desc')" class="text-base"></p>
+          <p
+            v-html="t('what_does_it_do_desc', { platform: platformLabel })"
+            class="text-base"
+          ></p>
         </div>
       </details>
       <details class="collapse collapse-arrow border border-base-300">
@@ -51,7 +61,7 @@ const { t } = useI18n();
         </summary>
         <div class="collapse-content">
           <p class="text-base">
-            {{ t('faq_next_desc1') }}
+            {{ t('faq_next_desc1', { platform: platformLabel }) }}
             <a
               href="https://stremio-addons.net"
               target="_blank"

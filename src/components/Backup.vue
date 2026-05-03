@@ -1,13 +1,17 @@
 <script setup>
 import { ref } from 'vue';
-import { getAddonCollection, setAddonCollection } from '../api/stremioApi';
+import { getAddonCollection, setAddonCollection } from '../api/platformApi';
 import { format } from 'date-fns';
 import { useI18n } from 'vue-i18n';
 import { addNotification } from '../composables/useNotifications';
 import { useAnalytics } from '../composables/useAnalytics';
 
-const { stremioAuthKey } = defineProps({
-  stremioAuthKey: { type: String }
+const { authKey, platform } = defineProps({
+  authKey: { type: String },
+  platform: {
+    type: String,
+    default: 'stremio'
+  }
 });
 
 const { t } = useI18n();
@@ -21,7 +25,7 @@ function backupConfig() {
   loadingBackup.value = true;
   error.value = null;
 
-  getAddonCollection(stremioAuthKey)
+  getAddonCollection(platform, authKey)
     .then((data) => {
       const blob = new Blob([JSON.stringify(data, null, 2)], {
         type: 'application/json'
@@ -29,7 +33,7 @@ function backupConfig() {
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = `stremio-addons-config-${format(new Date(), 'yyyy-MM-dd_HH-mm-ss')}.json`;
+      a.download = `${platform}-addons-config-${format(new Date(), 'yyyy-MM-dd_HH-mm-ss')}.json`;
       document.body.appendChild(a);
       a.click();
       a.remove();
@@ -37,7 +41,7 @@ function backupConfig() {
 
       addNotification(t('backup_saved'), 'success');
       track('backup_config_click', {
-        title: 'Backup config'
+        title: `Backup config (${platform})`
       });
     })
     .catch((e) => {
@@ -50,7 +54,7 @@ function backupConfig() {
 }
 
 function openFilePicker() {
-  if (!stremioAuthKey) return;
+  if (!authKey) return;
   fileInputRef.value?.click();
 }
 
@@ -58,7 +62,7 @@ async function restoreConfigFile(event) {
   const file = event.target.files?.[0];
   if (!file) return;
 
-  if (!stremioAuthKey) {
+  if (!authKey) {
     event.target.value = '';
     return;
   }
@@ -69,17 +73,18 @@ async function restoreConfigFile(event) {
     const text = await file.text();
     const parsed = JSON.parse(text);
 
-    const addonsPayload = parsed?.result?.addons;
+    const addonsPayload =
+      parsed?.result?.addons ?? (Array.isArray(parsed) ? parsed : null);
 
     if (!addonsPayload) {
       addNotification(t('invalid_backup_file'), 'error');
       throw new Error(t('invalid_backup_file'));
     }
 
-    await setAddonCollection(addonsPayload, stremioAuthKey);
+    await setAddonCollection(platform, addonsPayload, authKey);
     addNotification(t('restore_successful'), 'success');
     track('restore_config_click', {
-      title: 'Restore config'
+      title: `Restore config (${platform})`
     });
   } catch (e) {
     error.value = e?.message || String(e);
@@ -101,7 +106,7 @@ async function restoreConfigFile(event) {
           <button
             class="btn btn-primary w-full"
             @click="backupConfig"
-            :disabled="!stremioAuthKey || loadingBackup"
+            :disabled="!authKey || loadingBackup"
           >
             <span
               v-if="loadingBackup"
@@ -115,7 +120,7 @@ async function restoreConfigFile(event) {
           <button
             class="btn btn-secondary w-full"
             @click="openFilePicker"
-            :disabled="!stremioAuthKey || loadingRestore"
+            :disabled="!authKey || loadingRestore"
           >
             <span
               v-if="loadingRestore"
@@ -130,7 +135,7 @@ async function restoreConfigFile(event) {
             accept=".json,application/json"
             @change="restoreConfigFile"
             class="hidden"
-            :disabled="!stremioAuthKey || loadingRestore"
+            :disabled="!authKey || loadingRestore"
           />
         </div>
       </div>

@@ -2,7 +2,7 @@
 
 # Stremio Account Bootstrapper
 
-Stremio Account Bootstrapper lets you set up your Stremio account with just a few clicks by bootstrapping a preset into your account. It's handy for newcomers, those who want a solid foundation to build their setup on, or to speed up the process of setting up new accounts for family members or friends.
+Stremio Account Bootstrapper lets you set up your Stremio/Nuvio account with just a few clicks by bootstrapping a preset into your account. It's handy for newcomers, those who want a solid foundation to build their setup on, or to speed up the process of setting up new accounts for family members or friends.
 
 **WARNING: You will wipe the existing setup. Recommended to backup your current configuration before proceeding. Use it at your own risk. No support is provided.**
 
@@ -13,10 +13,11 @@ Stremio Account Bootstrapper lets you set up your Stremio account with just a fe
 - Option to set the preset to different languages: English (US), Spanish (MX), Spanish (ES), Portuguese (BR), Portuguese (PT), French (FR), Italian (IT), German (DE), and Dutch (NL) are currently supported.
 - Option to create a kid-friendly setup.
 - Backup your current configuration or restore it.
-- Better multilanguage support in Stremio.
+- Better multilanguage support in Stremio/Nuvio.
 - TMDB is the default metadata resolver. Cinemeta catalogs were removed without breaking any core functionality.
 - RealDebrid, AllDebrid, Premiumize, Debrid-Link, and TorBox support.
 - Multi-debrid services support.
+- Multi-platform support. It currently supports Stremio and Nuvio.
 - RPDB support.
 - Ability to reset the account to a default state (factory preset).
 - Optimized addons configuration.
@@ -33,25 +34,25 @@ View the [CHANGELOG.md](./CHANGELOG.md) to see what's new in each release.
 ## Project Setup
 
 ```sh
-npm install
+pnpm install
 ```
 
 ### Compile and Hot-Reload for Development
 
 ```sh
-npm run dev
+pnpm run dev
 ```
 
 ### Compile and Minify for Production
 
 ```sh
-npm run build
+pnpm run build
 ```
 
 ### Format code with Prettier
 
 ```sh
-npm run format
+pnpm run format
 ```
 
 ## Credits

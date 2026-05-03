@@ -2,7 +2,7 @@ import _ from 'lodash';
 import { getRequest } from '../utils/http';
 import { debridServicesInfo, isValidApiKey } from '../utils/debrid';
 import { isValidManifestUrl } from '../utils/url.ts';
-import { setAddonCollection } from '../api/stremioApi';
+import { setAddonCollection, type Platform } from '../api/platformApi';
 import type {
   DebridEntry,
   AddonConfigContext,
@@ -351,17 +351,19 @@ export async function buildPresetService(params: BuildPresetServiceParams) {
 interface LoadPresetServiceParams {
   addons: any[];
   key: string;
+  platform?: Platform;
 }
 
 export async function loadPresetService({
   addons,
-  key
+  key,
+  platform = 'stremio'
 }: LoadPresetServiceParams) {
   if (!key) {
     throw new Error('No auth key provided');
   }
 
-  const res = await setAddonCollection(addons, key);
+  const res = await setAddonCollection(platform, addons, key);
   if (!res?.result?.success) {
     throw new Error(res?.result?.error || 'Sync failed');
   }

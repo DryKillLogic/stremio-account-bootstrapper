@@ -22,8 +22,16 @@ import 'floating-vue/dist/style.css';
 const { t } = useI18n();
 
 const props = defineProps({
-  stremioAuthKey: { type: String }
+  authKey: { type: String },
+  platform: {
+    type: String,
+    default: 'stremio'
+  }
 });
+
+const platformLabel = computed(() =>
+  props.platform === 'nuvio' ? 'Nuvio' : 'Stremio'
+);
 
 let dragging = false;
 let addons = ref([]);
@@ -83,7 +91,7 @@ let advancedOptions = ref({
 });
 
 async function loadUserAddons() {
-  const key = props.stremioAuthKey;
+  const key = props.authKey;
 
   if (!key) {
     console.error('No auth key provided');
@@ -139,7 +147,7 @@ async function loadUserAddons() {
 
 async function syncUserAddons() {
   const { track } = useAnalytics();
-  const key = props.stremioAuthKey;
+  const key = props.authKey;
   if (!key) {
     console.error('No auth key provided');
     return;
@@ -149,11 +157,16 @@ async function syncUserAddons() {
   console.log('Syncing addons...');
 
   try {
-    const data = await loadPresetService({ addons: addons.value, key });
+    const data = await loadPresetService({
+      addons: addons.value,
+      key,
+      platform: props.platform
+    });
     addNotification(t('sync_complete'), 'success');
     track('sync_stremio_click', {
-      title: 'Sync to Stremio',
+      title: `Sync to ${platformLabel.value}`,
       vars: {
+        platform: props.platform,
         language: language.value,
         preset: preset.value,
         debrid: debridService.value || ''
@@ -255,7 +268,7 @@ function resetEntryKey(idx) {
         <legend class="text-sm">
           {{ $t('step1_select_preset') }}
         </legend>
-        <div class="grid grid-cols-2 md:grid-cols-5 gap-2">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
           <label class="label cursor-pointer">
             <input
               type="radio"
@@ -861,7 +874,7 @@ function resetEntryKey(idx) {
           class="btn btn-primary"
           @click="loadUserAddons"
           :disabled="
-            !props.stremioAuthKey ||
+            !props.authKey ||
             (debridService ? !isDebridApiKeyValid : false) ||
             isLoadingPreset
           "
@@ -927,7 +940,11 @@ function resetEntryKey(idx) {
             v-if="isSyncAddons"
             class="loading loading-spinner loading-sm"
           ></span>
-          {{ isSyncAddons ? $t('sync_addons') : $t('sync_to_stremio') }}
+          {{
+            isSyncAddons
+              ? $t('sync_addons')
+              : $t('sync_to_stremio', { platform: platformLabel })
+          }}
         </button>
       </fieldset>
     </form>

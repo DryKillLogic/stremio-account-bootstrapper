@@ -12,16 +12,18 @@ const extractErrorMessage = (
   try {
     const parsed = JSON.parse(rawText) as {
       message?: string;
+      msg?: string;
       detail?: string | null;
       error?: { message?: string } | null;
     };
 
-    return (
-      parsed.error?.message ||
-      parsed.detail ||
-      parsed.message ||
-      `HTTP ${status} ${statusText}`
-    );
+    const baseMessage =
+      parsed.error?.message || parsed.detail || parsed.message || parsed.msg;
+    if (baseMessage) {
+      return baseMessage;
+    }
+
+    return `HTTP ${status} ${statusText}`;
   } catch {
     return rawText;
   }
@@ -56,7 +58,14 @@ export const getRequest = async <T>(
   opts: RequestInit = {},
   timeout?: number
 ): Promise<T> => {
-  const res = await fetchWithTimeout(url, opts, timeout);
+  const res = await fetchWithTimeout(
+    url,
+    {
+      ...opts,
+      headers: { ...(opts.headers || {}) }
+    },
+    timeout
+  );
   if (!res.ok) {
     const txt = await res.text().catch(() => '');
     throw new Error(extractErrorMessage(txt, res.status, res.statusText));
@@ -75,9 +84,9 @@ export const postRequest = async <T, U>(
     url,
     {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', ...(opts.headers || {}) },
       body: JSON.stringify(body),
-      ...opts
+      ...opts,
+      headers: { 'Content-Type': 'application/json', ...(opts.headers || {}) }
     },
     timeout
   );
@@ -85,8 +94,8 @@ export const postRequest = async <T, U>(
     const txt = await res.text().catch(() => '');
     throw new Error(extractErrorMessage(txt, res.status, res.statusText));
   }
-  const data: U = await res.json();
-  return data;
+  const text = await res.text();
+  return (text ? JSON.parse(text) : null) as U;
 };
 
 export const PROXY_BASE_URL =

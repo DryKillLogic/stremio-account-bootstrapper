@@ -1,6 +1,13 @@
 <script setup>
+import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 const { t } = useI18n();
+const props = defineProps({
+  platform: { type: String, default: 'stremio' }
+});
+const platformLabel = computed(() =>
+  props.platform === 'nuvio' ? 'Nuvio' : 'Stremio'
+);
 </script>
 
 <template>
@@ -16,7 +23,7 @@ const { t } = useI18n();
       </h3>
       <div class="py-4 space-y-4">
         <ol class="list-decimal list-inside space-y-3 text-md">
-          <li v-html="t('instructions_1')"></li>
+          <li v-html="t('instructions_1', { platform: platformLabel })"></li>
           <li>{{ t('instructions_2') }}</li>
           <li v-html="t('instructions_3')"></li>
           <li>{{ t('instructions_4') }}</li>
@@ -25,8 +32,8 @@ const { t } = useI18n();
           <li>{{ t('instructions_7') }}</li>
           <li v-html="t('instructions_8')"></li>
           <li>{{ t('instructions_9') }}</li>
-          <li>{{ t('instructions_10') }}</li>
-          <li>{{ t('instructions_11') }}</li>
+          <li>{{ t('instructions_10', { platform: platformLabel }) }}</li>
+          <li>{{ t('instructions_11', { platform: platformLabel }) }}</li>
           <li>{{ t('instructions_12') }}</li>
         </ol>
       </div>

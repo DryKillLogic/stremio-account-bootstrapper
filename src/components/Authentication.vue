@@ -1,21 +1,47 @@
 <script setup>
-import { ref } from 'vue';
+import { computed, ref, watch } from 'vue';
 import { useI18n } from 'vue-i18n';
-import { loginUser, createUser } from '../api/stremioApi';
+import { loginUser, createUser } from '../api/platformApi';
 import { QuestionMarkCircleIcon } from '@heroicons/vue/24/outline';
 import HowGetAuthKey from './HowGetAuthKey.vue';
 import { addNotification } from '../composables/useNotifications';
 
 const { t } = useI18n();
 
+const props = defineProps({
+  platform: {
+    type: String,
+    default: 'stremio'
+  }
+});
+
 const authKey = ref('');
 const email = ref('');
 const password = ref('');
 const loggedIn = ref(false);
-const emits = defineEmits(['auth-key']);
+const selectedPlatform = ref(props.platform);
+const emits = defineEmits(['auth-key', 'platform-change']);
+
+const platformLabel = computed(() =>
+  selectedPlatform.value === 'nuvio' ? 'Nuvio' : 'Stremio'
+);
+
+watch(
+  () => props.platform,
+  (nextPlatform) => {
+    selectedPlatform.value = nextPlatform || 'stremio';
+  }
+);
+
+watch(selectedPlatform, (nextPlatform) => {
+  loggedIn.value = false;
+  authKey.value = '';
+  emits('platform-change', nextPlatform);
+  emitAuthKey();
+});
 
 function loginUserPassword() {
-  loginUser(email.value, password.value)
+  loginUser(selectedPlatform.value, email.value, password.value)
     .then((data) => {
       if (data?.result?.authKey) {
         authKey.value = data.result.authKey;
@@ -32,7 +58,7 @@ function loginUserPassword() {
 }
 
 function createAccount() {
-  createUser(email.value, password.value)
+  createUser(selectedPlatform.value, email.value, password.value)
     .then((data) => {
       if (data?.result?.authKey) {
         authKey.value = data.result.authKey;
@@ -50,7 +76,10 @@ function createAccount() {
 }
 
 function emitAuthKey() {
-  emits('auth-key', authKey.value.replaceAll('"', '').trim());
+  emits('auth-key', {
+    platform: selectedPlatform.value,
+    key: authKey.value.replaceAll('"', '').trim()
+  });
 }
 </script>
 
@@ -61,10 +90,39 @@ function emitAuthKey() {
     <div class="bg-base-100 p-6 rounded-lg border border-base-300">
       <div class="space-y-4">
         <div class="form-control">
+          <div class="join w-full">
+            <button
+              type="button"
+              class="btn join-item flex-1"
+              :class="
+                selectedPlatform === 'stremio'
+                  ? 'btn-primary'
+                  : 'btn-outline border-gray-300'
+              "
+              @click="selectedPlatform = 'stremio'"
+            >
+              Stremio
+            </button>
+            <button
+              type="button"
+              class="btn join-item flex-1"
+              :class="
+                selectedPlatform === 'nuvio'
+                  ? 'btn-primary'
+                  : 'btn-outline border-gray-300'
+              "
+              @click="selectedPlatform = 'nuvio'"
+            >
+              Nuvio
+            </button>
+          </div>
+        </div>
+
+        <div class="form-control">
           <input
             type="text"
             v-model="email"
-            :placeholder="$t('stremio_email')"
+            :placeholder="$t('stremio_email', { platform: platformLabel })"
             class="input input-bordered w-full"
           />
         </div>
@@ -73,7 +131,7 @@ function emitAuthKey() {
           <input
             type="password"
             v-model="password"
-            :placeholder="$t('stremio_password')"
+            :placeholder="$t('stremio_password', { platform: platformLabel })"
             class="input input-bordered w-full"
           />
         </div>
@@ -102,8 +160,11 @@ function emitAuthKey() {
 
         <div class="form-control">
           <label class="label">
-            <span class="label-text">{{ $t('paste_authkey') }}</span>
+            <span class="label-text">{{
+              $t('paste_authkey', { platform: platformLabel })
+            }}</span>
             <button
+              v-if="selectedPlatform === 'stremio'"
               type="button"
               onclick="get_auth_key.showModal()"
               class="p-0 bg-transparent border-0 shadow-none hover:bg-transparent cursor-pointer"
@@ -115,12 +176,12 @@ function emitAuthKey() {
             type="password"
             v-model="authKey"
             v-on:input="emitAuthKey"
-            :placeholder="$t('paste_authkey')"
+            :placeholder="$t('paste_authkey', { platform: platformLabel })"
             class="input input-bordered w-full"
           />
         </div>
       </div>
     </div>
-    <HowGetAuthKey />
+    <HowGetAuthKey v-if="selectedPlatform === 'stremio'" />
   </section>
 </template>

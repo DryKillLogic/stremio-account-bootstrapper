@@ -1,6 +1,6 @@
 <script setup>
 import { useI18n } from 'vue-i18n';
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 import Header from './components/Header.vue';
 import DarkModeToggle from './components/DarkModeToggle.vue';
 import LanguageSelector from './components/LanguageSelector.vue';
@@ -15,10 +15,26 @@ import Notifications from './components/Notifications.vue';
 
 const { t } = useI18n();
 
-const stremioAuthKey = ref('');
+const selectedPlatform = ref('stremio');
+const authKeysByPlatform = ref({
+  stremio: '',
+  nuvio: ''
+});
 
-function setAuthKey(key) {
-  stremioAuthKey.value = key;
+const activeAuthKey = computed(
+  () => authKeysByPlatform.value[selectedPlatform.value] || ''
+);
+
+function setPlatform(platform) {
+  selectedPlatform.value = platform;
+}
+
+function setAuthKey(payload) {
+  if (!payload || !payload.platform) {
+    return;
+  }
+
+  authKeysByPlatform.value[payload.platform] = payload.key || '';
 }
 </script>
 
@@ -30,17 +46,25 @@ function setAuthKey(key) {
     </div>
     <Header
       addonName="Stremio Account Bootstrapper"
-      :addonSummary="t('addon_summary')"
+      :addonSummary="
+        t('addon_summary', {
+          platform: selectedPlatform === 'nuvio' ? 'Nuvio' : 'Stremio'
+        })
+      "
       addonLogo="logo.png"
     />
   </header>
   <main class="max-w-4xl mx-auto">
     <Notifications />
-    <Summary />
-    <Authentication @auth-key="setAuthKey" />
-    <Backup :stremioAuthKey="stremioAuthKey" />
-    <Configuration :stremioAuthKey="stremioAuthKey" />
-    <FAQ />
+    <Summary :platform="selectedPlatform" />
+    <Authentication
+      :platform="selectedPlatform"
+      @platform-change="setPlatform"
+      @auth-key="setAuthKey"
+    />
+    <Backup :platform="selectedPlatform" :authKey="activeAuthKey" />
+    <Configuration :platform="selectedPlatform" :authKey="activeAuthKey" />
+    <FAQ :platform="selectedPlatform" />
     <ThankYou />
   </main>
   <footer>
