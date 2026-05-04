@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.9.0](https://github.com/DryKillLogic/stremio-account-bootstrapper/compare/v2.8.0...v2.9.0) (2026-05-04)
+
+### Features
+
+- added Nuvio support ([22e10b1](https://github.com/DryKillLogic/stremio-account-bootstrapper/commit/22e10b1a337b75f4e16ec92dfc6a815efa890cbc))
+
 ## [2.8.0](https://github.com/DryKillLogic/stremio-account-bootstrapper/compare/v2.7.0...v2.8.0) (2026-04-30)
 
 ### Features
