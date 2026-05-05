@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.10.0](https://github.com/DryKillLogic/stremio-account-bootstrapper/compare/v2.9.0...v2.10.0) (2026-05-05)
+
+### Features
+
+- disabled AIOMetadata digital release filter on search ([44e9efa](https://github.com/DryKillLogic/stremio-account-bootstrapper/commit/44e9efae72eb851c9924977e7017d499e311e55b))
+- updated TamTaro's template to v2.4.2 ([52e9f26](https://github.com/DryKillLogic/stremio-account-bootstrapper/commit/52e9f2653876ff221ea0c1387239f694d548a45a))
+
 ## [2.9.0](https://github.com/DryKillLogic/stremio-account-bootstrapper/compare/v2.8.0...v2.9.0) (2026-05-04)
 
 ### Features
