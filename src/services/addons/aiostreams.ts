@@ -105,22 +105,6 @@ function getWebStreamrConfig(language: string): any {
   };
 }
 
-function getHdHubConfig(): any {
-  return {
-    type: 'hdhub',
-    instanceId: '44a',
-    enabled: true,
-    options: {
-      name: 'HdHub',
-      timeout: 5000,
-      resources: ['stream'],
-      mediaTypes: [],
-      tb_only: false
-    },
-    category: 'HTTP'
-  };
-}
-
 // Extract default values
 function extractInputDefaults(inputs: any[]): Record<string, any> {
   const defaults: Record<string, any> = {};
@@ -196,6 +180,7 @@ export async function configureAioStreams(
     template,
     {
       languages: [getLanguageName(language)],
+      subtitles: [getLanguageName(language)],
       includeAddon: {
         subtitleLanguages: ['disabled']
       },
@@ -221,19 +206,9 @@ export async function configureAioStreams(
   const webstreamrConfig = getWebStreamrConfig(language);
   template.config.presets.push(webstreamrConfig);
 
-  // Add HdHub
-  const hdHubConfig = getHdHubConfig();
-  template.config.presets.push(hdHubConfig);
-
-  // TODO: Remove Nuvio Streams until the template gets updated
-  template.config.presets = template.config.presets.filter(
-    (preset: any) => preset.type !== 'nuvio-streams'
-  );
-
   // Build config overrides
   const configOverrides = {
     services: debridServices,
-    excludedQualities: ['CAM', 'TS', 'TC', 'SCR'],
     excludedResolutions: ['360p', '240p', '144p'],
     ...(size && {
       size: {
@@ -254,7 +229,6 @@ export async function configureAioStreams(
     ...(!advanced?.tmdbKey && {
       yearMatching: { enabled: false },
       titleMatching: { enabled: false },
-      digitalReleaseFilter: { enabled: false },
       bitrate: { useMetadataRuntime: false }
     })
   };

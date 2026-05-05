@@ -32,7 +32,10 @@ const proxyNuvioRequest = async (
   const upstreamResponse = await fetch(upstreamUrl, {
     method: request.method,
     headers,
-    body: request.method === 'GET' || request.method === 'HEAD' ? undefined : request.body
+    body:
+      request.method === 'GET' || request.method === 'HEAD'
+        ? undefined
+        : request.body
   });
 
   return new Response(upstreamResponse.body, {
