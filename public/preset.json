@@ -2852,7 +2852,7 @@
       "posterRatingProvider": "rpdb",
       "showDisabledCatalogs": false,
       "hideUnreleasedDigital": true,
-      "hideUnreleasedDigitalSearch": true,
+      "hideUnreleasedDigitalSearch": false,
       "showMetaProviderAttribution": false,
       "enableRatingPostersForLibrary": true
     },
