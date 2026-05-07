@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.10.1](https://github.com/DryKillLogic/stremio-account-bootstrapper/compare/v2.10.0...v2.10.1) (2026-05-07)
+
+### Bug Fixes
+
+- fixed language passthrough property ([06fb06e](https://github.com/DryKillLogic/stremio-account-bootstrapper/commit/06fb06e8e7ff4c0f30cc882a0964c132581adea1))
+
 ## [2.10.0](https://github.com/DryKillLogic/stremio-account-bootstrapper/compare/v2.9.0...v2.10.0) (2026-05-05)
 
 ### Features
