@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.11.0](https://github.com/DryKillLogic/stremio-account-bootstrapper/compare/v2.10.1...v2.11.0) (2026-05-07)
+
+### Features
+
+- added parent language to AIOStreams when selected es-MX or pt-BR to improve results ([27b3285](https://github.com/DryKillLogic/stremio-account-bootstrapper/commit/27b3285c22f54a1f59fe5f6cfdfcd9d839d4245d))
+
 ### [2.10.1](https://github.com/DryKillLogic/stremio-account-bootstrapper/compare/v2.10.0...v2.10.1) (2026-05-07)
 
 ### Bug Fixes
