@@ -175,12 +175,19 @@ export async function configureAioStreams(
     }
   }));
 
+  // Add parent language when selected language is es-MX or pt-BR
+  const templateLanguages = [
+    language === 'pt-BR' ? 'Portuguese (Brazil)' : getLanguageName(language),
+    ...(language === 'es-MX' ? ['Spanish'] : []),
+    ...(language === 'pt-BR' ? ['Portuguese'] : [])
+  ];
+
   // Process template
   const processedTemplate = processTemplate(
     template,
     {
-      languages: [getLanguageName(language)],
-      subtitles: [getLanguageName(language)],
+      languages: templateLanguages,
+      subtitles: templateLanguages,
       includeAddon: {
         subtitleLanguages: ['disabled']
       },
@@ -241,7 +248,6 @@ export async function configureAioStreams(
 
   // Get addon config
   try {
-    console.log('debug template:', template);
     const aioStreamsData = await getAioStreamsConfig(template);
     if (aioStreamsData?.manifest && aioStreamsData?.transportUrl) {
       presetConfig.aiostreams.manifest = aioStreamsData.manifest;
