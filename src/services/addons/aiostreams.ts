@@ -184,7 +184,7 @@ export async function configureAioStreams(
       includeAddon: {
         subtitleLanguages: ['disabled']
       },
-      passthrough: {
+      LanguagePassthrough: {
         language: getLanguageName(language),
         languagePin: language !== 'en' ? true : false
       },
@@ -241,6 +241,7 @@ export async function configureAioStreams(
 
   // Get addon config
   try {
+    console.log('debug template:', template);
     const aioStreamsData = await getAioStreamsConfig(template);
     if (aioStreamsData?.manifest && aioStreamsData?.transportUrl) {
       presetConfig.aiostreams.manifest = aioStreamsData.manifest;
