@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.12.0](https://github.com/DryKillLogic/stremio-account-bootstrapper/compare/v2.11.0...v2.12.0) (2026-05-11)
+
+### Features
+
+- updated TamTaro's template to v2.5.1 ([540a981](https://github.com/DryKillLogic/stremio-account-bootstrapper/commit/540a9812e1b10b634080b6162cd2066e3c578801))
+
+### Bug Fixes
+
+- temporarily removed Mediafusion ([91123b8](https://github.com/DryKillLogic/stremio-account-bootstrapper/commit/91123b8409e14c30ffdfc5d497315251d6e6f505))
+
 ## [2.11.0](https://github.com/DryKillLogic/stremio-account-bootstrapper/compare/v2.10.1...v2.11.0) (2026-05-07)
 
 ### Features
