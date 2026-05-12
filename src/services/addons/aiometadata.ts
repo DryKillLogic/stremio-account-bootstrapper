@@ -41,7 +41,8 @@ export async function configureAioMetadata(
   language: string,
   kids: boolean,
   password: string,
-  advanced?: AdvancedOptions
+  advanced?: AdvancedOptions,
+  platform?: string
 ): Promise<void> {
   if (!presetConfig.aiometadata) return;
 
@@ -79,6 +80,27 @@ export async function configureAioMetadata(
   // Set TMDB key if provided
   if (advanced?.tmdbKey) {
     aioMetadataConfig.config.apiKeys.tmdb = advanced.tmdbKey;
+  }
+
+  // Nuvio config
+  if (platform === 'nuvio' && !kids) {
+    const ENABLED_HOME_CATALOG_IDS = new Set([
+      'tmdb.trending',
+      'tmdb.discover.movie.latest_movies.mltmmzhu',
+      'tmdb.discover.tv.latest_shows.mltmnwjd',
+      'tmdb.discover.movie.top_rated.mlz4ps5f',
+      'tmdb.discover.series.top_rated.mlz4rjj0'
+    ]);
+
+    if (aioMetadataConfig.config.catalogs) {
+      aioMetadataConfig.config.catalogs = aioMetadataConfig.config.catalogs.map(
+        (catalog: any) => ({
+          ...catalog,
+          showInHome: ENABLED_HOME_CATALOG_IDS.has(catalog.id),
+          enabled: true
+        })
+      );
+    }
   }
 
   // Request AIOMetadata configuration

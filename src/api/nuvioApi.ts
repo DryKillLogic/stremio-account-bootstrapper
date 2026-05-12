@@ -59,6 +59,23 @@ export const setAddonCollection = async (
     }
   );
 
+export const syncCollections = async (
+  collectionsJson: any,
+  authKey: string
+): Promise<any> =>
+  nuvioPostRequest(
+    `${nuvioApiBase}/rest/v1/rpc/sync_push_collections`,
+    {
+      p_profile_id: 1,
+      p_collections_json: collectionsJson
+    },
+    {
+      headers: {
+        Authorization: `Bearer ${authKey}`
+      }
+    }
+  );
+
 export const loginUser = async (
   email: string,
   password: string

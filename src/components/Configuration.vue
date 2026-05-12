@@ -48,6 +48,7 @@ let preset = ref('standard');
 let debridService = ref('');
 let debridEntries = ref([{ service: '', key: '' }]);
 let debridServiceName = '';
+let collections = [];
 
 let isPasswordModalVisible = ref(false);
 let generatedPassword = ref(generatePassword());
@@ -107,6 +108,7 @@ async function loadUserAddons() {
       selectedAddons,
       presetConfig: builtPresetConfig,
       debridServiceName: builtDebridServiceName,
+      collections: builtCollections = [],
       torrentioConfig: builtTorrentioConfig,
       peerflixConfig: builtPeerflixConfig,
       errors: presetErrors = []
@@ -123,11 +125,13 @@ async function loadUserAddons() {
       },
       debridEntries: debridEntries.value,
       isDebridApiKeyValid: isDebridApiKeyValid.value,
-      password: generatedPassword.value
+      password: generatedPassword.value,
+      platform: props.platform
     });
 
     addons.value = selectedAddons;
     debridServiceName = builtDebridServiceName;
+    collections = builtCollections;
     torrentioConfig = builtTorrentioConfig;
     peerflixConfig = builtPeerflixConfig;
 
@@ -160,7 +164,8 @@ async function syncUserAddons() {
     const data = await loadPresetService({
       addons: addons.value,
       key,
-      platform: props.platform
+      platform: props.platform,
+      collections
     });
     addNotification(t('sync_complete'), 'success');
     track('sync_stremio_click', {

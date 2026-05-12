@@ -2,7 +2,11 @@ import _ from 'lodash';
 import { getRequest } from '../utils/http';
 import { debridServicesInfo, isValidApiKey } from '../utils/debrid';
 import { isValidManifestUrl } from '../utils/url.ts';
-import { setAddonCollection, type Platform } from '../api/platformApi';
+import {
+  setAddonCollection,
+  pushCollections,
+  type Platform
+} from '../api/platformApi';
 import type {
   DebridEntry,
   AddonConfigContext,
@@ -25,8 +29,23 @@ import {
   configureHdHub
 } from './addons';
 import { configureMeteor } from './addons/meteor.ts';
+import { LOCALE_MESSAGES } from '../locales';
 
 declare const Sqrl: SquirrellyRenderer;
+
+function translateCollections(collections: any[], language: string): any[] {
+  const lang = language.split('-')[0] || 'en';
+  const messages = LOCALE_MESSAGES[lang] ?? LOCALE_MESSAGES['en'] ?? {};
+  return collections.map((collection) => {
+    const key =
+      'nuvio_collection_' +
+      (collection.title as string).toLowerCase().replace(/\s+/g, '_');
+    if (messages[key]) {
+      return { ...collection, title: messages[key] };
+    }
+    return collection;
+  });
+}
 
 interface BuildPresetServiceParams {
   preset: string;
@@ -38,6 +57,7 @@ interface BuildPresetServiceParams {
   advanced?: AdvancedOptions;
   debridEntries?: DebridEntry[];
   password: string;
+  platform?: Platform;
 }
 
 export async function buildPresetService(params: BuildPresetServiceParams) {
@@ -50,7 +70,8 @@ export async function buildPresetService(params: BuildPresetServiceParams) {
     maxSize,
     advanced = {},
     debridEntries = [],
-    password
+    password,
+    platform = 'stremio'
   } = params;
 
   const errors: string[] = [];
@@ -137,7 +158,8 @@ export async function buildPresetService(params: BuildPresetServiceParams) {
       language,
       kids,
       password,
-      advanced
+      advanced,
+      platform
     );
   } catch (e) {
     errors.push(`AIOMetadata: ${e instanceof Error ? e.message : String(e)}`);
@@ -344,6 +366,9 @@ export async function buildPresetService(params: BuildPresetServiceParams) {
     presetConfig,
     selectedAddons,
     debridServiceName,
+    collections: kids
+      ? []
+      : translateCollections(data.nuvioCollectionsConfig || [], language),
     errors
   };
 }
@@ -352,12 +377,14 @@ interface LoadPresetServiceParams {
   addons: any[];
   key: string;
   platform?: Platform;
+  collections?: any;
 }
 
 export async function loadPresetService({
   addons,
   key,
-  platform = 'stremio'
+  platform = 'stremio',
+  collections = []
 }: LoadPresetServiceParams) {
   if (!key) {
     throw new Error('No auth key provided');
@@ -365,7 +392,16 @@ export async function loadPresetService({
 
   const res = await setAddonCollection(platform, addons, key);
   if (!res?.result?.success) {
-    throw new Error(res?.result?.error || 'Sync failed');
+    throw new Error(res?.result?.error || 'Addons sync failed');
+  }
+
+  if (platform === 'nuvio') {
+    const collectionsSyncRes = await pushCollections(collections, key);
+    if (!collectionsSyncRes?.result?.success) {
+      throw new Error(
+        collectionsSyncRes?.result?.error || 'Collections sync failed'
+      );
+    }
   }
 
   return res;

@@ -79,6 +79,14 @@ export const setAddonCollection = async (
     await getApi(platform).setAddonCollection(addons, authKey)
   );
 
+export const pushCollections = async (
+  collectionsJson: any,
+  authKey: string
+): Promise<any> =>
+  normalizePlatformResponse(
+    await nuvioApi.syncCollections(collectionsJson, authKey)
+  );
+
 export const loginUser = async (
   platform: Platform,
   email: string,
