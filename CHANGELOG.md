@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.13.0](https://github.com/DryKillLogic/stremio-account-bootstrapper/compare/v2.12.0...v2.13.0) (2026-05-12)
+
+### Features
+
+- updated TamTaro's template to v2.5.2 ([21c7925](https://github.com/DryKillLogic/stremio-account-bootstrapper/commit/21c792526b93ed59f90a0522d64d0f065789258f))
+
 ## [2.12.0](https://github.com/DryKillLogic/stremio-account-bootstrapper/compare/v2.11.0...v2.12.0) (2026-05-11)
 
 ### Features
