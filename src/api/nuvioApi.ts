@@ -32,9 +32,12 @@ const mapAddons = (addons: any[] = []) =>
     }))
     .filter((addon) => Boolean(addon.url));
 
-export const getAddonCollection = async (authKey: string): Promise<any> =>
+export const getAddonCollection = async (
+  authKey: string,
+  profileId = 1
+): Promise<any> =>
   nuvioGetRequest(
-    `${nuvioApiBase}/rest/v1/addons?select=*&profile_id=eq.1&order=sort_order`,
+    `${nuvioApiBase}/rest/v1/addons?select=*&profile_id=eq.${profileId}&order=sort_order`,
     {
       headers: {
         Authorization: `Bearer ${authKey}`
@@ -44,12 +47,13 @@ export const getAddonCollection = async (authKey: string): Promise<any> =>
 
 export const setAddonCollection = async (
   addons: any[],
-  authKey: string
+  authKey: string,
+  profileId = 1
 ): Promise<any> =>
   nuvioPostRequest(
     `${nuvioApiBase}/rest/v1/rpc/sync_push_addons`,
     {
-      p_profile_id: 1,
+      p_profile_id: profileId,
       p_addons: mapAddons(addons)
     },
     {
@@ -61,14 +65,26 @@ export const setAddonCollection = async (
 
 export const syncCollections = async (
   collectionsJson: any,
-  authKey: string
+  authKey: string,
+  profileId = 1
 ): Promise<any> =>
   nuvioPostRequest(
     `${nuvioApiBase}/rest/v1/rpc/sync_push_collections`,
     {
-      p_profile_id: 1,
+      p_profile_id: profileId,
       p_collections_json: collectionsJson
     },
+    {
+      headers: {
+        Authorization: `Bearer ${authKey}`
+      }
+    }
+  );
+
+export const syncPullProfiles = async (authKey: string): Promise<any> =>
+  nuvioPostRequest(
+    `${nuvioApiBase}/rest/v1/rpc/sync_pull_profiles`,
+    {},
     {
       headers: {
         Authorization: `Bearer ${authKey}`

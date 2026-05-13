@@ -378,25 +378,31 @@ interface LoadPresetServiceParams {
   key: string;
   platform?: Platform;
   collections?: any;
+  profileId?: number;
 }
 
 export async function loadPresetService({
   addons,
   key,
   platform = 'stremio',
-  collections = []
+  collections = [],
+  profileId = 1
 }: LoadPresetServiceParams) {
   if (!key) {
     throw new Error('No auth key provided');
   }
 
-  const res = await setAddonCollection(platform, addons, key);
+  const res = await setAddonCollection(platform, addons, key, profileId);
   if (!res?.result?.success) {
     throw new Error(res?.result?.error || 'Addons sync failed');
   }
 
   if (platform === 'nuvio') {
-    const collectionsSyncRes = await pushCollections(collections, key);
+    const collectionsSyncRes = await pushCollections(
+      collections,
+      key,
+      profileId
+    );
     if (!collectionsSyncRes?.result?.success) {
       throw new Error(
         collectionsSyncRes?.result?.error || 'Collections sync failed'

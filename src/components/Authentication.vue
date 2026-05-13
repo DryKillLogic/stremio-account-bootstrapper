@@ -37,7 +37,7 @@ watch(selectedPlatform, (nextPlatform) => {
   loggedIn.value = false;
   authKey.value = '';
   emits('platform-change', nextPlatform);
-  emitAuthKey();
+  emitAuthKey('reset');
 });
 
 function loginUserPassword() {
@@ -46,7 +46,7 @@ function loginUserPassword() {
       if (data?.result?.authKey) {
         authKey.value = data.result.authKey;
         loggedIn.value = true;
-        emitAuthKey();
+        emitAuthKey('login');
       } else {
         addNotification(data?.error?.message || t('login_failed'), 'error');
       }
@@ -63,7 +63,7 @@ function createAccount() {
       if (data?.result?.authKey) {
         authKey.value = data.result.authKey;
         loggedIn.value = true;
-        emitAuthKey();
+        emitAuthKey('login');
         addNotification(t('register_successful'), 'success');
       } else {
         addNotification(data?.error?.message || t('register_failed'), 'error');
@@ -75,10 +75,11 @@ function createAccount() {
     });
 }
 
-function emitAuthKey() {
+function emitAuthKey(source = 'manual') {
   emits('auth-key', {
     platform: selectedPlatform.value,
-    key: authKey.value.replaceAll('"', '').trim()
+    key: authKey.value.replaceAll('"', '').trim(),
+    source
   });
 }
 </script>
@@ -175,7 +176,7 @@ function emitAuthKey() {
           <input
             type="password"
             v-model="authKey"
-            v-on:input="emitAuthKey"
+            v-on:input="emitAuthKey('manual')"
             :placeholder="$t('paste_authkey', { platform: platformLabel })"
             class="input input-bordered w-full"
           />

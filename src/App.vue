@@ -21,8 +21,17 @@ const authKeysByPlatform = ref({
   nuvio: ''
 });
 
+const authSourceByPlatform = ref({
+  stremio: '',
+  nuvio: ''
+});
+
 const activeAuthKey = computed(
   () => authKeysByPlatform.value[selectedPlatform.value] || ''
+);
+
+const activeAuthSource = computed(
+  () => authSourceByPlatform.value[selectedPlatform.value] || ''
 );
 
 function setPlatform(platform) {
@@ -35,6 +44,7 @@ function setAuthKey(payload) {
   }
 
   authKeysByPlatform.value[payload.platform] = payload.key || '';
+  authSourceByPlatform.value[payload.platform] = payload.source || '';
 }
 </script>
 
@@ -63,7 +73,11 @@ function setAuthKey(payload) {
       @auth-key="setAuthKey"
     />
     <Backup :platform="selectedPlatform" :authKey="activeAuthKey" />
-    <Configuration :platform="selectedPlatform" :authKey="activeAuthKey" />
+    <Configuration
+      :platform="selectedPlatform"
+      :authKey="activeAuthKey"
+      :authSource="activeAuthSource"
+    />
     <FAQ :platform="selectedPlatform" />
     <ThankYou />
   </main>

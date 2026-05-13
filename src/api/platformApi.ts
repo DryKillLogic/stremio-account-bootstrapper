@@ -66,26 +66,45 @@ const normalizePlatformResponse = (payload: any): any => {
 
 export const getAddonCollection = async (
   platform: Platform,
-  authKey: string
+  authKey: string,
+  profileId = 1
 ): Promise<any> =>
-  normalizePlatformResponse(await getApi(platform).getAddonCollection(authKey));
+  normalizePlatformResponse(
+    platform === 'nuvio'
+      ? await nuvioApi.getAddonCollection(authKey, profileId)
+      : await getApi(platform).getAddonCollection(authKey)
+  );
 
 export const setAddonCollection = async (
   platform: Platform,
   addons: any[],
-  authKey: string
+  authKey: string,
+  profileId = 1
 ): Promise<any> =>
   normalizePlatformResponse(
-    await getApi(platform).setAddonCollection(addons, authKey)
+    platform === 'nuvio'
+      ? await nuvioApi.setAddonCollection(addons, authKey, profileId)
+      : await getApi(platform).setAddonCollection(addons, authKey)
   );
 
 export const pushCollections = async (
   collectionsJson: any,
-  authKey: string
+  authKey: string,
+  profileId = 1
 ): Promise<any> =>
   normalizePlatformResponse(
-    await nuvioApi.syncCollections(collectionsJson, authKey)
+    await nuvioApi.syncCollections(collectionsJson, authKey, profileId)
   );
+
+export const pullProfiles = async (authKey: string): Promise<any> => {
+  const payload = await nuvioApi.syncPullProfiles(authKey);
+
+  if (Array.isArray(payload)) {
+    return payload;
+  }
+
+  return [];
+};
 
 export const loginUser = async (
   platform: Platform,

@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed } from 'vue';
+import { ref, computed, watch } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { Buffer } from 'buffer';
 import draggable from 'vuedraggable';
@@ -11,6 +11,7 @@ import { addNotification } from '../composables/useNotifications';
 import { useAnalytics } from '../composables/useAnalytics';
 import { isValidApiKey, debridServicesInfo } from '../utils/debrid.ts';
 import { isValidManifestUrl } from '../utils/url.ts';
+import { pullProfiles } from '../api/platformApi';
 import {
   buildPresetService,
   loadPresetService
@@ -23,6 +24,10 @@ const { t } = useI18n();
 
 const props = defineProps({
   authKey: { type: String },
+  authSource: {
+    type: String,
+    default: ''
+  },
   platform: {
     type: String,
     default: 'stremio'
@@ -49,6 +54,9 @@ let debridService = ref('');
 let debridEntries = ref([{ service: '', key: '' }]);
 let debridServiceName = '';
 let collections = [];
+let nuvioProfiles = ref([]);
+let selectedNuvioProfileId = ref(1);
+let isLoadingNuvioProfiles = ref(false);
 
 let isPasswordModalVisible = ref(false);
 let generatedPassword = ref(generatePassword());
@@ -165,7 +173,8 @@ async function syncUserAddons() {
       addons: addons.value,
       key,
       platform: props.platform,
-      collections
+      collections,
+      profileId: selectedNuvioProfileId.value || 1
     });
     addNotification(t('sync_complete'), 'success');
     track('sync_stremio_click', {
@@ -259,6 +268,96 @@ function removeDebridEntry(idx) {
 function resetEntryKey(idx) {
   debridEntries.value[idx].key = '';
 }
+
+const extractProfiles = (response) => {
+  if (!Array.isArray(response)) {
+    return [];
+  }
+
+  return response
+    .map((profile) => {
+      const id = Number(profile?.profile_index);
+
+      if (!Number.isFinite(id)) {
+        return null;
+      }
+
+      return {
+        id,
+        name: profile?.name || t('profile_fallback_name', { id })
+      };
+    })
+    .filter(Boolean);
+};
+
+function resetNuvioProfiles() {
+  nuvioProfiles.value = [];
+  selectedNuvioProfileId.value = 1;
+}
+
+async function loadNuvioProfiles() {
+  if (props.platform !== 'nuvio' || !props.authKey) {
+    resetNuvioProfiles();
+    return;
+  }
+
+  isLoadingNuvioProfiles.value = true;
+
+  try {
+    const response = await pullProfiles(props.authKey);
+    const profiles = extractProfiles(response);
+    nuvioProfiles.value = profiles;
+
+    if (profiles.length === 0) {
+      selectedNuvioProfileId.value = 1;
+      return;
+    }
+
+    const hasCurrent = profiles.some(
+      (profile) => profile.id === selectedNuvioProfileId.value
+    );
+    if (!hasCurrent) {
+      selectedNuvioProfileId.value = profiles[0].id;
+    }
+  } catch (error) {
+    console.error('Failed to load profiles', error);
+    resetNuvioProfiles();
+    addNotification(t('profiles_load_failed'), 'error');
+  } finally {
+    isLoadingNuvioProfiles.value = false;
+  }
+}
+
+watch(
+  () => props.platform,
+  (nextPlatform, previousPlatform) => {
+    if (nextPlatform !== previousPlatform) {
+      resetNuvioProfiles();
+    }
+  }
+);
+
+watch(
+  () => [props.authKey, props.authSource],
+  ([nextAuthKey, nextAuthSource], [previousAuthKey, previousAuthSource]) => {
+    if (props.platform !== 'nuvio') {
+      resetNuvioProfiles();
+      return;
+    }
+
+    if (!nextAuthKey) {
+      resetNuvioProfiles();
+      return;
+    }
+
+    const isSuccessfulLogin =
+      nextAuthSource === 'login' && previousAuthSource !== 'login';
+
+    if (isSuccessfulLogin && nextAuthKey && nextAuthKey !== previousAuthKey) {
+      loadNuvioProfiles();
+    }
+  }
+);
 </script>
 
 <template>
@@ -829,6 +928,25 @@ function resetEntryKey(idx) {
                 </template>
               </VTooltip>
             </span>
+          </label>
+          <label v-if="props.platform === 'nuvio'" class="label cursor-pointer">
+            <span class="label-text">{{ $t('profile_label') }}</span>
+            <select
+              v-model.number="selectedNuvioProfileId"
+              class="select select-bordered w-40"
+              :disabled="isLoadingNuvioProfiles || nuvioProfiles.length === 0"
+            >
+              <option v-if="isLoadingNuvioProfiles" :value="1">
+                {{ $t('profile_loading') }}
+              </option>
+              <option
+                v-for="profile in nuvioProfiles"
+                :key="profile.id"
+                :value="profile.id"
+              >
+                {{ profile.name }}
+              </option>
+            </select>
           </label>
         </div>
       </fieldset>
