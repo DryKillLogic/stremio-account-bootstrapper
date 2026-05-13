@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.14.1](https://github.com/DryKillLogic/stremio-account-bootstrapper/compare/v2.14.0...v2.14.1) (2026-05-13)
+
+### Bug Fixes
+
+- update collections order ([4229fe9](https://github.com/DryKillLogic/stremio-account-bootstrapper/commit/4229fe9d3154f456514e04f1f157044fe80c69a4))
+
 ## [2.14.0](https://github.com/DryKillLogic/stremio-account-bootstrapper/compare/v2.13.0...v2.14.0) (2026-05-13)
 
 ### Features
