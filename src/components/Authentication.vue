@@ -155,11 +155,11 @@ function emitAuthKey(source = 'manual') {
           </button>
         </div>
 
-        <div class="divider">
+        <div v-if="selectedPlatform === 'stremio'" class="divider">
           <strong>{{ $t('or') }}</strong>
         </div>
 
-        <div class="form-control">
+        <div v-if="selectedPlatform === 'stremio'" class="form-control">
           <label class="label">
             <span class="label-text">{{
               $t('paste_authkey', { platform: platformLabel })

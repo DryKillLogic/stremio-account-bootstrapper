@@ -8,6 +8,9 @@ const props = defineProps({
 const platformLabel = computed(() =>
   props.platform === 'nuvio' ? 'Nuvio' : 'Stremio'
 );
+const instructionsStep1Key = computed(() =>
+  props.platform === 'nuvio' ? 'instructions_1_nuvio' : 'instructions_1'
+);
 </script>
 
 <template>
@@ -23,7 +26,7 @@ const platformLabel = computed(() =>
       </h3>
       <div class="py-4 space-y-4">
         <ol class="list-decimal list-inside space-y-3 text-md">
-          <li v-html="t('instructions_1', { platform: platformLabel })"></li>
+          <li v-html="t(instructionsStep1Key)"></li>
           <li>{{ t('instructions_2') }}</li>
           <li v-html="t('instructions_3')"></li>
           <li>{{ t('instructions_4') }}</li>
