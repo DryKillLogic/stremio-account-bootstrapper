@@ -7624,1230 +7624,6 @@
   },
   "nuvioCollectionsConfig": [
     {
-      "id": "wekcnjxn",
-      "title": "Studios",
-      "folders": [
-        {
-          "id": "5rpscrei",
-          "title": "20th Century Studios",
-          "hideTitle": true,
-          "tileShape": "LANDSCAPE",
-          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/studios/20th-century.jpg",
-          "catalogSources": [
-            {
-              "type": "movie",
-              "addonId": "aio-metadata",
-              "catalogId": "tmdb.discover.movie.20th_century_studios.mp429b5g"
-            }
-          ],
-          "focusGifEnabled": false
-        },
-        {
-          "id": "cxvnebny",
-          "title": "A24",
-          "hideTitle": true,
-          "tileShape": "LANDSCAPE",
-          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/studios/a24.jpg",
-          "catalogSources": [
-            {
-              "type": "movie",
-              "addonId": "aio-metadata",
-              "catalogId": "tmdb.discover.movie.a24.mp42fdz4"
-            }
-          ],
-          "focusGifEnabled": false
-        },
-        {
-          "id": "6ncd2bag",
-          "title": "Blumhouse Productions",
-          "hideTitle": true,
-          "tileShape": "LANDSCAPE",
-          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/studios/blumhouse.jpg",
-          "catalogSources": [
-            {
-              "type": "movie",
-              "addonId": "aio-metadata",
-              "catalogId": "tmdb.discover.movie.blumhouse.mp42g9bk"
-            }
-          ],
-          "focusGifEnabled": false
-        },
-        {
-          "id": "dsjw1aqv",
-          "title": "Dreamworks",
-          "hideTitle": true,
-          "tileShape": "LANDSCAPE",
-          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/studios/dreamworks.jpg",
-          "catalogSources": [
-            {
-              "type": "movie",
-              "addonId": "aio-metadata",
-              "catalogId": "tmdb.discover.movie.dreamworks.mp42jyh6"
-            }
-          ],
-          "focusGifEnabled": false
-        },
-        {
-          "id": "mqd8enpx",
-          "title": "Illumination",
-          "hideTitle": true,
-          "tileShape": "LANDSCAPE",
-          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/studios/illumination.jpg",
-          "catalogSources": [
-            {
-              "type": "movie",
-              "addonId": "aio-metadata",
-              "catalogId": "tmdb.discover.movie.illumination.mp42lbwh"
-            }
-          ],
-          "focusGifEnabled": false
-        },
-        {
-          "id": "oyqbv5bf",
-          "title": "Lionsgate",
-          "hideTitle": true,
-          "tileShape": "LANDSCAPE",
-          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/studios/lionsgate.jpg",
-          "catalogSources": [
-            {
-              "type": "movie",
-              "addonId": "aio-metadata",
-              "catalogId": "tmdb.discover.movie.lionsgate.mp42m4v3"
-            }
-          ],
-          "focusGifEnabled": false
-        },
-        {
-          "id": "olh5923h",
-          "title": "Lucasfilm Ltd",
-          "hideTitle": true,
-          "tileShape": "LANDSCAPE",
-          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/studios/lucas-film.jpg",
-          "catalogSources": [
-            {
-              "type": "movie",
-              "addonId": "aio-metadata",
-              "catalogId": "tmdb.discover.movie.lucas_films.mp42o6m9"
-            }
-          ],
-          "focusGifEnabled": false
-        },
-        {
-          "id": "oy0o6wl4",
-          "title": "Marvel Studios",
-          "hideTitle": true,
-          "tileShape": "LANDSCAPE",
-          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/studios/marvel.jpg",
-          "catalogSources": [
-            {
-              "type": "movie",
-              "addonId": "aio-metadata",
-              "catalogId": "tmdb.discover.movie.mgm_copy.mp48l9hq"
-            }
-          ],
-          "focusGifEnabled": false
-        },
-        {
-          "id": "awoy69zu",
-          "title": "MGM",
-          "hideTitle": true,
-          "tileShape": "LANDSCAPE",
-          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/studios/mgm.jpg",
-          "catalogSources": [
-            {
-              "type": "movie",
-              "addonId": "aio-metadata",
-              "catalogId": "tmdb.discover.movie.mgm.mp42pwqk"
-            }
-          ],
-          "focusGifEnabled": false
-        },
-        {
-          "id": "rc47w1xv",
-          "title": "Paramount Pictures",
-          "hideTitle": true,
-          "tileShape": "LANDSCAPE",
-          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/studios/paramount.jpg",
-          "catalogSources": [
-            {
-              "type": "movie",
-              "addonId": "aio-metadata",
-              "catalogId": "tmdb.discover.movie.paramount_pictures.mp42qquv"
-            }
-          ],
-          "focusGifEnabled": false
-        },
-        {
-          "id": "effrzp13",
-          "title": "Pixar",
-          "hideTitle": true,
-          "tileShape": "LANDSCAPE",
-          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/studios/pixar.jpg",
-          "catalogSources": [
-            {
-              "type": "movie",
-              "addonId": "aio-metadata",
-              "catalogId": "tmdb.discover.movie.pixar.mp42rcp5"
-            }
-          ],
-          "focusGifEnabled": false
-        },
-        {
-          "id": "hm10b47m",
-          "title": "Sony Pictures",
-          "hideTitle": true,
-          "tileShape": "LANDSCAPE",
-          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/studios/sony.jpg",
-          "catalogSources": [
-            {
-              "type": "movie",
-              "addonId": "aio-metadata",
-              "catalogId": "tmdb.discover.movie.sony_pictures.mp42rzc4"
-            }
-          ],
-          "focusGifEnabled": false
-        },
-        {
-          "id": "7uflo068",
-          "title": "Universal Pictures",
-          "hideTitle": true,
-          "tileShape": "LANDSCAPE",
-          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/studios/universal.jpg",
-          "catalogSources": [
-            {
-              "type": "movie",
-              "addonId": "aio-metadata",
-              "catalogId": "tmdb.discover.movie.universal_pictures.mp42sup1"
-            }
-          ],
-          "focusGifEnabled": false
-        },
-        {
-          "id": "mw4e06v9",
-          "title": "Walt Disney Studios",
-          "hideTitle": true,
-          "tileShape": "LANDSCAPE",
-          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/studios/disney.jpg",
-          "catalogSources": [
-            {
-              "type": "movie",
-              "addonId": "aio-metadata",
-              "catalogId": "tmdb.discover.movie.walt_disney_pictures.mp42hz3g"
-            }
-          ],
-          "focusGifEnabled": false
-        },
-        {
-          "id": "p2lr97vg",
-          "title": "Warner Bros.Studios",
-          "hideTitle": true,
-          "tileShape": "LANDSCAPE",
-          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/studios/warner-bros.jpg",
-          "catalogSources": [
-            {
-              "type": "movie",
-              "addonId": "aio-metadata",
-              "catalogId": "tmdb.discover.movie.warner_bros_pictures.mp42tgft"
-            }
-          ],
-          "focusGifEnabled": false
-        }
-      ],
-      "pinToTop": false,
-      "viewMode": "FOLLOW_LAYOUT",
-      "showAllTab": false,
-      "focusGlowEnabled": false
-    },
-    {
-      "id": "n5s37lqi",
-      "title": "Genres",
-      "folders": [
-        {
-          "id": "645bqeh4",
-          "title": "Action",
-          "sources": [
-            {
-              "type": "movie",
-              "genre": null,
-              "title": null,
-              "sortBy": null,
-              "tmdbId": null,
-              "addonId": "aio-metadata",
-              "filters": null,
-              "sortHow": null,
-              "provider": "addon",
-              "catalogId": "tmdb.discover.movie.action_movies.28",
-              "mediaType": null,
-              "traktListId": null,
-              "tmdbSourceType": null
-            },
-            {
-              "type": "series",
-              "genre": null,
-              "title": null,
-              "sortBy": null,
-              "tmdbId": null,
-              "addonId": "aio-metadata",
-              "filters": null,
-              "sortHow": null,
-              "provider": "addon",
-              "catalogId": "tmdb.discover.tv.action_adventure_shows.10759",
-              "mediaType": null,
-              "traktListId": null,
-              "tmdbSourceType": null
-            }
-          ],
-          "hideTitle": true,
-          "tileShape": "LANDSCAPE",
-          "coverEmoji": null,
-          "focusGifUrl": null,
-          "heroVideoUrl": null,
-          "titleLogoUrl": null,
-          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/genres/action.png",
-          "catalogSources": [
-            {
-              "type": "movie",
-              "genre": null,
-              "addonId": "aio-metadata",
-              "catalogId": "tmdb.discover.movie.action_movies.28"
-            },
-            {
-              "type": "series",
-              "genre": null,
-              "addonId": "aio-metadata",
-              "catalogId": "tmdb.discover.tv.action_adventure_shows.10759"
-            }
-          ],
-          "focusGifEnabled": false,
-          "heroBackdropUrl": null
-        },
-        {
-          "id": "v7dlt9xd",
-          "title": "Adventure",
-          "sources": [
-            {
-              "type": "movie",
-              "genre": null,
-              "title": null,
-              "sortBy": null,
-              "tmdbId": null,
-              "addonId": "aio-metadata",
-              "filters": null,
-              "sortHow": null,
-              "provider": "addon",
-              "catalogId": "tmdb.discover.movie.adventure_movies.12",
-              "mediaType": null,
-              "traktListId": null,
-              "tmdbSourceType": null
-            },
-            {
-              "type": "series",
-              "genre": null,
-              "title": null,
-              "sortBy": null,
-              "tmdbId": null,
-              "addonId": "aio-metadata",
-              "filters": null,
-              "sortHow": null,
-              "provider": "addon",
-              "catalogId": "tmdb.discover.tv.action_adventure_shows.10759",
-              "mediaType": null,
-              "traktListId": null,
-              "tmdbSourceType": null
-            }
-          ],
-          "hideTitle": true,
-          "tileShape": "LANDSCAPE",
-          "coverEmoji": null,
-          "focusGifUrl": null,
-          "heroVideoUrl": null,
-          "titleLogoUrl": null,
-          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/genres/adventure.png",
-          "catalogSources": [
-            {
-              "type": "movie",
-              "genre": null,
-              "addonId": "aio-metadata",
-              "catalogId": "tmdb.discover.movie.adventure_movies.12"
-            },
-            {
-              "type": "series",
-              "genre": null,
-              "addonId": "aio-metadata",
-              "catalogId": "tmdb.discover.tv.action_adventure_shows.10759"
-            }
-          ],
-          "focusGifEnabled": false,
-          "heroBackdropUrl": null
-        },
-        {
-          "id": "mljd5nt0",
-          "title": "Animation",
-          "sources": [
-            {
-              "type": "movie",
-              "genre": null,
-              "title": null,
-              "sortBy": null,
-              "tmdbId": null,
-              "addonId": "aio-metadata",
-              "filters": null,
-              "sortHow": null,
-              "provider": "addon",
-              "catalogId": "tmdb.discover.movie.animation_movies.16",
-              "mediaType": null,
-              "traktListId": null,
-              "tmdbSourceType": null
-            },
-            {
-              "type": "series",
-              "genre": null,
-              "title": null,
-              "sortBy": null,
-              "tmdbId": null,
-              "addonId": "aio-metadata",
-              "filters": null,
-              "sortHow": null,
-              "provider": "addon",
-              "catalogId": "tmdb.discover.tv.animation_shows.16",
-              "mediaType": null,
-              "traktListId": null,
-              "tmdbSourceType": null
-            }
-          ],
-          "hideTitle": true,
-          "tileShape": "LANDSCAPE",
-          "coverEmoji": null,
-          "focusGifUrl": null,
-          "heroVideoUrl": null,
-          "titleLogoUrl": null,
-          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/genres/animation.png",
-          "catalogSources": [
-            {
-              "type": "movie",
-              "genre": null,
-              "addonId": "aio-metadata",
-              "catalogId": "tmdb.discover.movie.animation_movies.16"
-            },
-            {
-              "type": "series",
-              "genre": null,
-              "addonId": "aio-metadata",
-              "catalogId": "tmdb.discover.tv.animation_shows.16"
-            }
-          ],
-          "focusGifEnabled": false,
-          "heroBackdropUrl": null
-        },
-        {
-          "id": "z9tl52hm",
-          "title": "Comedy",
-          "sources": [
-            {
-              "type": "movie",
-              "genre": null,
-              "title": null,
-              "sortBy": null,
-              "tmdbId": null,
-              "addonId": "aio-metadata",
-              "filters": null,
-              "sortHow": null,
-              "provider": "addon",
-              "catalogId": "tmdb.discover.movie.comedy_movies.35",
-              "mediaType": null,
-              "traktListId": null,
-              "tmdbSourceType": null
-            },
-            {
-              "type": "series",
-              "genre": null,
-              "title": null,
-              "sortBy": null,
-              "tmdbId": null,
-              "addonId": "aio-metadata",
-              "filters": null,
-              "sortHow": null,
-              "provider": "addon",
-              "catalogId": "tmdb.discover.tv.comedy_shows.35",
-              "mediaType": null,
-              "traktListId": null,
-              "tmdbSourceType": null
-            }
-          ],
-          "hideTitle": true,
-          "tileShape": "LANDSCAPE",
-          "coverEmoji": null,
-          "focusGifUrl": null,
-          "heroVideoUrl": null,
-          "titleLogoUrl": null,
-          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/genres/comedy.png",
-          "catalogSources": [
-            {
-              "type": "movie",
-              "genre": null,
-              "addonId": "aio-metadata",
-              "catalogId": "tmdb.discover.movie.comedy_movies.35"
-            },
-            {
-              "type": "series",
-              "genre": null,
-              "addonId": "aio-metadata",
-              "catalogId": "tmdb.discover.tv.comedy_shows.35"
-            }
-          ],
-          "focusGifEnabled": false,
-          "heroBackdropUrl": null
-        },
-        {
-          "id": "ildhewtv",
-          "title": "Crime",
-          "sources": [
-            {
-              "type": "movie",
-              "genre": null,
-              "title": null,
-              "sortBy": null,
-              "tmdbId": null,
-              "addonId": "aio-metadata",
-              "filters": null,
-              "sortHow": null,
-              "provider": "addon",
-              "catalogId": "tmdb.discover.movie.crime_movies.80",
-              "mediaType": null,
-              "traktListId": null,
-              "tmdbSourceType": null
-            },
-            {
-              "type": "series",
-              "genre": null,
-              "title": null,
-              "sortBy": null,
-              "tmdbId": null,
-              "addonId": "aio-metadata",
-              "filters": null,
-              "sortHow": null,
-              "provider": "addon",
-              "catalogId": "tmdb.discover.tv.crime_shows.80",
-              "mediaType": null,
-              "traktListId": null,
-              "tmdbSourceType": null
-            }
-          ],
-          "hideTitle": true,
-          "tileShape": "LANDSCAPE",
-          "coverEmoji": null,
-          "focusGifUrl": null,
-          "heroVideoUrl": null,
-          "titleLogoUrl": null,
-          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/genres/crime.png",
-          "catalogSources": [
-            {
-              "type": "movie",
-              "genre": null,
-              "addonId": "aio-metadata",
-              "catalogId": "tmdb.discover.movie.crime_movies.80"
-            },
-            {
-              "type": "series",
-              "genre": null,
-              "addonId": "aio-metadata",
-              "catalogId": "tmdb.discover.tv.crime_shows.80"
-            }
-          ],
-          "focusGifEnabled": false,
-          "heroBackdropUrl": null
-        },
-        {
-          "id": "3hkemse3",
-          "title": "Documentary",
-          "sources": [
-            {
-              "type": "movie",
-              "genre": null,
-              "title": null,
-              "sortBy": null,
-              "tmdbId": null,
-              "addonId": "aio-metadata",
-              "filters": null,
-              "sortHow": null,
-              "provider": "addon",
-              "catalogId": "tmdb.discover.movie.documentary_movies.99",
-              "mediaType": null,
-              "traktListId": null,
-              "tmdbSourceType": null
-            },
-            {
-              "type": "series",
-              "genre": null,
-              "title": null,
-              "sortBy": null,
-              "tmdbId": null,
-              "addonId": "aio-metadata",
-              "filters": null,
-              "sortHow": null,
-              "provider": "addon",
-              "catalogId": "tmdb.discover.tv.documentary_shows.99",
-              "mediaType": null,
-              "traktListId": null,
-              "tmdbSourceType": null
-            }
-          ],
-          "hideTitle": true,
-          "tileShape": "LANDSCAPE",
-          "coverEmoji": null,
-          "focusGifUrl": null,
-          "heroVideoUrl": null,
-          "titleLogoUrl": null,
-          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/genres/documentary.png",
-          "catalogSources": [
-            {
-              "type": "movie",
-              "genre": null,
-              "addonId": "aio-metadata",
-              "catalogId": "tmdb.discover.movie.documentary_movies.99"
-            },
-            {
-              "type": "series",
-              "genre": null,
-              "addonId": "aio-metadata",
-              "catalogId": "tmdb.discover.tv.documentary_shows.99"
-            }
-          ],
-          "focusGifEnabled": false,
-          "heroBackdropUrl": null
-        },
-        {
-          "id": "m3s3f438",
-          "title": "Drama",
-          "sources": [
-            {
-              "type": "movie",
-              "genre": null,
-              "title": null,
-              "sortBy": null,
-              "tmdbId": null,
-              "addonId": "aio-metadata",
-              "filters": null,
-              "sortHow": null,
-              "provider": "addon",
-              "catalogId": "tmdb.discover.movie.drama_movies.18",
-              "mediaType": null,
-              "traktListId": null,
-              "tmdbSourceType": null
-            },
-            {
-              "type": "series",
-              "genre": null,
-              "title": null,
-              "sortBy": null,
-              "tmdbId": null,
-              "addonId": "aio-metadata",
-              "filters": null,
-              "sortHow": null,
-              "provider": "addon",
-              "catalogId": "tmdb.discover.tv.drama_shows.18",
-              "mediaType": null,
-              "traktListId": null,
-              "tmdbSourceType": null
-            }
-          ],
-          "hideTitle": true,
-          "tileShape": "LANDSCAPE",
-          "coverEmoji": null,
-          "focusGifUrl": null,
-          "heroVideoUrl": null,
-          "titleLogoUrl": null,
-          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/genres/drama.png",
-          "catalogSources": [
-            {
-              "type": "movie",
-              "genre": null,
-              "addonId": "aio-metadata",
-              "catalogId": "tmdb.discover.movie.drama_movies.18"
-            },
-            {
-              "type": "series",
-              "genre": null,
-              "addonId": "aio-metadata",
-              "catalogId": "tmdb.discover.tv.drama_shows.18"
-            }
-          ],
-          "focusGifEnabled": false,
-          "heroBackdropUrl": null
-        },
-        {
-          "id": "cd13vmpd",
-          "title": "Family",
-          "sources": [
-            {
-              "type": "movie",
-              "genre": null,
-              "title": null,
-              "sortBy": null,
-              "tmdbId": null,
-              "addonId": "aio-metadata",
-              "filters": null,
-              "sortHow": null,
-              "provider": "addon",
-              "catalogId": "tmdb.discover.movie.family_movies.10751",
-              "mediaType": null,
-              "traktListId": null,
-              "tmdbSourceType": null
-            },
-            {
-              "type": "series",
-              "genre": null,
-              "title": null,
-              "sortBy": null,
-              "tmdbId": null,
-              "addonId": "aio-metadata",
-              "filters": null,
-              "sortHow": null,
-              "provider": "addon",
-              "catalogId": "tmdb.discover.tv.family_shows.10751",
-              "mediaType": null,
-              "traktListId": null,
-              "tmdbSourceType": null
-            }
-          ],
-          "hideTitle": true,
-          "tileShape": "LANDSCAPE",
-          "coverEmoji": null,
-          "focusGifUrl": null,
-          "heroVideoUrl": null,
-          "titleLogoUrl": null,
-          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/genres/family.png",
-          "catalogSources": [
-            {
-              "type": "movie",
-              "genre": null,
-              "addonId": "aio-metadata",
-              "catalogId": "tmdb.discover.movie.family_movies.10751"
-            },
-            {
-              "type": "series",
-              "genre": null,
-              "addonId": "aio-metadata",
-              "catalogId": "tmdb.discover.tv.family_shows.10751"
-            }
-          ],
-          "focusGifEnabled": false,
-          "heroBackdropUrl": null
-        },
-        {
-          "id": "ytttwb46",
-          "title": "Fantasy",
-          "sources": [
-            {
-              "type": "movie",
-              "genre": null,
-              "title": null,
-              "sortBy": null,
-              "tmdbId": null,
-              "addonId": "aio-metadata",
-              "filters": null,
-              "sortHow": null,
-              "provider": "addon",
-              "catalogId": "tmdb.discover.movie.fantasy_movies.14",
-              "mediaType": null,
-              "traktListId": null,
-              "tmdbSourceType": null
-            },
-            {
-              "type": "series",
-              "genre": null,
-              "title": null,
-              "sortBy": null,
-              "tmdbId": null,
-              "addonId": "aio-metadata",
-              "filters": null,
-              "sortHow": null,
-              "provider": "addon",
-              "catalogId": "tmdb.discover.tv.scifi_shows.10765",
-              "mediaType": null,
-              "traktListId": null,
-              "tmdbSourceType": null
-            }
-          ],
-          "hideTitle": true,
-          "tileShape": "LANDSCAPE",
-          "coverEmoji": null,
-          "focusGifUrl": null,
-          "heroVideoUrl": null,
-          "titleLogoUrl": null,
-          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/genres/fantasy.png",
-          "catalogSources": [
-            {
-              "type": "movie",
-              "genre": null,
-              "addonId": "aio-metadata",
-              "catalogId": "tmdb.discover.movie.fantasy_movies.14"
-            },
-            {
-              "type": "series",
-              "genre": null,
-              "addonId": "aio-metadata",
-              "catalogId": "tmdb.discover.tv.scifi_shows.10765"
-            }
-          ],
-          "focusGifEnabled": false,
-          "heroBackdropUrl": null
-        },
-        {
-          "id": "u2gieq7s",
-          "title": "History",
-          "sources": [
-            {
-              "type": "movie",
-              "genre": null,
-              "title": null,
-              "sortBy": null,
-              "tmdbId": null,
-              "addonId": "aio-metadata",
-              "filters": null,
-              "sortHow": null,
-              "provider": "addon",
-              "catalogId": "tmdb.discover.movie.history_movies.36",
-              "mediaType": null,
-              "traktListId": null,
-              "tmdbSourceType": null
-            }
-          ],
-          "hideTitle": true,
-          "tileShape": "LANDSCAPE",
-          "coverEmoji": null,
-          "focusGifUrl": null,
-          "heroVideoUrl": null,
-          "titleLogoUrl": null,
-          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/genres/history.png",
-          "catalogSources": [
-            {
-              "type": "movie",
-              "genre": null,
-              "addonId": "aio-metadata",
-              "catalogId": "tmdb.discover.movie.history_movies.36"
-            }
-          ],
-          "focusGifEnabled": false,
-          "heroBackdropUrl": null
-        },
-        {
-          "id": "kudg86f8",
-          "title": "Horror",
-          "sources": [
-            {
-              "type": "movie",
-              "genre": null,
-              "title": null,
-              "sortBy": null,
-              "tmdbId": null,
-              "addonId": "aio-metadata",
-              "filters": null,
-              "sortHow": null,
-              "provider": "addon",
-              "catalogId": "tmdb.discover.movie.horror_movies.27",
-              "mediaType": null,
-              "traktListId": null,
-              "tmdbSourceType": null
-            }
-          ],
-          "hideTitle": true,
-          "tileShape": "LANDSCAPE",
-          "coverEmoji": null,
-          "focusGifUrl": null,
-          "heroVideoUrl": null,
-          "titleLogoUrl": null,
-          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/genres/horror.png",
-          "catalogSources": [
-            {
-              "type": "movie",
-              "genre": null,
-              "addonId": "aio-metadata",
-              "catalogId": "tmdb.discover.movie.horror_movies.27"
-            }
-          ],
-          "focusGifEnabled": false,
-          "heroBackdropUrl": null
-        },
-        {
-          "id": "s7r59hix",
-          "title": "Music",
-          "sources": [
-            {
-              "type": "movie",
-              "genre": null,
-              "title": null,
-              "sortBy": null,
-              "tmdbId": null,
-              "addonId": "aio-metadata",
-              "filters": null,
-              "sortHow": null,
-              "provider": "addon",
-              "catalogId": "tmdb.discover.movie.music_movies.10402",
-              "mediaType": null,
-              "traktListId": null,
-              "tmdbSourceType": null
-            }
-          ],
-          "hideTitle": true,
-          "tileShape": "LANDSCAPE",
-          "coverEmoji": null,
-          "focusGifUrl": null,
-          "heroVideoUrl": null,
-          "titleLogoUrl": null,
-          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/genres/music.png",
-          "catalogSources": [
-            {
-              "type": "movie",
-              "genre": null,
-              "addonId": "aio-metadata",
-              "catalogId": "tmdb.discover.movie.music_movies.10402"
-            }
-          ],
-          "focusGifEnabled": false,
-          "heroBackdropUrl": null
-        },
-        {
-          "id": "nbn6gyn0",
-          "title": "Mystery",
-          "sources": [
-            {
-              "type": "movie",
-              "genre": null,
-              "title": null,
-              "sortBy": null,
-              "tmdbId": null,
-              "addonId": "aio-metadata",
-              "filters": null,
-              "sortHow": null,
-              "provider": "addon",
-              "catalogId": "tmdb.discover.movie.mystery_movies.9648",
-              "mediaType": null,
-              "traktListId": null,
-              "tmdbSourceType": null
-            },
-            {
-              "type": "series",
-              "genre": null,
-              "title": null,
-              "sortBy": null,
-              "tmdbId": null,
-              "addonId": "aio-metadata",
-              "filters": null,
-              "sortHow": null,
-              "provider": "addon",
-              "catalogId": "tmdb.discover.tv.mystery_shows.9648",
-              "mediaType": null,
-              "traktListId": null,
-              "tmdbSourceType": null
-            }
-          ],
-          "hideTitle": true,
-          "tileShape": "LANDSCAPE",
-          "coverEmoji": null,
-          "focusGifUrl": null,
-          "heroVideoUrl": null,
-          "titleLogoUrl": null,
-          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/genres/mystery.png",
-          "catalogSources": [
-            {
-              "type": "movie",
-              "genre": null,
-              "addonId": "aio-metadata",
-              "catalogId": "tmdb.discover.movie.mystery_movies.9648"
-            },
-            {
-              "type": "series",
-              "genre": null,
-              "addonId": "aio-metadata",
-              "catalogId": "tmdb.discover.tv.mystery_shows.9648"
-            }
-          ],
-          "focusGifEnabled": false,
-          "heroBackdropUrl": null
-        },
-        {
-          "id": "npuhfla1",
-          "title": "Romance",
-          "sources": [
-            {
-              "type": "movie",
-              "genre": null,
-              "title": null,
-              "sortBy": null,
-              "tmdbId": null,
-              "addonId": "aio-metadata",
-              "filters": null,
-              "sortHow": null,
-              "provider": "addon",
-              "catalogId": "tmdb.discover.movie.romance_movies.10749",
-              "mediaType": null,
-              "traktListId": null,
-              "tmdbSourceType": null
-            },
-            {
-              "type": "series",
-              "genre": null,
-              "title": null,
-              "sortBy": null,
-              "tmdbId": null,
-              "addonId": "aio-metadata",
-              "filters": null,
-              "sortHow": null,
-              "provider": "addon",
-              "catalogId": "tmdb.discover.tv.soap_shows.37",
-              "mediaType": null,
-              "traktListId": null,
-              "tmdbSourceType": null
-            }
-          ],
-          "hideTitle": true,
-          "tileShape": "LANDSCAPE",
-          "coverEmoji": null,
-          "focusGifUrl": null,
-          "heroVideoUrl": null,
-          "titleLogoUrl": null,
-          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/genres/romance.png",
-          "catalogSources": [
-            {
-              "type": "movie",
-              "genre": null,
-              "addonId": "aio-metadata",
-              "catalogId": "tmdb.discover.movie.romance_movies.10749"
-            },
-            {
-              "type": "series",
-              "genre": null,
-              "addonId": "aio-metadata",
-              "catalogId": "tmdb.discover.tv.soap_shows.37"
-            }
-          ],
-          "focusGifEnabled": false,
-          "heroBackdropUrl": null
-        },
-        {
-          "id": "6spwxe8n",
-          "title": "Science Fiction",
-          "sources": [
-            {
-              "type": "movie",
-              "genre": null,
-              "title": null,
-              "sortBy": null,
-              "tmdbId": null,
-              "addonId": "aio-metadata",
-              "filters": null,
-              "sortHow": null,
-              "provider": "addon",
-              "catalogId": "tmdb.discover.movie.scifi_movies.878",
-              "mediaType": null,
-              "traktListId": null,
-              "tmdbSourceType": null
-            },
-            {
-              "type": "series",
-              "genre": null,
-              "title": null,
-              "sortBy": null,
-              "tmdbId": null,
-              "addonId": "aio-metadata",
-              "filters": null,
-              "sortHow": null,
-              "provider": "addon",
-              "catalogId": "tmdb.discover.tv.scifi_shows.10765",
-              "mediaType": null,
-              "traktListId": null,
-              "tmdbSourceType": null
-            }
-          ],
-          "hideTitle": true,
-          "tileShape": "LANDSCAPE",
-          "coverEmoji": null,
-          "focusGifUrl": null,
-          "heroVideoUrl": null,
-          "titleLogoUrl": null,
-          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/genres/sci-fi.png",
-          "catalogSources": [
-            {
-              "type": "movie",
-              "genre": null,
-              "addonId": "aio-metadata",
-              "catalogId": "tmdb.discover.movie.scifi_movies.878"
-            },
-            {
-              "type": "series",
-              "genre": null,
-              "addonId": "aio-metadata",
-              "catalogId": "tmdb.discover.tv.scifi_shows.10765"
-            }
-          ],
-          "focusGifEnabled": false,
-          "heroBackdropUrl": null
-        },
-        {
-          "id": "0gnumuj2",
-          "title": "Thriller",
-          "sources": [
-            {
-              "type": "movie",
-              "genre": null,
-              "title": null,
-              "sortBy": null,
-              "tmdbId": null,
-              "addonId": "aio-metadata",
-              "filters": null,
-              "sortHow": null,
-              "provider": "addon",
-              "catalogId": "tmdb.discover.movie.thriller_movies.53",
-              "mediaType": null,
-              "traktListId": null,
-              "tmdbSourceType": null
-            }
-          ],
-          "hideTitle": true,
-          "tileShape": "LANDSCAPE",
-          "coverEmoji": null,
-          "focusGifUrl": null,
-          "heroVideoUrl": null,
-          "titleLogoUrl": null,
-          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/genres/thriller.png",
-          "catalogSources": [
-            {
-              "type": "movie",
-              "genre": null,
-              "addonId": "aio-metadata",
-              "catalogId": "tmdb.discover.movie.thriller_movies.53"
-            }
-          ],
-          "focusGifEnabled": false,
-          "heroBackdropUrl": null
-        },
-        {
-          "id": "fdrpxz2m",
-          "title": "War",
-          "sources": [
-            {
-              "type": "movie",
-              "genre": null,
-              "title": null,
-              "sortBy": null,
-              "tmdbId": null,
-              "addonId": "aio-metadata",
-              "filters": null,
-              "sortHow": null,
-              "provider": "addon",
-              "catalogId": "tmdb.discover.movie.war_movies.10752",
-              "mediaType": null,
-              "traktListId": null,
-              "tmdbSourceType": null
-            },
-            {
-              "type": "series",
-              "genre": null,
-              "title": null,
-              "sortBy": null,
-              "tmdbId": null,
-              "addonId": "aio-metadata",
-              "filters": null,
-              "sortHow": null,
-              "provider": "addon",
-              "catalogId": "tmdb.discover.tv.war_politics_shows.10768",
-              "mediaType": null,
-              "traktListId": null,
-              "tmdbSourceType": null
-            }
-          ],
-          "hideTitle": true,
-          "tileShape": "LANDSCAPE",
-          "coverEmoji": null,
-          "focusGifUrl": null,
-          "heroVideoUrl": null,
-          "titleLogoUrl": null,
-          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/genres/war.png",
-          "catalogSources": [
-            {
-              "type": "movie",
-              "genre": null,
-              "addonId": "aio-metadata",
-              "catalogId": "tmdb.discover.movie.war_movies.10752"
-            },
-            {
-              "type": "series",
-              "genre": null,
-              "addonId": "aio-metadata",
-              "catalogId": "tmdb.discover.tv.war_politics_shows.10768"
-            }
-          ],
-          "focusGifEnabled": false,
-          "heroBackdropUrl": null
-        },
-        {
-          "id": "f6x6usqk",
-          "title": "Westerns",
-          "sources": [
-            {
-              "type": "movie",
-              "genre": null,
-              "title": null,
-              "sortBy": null,
-              "tmdbId": null,
-              "addonId": "aio-metadata",
-              "filters": null,
-              "sortHow": null,
-              "provider": "addon",
-              "catalogId": "tmdb.discover.movie.western_movies.37",
-              "mediaType": null,
-              "traktListId": null,
-              "tmdbSourceType": null
-            },
-            {
-              "type": "series",
-              "genre": null,
-              "title": null,
-              "sortBy": null,
-              "tmdbId": null,
-              "addonId": "aio-metadata",
-              "filters": null,
-              "sortHow": null,
-              "provider": "addon",
-              "catalogId": "tmdb.discover.tv.western_shows.37",
-              "mediaType": null,
-              "traktListId": null,
-              "tmdbSourceType": null
-            }
-          ],
-          "hideTitle": true,
-          "tileShape": "LANDSCAPE",
-          "coverEmoji": null,
-          "focusGifUrl": null,
-          "heroVideoUrl": null,
-          "titleLogoUrl": null,
-          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/genres/westerns.png",
-          "catalogSources": [
-            {
-              "type": "movie",
-              "genre": null,
-              "addonId": "aio-metadata",
-              "catalogId": "tmdb.discover.movie.western_movies.37"
-            },
-            {
-              "type": "series",
-              "genre": null,
-              "addonId": "aio-metadata",
-              "catalogId": "tmdb.discover.tv.western_shows.37"
-            }
-          ],
-          "focusGifEnabled": false,
-          "heroBackdropUrl": null
-        }
-      ],
-      "pinToTop": false,
-      "viewMode": "FOLLOW_LAYOUT",
-      "showAllTab": false,
-      "backdropImageUrl": null,
-      "focusGlowEnabled": false
-    },
-    {
       "id": "i7xq11qp",
       "title": "Streaming Services",
       "folders": [
@@ -9848,6 +8624,995 @@
       "focusGlowEnabled": false
     },
     {
+      "id": "n5s37lqi",
+      "title": "Genres",
+      "folders": [
+        {
+          "id": "645bqeh4",
+          "title": "Action",
+          "sources": [
+            {
+              "type": "movie",
+              "genre": null,
+              "title": null,
+              "sortBy": null,
+              "tmdbId": null,
+              "addonId": "aio-metadata",
+              "filters": null,
+              "sortHow": null,
+              "provider": "addon",
+              "catalogId": "tmdb.discover.movie.action_movies.28",
+              "mediaType": null,
+              "traktListId": null,
+              "tmdbSourceType": null
+            },
+            {
+              "type": "series",
+              "genre": null,
+              "title": null,
+              "sortBy": null,
+              "tmdbId": null,
+              "addonId": "aio-metadata",
+              "filters": null,
+              "sortHow": null,
+              "provider": "addon",
+              "catalogId": "tmdb.discover.tv.action_adventure_shows.10759",
+              "mediaType": null,
+              "traktListId": null,
+              "tmdbSourceType": null
+            }
+          ],
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverEmoji": null,
+          "focusGifUrl": null,
+          "heroVideoUrl": null,
+          "titleLogoUrl": null,
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/genres/action.png",
+          "catalogSources": [
+            {
+              "type": "movie",
+              "genre": null,
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.movie.action_movies.28"
+            },
+            {
+              "type": "series",
+              "genre": null,
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.tv.action_adventure_shows.10759"
+            }
+          ],
+          "focusGifEnabled": false,
+          "heroBackdropUrl": null
+        },
+        {
+          "id": "v7dlt9xd",
+          "title": "Adventure",
+          "sources": [
+            {
+              "type": "movie",
+              "genre": null,
+              "title": null,
+              "sortBy": null,
+              "tmdbId": null,
+              "addonId": "aio-metadata",
+              "filters": null,
+              "sortHow": null,
+              "provider": "addon",
+              "catalogId": "tmdb.discover.movie.adventure_movies.12",
+              "mediaType": null,
+              "traktListId": null,
+              "tmdbSourceType": null
+            },
+            {
+              "type": "series",
+              "genre": null,
+              "title": null,
+              "sortBy": null,
+              "tmdbId": null,
+              "addonId": "aio-metadata",
+              "filters": null,
+              "sortHow": null,
+              "provider": "addon",
+              "catalogId": "tmdb.discover.tv.action_adventure_shows.10759",
+              "mediaType": null,
+              "traktListId": null,
+              "tmdbSourceType": null
+            }
+          ],
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverEmoji": null,
+          "focusGifUrl": null,
+          "heroVideoUrl": null,
+          "titleLogoUrl": null,
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/genres/adventure.png",
+          "catalogSources": [
+            {
+              "type": "movie",
+              "genre": null,
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.movie.adventure_movies.12"
+            },
+            {
+              "type": "series",
+              "genre": null,
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.tv.action_adventure_shows.10759"
+            }
+          ],
+          "focusGifEnabled": false,
+          "heroBackdropUrl": null
+        },
+        {
+          "id": "mljd5nt0",
+          "title": "Animation",
+          "sources": [
+            {
+              "type": "movie",
+              "genre": null,
+              "title": null,
+              "sortBy": null,
+              "tmdbId": null,
+              "addonId": "aio-metadata",
+              "filters": null,
+              "sortHow": null,
+              "provider": "addon",
+              "catalogId": "tmdb.discover.movie.animation_movies.16",
+              "mediaType": null,
+              "traktListId": null,
+              "tmdbSourceType": null
+            },
+            {
+              "type": "series",
+              "genre": null,
+              "title": null,
+              "sortBy": null,
+              "tmdbId": null,
+              "addonId": "aio-metadata",
+              "filters": null,
+              "sortHow": null,
+              "provider": "addon",
+              "catalogId": "tmdb.discover.tv.animation_shows.16",
+              "mediaType": null,
+              "traktListId": null,
+              "tmdbSourceType": null
+            }
+          ],
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverEmoji": null,
+          "focusGifUrl": null,
+          "heroVideoUrl": null,
+          "titleLogoUrl": null,
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/genres/animation.png",
+          "catalogSources": [
+            {
+              "type": "movie",
+              "genre": null,
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.movie.animation_movies.16"
+            },
+            {
+              "type": "series",
+              "genre": null,
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.tv.animation_shows.16"
+            }
+          ],
+          "focusGifEnabled": false,
+          "heroBackdropUrl": null
+        },
+        {
+          "id": "z9tl52hm",
+          "title": "Comedy",
+          "sources": [
+            {
+              "type": "movie",
+              "genre": null,
+              "title": null,
+              "sortBy": null,
+              "tmdbId": null,
+              "addonId": "aio-metadata",
+              "filters": null,
+              "sortHow": null,
+              "provider": "addon",
+              "catalogId": "tmdb.discover.movie.comedy_movies.35",
+              "mediaType": null,
+              "traktListId": null,
+              "tmdbSourceType": null
+            },
+            {
+              "type": "series",
+              "genre": null,
+              "title": null,
+              "sortBy": null,
+              "tmdbId": null,
+              "addonId": "aio-metadata",
+              "filters": null,
+              "sortHow": null,
+              "provider": "addon",
+              "catalogId": "tmdb.discover.tv.comedy_shows.35",
+              "mediaType": null,
+              "traktListId": null,
+              "tmdbSourceType": null
+            }
+          ],
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverEmoji": null,
+          "focusGifUrl": null,
+          "heroVideoUrl": null,
+          "titleLogoUrl": null,
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/genres/comedy.png",
+          "catalogSources": [
+            {
+              "type": "movie",
+              "genre": null,
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.movie.comedy_movies.35"
+            },
+            {
+              "type": "series",
+              "genre": null,
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.tv.comedy_shows.35"
+            }
+          ],
+          "focusGifEnabled": false,
+          "heroBackdropUrl": null
+        },
+        {
+          "id": "ildhewtv",
+          "title": "Crime",
+          "sources": [
+            {
+              "type": "movie",
+              "genre": null,
+              "title": null,
+              "sortBy": null,
+              "tmdbId": null,
+              "addonId": "aio-metadata",
+              "filters": null,
+              "sortHow": null,
+              "provider": "addon",
+              "catalogId": "tmdb.discover.movie.crime_movies.80",
+              "mediaType": null,
+              "traktListId": null,
+              "tmdbSourceType": null
+            },
+            {
+              "type": "series",
+              "genre": null,
+              "title": null,
+              "sortBy": null,
+              "tmdbId": null,
+              "addonId": "aio-metadata",
+              "filters": null,
+              "sortHow": null,
+              "provider": "addon",
+              "catalogId": "tmdb.discover.tv.crime_shows.80",
+              "mediaType": null,
+              "traktListId": null,
+              "tmdbSourceType": null
+            }
+          ],
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverEmoji": null,
+          "focusGifUrl": null,
+          "heroVideoUrl": null,
+          "titleLogoUrl": null,
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/genres/crime.png",
+          "catalogSources": [
+            {
+              "type": "movie",
+              "genre": null,
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.movie.crime_movies.80"
+            },
+            {
+              "type": "series",
+              "genre": null,
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.tv.crime_shows.80"
+            }
+          ],
+          "focusGifEnabled": false,
+          "heroBackdropUrl": null
+        },
+        {
+          "id": "3hkemse3",
+          "title": "Documentary",
+          "sources": [
+            {
+              "type": "movie",
+              "genre": null,
+              "title": null,
+              "sortBy": null,
+              "tmdbId": null,
+              "addonId": "aio-metadata",
+              "filters": null,
+              "sortHow": null,
+              "provider": "addon",
+              "catalogId": "tmdb.discover.movie.documentary_movies.99",
+              "mediaType": null,
+              "traktListId": null,
+              "tmdbSourceType": null
+            },
+            {
+              "type": "series",
+              "genre": null,
+              "title": null,
+              "sortBy": null,
+              "tmdbId": null,
+              "addonId": "aio-metadata",
+              "filters": null,
+              "sortHow": null,
+              "provider": "addon",
+              "catalogId": "tmdb.discover.tv.documentary_shows.99",
+              "mediaType": null,
+              "traktListId": null,
+              "tmdbSourceType": null
+            }
+          ],
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverEmoji": null,
+          "focusGifUrl": null,
+          "heroVideoUrl": null,
+          "titleLogoUrl": null,
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/genres/documentary.png",
+          "catalogSources": [
+            {
+              "type": "movie",
+              "genre": null,
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.movie.documentary_movies.99"
+            },
+            {
+              "type": "series",
+              "genre": null,
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.tv.documentary_shows.99"
+            }
+          ],
+          "focusGifEnabled": false,
+          "heroBackdropUrl": null
+        },
+        {
+          "id": "m3s3f438",
+          "title": "Drama",
+          "sources": [
+            {
+              "type": "movie",
+              "genre": null,
+              "title": null,
+              "sortBy": null,
+              "tmdbId": null,
+              "addonId": "aio-metadata",
+              "filters": null,
+              "sortHow": null,
+              "provider": "addon",
+              "catalogId": "tmdb.discover.movie.drama_movies.18",
+              "mediaType": null,
+              "traktListId": null,
+              "tmdbSourceType": null
+            },
+            {
+              "type": "series",
+              "genre": null,
+              "title": null,
+              "sortBy": null,
+              "tmdbId": null,
+              "addonId": "aio-metadata",
+              "filters": null,
+              "sortHow": null,
+              "provider": "addon",
+              "catalogId": "tmdb.discover.tv.drama_shows.18",
+              "mediaType": null,
+              "traktListId": null,
+              "tmdbSourceType": null
+            }
+          ],
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverEmoji": null,
+          "focusGifUrl": null,
+          "heroVideoUrl": null,
+          "titleLogoUrl": null,
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/genres/drama.png",
+          "catalogSources": [
+            {
+              "type": "movie",
+              "genre": null,
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.movie.drama_movies.18"
+            },
+            {
+              "type": "series",
+              "genre": null,
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.tv.drama_shows.18"
+            }
+          ],
+          "focusGifEnabled": false,
+          "heroBackdropUrl": null
+        },
+        {
+          "id": "cd13vmpd",
+          "title": "Family",
+          "sources": [
+            {
+              "type": "movie",
+              "genre": null,
+              "title": null,
+              "sortBy": null,
+              "tmdbId": null,
+              "addonId": "aio-metadata",
+              "filters": null,
+              "sortHow": null,
+              "provider": "addon",
+              "catalogId": "tmdb.discover.movie.family_movies.10751",
+              "mediaType": null,
+              "traktListId": null,
+              "tmdbSourceType": null
+            },
+            {
+              "type": "series",
+              "genre": null,
+              "title": null,
+              "sortBy": null,
+              "tmdbId": null,
+              "addonId": "aio-metadata",
+              "filters": null,
+              "sortHow": null,
+              "provider": "addon",
+              "catalogId": "tmdb.discover.tv.family_shows.10751",
+              "mediaType": null,
+              "traktListId": null,
+              "tmdbSourceType": null
+            }
+          ],
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverEmoji": null,
+          "focusGifUrl": null,
+          "heroVideoUrl": null,
+          "titleLogoUrl": null,
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/genres/family.png",
+          "catalogSources": [
+            {
+              "type": "movie",
+              "genre": null,
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.movie.family_movies.10751"
+            },
+            {
+              "type": "series",
+              "genre": null,
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.tv.family_shows.10751"
+            }
+          ],
+          "focusGifEnabled": false,
+          "heroBackdropUrl": null
+        },
+        {
+          "id": "ytttwb46",
+          "title": "Fantasy",
+          "sources": [
+            {
+              "type": "movie",
+              "genre": null,
+              "title": null,
+              "sortBy": null,
+              "tmdbId": null,
+              "addonId": "aio-metadata",
+              "filters": null,
+              "sortHow": null,
+              "provider": "addon",
+              "catalogId": "tmdb.discover.movie.fantasy_movies.14",
+              "mediaType": null,
+              "traktListId": null,
+              "tmdbSourceType": null
+            },
+            {
+              "type": "series",
+              "genre": null,
+              "title": null,
+              "sortBy": null,
+              "tmdbId": null,
+              "addonId": "aio-metadata",
+              "filters": null,
+              "sortHow": null,
+              "provider": "addon",
+              "catalogId": "tmdb.discover.tv.scifi_shows.10765",
+              "mediaType": null,
+              "traktListId": null,
+              "tmdbSourceType": null
+            }
+          ],
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverEmoji": null,
+          "focusGifUrl": null,
+          "heroVideoUrl": null,
+          "titleLogoUrl": null,
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/genres/fantasy.png",
+          "catalogSources": [
+            {
+              "type": "movie",
+              "genre": null,
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.movie.fantasy_movies.14"
+            },
+            {
+              "type": "series",
+              "genre": null,
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.tv.scifi_shows.10765"
+            }
+          ],
+          "focusGifEnabled": false,
+          "heroBackdropUrl": null
+        },
+        {
+          "id": "u2gieq7s",
+          "title": "History",
+          "sources": [
+            {
+              "type": "movie",
+              "genre": null,
+              "title": null,
+              "sortBy": null,
+              "tmdbId": null,
+              "addonId": "aio-metadata",
+              "filters": null,
+              "sortHow": null,
+              "provider": "addon",
+              "catalogId": "tmdb.discover.movie.history_movies.36",
+              "mediaType": null,
+              "traktListId": null,
+              "tmdbSourceType": null
+            }
+          ],
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverEmoji": null,
+          "focusGifUrl": null,
+          "heroVideoUrl": null,
+          "titleLogoUrl": null,
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/genres/history.png",
+          "catalogSources": [
+            {
+              "type": "movie",
+              "genre": null,
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.movie.history_movies.36"
+            }
+          ],
+          "focusGifEnabled": false,
+          "heroBackdropUrl": null
+        },
+        {
+          "id": "kudg86f8",
+          "title": "Horror",
+          "sources": [
+            {
+              "type": "movie",
+              "genre": null,
+              "title": null,
+              "sortBy": null,
+              "tmdbId": null,
+              "addonId": "aio-metadata",
+              "filters": null,
+              "sortHow": null,
+              "provider": "addon",
+              "catalogId": "tmdb.discover.movie.horror_movies.27",
+              "mediaType": null,
+              "traktListId": null,
+              "tmdbSourceType": null
+            }
+          ],
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverEmoji": null,
+          "focusGifUrl": null,
+          "heroVideoUrl": null,
+          "titleLogoUrl": null,
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/genres/horror.png",
+          "catalogSources": [
+            {
+              "type": "movie",
+              "genre": null,
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.movie.horror_movies.27"
+            }
+          ],
+          "focusGifEnabled": false,
+          "heroBackdropUrl": null
+        },
+        {
+          "id": "s7r59hix",
+          "title": "Music",
+          "sources": [
+            {
+              "type": "movie",
+              "genre": null,
+              "title": null,
+              "sortBy": null,
+              "tmdbId": null,
+              "addonId": "aio-metadata",
+              "filters": null,
+              "sortHow": null,
+              "provider": "addon",
+              "catalogId": "tmdb.discover.movie.music_movies.10402",
+              "mediaType": null,
+              "traktListId": null,
+              "tmdbSourceType": null
+            }
+          ],
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverEmoji": null,
+          "focusGifUrl": null,
+          "heroVideoUrl": null,
+          "titleLogoUrl": null,
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/genres/music.png",
+          "catalogSources": [
+            {
+              "type": "movie",
+              "genre": null,
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.movie.music_movies.10402"
+            }
+          ],
+          "focusGifEnabled": false,
+          "heroBackdropUrl": null
+        },
+        {
+          "id": "nbn6gyn0",
+          "title": "Mystery",
+          "sources": [
+            {
+              "type": "movie",
+              "genre": null,
+              "title": null,
+              "sortBy": null,
+              "tmdbId": null,
+              "addonId": "aio-metadata",
+              "filters": null,
+              "sortHow": null,
+              "provider": "addon",
+              "catalogId": "tmdb.discover.movie.mystery_movies.9648",
+              "mediaType": null,
+              "traktListId": null,
+              "tmdbSourceType": null
+            },
+            {
+              "type": "series",
+              "genre": null,
+              "title": null,
+              "sortBy": null,
+              "tmdbId": null,
+              "addonId": "aio-metadata",
+              "filters": null,
+              "sortHow": null,
+              "provider": "addon",
+              "catalogId": "tmdb.discover.tv.mystery_shows.9648",
+              "mediaType": null,
+              "traktListId": null,
+              "tmdbSourceType": null
+            }
+          ],
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverEmoji": null,
+          "focusGifUrl": null,
+          "heroVideoUrl": null,
+          "titleLogoUrl": null,
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/genres/mystery.png",
+          "catalogSources": [
+            {
+              "type": "movie",
+              "genre": null,
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.movie.mystery_movies.9648"
+            },
+            {
+              "type": "series",
+              "genre": null,
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.tv.mystery_shows.9648"
+            }
+          ],
+          "focusGifEnabled": false,
+          "heroBackdropUrl": null
+        },
+        {
+          "id": "npuhfla1",
+          "title": "Romance",
+          "sources": [
+            {
+              "type": "movie",
+              "genre": null,
+              "title": null,
+              "sortBy": null,
+              "tmdbId": null,
+              "addonId": "aio-metadata",
+              "filters": null,
+              "sortHow": null,
+              "provider": "addon",
+              "catalogId": "tmdb.discover.movie.romance_movies.10749",
+              "mediaType": null,
+              "traktListId": null,
+              "tmdbSourceType": null
+            },
+            {
+              "type": "series",
+              "genre": null,
+              "title": null,
+              "sortBy": null,
+              "tmdbId": null,
+              "addonId": "aio-metadata",
+              "filters": null,
+              "sortHow": null,
+              "provider": "addon",
+              "catalogId": "tmdb.discover.tv.soap_shows.37",
+              "mediaType": null,
+              "traktListId": null,
+              "tmdbSourceType": null
+            }
+          ],
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverEmoji": null,
+          "focusGifUrl": null,
+          "heroVideoUrl": null,
+          "titleLogoUrl": null,
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/genres/romance.png",
+          "catalogSources": [
+            {
+              "type": "movie",
+              "genre": null,
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.movie.romance_movies.10749"
+            },
+            {
+              "type": "series",
+              "genre": null,
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.tv.soap_shows.37"
+            }
+          ],
+          "focusGifEnabled": false,
+          "heroBackdropUrl": null
+        },
+        {
+          "id": "6spwxe8n",
+          "title": "Science Fiction",
+          "sources": [
+            {
+              "type": "movie",
+              "genre": null,
+              "title": null,
+              "sortBy": null,
+              "tmdbId": null,
+              "addonId": "aio-metadata",
+              "filters": null,
+              "sortHow": null,
+              "provider": "addon",
+              "catalogId": "tmdb.discover.movie.scifi_movies.878",
+              "mediaType": null,
+              "traktListId": null,
+              "tmdbSourceType": null
+            },
+            {
+              "type": "series",
+              "genre": null,
+              "title": null,
+              "sortBy": null,
+              "tmdbId": null,
+              "addonId": "aio-metadata",
+              "filters": null,
+              "sortHow": null,
+              "provider": "addon",
+              "catalogId": "tmdb.discover.tv.scifi_shows.10765",
+              "mediaType": null,
+              "traktListId": null,
+              "tmdbSourceType": null
+            }
+          ],
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverEmoji": null,
+          "focusGifUrl": null,
+          "heroVideoUrl": null,
+          "titleLogoUrl": null,
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/genres/sci-fi.png",
+          "catalogSources": [
+            {
+              "type": "movie",
+              "genre": null,
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.movie.scifi_movies.878"
+            },
+            {
+              "type": "series",
+              "genre": null,
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.tv.scifi_shows.10765"
+            }
+          ],
+          "focusGifEnabled": false,
+          "heroBackdropUrl": null
+        },
+        {
+          "id": "0gnumuj2",
+          "title": "Thriller",
+          "sources": [
+            {
+              "type": "movie",
+              "genre": null,
+              "title": null,
+              "sortBy": null,
+              "tmdbId": null,
+              "addonId": "aio-metadata",
+              "filters": null,
+              "sortHow": null,
+              "provider": "addon",
+              "catalogId": "tmdb.discover.movie.thriller_movies.53",
+              "mediaType": null,
+              "traktListId": null,
+              "tmdbSourceType": null
+            }
+          ],
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverEmoji": null,
+          "focusGifUrl": null,
+          "heroVideoUrl": null,
+          "titleLogoUrl": null,
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/genres/thriller.png",
+          "catalogSources": [
+            {
+              "type": "movie",
+              "genre": null,
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.movie.thriller_movies.53"
+            }
+          ],
+          "focusGifEnabled": false,
+          "heroBackdropUrl": null
+        },
+        {
+          "id": "fdrpxz2m",
+          "title": "War",
+          "sources": [
+            {
+              "type": "movie",
+              "genre": null,
+              "title": null,
+              "sortBy": null,
+              "tmdbId": null,
+              "addonId": "aio-metadata",
+              "filters": null,
+              "sortHow": null,
+              "provider": "addon",
+              "catalogId": "tmdb.discover.movie.war_movies.10752",
+              "mediaType": null,
+              "traktListId": null,
+              "tmdbSourceType": null
+            },
+            {
+              "type": "series",
+              "genre": null,
+              "title": null,
+              "sortBy": null,
+              "tmdbId": null,
+              "addonId": "aio-metadata",
+              "filters": null,
+              "sortHow": null,
+              "provider": "addon",
+              "catalogId": "tmdb.discover.tv.war_politics_shows.10768",
+              "mediaType": null,
+              "traktListId": null,
+              "tmdbSourceType": null
+            }
+          ],
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverEmoji": null,
+          "focusGifUrl": null,
+          "heroVideoUrl": null,
+          "titleLogoUrl": null,
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/genres/war.png",
+          "catalogSources": [
+            {
+              "type": "movie",
+              "genre": null,
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.movie.war_movies.10752"
+            },
+            {
+              "type": "series",
+              "genre": null,
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.tv.war_politics_shows.10768"
+            }
+          ],
+          "focusGifEnabled": false,
+          "heroBackdropUrl": null
+        },
+        {
+          "id": "f6x6usqk",
+          "title": "Westerns",
+          "sources": [
+            {
+              "type": "movie",
+              "genre": null,
+              "title": null,
+              "sortBy": null,
+              "tmdbId": null,
+              "addonId": "aio-metadata",
+              "filters": null,
+              "sortHow": null,
+              "provider": "addon",
+              "catalogId": "tmdb.discover.movie.western_movies.37",
+              "mediaType": null,
+              "traktListId": null,
+              "tmdbSourceType": null
+            },
+            {
+              "type": "series",
+              "genre": null,
+              "title": null,
+              "sortBy": null,
+              "tmdbId": null,
+              "addonId": "aio-metadata",
+              "filters": null,
+              "sortHow": null,
+              "provider": "addon",
+              "catalogId": "tmdb.discover.tv.western_shows.37",
+              "mediaType": null,
+              "traktListId": null,
+              "tmdbSourceType": null
+            }
+          ],
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverEmoji": null,
+          "focusGifUrl": null,
+          "heroVideoUrl": null,
+          "titleLogoUrl": null,
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/genres/westerns.png",
+          "catalogSources": [
+            {
+              "type": "movie",
+              "genre": null,
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.movie.western_movies.37"
+            },
+            {
+              "type": "series",
+              "genre": null,
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.tv.western_shows.37"
+            }
+          ],
+          "focusGifEnabled": false,
+          "heroBackdropUrl": null
+        }
+      ],
+      "pinToTop": false,
+      "viewMode": "FOLLOW_LAYOUT",
+      "showAllTab": false,
+      "backdropImageUrl": null,
+      "focusGlowEnabled": false
+    },
+    {
       "id": "6b7ptff5",
       "title": "Decades",
       "folders": [
@@ -10145,6 +9910,241 @@
       "viewMode": "FOLLOW_LAYOUT",
       "showAllTab": false,
       "backdropImageUrl": "",
+      "focusGlowEnabled": false
+    },
+    {
+      "id": "wekcnjxn",
+      "title": "Studios",
+      "folders": [
+        {
+          "id": "5rpscrei",
+          "title": "20th Century Studios",
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/studios/20th-century.jpg",
+          "catalogSources": [
+            {
+              "type": "movie",
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.movie.20th_century_studios.mp429b5g"
+            }
+          ],
+          "focusGifEnabled": false
+        },
+        {
+          "id": "cxvnebny",
+          "title": "A24",
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/studios/a24.jpg",
+          "catalogSources": [
+            {
+              "type": "movie",
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.movie.a24.mp42fdz4"
+            }
+          ],
+          "focusGifEnabled": false
+        },
+        {
+          "id": "6ncd2bag",
+          "title": "Blumhouse Productions",
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/studios/blumhouse.jpg",
+          "catalogSources": [
+            {
+              "type": "movie",
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.movie.blumhouse.mp42g9bk"
+            }
+          ],
+          "focusGifEnabled": false
+        },
+        {
+          "id": "dsjw1aqv",
+          "title": "Dreamworks",
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/studios/dreamworks.jpg",
+          "catalogSources": [
+            {
+              "type": "movie",
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.movie.dreamworks.mp42jyh6"
+            }
+          ],
+          "focusGifEnabled": false
+        },
+        {
+          "id": "mqd8enpx",
+          "title": "Illumination",
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/studios/illumination.jpg",
+          "catalogSources": [
+            {
+              "type": "movie",
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.movie.illumination.mp42lbwh"
+            }
+          ],
+          "focusGifEnabled": false
+        },
+        {
+          "id": "oyqbv5bf",
+          "title": "Lionsgate",
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/studios/lionsgate.jpg",
+          "catalogSources": [
+            {
+              "type": "movie",
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.movie.lionsgate.mp42m4v3"
+            }
+          ],
+          "focusGifEnabled": false
+        },
+        {
+          "id": "olh5923h",
+          "title": "Lucasfilm Ltd",
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/studios/lucas-film.jpg",
+          "catalogSources": [
+            {
+              "type": "movie",
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.movie.lucas_films.mp42o6m9"
+            }
+          ],
+          "focusGifEnabled": false
+        },
+        {
+          "id": "oy0o6wl4",
+          "title": "Marvel Studios",
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/studios/marvel.jpg",
+          "catalogSources": [
+            {
+              "type": "movie",
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.movie.mgm_copy.mp48l9hq"
+            }
+          ],
+          "focusGifEnabled": false
+        },
+        {
+          "id": "awoy69zu",
+          "title": "MGM",
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/studios/mgm.jpg",
+          "catalogSources": [
+            {
+              "type": "movie",
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.movie.mgm.mp42pwqk"
+            }
+          ],
+          "focusGifEnabled": false
+        },
+        {
+          "id": "rc47w1xv",
+          "title": "Paramount Pictures",
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/studios/paramount.jpg",
+          "catalogSources": [
+            {
+              "type": "movie",
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.movie.paramount_pictures.mp42qquv"
+            }
+          ],
+          "focusGifEnabled": false
+        },
+        {
+          "id": "effrzp13",
+          "title": "Pixar",
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/studios/pixar.jpg",
+          "catalogSources": [
+            {
+              "type": "movie",
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.movie.pixar.mp42rcp5"
+            }
+          ],
+          "focusGifEnabled": false
+        },
+        {
+          "id": "hm10b47m",
+          "title": "Sony Pictures",
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/studios/sony.jpg",
+          "catalogSources": [
+            {
+              "type": "movie",
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.movie.sony_pictures.mp42rzc4"
+            }
+          ],
+          "focusGifEnabled": false
+        },
+        {
+          "id": "7uflo068",
+          "title": "Universal Pictures",
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/studios/universal.jpg",
+          "catalogSources": [
+            {
+              "type": "movie",
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.movie.universal_pictures.mp42sup1"
+            }
+          ],
+          "focusGifEnabled": false
+        },
+        {
+          "id": "mw4e06v9",
+          "title": "Walt Disney Studios",
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/studios/disney.jpg",
+          "catalogSources": [
+            {
+              "type": "movie",
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.movie.walt_disney_pictures.mp42hz3g"
+            }
+          ],
+          "focusGifEnabled": false
+        },
+        {
+          "id": "p2lr97vg",
+          "title": "Warner Bros.Studios",
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/studios/warner-bros.jpg",
+          "catalogSources": [
+            {
+              "type": "movie",
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.movie.warner_bros_pictures.mp42tgft"
+            }
+          ],
+          "focusGifEnabled": false
+        }
+      ],
+      "pinToTop": false,
+      "viewMode": "FOLLOW_LAYOUT",
+      "showAllTab": false,
       "focusGlowEnabled": false
     }
   ]
