@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.15.0](https://github.com/DryKillLogic/stremio-account-bootstrapper/compare/v2.14.1...v2.15.0) (2026-05-14)
+
+### Features
+
+- added SEL to AIOStreams config to filter RealDebrid blocked content out ([4c2bbc4](https://github.com/DryKillLogic/stremio-account-bootstrapper/commit/4c2bbc4e217718a03374a803e64b7ef035a4d062))
+
 ### [2.14.1](https://github.com/DryKillLogic/stremio-account-bootstrapper/compare/v2.14.0...v2.14.1) (2026-05-13)
 
 ### Bug Fixes
