@@ -7,6 +7,7 @@ import { getLanguageName } from '../../utils/language';
 import { convertToBytes } from '../../utils/sizeConverters';
 import { merge } from 'lodash';
 import { applyTemplateConditionals } from '../../utils/templateConditionals';
+import { isRealDebrid } from '../../utils/debrid';
 
 function addLanguageSpecificAddons(
   presets: any[],
@@ -217,6 +218,18 @@ export async function configureAioStreams(
   const configOverrides = {
     services: debridServices,
     excludedResolutions: ['360p', '240p', '144p'],
+    excludedStreamExpressions: [
+      ...(template.config?.excludedStreamExpressions || []),
+      ...(isRealDebrid(debridEntries)
+        ? [
+            {
+              enabled: true,
+              expression:
+                "/* RD Blocked content filter */ service(merge(quality(streams, 'WEB-DL', 'WEBRip', 'DVDRip'), indexer(streams, 'rartv', 'rarbg', 'eztv'), releaseGroup(streams, 'YTS', 'erai-raws'), keyword(streams, '*', 'DSNP', 'CR', 'AMZN')), 'realdebrid')"
+            }
+          ]
+        : [])
+    ],
     ...(size && {
       size: {
         global: {
