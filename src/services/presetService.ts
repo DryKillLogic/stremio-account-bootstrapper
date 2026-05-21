@@ -24,7 +24,6 @@ import {
   configureStremThruTorz,
   configureStremThruStore,
   configureSootio,
-  configureTorbox,
   configureAioStreams,
   configureHdHub
 } from './addons';
@@ -320,9 +319,6 @@ export async function buildPresetService(params: BuildPresetServiceParams) {
     // Sootio
     configureSootio(presetConfig, context);
 
-    // Torbox
-    configureTorbox(presetConfig, context, Sqrl);
-
     // StremThru Store
     try {
       const stremthruStoreResult = await configureStremThruStore(
@@ -346,7 +342,6 @@ export async function buildPresetService(params: BuildPresetServiceParams) {
   } else {
     delete presetConfig.jackettio;
     delete presetConfig.sootio;
-    delete presetConfig.torbox;
   }
 
   console.log('PRESET CONFIG', presetConfig);

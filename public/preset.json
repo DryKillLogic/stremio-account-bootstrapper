@@ -27,7 +27,6 @@
       "comet",
       "stremthrutorz",
       "sootio",
-      "torbox",
       "jackettio",
       "torrentsdb",
       "meteor",
@@ -385,38 +384,6 @@
             "configurable": true,
             "configurationRequired": false
           }
-        }
-      },
-      "torbox": {
-        "transportUrl": "https://stremio.torbox.app/{{it.transportUrl}}/manifest.json",
-        "manifest": {
-          "id": "app.torbox.stremio",
-          "version": "1.1.2",
-          "name": "TorBox",
-          "contactEmail": "contact@torbox.app",
-          "description": "Provides torrent streams for users of TorBox. With zero config, and a free account you can instantly start watching your favorite torrents using TorBox. To add with streaming support, go to your TorBox settings and click the Access Stremio Addon button! Configuration can be done from the TorBox settings, which are propagated instantly, no need to reinstall the addon! Requires a TorBox account to stream. Get started for free at https://torbox.app",
-          "catalogs": [],
-          "resources": [
-            {
-              "name": "stream",
-              "types": ["movie", "series", "anime"]
-            },
-            {
-              "name": "catalog",
-              "types": ["movie", "series", "anime"]
-            },
-            {
-              "name": "meta",
-              "types": ["movie", "series", "anime"],
-              "idPrefixes": ["usermovies", "tbm"]
-            }
-          ],
-          "types": ["movie", "series", "anime"],
-          "behaviorHints": {
-            "configurable": true,
-            "configurationRequired": false
-          },
-          "logo": "https://torbox.app/android-chrome-512x512.png"
         }
       },
       "meteor": {
