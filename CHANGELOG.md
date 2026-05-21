@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.17.0](https://github.com/DryKillLogic/stremio-account-bootstrapper/compare/v2.16.0...v2.17.0) (2026-05-21)
+
+### Features
+
+- removed deprecated Torbox addon ([cd68a14](https://github.com/DryKillLogic/stremio-account-bootstrapper/commit/cd68a14be9e4a75fc856d9a8872dc7e15e35355e))
+
 ## [2.16.0](https://github.com/DryKillLogic/stremio-account-bootstrapper/compare/v2.15.0...v2.16.0) (2026-05-17)
 
 ### Features
