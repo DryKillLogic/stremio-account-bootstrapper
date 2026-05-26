@@ -774,15 +774,6 @@ watch(
           <label class="label cursor-pointer">
             <input
               type="checkbox"
-              value="usatv"
-              v-model="extras"
-              class="checkbox checkbox-primary"
-            />
-            <span class="label-text ml-2">USA TV</span>
-          </label>
-          <label class="label cursor-pointer">
-            <input
-              type="checkbox"
               value="argentinatv"
               v-model="extras"
               class="checkbox checkbox-primary"

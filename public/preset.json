@@ -2524,49 +2524,6 @@
         "idPrefixes": ["kitsu", "mal", "anilist", "anidb"]
       }
     },
-    "usatv": {
-      "transportUrl": "https://848b3516657c-usatv.baby-beamup.club/manifest.json",
-      "manifest": {
-        "id": "community.usatv",
-        "version": "1.5.0",
-        "catalogs": [
-          {
-            "name": "USA TV",
-            "type": "tv",
-            "id": "all",
-            "extra": [
-              {
-                "name": "genre",
-                "isRequired": false,
-                "options": [
-                  "Local",
-                  "News",
-                  "Sports",
-                  "Entertainment",
-                  "Premium",
-                  "Lifestyle",
-                  "Kids",
-                  "Documentaries",
-                  "Music",
-                  "Latino"
-                ]
-              }
-            ]
-          }
-        ],
-        "resources": ["catalog", "stream", "meta"],
-        "types": ["tv"],
-        "idPrefixes": ["ustv"],
-        "name": "USA TV",
-        "description": "USA TV provides access to channels across various categories including local channels, news, sports, entertainment, premium, lifestyle, kids' shows, documentaries, Latino programming, and much more.",
-        "logo": "https://848b3516657c-usatv.baby-beamup.club/public/logo.png",
-        "background": "https://848b3516657c-usatv.baby-beamup.club/public/background.jpg",
-        "stremioAddonsConfig": {
-          "issuer": "https://stremio-addons.net",
-          "signature": "eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..qY7PYCUnYu5_32aTUNzbAQ.v_1myLs0nxC_zSiH4-s1J_sidcK4SBxU4SjPTRjhlGQ7fzez2wTfQRBFxwKU5Lbk2QmxQPoA93cxyEA8bKHqbnJzhQsX7F5Dp5tEZ6H2XP4YkGFv2pcOEIVIB8Ys62hb.5ZBarJAORtRT6T78I87X8Q"
-        }
-      }
-    },
     "argentinatv": {
       "transportUrl": "https://848b3516657c-argentinatv.baby-beamup.club/manifest.json",
       "manifest": {
