@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.18.0](https://github.com/DryKillLogic/stremio-account-bootstrapper/compare/v2.17.0...v2.18.0) (2026-05-26)
+
+### Features
+
+- removed deprecated USA TV addon ([2cd1e54](https://github.com/DryKillLogic/stremio-account-bootstrapper/commit/2cd1e54e6138803e37c32653e8325b4d8b7a762d))
+
 ## [2.17.0](https://github.com/DryKillLogic/stremio-account-bootstrapper/compare/v2.16.0...v2.17.0) (2026-05-21)
 
 ### Features
