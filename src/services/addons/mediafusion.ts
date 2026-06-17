@@ -2,15 +2,37 @@ import _ from 'lodash';
 import { getAddonConfig as getMediaFusionConfig } from '../../api/mediafusionApi';
 import { convertToBytes } from '../../utils/sizeConverters';
 import { debridServicesInfo } from '../../utils/debrid';
-import type { AddonConfigContext } from './types';
+import type { AddonConfigContext, DebridEntry } from './types';
 import { getLanguageName } from '../../utils/language';
+
+function buildStreamingProvider(
+  debrid: DebridEntry,
+  index: number,
+  cached: boolean
+) {
+  return {
+    name: debridServicesInfo[debrid.service]?.label || debrid.service,
+    service: debrid.service,
+    token: debrid.key,
+    enable_watchlist_catalogs: false,
+    qbittorrent_config: null,
+    only_show_cached_streams: cached,
+    use_mediaflow: true,
+    sabnzbd_config: null,
+    nzbget_config: null,
+    nzbdav_config: null,
+    easynews_config: null,
+    priority: index,
+    enabled: true
+  };
+}
 
 export async function configureMediaFusion(
   presetConfig: any,
   mediaFusionConfig: any,
   context: AddonConfigContext
-): Promise<{ rebuilt?: any; shouldReplace: boolean; errors?: string[] }> {
-  if (!presetConfig.mediafusion) return { shouldReplace: false };
+): Promise<void> {
+  if (!presetConfig.mediafusion) return;
 
   const { debridEntries, language, no4k, cached, size } = context;
 
@@ -29,102 +51,38 @@ export async function configureMediaFusion(
     }
   };
 
-  if (debridEntries.length === 0) {
-    const config = _.cloneDeep(mediaFusionConfig);
-    prepareConfig(config);
+  const config = _.cloneDeep(mediaFusionConfig);
+  prepareConfig(config);
 
-    try {
-      const encrypted = await getMediaFusionConfig(config);
-      if (encrypted) {
-        presetConfig.mediafusion.transportUrl = encrypted;
-        return { shouldReplace: false };
-      } else {
-        delete presetConfig.mediafusion;
-        throw new Error(
-          'Failed to get MediaFusion configuration - invalid response'
-        );
-      }
-    } catch (e) {
-      delete presetConfig.mediafusion;
-      throw new Error(
-        `Failed to configure MediaFusion: ${e instanceof Error ? e.message : String(e)}`
-      );
-    }
+  if (debridEntries.length > 0) {
+    config.streaming_providers = debridEntries.map((debrid, index) =>
+      buildStreamingProvider(debrid, index, cached)
+    );
+    config.streaming_provider = buildStreamingProvider(
+      debridEntries[0]!,
+      0,
+      cached
+    );
+  } else {
+    delete config.streaming_provider;
   }
 
-  const shouldClone = debridEntries.length >= 2;
-  const baseMediaFusion = shouldClone
-    ? _.cloneDeep(presetConfig.mediafusion)
-    : presetConfig.mediafusion;
-  const rebuilt: any = {};
-  const errors: string[] = [];
-
-  for (const debrid of debridEntries) {
-    const name = shouldClone ? `mediafusion_${debrid.service}` : 'mediafusion';
-
-    try {
-      const config = _.cloneDeep(mediaFusionConfig);
-      prepareConfig(config);
-
-      config.streaming_provider = {
-        service: debrid.service,
-        token: debrid.key,
-        enable_watchlist_catalogs: false,
-        download_via_browser: false,
-        only_show_cached_streams: cached
-      };
-
-      const encrypted = await getMediaFusionConfig(config);
-      const serviceName =
-        debridServicesInfo[debrid.service]?.name || debrid.service;
-
-      if (!encrypted) {
-        const errorMsg = `No configuration returned for ${serviceName}`;
-        if (!shouldClone) {
-          delete presetConfig.mediafusion;
-          throw new Error(`MediaFusion: ${errorMsg}`);
-        }
-        errors.push(errorMsg);
-        continue;
-      }
-
-      if (shouldClone) {
-        const entryManifest = _.cloneDeep(baseMediaFusion.manifest || {});
-        if (entryManifest?.name) {
-          entryManifest.name += ` | ${serviceName}`;
-        }
-        rebuilt[name] = {
-          transportUrl: encrypted,
-          manifest: entryManifest
-        };
-      } else {
-        presetConfig.mediafusion.transportUrl = encrypted;
-        if (presetConfig.mediafusion.manifest?.name) {
-          presetConfig.mediafusion.manifest.name += ` | ${serviceName}`;
-        }
-      }
-    } catch (e) {
-      const errorMsg = e instanceof Error ? e.message : String(e);
-      const serviceName =
-        debridServicesInfo[debrid.service]?.name || debrid.service;
-      if (!shouldClone) {
-        delete presetConfig.mediafusion;
-        throw new Error(
-          `MediaFusion configuration failed for ${serviceName}: ${errorMsg}`
-        );
-      }
-      errors.push(`${serviceName}: ${errorMsg}`);
-    }
-  }
-
-  // If all debrid configurations failed in clone mode, throw an error
-  if (shouldClone && errors.length === debridEntries.length) {
+  const encrypted = await getMediaFusionConfig(config);
+  if (!encrypted) {
+    delete presetConfig.mediafusion;
     throw new Error(
-      `MediaFusion: All debrid configurations failed - ${errors.join('; ')}`
+      'Failed to get MediaFusion configuration - invalid response'
     );
   }
 
-  return shouldClone
-    ? { rebuilt, shouldReplace: true, errors }
-    : { shouldReplace: false, errors };
+  presetConfig.mediafusion.transportUrl = encrypted;
+
+  if (debridEntries.length > 0) {
+    const manifestName = debridEntries
+      .map((d) => debridServicesInfo[d.service]?.name || d.service)
+      .join(' + ');
+    if (presetConfig.mediafusion.manifest?.name) {
+      presetConfig.mediafusion.manifest.name += ` | ${manifestName}`;
+    }
+  }
 }

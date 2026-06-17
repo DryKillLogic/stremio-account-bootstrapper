@@ -30,6 +30,7 @@
       "jackettio",
       "torrentsdb",
       "meteor",
+      "mediafusion",
       "tpbplus",
       "webstreamrmbg",
       "sootiohttp",
@@ -2577,7 +2578,7 @@
     "enable_catalogs": false,
     "enable_imdb_metadata": false,
     "max_size": "inf",
-    "max_streams_per_resolution": "10",
+    "max_streams_per_resolution": 10,
     "torrent_sorting_priority": [
       {
         "key": "language",
@@ -2608,8 +2609,7 @@
         "direction": "desc"
       }
     ],
-    "show_full_torrent_name": true,
-    "show_language_country_flag": true,
+
     "nudity_filter": ["Disable"],
     "certification_filter": ["Disable"],
     "language_sorting": [
@@ -2664,12 +2664,10 @@
       null
     ],
     "quality_filter": ["BluRay/UHD", "WEB/HD", "DVD/TV/SAT"],
-    "api_password": null,
+    "max_streams": 25,
+    "min_size": 0,
     "mediaflow_config": null,
-    "rpdb_config": null,
-    "live_search_streams": false,
-    "contribution_streams": false,
-    "mdblist_config": null
+    "live_search_streams": false
   },
   "aioMetadataConfig": {
     "config": {

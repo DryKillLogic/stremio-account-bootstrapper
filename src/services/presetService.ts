@@ -226,18 +226,7 @@ export async function buildPresetService(params: BuildPresetServiceParams) {
 
   // MediaFusion
   try {
-    const mediaFusionResult = await configureMediaFusion(
-      presetConfig,
-      mediaFusionConfig,
-      context
-    );
-    if (mediaFusionResult.shouldReplace && mediaFusionResult.rebuilt) {
-      presetConfig = replaceAddonKey(
-        presetConfig,
-        'mediafusion',
-        mediaFusionResult.rebuilt
-      );
-    }
+    await configureMediaFusion(presetConfig, mediaFusionConfig, context);
   } catch (e) {
     errors.push(e instanceof Error ? e.message : String(e));
     delete presetConfig.mediafusion;

@@ -213,6 +213,11 @@ export async function configureAioStreams(
   const webstreamrConfig = getWebStreamrConfig(language);
   template.config.presets.push(webstreamrConfig);
 
+  // Enable Mediafusion
+  template.config.presets.forEach(
+    (preset: any) => preset.type === 'mediafusion' && (preset.enabled = true)
+  );
+
   // Build config overrides
   const configOverrides = {
     services: debridServices,
