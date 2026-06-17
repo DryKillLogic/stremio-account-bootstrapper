@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.19.0](https://github.com/DryKillLogic/stremio-account-bootstrapper/compare/v2.18.0...v2.19.0) (2026-06-17)
+
+### Features
+
+- added OffCloud support ([40efb90](https://github.com/DryKillLogic/stremio-account-bootstrapper/commit/40efb9031d96f7bce64a5bee37913f9e01edbd10))
+- added Subsense addon ([e409e4e](https://github.com/DryKillLogic/stremio-account-bootstrapper/commit/e409e4e89c9292e6627c86cb0ba227d6c74a19dd))
+- re-enabled Mediafusion ([a2531f8](https://github.com/DryKillLogic/stremio-account-bootstrapper/commit/a2531f8f4b9ce5e66ac53167a027fcfed4cef1b8))
+- removed Subhero addon ([b800669](https://github.com/DryKillLogic/stremio-account-bootstrapper/commit/b800669e542caf052257c5cb68407cc73f32ee50))
+
 ## [2.18.0](https://github.com/DryKillLogic/stremio-account-bootstrapper/compare/v2.17.0...v2.18.0) (2026-05-26)
 
 ### Features
