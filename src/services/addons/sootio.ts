@@ -1,4 +1,5 @@
 import { updateTransportUrl } from '../../utils/transportUrl';
+import { debridServicesInfo } from '../../utils/debrid';
 import type { AddonConfigContext } from './types';
 
 export function configureSootio(
@@ -11,13 +12,6 @@ export function configureSootio(
   const serviceKey = variantName === 'http' ? 'sootiohttp' : 'sootio';
 
   const { debridEntries, debridServiceName, size } = context;
-
-  const providerMap: Record<string, string> = {
-    realdebrid: 'RealDebrid',
-    alldebrid: 'AllDebrid',
-    premiumize: 'Premiumize',
-    torbox: 'TorBox'
-  };
 
   const sootioDebridEntries = debridEntries.filter(
     (debrid) => debrid.service !== 'debridlink'
@@ -40,7 +34,7 @@ export function configureSootio(
 
         if (!isSootioHttp) {
           updatedData.DebridServices = sootioDebridEntries.map((e) => ({
-            provider: providerMap[e.service] || e.service,
+            provider: debridServicesInfo[e.service]?.label || e.service,
             apiKey: e.key
           }));
         }

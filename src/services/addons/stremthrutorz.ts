@@ -1,4 +1,5 @@
 import { updateTransportUrl } from '../../utils/transportUrl';
+import { debridServicesInfo } from '../../utils/debrid';
 import type { AddonConfigContext } from './types';
 
 export function configureStremThruTorz(
@@ -9,14 +10,6 @@ export function configureStremThruTorz(
 
   const { debridEntries, debridServiceName, cached } = context;
 
-  const stremthrutorzDebridService: Record<string, string> = {
-    realdebrid: 'rd',
-    alldebrid: 'ad',
-    premiumize: 'pm',
-    debridlink: 'dl',
-    torbox: 'tb'
-  };
-
   updateTransportUrl({
     presetConfig,
     serviceKey: 'stremthrutorz',
@@ -26,7 +19,9 @@ export function configureStremThruTorz(
       stores:
         debridEntries.length > 0
           ? debridEntries.map((debrid) => ({
-              c: stremthrutorzDebridService[debrid.service] || debrid.service,
+              c:
+                debridServicesInfo[debrid.service]?.name?.toLowerCase() ||
+                debrid.service,
               t: debrid.key
             }))
           : [{ c: 'p2p', t: '' }],

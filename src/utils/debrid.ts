@@ -3,7 +3,8 @@ export type DebridService =
   | 'premiumize'
   | 'debridlink'
   | 'realdebrid'
-  | 'torbox';
+  | 'torbox'
+  | 'offcloud';
 
 export const debridServicesInfo = {
   realdebrid: {
@@ -26,7 +27,12 @@ export const debridServicesInfo = {
     label: 'DebridLink',
     url: 'https://debrid-link.com/webapp/apikey'
   },
-  torbox: { name: 'TB', label: 'TorBox', url: 'https://torbox.app/settings' }
+  torbox: { name: 'TB', label: 'TorBox', url: 'https://torbox.app/settings' },
+  offcloud: {
+    name: 'OC',
+    label: 'OffCloud',
+    url: 'https://offcloud.com/account'
+  }
 };
 
 export const isValidApiKey = (
@@ -40,7 +46,8 @@ export const isValidApiKey = (
     premiumize: /^[a-z0-9]{16}$/i,
     debridlink: /^[A-Z0-9]{6}-[A-Z0-9]{6}-[A-Z0-9]{6}-[A-Z0-9]{5}$/,
     realdebrid: /^[A-Z0-9]{52}$/,
-    torbox: /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i
+    torbox: /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i,
+    offcloud: /^[a-zA-Z0-9]{16}$/
   };
   return !!patterns[service]?.test(key);
 };
