@@ -6,7 +6,6 @@
       "torrentio",
       "comet",
       "streailer",
-      "subherov2",
       "opensubtitlespro"
     ],
     "standard": [
@@ -17,7 +16,6 @@
       "meteor",
       "webstreamrmbg",
       "streailer",
-      "subherov2",
       "opensubtitlespro"
     ],
     "full": [
@@ -36,7 +34,6 @@
       "sootiohttp",
       "hdhub",
       "streailer",
-      "subherov2",
       "opensubtitlespro",
       "localfiles"
     ],
@@ -45,7 +42,6 @@
       "aiometadata",
       "aiostreams",
       "streailer",
-      "subherov2",
       "opensubtitlespro"
     ],
     "http_only": [
@@ -55,14 +51,12 @@
       "sootiohttp",
       "hdhub",
       "streailer",
-      "subherov2",
       "opensubtitlespro"
     ],
     "no_streams": [
       "cinemeta",
       "aiometadata",
       "streailer",
-      "subherov2",
       "opensubtitlespro"
     ],
     "factory": [
@@ -787,25 +781,6 @@
           "stremioAddonsConfig": {
             "issuer": "https://stremio-addons.net",
             "signature": "eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..MOCSVn-poAicpFB3yI8QcQ.aEx1Ql37vvzQQHVyihr5z6_LJYCWZYzfFTDStX-icgNnh6YT85Qoy9YqfMyoDSc4-tUxCtKuZ_yEzzr0nXxW4t5TEAM1wMBbbqqE_L22-iV8ErpMNmsDZWESVt6rqlJD._aRFyhZLN7gQAVhy9dKadA"
-          }
-        }
-      },
-      "subherov2": {
-        "transportUrl": "https://subhero.chromeknight.dev/%7B%22language%22%3A%22en%22%2C%22onlyReturnMatching%22%3Afalse%7D/manifest.json",
-        "transportName": "",
-        "manifest": {
-          "id": "community.subhero-v2.wyzie",
-          "version": "2.0.0",
-          "name": "SubHero v2",
-          "description": "Subtitles with language filtering, release matching, caching, file format conversion and more. Powered by Wyzie API.",
-          "resources": ["subtitles"],
-          "types": ["movie", "series"],
-          "catalogs": [],
-          "idPrefixes": ["tt"],
-          "background": "https://subhero.chromeknight.dev/static/background.png",
-          "logo": "https://subhero.chromeknight.dev/static/logo4x4.png",
-          "behaviorHints": {
-            "configurable": true
           }
         }
       },
@@ -1802,9 +1777,6 @@
       "streailer": {
         "transportUrl": "https://streailer.elfhosted.com/%7B%22language%22%3A%22es-MX%22%2C%22externalLink%22%3Afalse%2C%22showRecap%22%3Atrue%2C%22onlyRecaps%22%3Afalse%7D/manifest.json"
       },
-      "subherov2": {
-        "transportUrl": "https://subhero.chromeknight.dev/%7B%22language%22%3A%22es%22%2C%22onlyReturnMatching%22%3Afalse%7D/manifest.json"
-      },
       "opensubtitlespro": {
         "transportUrl": "https://opensubtitlesv3-pro.dexter21767.com/eyJsYW5ncyI6WyJzcGFuaXNoLWxhIl0sInNvdXJjZSI6ImFsbCIsImFpVHJhbnNsYXRlZCI6dHJ1ZSwiYXV0b0FkanVzdG1lbnQiOnRydWV9/manifest.json"
       }
@@ -1879,9 +1851,6 @@
       "streailer": {
         "transportUrl": "https://streailer.elfhosted.com/%7B%22language%22%3A%22es-ES%22%2C%22externalLink%22%3Afalse%2C%22showRecap%22%3Atrue%2C%22onlyRecaps%22%3Afalse%7D/manifest.json"
       },
-      "subherov2": {
-        "transportUrl": "https://subhero.chromeknight.dev/%7B%22language%22%3A%22es%22%2C%22onlyReturnMatching%22%3Afalse%7D/manifest.json"
-      },
       "opensubtitlespro": {
         "transportUrl": "https://opensubtitlesv3-pro.dexter21767.com/eyJsYW5ncyI6WyJzcGFuaXNoLWV1Il0sInNvdXJjZSI6ImFsbCIsImFpVHJhbnNsYXRlZCI6dHJ1ZSwiYXV0b0FkanVzdG1lbnQiOnRydWV9/manifest.json"
       }
@@ -1904,9 +1873,6 @@
       },
       "streailer": {
         "transportUrl": "https://streailer.elfhosted.com/%7B%22language%22%3A%22pt-PT%22%2C%22externalLink%22%3Afalse%2C%22showRecap%22%3Atrue%2C%22onlyRecaps%22%3Afalse%7D/manifest.json"
-      },
-      "subherov2": {
-        "transportUrl": "https://subhero.chromeknight.dev/%7B%22language%22%3A%22pb%22%2C%22onlyReturnMatching%22%3Afalse%7D/manifest.json"
       },
       "opensubtitlespro": {
         "transportUrl": "https://opensubtitlesv3-pro.dexter21767.com/eyJsYW5ncyI6WyJwb3J0dWd1ZXNlLWJyIl0sInNvdXJjZSI6ImFsbCIsImFpVHJhbnNsYXRlZCI6dHJ1ZSwiYXV0b0FkanVzdG1lbnQiOnRydWV9/manifest.json"
@@ -1956,9 +1922,6 @@
       "streailer": {
         "transportUrl": "https://streailer.elfhosted.com/%7B%22language%22%3A%22pt-BR%22%2C%22externalLink%22%3Afalse%2C%22showRecap%22%3Atrue%2C%22onlyRecaps%22%3Afalse%7D/manifest.json"
       },
-      "subherov2": {
-        "transportUrl": "https://subhero.chromeknight.dev/%7B%22language%22%3A%22pt%22%2C%22onlyReturnMatching%22%3Afalse%7D/manifest.json"
-      },
       "opensubtitlespro": {
         "transportUrl": "https://opensubtitlesv3-pro.dexter21767.com/eyJsYW5ncyI6WyJwb3J0dWd1ZXNlIl0sInNvdXJjZSI6ImFsbCIsImFpVHJhbnNsYXRlZCI6dHJ1ZSwiYXV0b0FkanVzdG1lbnQiOnRydWV9/manifest.json"
       }
@@ -1984,9 +1947,6 @@
       },
       "streailer": {
         "transportUrl": "https://streailer.elfhosted.com/%7B%22language%22%3A%22fr-FR%22%2C%22externalLink%22%3Afalse%2C%22showRecap%22%3Atrue%2C%22onlyRecaps%22%3Afalse%7D/manifest.json"
-      },
-      "subherov2": {
-        "transportUrl": "https://subhero.chromeknight.dev/%7B%22language%22%3A%22fr%22%2C%22onlyReturnMatching%22%3Afalse%7D/manifest.json"
       },
       "opensubtitlespro": {
         "transportUrl": "https://opensubtitlesv3-pro.dexter21767.com/eyJsYW5ncyI6WyJmcmVuY2giXSwic291cmNlIjoiYWxsIiwiYWlUcmFuc2xhdGVkIjp0cnVlLCJhdXRvQWRqdXN0bWVudCI6dHJ1ZX0=/manifest.json"
@@ -2014,9 +1974,6 @@
       "streailer": {
         "transportUrl": "https://streailer.elfhosted.com/%7B%22language%22%3A%22it-IT%22%2C%22externalLink%22%3Afalse%2C%22showRecap%22%3Atrue%2C%22onlyRecaps%22%3Afalse%7D/manifest.json"
       },
-      "subherov2": {
-        "transportUrl": "https://subhero.chromeknight.dev/%7B%22language%22%3A%22it%22%2C%22onlyReturnMatching%22%3Afalse%7D/manifest.json"
-      },
       "opensubtitlespro": {
         "transportUrl": "https://opensubtitlesv3-pro.dexter21767.com/eyJsYW5ncyI6WyJpdGFsaWFuIl0sInNvdXJjZSI6ImFsbCIsImFpVHJhbnNsYXRlZCI6dHJ1ZSwiYXV0b0FkanVzdG1lbnQiOnRydWV9/manifest.json"
       }
@@ -2043,9 +2000,6 @@
       "streailer": {
         "transportUrl": "https://streailer.elfhosted.com/%7B%22language%22%3A%22de-DE%22%2C%22externalLink%22%3Afalse%2C%22showRecap%22%3Atrue%2C%22onlyRecaps%22%3Afalse%7D/manifest.json"
       },
-      "subherov2": {
-        "transportUrl": "https://subhero.chromeknight.dev/%7B%22language%22%3A%22de%22%2C%22onlyReturnMatching%22%3Afalse%7D/manifest.json"
-      },
       "opensubtitlespro": {
         "transportUrl": "https://opensubtitlesv3-pro.dexter21767.com/eyJsYW5ncyI6WyJnZXJtYW4iXSwic291cmNlIjoiYWxsIiwiYWlUcmFuc2xhdGVkIjp0cnVlLCJhdXRvQWRqdXN0bWVudCI6dHJ1ZX0=/manifest.json"
       }
@@ -2068,9 +2022,6 @@
       },
       "streailer": {
         "transportUrl": "https://streailer.elfhosted.com/%7B%22language%22%3A%22nl-NL%22%2C%22externalLink%22%3Afalse%2C%22showRecap%22%3Atrue%2C%22onlyRecaps%22%3Afalse%7D/manifest.json"
-      },
-      "subherov2": {
-        "transportUrl": "https://subhero.chromeknight.dev/%7B%22language%22%3A%22nl%22%2C%22onlyReturnMatching%22%3Afalse%7D/manifest.json"
       },
       "opensubtitlespro": {
         "transportUrl": "https://opensubtitlesv3-pro.dexter21767.com/eyJsYW5ncyI6WyJkdXRjaCJdLCJzb3VyY2UiOiJhbGwiLCJhaVRyYW5zbGF0ZWQiOnRydWUsImF1dG9BZGp1c3RtZW50Ijp0cnVlfQ==/manifest.json"
