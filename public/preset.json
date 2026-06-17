@@ -6,6 +6,7 @@
       "torrentio",
       "comet",
       "streailer",
+      "subsense",
       "opensubtitlespro"
     ],
     "standard": [
@@ -16,6 +17,7 @@
       "meteor",
       "webstreamrmbg",
       "streailer",
+      "subsense",
       "opensubtitlespro"
     ],
     "full": [
@@ -34,6 +36,7 @@
       "sootiohttp",
       "hdhub",
       "streailer",
+      "subsense",
       "opensubtitlespro",
       "localfiles"
     ],
@@ -42,6 +45,7 @@
       "aiometadata",
       "aiostreams",
       "streailer",
+      "subsense",
       "opensubtitlespro"
     ],
     "http_only": [
@@ -51,12 +55,14 @@
       "sootiohttp",
       "hdhub",
       "streailer",
+      "subsense",
       "opensubtitlespro"
     ],
     "no_streams": [
       "cinemeta",
       "aiometadata",
       "streailer",
+      "subsense",
       "opensubtitlespro"
     ],
     "factory": [
@@ -781,6 +787,27 @@
           "stremioAddonsConfig": {
             "issuer": "https://stremio-addons.net",
             "signature": "eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..MOCSVn-poAicpFB3yI8QcQ.aEx1Ql37vvzQQHVyihr5z6_LJYCWZYzfFTDStX-icgNnh6YT85Qoy9YqfMyoDSc4-tUxCtKuZ_yEzzr0nXxW4t5TEAM1wMBbbqqE_L22-iV8ErpMNmsDZWESVt6rqlJD._aRFyhZLN7gQAVhy9dKadA"
+          }
+        }
+      },
+      "subsense": {
+        "transportUrl": "https://subsense.nepiraw.com/hd7uwglr-%7B%22languages%22%3A%5B%22en%22%5D%2C%22maxSubtitles%22%3A10%7D/manifest.json",
+        "transportName": "",
+        "manifest": {
+          "id": "com.subsense.nepiraw",
+          "version": "2.3.4",
+          "name": "SubSense",
+          "description": "Get subtitles from multiple sources.",
+          "logo": "https://i.imgur.com/FaDbQAp.png",
+          "background": "https://images.unsplash.com/photo-1570284613060-766c33850e00?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          "resources": ["subtitles"],
+          "types": ["movie", "series", "subtitles"],
+          "idPrefixes": ["tt"],
+          "catalogs": [],
+          "behaviorHints": { "configurable": true },
+          "stremioAddonsConfig": {
+            "issuer": "https://stremio-addons.net",
+            "signature": "eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..pmX6-Us-_CaFGZCKNO38jQ.wTEgzMJqpu2e3qWqu6owfUHpEkc0lhIFMVoD8kRD8CH5T5SPU-_T4H4KsWFFTbjjkJ6EqMPxVgOm5P5rzaAo5J6Pn1G39uqjq9tBldlPB35twNcZo0Kd4N5CRS56dvX1.C3YXad-rIEz7ZvMW9PZPnQ"
           }
         }
       },
@@ -1777,6 +1804,9 @@
       "streailer": {
         "transportUrl": "https://streailer.elfhosted.com/%7B%22language%22%3A%22es-MX%22%2C%22externalLink%22%3Afalse%2C%22showRecap%22%3Atrue%2C%22onlyRecaps%22%3Afalse%7D/manifest.json"
       },
+      "subsense": {
+        "transportUrl": "https://subsense.nepiraw.com/hd7uwglr-%7B%22languages%22%3A%5B%22es%22%5D%2C%22maxSubtitles%22%3A10%7D/manifest.json"
+      },
       "opensubtitlespro": {
         "transportUrl": "https://opensubtitlesv3-pro.dexter21767.com/eyJsYW5ncyI6WyJzcGFuaXNoLWxhIl0sInNvdXJjZSI6ImFsbCIsImFpVHJhbnNsYXRlZCI6dHJ1ZSwiYXV0b0FkanVzdG1lbnQiOnRydWV9/manifest.json"
       }
@@ -1851,6 +1881,9 @@
       "streailer": {
         "transportUrl": "https://streailer.elfhosted.com/%7B%22language%22%3A%22es-ES%22%2C%22externalLink%22%3Afalse%2C%22showRecap%22%3Atrue%2C%22onlyRecaps%22%3Afalse%7D/manifest.json"
       },
+      "subsense": {
+        "transportUrl": "https://subsense.nepiraw.com/hd7uwglr-%7B%22languages%22%3A%5B%22es%22%5D%2C%22maxSubtitles%22%3A10%7D/manifest.json"
+      },
       "opensubtitlespro": {
         "transportUrl": "https://opensubtitlesv3-pro.dexter21767.com/eyJsYW5ncyI6WyJzcGFuaXNoLWV1Il0sInNvdXJjZSI6ImFsbCIsImFpVHJhbnNsYXRlZCI6dHJ1ZSwiYXV0b0FkanVzdG1lbnQiOnRydWV9/manifest.json"
       }
@@ -1873,6 +1906,9 @@
       },
       "streailer": {
         "transportUrl": "https://streailer.elfhosted.com/%7B%22language%22%3A%22pt-PT%22%2C%22externalLink%22%3Afalse%2C%22showRecap%22%3Atrue%2C%22onlyRecaps%22%3Afalse%7D/manifest.json"
+      },
+      "subsense": {
+        "transportUrl": "https://subsense.nepiraw.com/hd7uwglr-%7B%22languages%22%3A%5B%22pt%22%5D%2C%22maxSubtitles%22%3A10%7D/manifest.json"
       },
       "opensubtitlespro": {
         "transportUrl": "https://opensubtitlesv3-pro.dexter21767.com/eyJsYW5ncyI6WyJwb3J0dWd1ZXNlLWJyIl0sInNvdXJjZSI6ImFsbCIsImFpVHJhbnNsYXRlZCI6dHJ1ZSwiYXV0b0FkanVzdG1lbnQiOnRydWV9/manifest.json"
@@ -1922,6 +1958,9 @@
       "streailer": {
         "transportUrl": "https://streailer.elfhosted.com/%7B%22language%22%3A%22pt-BR%22%2C%22externalLink%22%3Afalse%2C%22showRecap%22%3Atrue%2C%22onlyRecaps%22%3Afalse%7D/manifest.json"
       },
+      "subsense": {
+        "transportUrl": "https://subsense.nepiraw.com/hd7uwglr-%7B%22languages%22%3A%5B%22pt%22%5D%2C%22maxSubtitles%22%3A10%7D/manifest.json"
+      },
       "opensubtitlespro": {
         "transportUrl": "https://opensubtitlesv3-pro.dexter21767.com/eyJsYW5ncyI6WyJwb3J0dWd1ZXNlIl0sInNvdXJjZSI6ImFsbCIsImFpVHJhbnNsYXRlZCI6dHJ1ZSwiYXV0b0FkanVzdG1lbnQiOnRydWV9/manifest.json"
       }
@@ -1947,6 +1986,9 @@
       },
       "streailer": {
         "transportUrl": "https://streailer.elfhosted.com/%7B%22language%22%3A%22fr-FR%22%2C%22externalLink%22%3Afalse%2C%22showRecap%22%3Atrue%2C%22onlyRecaps%22%3Afalse%7D/manifest.json"
+      },
+      "subsense": {
+        "transportUrl": "https://subsense.nepiraw.com/hd7uwglr-%7B%22languages%22%3A%5B%22fr%22%5D%2C%22maxSubtitles%22%3A10%7D/manifest.json"
       },
       "opensubtitlespro": {
         "transportUrl": "https://opensubtitlesv3-pro.dexter21767.com/eyJsYW5ncyI6WyJmcmVuY2giXSwic291cmNlIjoiYWxsIiwiYWlUcmFuc2xhdGVkIjp0cnVlLCJhdXRvQWRqdXN0bWVudCI6dHJ1ZX0=/manifest.json"
@@ -1974,6 +2016,9 @@
       "streailer": {
         "transportUrl": "https://streailer.elfhosted.com/%7B%22language%22%3A%22it-IT%22%2C%22externalLink%22%3Afalse%2C%22showRecap%22%3Atrue%2C%22onlyRecaps%22%3Afalse%7D/manifest.json"
       },
+      "subsense": {
+        "transportUrl": "https://subsense.nepiraw.com/hd7uwglr-%7B%22languages%22%3A%5B%22it%22%5D%2C%22maxSubtitles%22%3A10%7D/manifest.json"
+      },
       "opensubtitlespro": {
         "transportUrl": "https://opensubtitlesv3-pro.dexter21767.com/eyJsYW5ncyI6WyJpdGFsaWFuIl0sInNvdXJjZSI6ImFsbCIsImFpVHJhbnNsYXRlZCI6dHJ1ZSwiYXV0b0FkanVzdG1lbnQiOnRydWV9/manifest.json"
       }
@@ -2000,6 +2045,9 @@
       "streailer": {
         "transportUrl": "https://streailer.elfhosted.com/%7B%22language%22%3A%22de-DE%22%2C%22externalLink%22%3Afalse%2C%22showRecap%22%3Atrue%2C%22onlyRecaps%22%3Afalse%7D/manifest.json"
       },
+      "subsense": {
+        "transportUrl": "https://subsense.nepiraw.com/hd7uwglr-%7B%22languages%22%3A%5B%22de%22%5D%2C%22maxSubtitles%22%3A10%7D/manifest.json"
+      },
       "opensubtitlespro": {
         "transportUrl": "https://opensubtitlesv3-pro.dexter21767.com/eyJsYW5ncyI6WyJnZXJtYW4iXSwic291cmNlIjoiYWxsIiwiYWlUcmFuc2xhdGVkIjp0cnVlLCJhdXRvQWRqdXN0bWVudCI6dHJ1ZX0=/manifest.json"
       }
@@ -2022,6 +2070,9 @@
       },
       "streailer": {
         "transportUrl": "https://streailer.elfhosted.com/%7B%22language%22%3A%22nl-NL%22%2C%22externalLink%22%3Afalse%2C%22showRecap%22%3Atrue%2C%22onlyRecaps%22%3Afalse%7D/manifest.json"
+      },
+      "subsense": {
+        "transportUrl": "https://subsense.nepiraw.com/hd7uwglr-%7B%22languages%22%3A%5B%22nl%22%5D%2C%22maxSubtitles%22%3A10%7D/manifest.json"
       },
       "opensubtitlespro": {
         "transportUrl": "https://opensubtitlesv3-pro.dexter21767.com/eyJsYW5ncyI6WyJkdXRjaCJdLCJzb3VyY2UiOiJhbGwiLCJhaVRyYW5zbGF0ZWQiOnRydWUsImF1dG9BZGp1c3RtZW50Ijp0cnVlfQ==/manifest.json"

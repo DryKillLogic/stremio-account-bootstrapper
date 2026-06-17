@@ -197,6 +197,16 @@
     >
       <div class="avatar">
         <div class="w-12 rounded">
+          <img src="/public/logos/subsense.png" alt="Subsense" />
+        </div>
+      </div>
+      <p class="text-sm mt-2 text-center">Subsense</p>
+    </div>
+    <div
+      class="flex flex-col items-center p-4 hover:bg-base-200 rounded-lg transition-colors"
+    >
+      <div class="avatar">
+        <div class="w-12 rounded">
           <img
             src="/public/logos/opensubtitlespro.png"
             alt="Opensubtitles Pro"
