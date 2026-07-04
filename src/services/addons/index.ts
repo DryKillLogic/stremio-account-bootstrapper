@@ -12,3 +12,4 @@ export { configureStremThruStore } from './stremthrustore';
 export { configureSootio } from './sootio';
 export { configureAioStreams } from './aiostreams';
 export { configureHdHub } from './hdhub';
+export { configureEasynews } from './easynews';

@@ -97,6 +97,8 @@
   "invalid_debrid_api_key": "Chiave API debrid non valida",
   "offcloud_email": "Email OffCloud",
   "offcloud_password": "Password OffCloud",
+  "easynews_username": "Nome utente Easynews",
+  "easynews_password": "Password Easynews",
   "instructions_summary": "Puoi accedere alle istruzioni passo-passo qui.",
   "close": "Chiudi",
   "enter_api_key": "Inserisci la chiave API",

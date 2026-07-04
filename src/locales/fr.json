@@ -98,6 +98,8 @@
   "invalid_debrid_api_key": "Clé API de débridage invalide",
   "offcloud_email": "E-mail OffCloud",
   "offcloud_password": "Mot de passe OffCloud",
+  "easynews_username": "Nom d'utilisateur Easynews",
+  "easynews_password": "Mot de passe Easynews",
   "instructions_summary": "Vous pouvez accéder aux instructions étape par étape ici.",
   "close": "Fermer",
   "enter_api_key": "Saisir la clé API",

@@ -15,7 +15,7 @@ Stremio Account Bootstrapper lets you set up your Stremio/Nuvio account with jus
 - Backup your current configuration or restore it.
 - Better multilanguage support in Stremio/Nuvio.
 - TMDB is the default metadata resolver. Cinemeta catalogs were removed without breaking any core functionality.
-- RealDebrid, AllDebrid, Premiumize, Debrid-Link, OffCloud, and TorBox support.
+- RealDebrid, AllDebrid, Premiumize, Debrid-Link, OffCloud, TorBox, and Easynews support.
 - Multi-debrid services support.
 - Multi-platform support. It currently supports Stremio and Nuvio.
 - RPDB support.

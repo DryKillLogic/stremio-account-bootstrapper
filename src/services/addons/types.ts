@@ -3,8 +3,8 @@ import { debridServicesInfo } from '../../utils/debrid';
 export interface DebridEntry {
   service: keyof typeof debridServicesInfo;
   key: string;
-  email?: string;
   password?: string;
+  username?: string;
 }
 
 export interface AddonConfigContext {
@@ -18,6 +18,7 @@ export interface AddonConfigContext {
   preset: string;
   password?: string;
   advanced?: AdvancedOptions;
+  easynewsEntry?: { username: string; password: string };
 }
 
 export interface AdvancedOptions {

@@ -51,7 +51,8 @@ let language = ref('en');
 let preset = ref('standard');
 
 let debridService = ref('');
-let debridEntries = ref([{ service: '', key: '', email: '', password: '' }]);
+let debridEntries = ref([{ service: '', key: '' }]);
+let easynewsEntry = ref({ username: '', password: '' });
 let debridServiceName = '';
 let collections = [];
 let nuvioProfiles = ref([]);
@@ -73,11 +74,14 @@ const canAddDebridEntry = computed(() => {
   const last = debridEntries.value[debridEntries.value.length - 1];
   if (!last) return false;
   if (!last.service) return false;
+  if (last.service === 'easynews') {
+    return !!(easynewsEntry.value.username && easynewsEntry.value.password);
+  }
   if (!last.key) return false;
   if (
     last.service === 'offcloud' &&
     preset.value === 'allinone' &&
-    (!last.email || !last.password)
+    (!last.username || !last.password)
   ) {
     return false;
   }
@@ -85,20 +89,28 @@ const canAddDebridEntry = computed(() => {
 });
 
 const isDebridApiKeyValid = computed(() => {
-  if (!debridEntries.value.some((e) => e.service)) return false;
-  return debridEntries.value
-    .filter((e) => e.service)
-    .every((e) => {
-      if (!e.key || !isValidApiKey(e.service, e.key)) return false;
-      if (
-        e.service === 'offcloud' &&
-        preset.value === 'allinone' &&
-        (!e.email || !e.password)
-      ) {
-        return false;
-      }
-      return true;
-    });
+  if (
+    !debridEntries.value.some((e) => e.service) &&
+    !easynewsEntry.value.username
+  )
+    return false;
+  return (
+    debridEntries.value
+      .filter((e) => e.service && e.service !== 'easynews')
+      .every((e) => {
+        if (!e.key || !isValidApiKey(e.service, e.key)) return false;
+        if (
+          e.service === 'offcloud' &&
+          preset.value === 'allinone' &&
+          (!e.username || !e.password)
+        ) {
+          return false;
+        }
+        return true;
+      }) &&
+    (!easynewsEntry.value.username ||
+      !!(easynewsEntry.value.username && easynewsEntry.value.password))
+  );
 });
 
 const hasDebridSelected = computed(() =>
@@ -149,6 +161,7 @@ async function loadUserAddons() {
         tmdbKey: advancedOptions.value.tmdbKey
       },
       debridEntries: debridEntries.value,
+      easynewsEntry: easynewsEntry.value,
       isDebridApiKeyValid: isDebridApiKeyValid.value,
       password: generatedPassword.value,
       platform: props.platform
@@ -274,7 +287,7 @@ function saveManifestEdit(updatedManifest) {
 function addDebridEntry() {
   if (!canAddDebridEntry.value) return;
   if (debridEntries.value.length >= MAX_DEBRID_ENTRIES) return;
-  debridEntries.value.push({ service: '', key: '', email: '', password: '' });
+  debridEntries.value.push({ service: '', key: '' });
 }
 
 function removeDebridEntry(idx) {
@@ -284,8 +297,8 @@ function removeDebridEntry(idx) {
 
 function resetEntryKey(idx) {
   debridEntries.value[idx].key = '';
-  debridEntries.value[idx].email = '';
   debridEntries.value[idx].password = '';
+  debridEntries.value[idx].username = '';
 }
 
 const extractProfiles = (response) => {
@@ -703,17 +716,41 @@ watch(
                   </option>
                 </select>
 
-                <input
-                  v-model="entry.key"
-                  :disabled="!entry.service"
-                  :class="{
-                    'input-error':
-                      entry.key && !isValidApiKey(entry.service, entry.key)
-                  }"
-                  type="text"
-                  class="input input-bordered flex-1"
-                  :placeholder="$t('enter_api_key')"
-                />
+                <template v-if="entry.service !== 'easynews'">
+                  <input
+                    v-model="entry.key"
+                    :disabled="!entry.service"
+                    :class="{
+                      'input-error':
+                        entry.key && !isValidApiKey(entry.service, entry.key)
+                    }"
+                    type="text"
+                    class="input input-bordered flex-1"
+                    :placeholder="$t('enter_api_key')"
+                  />
+                </template>
+                <template v-else>
+                  <input
+                    v-model="easynewsEntry.username"
+                    type="text"
+                    :class="{
+                      'input-error':
+                        easynewsEntry.username && !easynewsEntry.username.trim()
+                    }"
+                    class="input input-bordered flex-1"
+                    :placeholder="$t('easynews_username')"
+                  />
+                  <input
+                    v-model="easynewsEntry.password"
+                    type="password"
+                    :class="{
+                      'input-error':
+                        easynewsEntry.password && !easynewsEntry.password.trim()
+                    }"
+                    class="input input-bordered flex-1"
+                    :placeholder="$t('easynews_password')"
+                  />
+                </template>
 
                 <button
                   type="button"
@@ -727,17 +764,17 @@ watch(
                 </button>
               </div>
 
-              <!-- Offcloud email/password (required for allinone preset) -->
+              <!-- Offcloud email/password (required for all-in-one preset) -->
               <div
                 v-if="entry.service === 'offcloud' && preset === 'allinone'"
                 class="flex items-center gap-2 mt-1"
               >
                 <div class="w-40"></div>
                 <input
-                  v-model="entry.email"
-                  type="email"
+                  v-model="entry.username"
+                  type="text"
                   :class="{
-                    'input-error': entry.email && !entry.email.trim()
+                    'input-error': entry.username && !entry.username.trim()
                   }"
                   class="input input-bordered flex-1"
                   :placeholder="$t('offcloud_email')"

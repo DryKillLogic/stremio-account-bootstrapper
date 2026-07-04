@@ -1741,6 +1741,154 @@
           "official": true,
           "protected": true
         }
+      },
+      "easynews": {
+        "transportUrl": "",
+        "manifest": {
+          "id": "community.easynews-plus-plus",
+          "version": "2.6.3",
+          "description": "Easynews++ is an open-source addon that enhances the Easynews experience with superior performance, advanced search capabilities, and intelligent stream selection. It features custom title support, multi-platform compatibility, and self-hosting options. Join our community on Discord (discord.gg/Ma4SnagqwE) or contribute on GitHub (github.com/panteLx/easynews-plus-plus)",
+          "catalogs": [],
+          "resources": [
+            {
+              "name": "stream",
+              "types": ["movie", "series"],
+              "idPrefixes": ["tt"]
+            }
+          ],
+          "types": ["movie", "series"],
+          "name": "Easynews++",
+          "background": "https://i.imgur.com/QPPXf5T.jpeg",
+          "logo": "https://pbs.twimg.com/profile_images/479627852757733376/8v9zH7Yo_400x400.jpeg",
+          "behaviorHints": {},
+          "stremioAddonsConfig": {
+            "issuer": "https://stremio-addons.net",
+            "signature": "eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..51PLy1tUzMKnIWRNR4A7LA.t7KcM925cLQphqv-9WHr59YPtO-snyEl5wBeYvWYs9JlW3tFZ8P_WeGwzVBhVVELh5b3976B8CbnwXVFamteW3suTTf9FnBUMY29NUvn20qQX70EshoCaFh3dy9uowcB.bYVYPWa02j8x1RNx7UG59A"
+          },
+          "config": [
+            {
+              "title": "UI Language",
+              "key": "uiLanguage",
+              "type": "select",
+              "options": {
+                "eng": "English",
+                "ger": "Deutsch (German)",
+                "spa": "Español (Spanish)",
+                "fre": "Français (French)",
+                "ita": "Italiano (Italian)",
+                "jpn": "日本語 (Japanese)",
+                "por": "Português (Portuguese)",
+                "rus": "Русский (Russian)",
+                "kor": "한국어 (Korean)",
+                "chi": "中文 (Chinese)",
+                "dut": "Nederlands (Dutch)",
+                "rum": "Română (Romanian)",
+                "bul": "Български (Bulgarian)"
+              },
+              "default": "eng"
+            },
+            {
+              "title": "Username",
+              "key": "username",
+              "type": "text"
+            },
+            {
+              "title": "Password",
+              "key": "password",
+              "type": "password"
+            },
+            {
+              "title": "Strict Title Matching",
+              "key": "strictTitleMatching",
+              "type": "checkbox",
+              "default": "true"
+            },
+            {
+              "title": "Preferred Audio Language",
+              "key": "preferredLanguage",
+              "type": "select",
+              "options": {
+                "": "No preference",
+                "eng": "English",
+                "ger": "Deutsch (German)",
+                "spa": "Español (Spanish)",
+                "fre": "Français (French)",
+                "ita": "Italiano (Italian)",
+                "jpn": "日本語 (Japanese)",
+                "por": "Português (Portuguese)",
+                "rus": "Русский (Russian)",
+                "kor": "한국어 (Korean)",
+                "chi": "中文 (Chinese)",
+                "dut": "Nederlands (Dutch)",
+                "rum": "Română (Romanian)",
+                "bul": "Български (Bulgarian)",
+                "ara": "Arabic (العربية)",
+                "cze": "Czech (Čeština)",
+                "dan": "Danish (Dansk)",
+                "fin": "Finnish (Suomi)",
+                "gre": "Greek (Ελληνικά)",
+                "heb": "Hebrew (עברית)",
+                "hin": "Hindi (हिन्दी)",
+                "hun": "Hungarian (Magyar)",
+                "ice": "Icelandic (Íslenska)",
+                "ind": "Indonesian (Bahasa Indonesia)",
+                "may": "Malay (Bahasa Melayu)",
+                "nor": "Norwegian (Norsk)",
+                "per": "Persian (فارسی)",
+                "pol": "Polish (Polski)",
+                "swe": "Swedish (Svenska)",
+                "tha": "Thai (ไทย)",
+                "tur": "Turkish (Türkçe)",
+                "ukr": "Ukrainian (Українська)",
+                "vie": "Vietnamese (Tiếng Việt)"
+              },
+              "default": ""
+            },
+            {
+              "title": "Sorting Method",
+              "key": "sortingPreference",
+              "type": "select",
+              "options": {
+                "quality_first": "Quality (4K → 1080p → 720p)",
+                "language_first": "Preferred Language, then Quality",
+                "size_first": "File Size (largest first)",
+                "date_first": "Date Added (newest first)",
+                "default": "quality_first"
+              },
+              "default": "quality_first"
+            },
+            {
+              "title": "Qualities to show in streams list",
+              "key": "showQualities",
+              "type": "select",
+              "options": {
+                "4k,1080p,720p,480p": "All Qualities",
+                "4k": "4K/UHD/2160p",
+                "1080p": "1080p/FHD",
+                "720p": "720p/HD",
+                "480p": "480p/SD",
+                "4k,1080p": "4K + 1080p",
+                "1080p,720p": "1080p + 720p",
+                "720p,480p": "720p + 480p",
+                "4k,1080p,720p": "4K + 1080p + 720p",
+                "1080p,720p,480p": "1080p + 720p + 480p"
+              },
+              "default": "4k,1080p,720p,480p"
+            },
+            {
+              "title": "Max results per quality",
+              "key": "maxResultsPerQuality",
+              "type": "number",
+              "default": "0"
+            },
+            {
+              "title": "Max file size in GB",
+              "key": "maxFileSize",
+              "type": "number",
+              "default": "0"
+            }
+          ]
+        }
       }
     },
     "es-MX": {

@@ -25,7 +25,8 @@ import {
   configureStremThruStore,
   configureSootio,
   configureAioStreams,
-  configureHdHub
+  configureHdHub,
+  configureEasynews
 } from './addons';
 import { configureMeteor } from './addons/meteor.ts';
 import { LOCALE_MESSAGES } from '../locales';
@@ -55,6 +56,7 @@ interface BuildPresetServiceParams {
   maxSize: string | number;
   advanced?: AdvancedOptions;
   debridEntries?: DebridEntry[];
+  easynewsEntry?: { username: string; password: string };
   password: string;
   platform?: Platform;
 }
@@ -69,6 +71,7 @@ export async function buildPresetService(params: BuildPresetServiceParams) {
     maxSize,
     advanced = {},
     debridEntries = [],
+    easynewsEntry,
     password,
     platform = 'stremio'
   } = params;
@@ -104,6 +107,15 @@ export async function buildPresetService(params: BuildPresetServiceParams) {
     if (addons) {
       presetKeys = [...presetKeys, ...addons];
     }
+  }
+
+  // Easynews addon
+  if (
+    preset !== 'allinone' &&
+    easynewsEntry?.username &&
+    easynewsEntry?.password
+  ) {
+    presetKeys = [...presetKeys, 'easynews'];
   }
 
   // Preset config
@@ -165,9 +177,12 @@ export async function buildPresetService(params: BuildPresetServiceParams) {
   }
 
   // Normalize and validate debrid services
-  const validatedDebridEntries: DebridEntry[] = (debridEntries || [])
-    .filter((debrid) => debrid && debrid.service && debrid.key)
-    .filter((debrid) => isValidApiKey(debrid.service, debrid.key));
+  const validatedDebridEntries: DebridEntry[] = (debridEntries || []).filter(
+    (debrid) => {
+      if (!debrid || !debrid.service) return false;
+      return debrid.key && isValidApiKey(debrid.service, debrid.key);
+    }
+  );
 
   // Debrid service name for manifest suffixes
   const debridServiceName =
@@ -190,7 +205,8 @@ export async function buildPresetService(params: BuildPresetServiceParams) {
     debridEntries: validatedDebridEntries,
     debridServiceName,
     preset,
-    password
+    password,
+    easynewsEntry
   };
 
   // Helper function to replace an addon key with cloned entries while maintaining order
@@ -289,6 +305,9 @@ export async function buildPresetService(params: BuildPresetServiceParams) {
 
   // HdHub
   configureHdHub(presetConfig, context);
+
+  // Easynews
+  configureEasynews(presetConfig, context);
 
   // Sootio HTTP
   configureSootio(presetConfig, context, 'http');

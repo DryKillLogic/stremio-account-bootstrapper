@@ -105,6 +105,21 @@ function getWebStreamrConfig(language: string): any {
   };
 }
 
+function getEasynewsConfig(): any {
+  return {
+    type: 'easynewsPlusPlus',
+    instanceId: 'c54',
+    enabled: true,
+    options: {
+      name: 'Easynews++',
+      timeout: 7000,
+      resources: ['stream'],
+      mediaTypes: [],
+      strictTitleMatching: true
+    }
+  };
+}
+
 // Extract default values
 function extractInputDefaults(inputs: any[]): Record<string, any> {
   const defaults: Record<string, any> = {};
@@ -151,7 +166,8 @@ export async function configureAioStreams(
     cached,
     size,
     password,
-    advanced
+    advanced,
+    easynewsEntry
   } = context;
   const isDebridUser = debridEntries.length > 0;
 
@@ -166,14 +182,30 @@ export async function configureAioStreams(
     );
   }
 
+  // Include Easynews alongside regular debrid services
+  const easynewsServices =
+    easynewsEntry?.username && easynewsEntry?.password
+      ? [
+          {
+            service: 'easynews',
+            enabled: true,
+            credentials: {
+              username: easynewsEntry.username,
+              password: easynewsEntry.password
+            }
+          } as any
+        ]
+      : [];
+  const allServices = [...debridEntries, ...easynewsServices];
+
   // Set debrid services
-  const debridServices = debridEntries.map((debrid) => ({
+  const debridServices = allServices.map((debrid) => ({
     id: debrid.service,
     enabled: true,
-    credentials: {
+    credentials: debrid.credentials ?? {
       apiKey: debrid.key,
-      ...(debrid.service === 'offcloud' && debrid.email
-        ? { email: debrid.email }
+      ...(debrid.service === 'offcloud' && debrid.username
+        ? { email: debrid.username }
         : {}),
       ...(debrid.service === 'offcloud' && debrid.password
         ? { password: debrid.password }
@@ -204,7 +236,7 @@ export async function configureAioStreams(
       torboxTier: 'nonPro',
       ...(no4k ? { deviceExclude: ['4k'] } : {})
     },
-    debridServices.map((svc) => svc.id)
+    debridServices.map((svc) => svc.id).filter((id) => id !== 'easynews')
   );
 
   template = processedTemplate;
@@ -223,6 +255,11 @@ export async function configureAioStreams(
   template.config.presets.forEach(
     (preset: any) => preset.type === 'mediafusion' && (preset.enabled = true)
   );
+
+  // Easynews++ addon
+  if (easynewsEntry?.username && easynewsEntry?.password) {
+    template.config.presets.push(getEasynewsConfig());
+  }
 
   // Build config overrides
   const configOverrides = {
@@ -262,8 +299,14 @@ export async function configureAioStreams(
     const aioStreamsData = await getAioStreamsConfig(template);
     if (aioStreamsData?.manifest && aioStreamsData?.transportUrl) {
       presetConfig.aiostreams.manifest = aioStreamsData.manifest;
+      const hasEasynews = !!(
+        easynewsEntry?.username && easynewsEntry?.password
+      );
+      const easynewsSuffix = hasEasynews ? ' + EN' : '';
       presetConfig.aiostreams.manifest.name =
-        'AIOStreams' + (debridServiceName ? ` | ${debridServiceName}` : '');
+        'AIOStreams' +
+        (debridServiceName ? ` | ${debridServiceName}` : '') +
+        easynewsSuffix;
       presetConfig.aiostreams.transportUrl = aioStreamsData.transportUrl;
     } else {
       delete presetConfig.aiostreams;

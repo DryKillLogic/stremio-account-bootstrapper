@@ -4,7 +4,8 @@ export type DebridService =
   | 'debridlink'
   | 'realdebrid'
   | 'torbox'
-  | 'offcloud';
+  | 'offcloud'
+  | 'easynews';
 
 export const debridServicesInfo = {
   realdebrid: {
@@ -32,6 +33,11 @@ export const debridServicesInfo = {
     name: 'OC',
     label: 'OffCloud',
     url: 'https://offcloud.com/account'
+  },
+  easynews: {
+    name: 'EN',
+    label: 'Easynews',
+    url: 'https://www.easynews.com/'
   }
 };
 
@@ -47,7 +53,8 @@ export const isValidApiKey = (
     debridlink: /^[A-Z0-9]{6}-[A-Z0-9]{6}-[A-Z0-9]{6}-[A-Z0-9]{5}$/,
     realdebrid: /^[A-Z0-9]{52}$/,
     torbox: /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i,
-    offcloud: /^[a-zA-Z0-9]{16}$/
+    offcloud: /^[a-zA-Z0-9]{16}$/,
+    easynews: /.*/
   };
   return !!patterns[service]?.test(key);
 };
