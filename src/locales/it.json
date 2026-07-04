@@ -95,6 +95,8 @@
   "max_size": "Dimensione massima",
   "no_size_limit": "Nessun limite",
   "invalid_debrid_api_key": "Chiave API debrid non valida",
+  "offcloud_email": "Email OffCloud",
+  "offcloud_password": "Password OffCloud",
   "instructions_summary": "Puoi accedere alle istruzioni passo-passo qui.",
   "close": "Chiudi",
   "enter_api_key": "Inserisci la chiave API",

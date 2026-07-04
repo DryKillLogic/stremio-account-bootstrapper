@@ -96,6 +96,8 @@
   "max_size": "Taille maximale",
   "no_size_limit": "Aucune limite",
   "invalid_debrid_api_key": "Clé API de débridage invalide",
+  "offcloud_email": "E-mail OffCloud",
+  "offcloud_password": "Mot de passe OffCloud",
   "instructions_summary": "Vous pouvez accéder aux instructions étape par étape ici.",
   "close": "Fermer",
   "enter_api_key": "Saisir la clé API",

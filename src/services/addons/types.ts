@@ -3,6 +3,8 @@ import { debridServicesInfo } from '../../utils/debrid';
 export interface DebridEntry {
   service: keyof typeof debridServicesInfo;
   key: string;
+  email?: string;
+  password?: string;
 }
 
 export interface AddonConfigContext {

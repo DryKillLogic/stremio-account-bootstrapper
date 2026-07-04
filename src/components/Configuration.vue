@@ -51,7 +51,7 @@ let language = ref('en');
 let preset = ref('standard');
 
 let debridService = ref('');
-let debridEntries = ref([{ service: '', key: '' }]);
+let debridEntries = ref([{ service: '', key: '', email: '', password: '' }]);
 let debridServiceName = '';
 let collections = [];
 let nuvioProfiles = ref([]);
@@ -74,6 +74,13 @@ const canAddDebridEntry = computed(() => {
   if (!last) return false;
   if (!last.service) return false;
   if (!last.key) return false;
+  if (
+    last.service === 'offcloud' &&
+    preset.value === 'allinone' &&
+    (!last.email || !last.password)
+  ) {
+    return false;
+  }
   return isValidApiKey(last.service, last.key);
 });
 
@@ -81,7 +88,17 @@ const isDebridApiKeyValid = computed(() => {
   if (!debridEntries.value.some((e) => e.service)) return false;
   return debridEntries.value
     .filter((e) => e.service)
-    .every((e) => e.key && isValidApiKey(e.service, e.key));
+    .every((e) => {
+      if (!e.key || !isValidApiKey(e.service, e.key)) return false;
+      if (
+        e.service === 'offcloud' &&
+        preset.value === 'allinone' &&
+        (!e.email || !e.password)
+      ) {
+        return false;
+      }
+      return true;
+    });
 });
 
 const hasDebridSelected = computed(() =>
@@ -257,7 +274,7 @@ function saveManifestEdit(updatedManifest) {
 function addDebridEntry() {
   if (!canAddDebridEntry.value) return;
   if (debridEntries.value.length >= MAX_DEBRID_ENTRIES) return;
-  debridEntries.value.push({ service: '', key: '' });
+  debridEntries.value.push({ service: '', key: '', email: '', password: '' });
 }
 
 function removeDebridEntry(idx) {
@@ -267,6 +284,8 @@ function removeDebridEntry(idx) {
 
 function resetEntryKey(idx) {
   debridEntries.value[idx].key = '';
+  debridEntries.value[idx].email = '';
+  debridEntries.value[idx].password = '';
 }
 
 const extractProfiles = (response) => {
@@ -706,6 +725,32 @@ watch(
                 >
                   −
                 </button>
+              </div>
+
+              <!-- Offcloud email/password (required for allinone preset) -->
+              <div
+                v-if="entry.service === 'offcloud' && preset === 'allinone'"
+                class="flex items-center gap-2 mt-1"
+              >
+                <div class="w-40"></div>
+                <input
+                  v-model="entry.email"
+                  type="email"
+                  :class="{
+                    'input-error': entry.email && !entry.email.trim()
+                  }"
+                  class="input input-bordered flex-1"
+                  :placeholder="$t('offcloud_email')"
+                />
+                <input
+                  v-model="entry.password"
+                  type="password"
+                  :class="{
+                    'input-error': entry.password && !entry.password.trim()
+                  }"
+                  class="input input-bordered flex-1"
+                  :placeholder="$t('offcloud_password')"
+                />
               </div>
 
               <div

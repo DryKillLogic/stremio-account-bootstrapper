@@ -69,6 +69,8 @@
   "enter_api_key": "Enter API key",
   "get_api_key_here": "Get it from here",
   "invalid_debrid_api_key": "Invalid debrid API key",
+  "offcloud_email": "OffCloud Email",
+  "offcloud_password": "OffCloud Password",
   "step4_additional_addons": "Step 4: Additional addons (optional)",
   "step5_custom_addons": "Step 5: Custom addons (optional)",
   "custom_addon_url": "Enter custom addon manifest URL",

@@ -171,7 +171,13 @@ export async function configureAioStreams(
     id: debrid.service,
     enabled: true,
     credentials: {
-      apiKey: debrid.key
+      apiKey: debrid.key,
+      ...(debrid.service === 'offcloud' && debrid.email
+        ? { email: debrid.email }
+        : {}),
+      ...(debrid.service === 'offcloud' && debrid.password
+        ? { password: debrid.password }
+        : {})
     }
   }));
 
