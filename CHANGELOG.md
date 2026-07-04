@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.19.2](https://github.com/DryKillLogic/stremio-account-bootstrapper/compare/v2.19.1...v2.19.2) (2026-07-04)
+
+### Bug Fixes
+
+- added email and password fields for OffCloud when all-in-one preset is selected ([28d66fa](https://github.com/DryKillLogic/stremio-account-bootstrapper/commit/28d66fa485ae5f15c9fe26f7d16404b827901adc))
+
 ### [2.19.1](https://github.com/DryKillLogic/stremio-account-bootstrapper/compare/v2.19.0...v2.19.1) (2026-07-03)
 
 ### Bug Fixes
