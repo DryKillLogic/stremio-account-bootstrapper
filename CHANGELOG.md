@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.20.0](https://github.com/DryKillLogic/stremio-account-bootstrapper/compare/v2.19.2...v2.20.0) (2026-07-04)
+
+### Features
+
+- added Easynews support ([1a4f840](https://github.com/DryKillLogic/stremio-account-bootstrapper/commit/1a4f840508b0db60b19d40401c49f9c516498784))
+
 ### [2.19.2](https://github.com/DryKillLogic/stremio-account-bootstrapper/compare/v2.19.1...v2.19.2) (2026-07-04)
 
 ### Bug Fixes
