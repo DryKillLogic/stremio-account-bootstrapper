@@ -351,7 +351,11 @@
           "background": "https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
           "logo": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%2364ffda;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%2300A7B5;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath fill='url(%23grad)' d='M50,5 C74.85,5 95,25.15 95,50 C95,74.85 74.85,95 50,95 C35,95 22.33,87.6 15,76 C25,85 40,85 50,80 C60,75 65,65 65,50 C65,35 55,25 40,25 C25,25 15,40 15,50 C15,55 16,60 18,64 C8.5,58 5,45 5,50 C5,25.15 25.15,5 50,5 Z'/%3E%3C/svg%3E",
           "catalogs": [
-            { "id": "SKIP_CATALOG", "type": "movie", "name": "No Catalogs" }
+            {
+              "id": "SKIP_CATALOG",
+              "type": "movie",
+              "name": "No Catalogs"
+            }
           ],
           "resources": ["catalog", "stream"],
           "types": ["movie", "series", "anime", "other"],
@@ -804,7 +808,9 @@
           "types": ["movie", "series", "subtitles"],
           "idPrefixes": ["tt"],
           "catalogs": [],
-          "behaviorHints": { "configurable": true },
+          "behaviorHints": {
+            "configurable": true
+          },
           "stremioAddonsConfig": {
             "issuer": "https://stremio-addons.net",
             "signature": "eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..pmX6-Us-_CaFGZCKNO38jQ.wTEgzMJqpu2e3qWqu6owfUHpEkc0lhIFMVoD8kRD8CH5T5SPU-_T4H4KsWFFTbjjkJ6EqMPxVgOm5P5rzaAo5J6Pn1G39uqjq9tBldlPB35twNcZo0Kd4N5CRS56dvX1.C3YXad-rIEz7ZvMW9PZPnQ"
@@ -1618,16 +1624,16 @@
                   "options": [
                     "Animation",
                     "Automotive",
-                    "Beauty \u0026 Fashion",
-                    "Causes \u0026 Non-profits",
+                    "Beauty & Fashion",
+                    "Causes & Non-profits",
                     "Comedy",
-                    "Cooking \u0026 Health",
-                    "Film \u0026 Entertainment",
+                    "Cooking & Health",
+                    "Film & Entertainment",
                     "From TV",
                     "Gaming",
                     "Lifestyle",
                     "Music",
-                    "News \u0026 Politics",
+                    "News & Politics",
                     "Sports"
                   ],
                   "isRequired": false
@@ -2317,7 +2323,9 @@
                   "Tragedy"
                 ]
               },
-              { "name": "skip" }
+              {
+                "name": "skip"
+              }
             ],
             "genres": [
               "Action",
@@ -2454,7 +2462,9 @@
                   "Tragedy"
                 ]
               },
-              { "name": "skip" }
+              {
+                "name": "skip"
+              }
             ],
             "genres": [
               "Action",
@@ -2591,7 +2601,9 @@
                   "Tragedy"
                 ]
               },
-              { "name": "skip" }
+              {
+                "name": "skip"
+              }
             ],
             "genres": [
               "Action",
@@ -2662,13 +2674,18 @@
             "name": "Kitsu",
             "type": "anime",
             "extra": [
-              { "name": "search", "isRequired": true },
+              {
+                "name": "search",
+                "isRequired": true
+              },
               {
                 "name": "lastVideosIds",
                 "isRequired": false,
                 "optionsLimit": 20
               },
-              { "name": "skip" }
+              {
+                "name": "skip"
+              }
             ]
           }
         ],
@@ -2759,7 +2776,6 @@
         "direction": "desc"
       }
     ],
-
     "nudity_filter": ["Disable"],
     "certification_filter": ["Disable"],
     "language_sorting": [
@@ -3666,7 +3682,7 @@
           "sort": "release_date",
           "type": "movie",
           "source": "streaming",
-          "enabled": false,
+          "enabled": true,
           "showInHome": true,
           "sortDirection": "desc"
         },
@@ -3676,7 +3692,7 @@
           "sort": "release_date",
           "type": "series",
           "source": "streaming",
-          "enabled": false,
+          "enabled": true,
           "showInHome": true,
           "sortDirection": "desc"
         },
@@ -3722,7 +3738,12 @@
                 "sortBy": "primary_release_date.desc",
                 "cacheTTL": 86400,
                 "catalogType": "movie",
-                "includeGenres": [{ "id": 28, "label": "Action" }],
+                "includeGenres": [
+                  {
+                    "id": 28,
+                    "label": "Action"
+                  }
+                ],
                 "excludeGenres": [],
                 "genreJoinMode": "or",
                 "originalLanguage": "",
@@ -3786,7 +3807,12 @@
                 "sortBy": "primary_release_date.desc",
                 "cacheTTL": 86400,
                 "catalogType": "movie",
-                "includeGenres": [{ "id": 12, "label": "Adventure" }],
+                "includeGenres": [
+                  {
+                    "id": 12,
+                    "label": "Adventure"
+                  }
+                ],
                 "excludeGenres": [],
                 "genreJoinMode": "or",
                 "originalLanguage": "",
@@ -3850,7 +3876,12 @@
                 "sortBy": "primary_release_date.desc",
                 "cacheTTL": 86400,
                 "catalogType": "movie",
-                "includeGenres": [{ "id": 16, "label": "Animation" }],
+                "includeGenres": [
+                  {
+                    "id": 16,
+                    "label": "Animation"
+                  }
+                ],
                 "excludeGenres": [],
                 "genreJoinMode": "or",
                 "originalLanguage": "",
@@ -3904,7 +3935,6 @@
                 "with_genres": "35",
                 "watch_region": "US",
                 "with_release_type": "4|5|6",
-
                 "vote_average.gte": 5,
                 "vote_count.gte": 100,
                 "with_runtime.gte": 60
@@ -3915,7 +3945,12 @@
                 "sortBy": "primary_release_date.desc",
                 "cacheTTL": 86400,
                 "catalogType": "movie",
-                "includeGenres": [{ "id": 35, "label": "Comedy" }],
+                "includeGenres": [
+                  {
+                    "id": 35,
+                    "label": "Comedy"
+                  }
+                ],
                 "excludeGenres": [],
                 "genreJoinMode": "or",
                 "originalLanguage": "",
@@ -3969,7 +4004,6 @@
                 "with_genres": "80",
                 "watch_region": "US",
                 "with_release_type": "4|5|6",
-
                 "vote_average.gte": 5,
                 "vote_count.gte": 100,
                 "with_runtime.gte": 60
@@ -3980,7 +4014,12 @@
                 "sortBy": "primary_release_date.desc",
                 "cacheTTL": 86400,
                 "catalogType": "movie",
-                "includeGenres": [{ "id": 80, "label": "Crime" }],
+                "includeGenres": [
+                  {
+                    "id": 80,
+                    "label": "Crime"
+                  }
+                ],
                 "excludeGenres": [],
                 "genreJoinMode": "or",
                 "originalLanguage": "",
@@ -4034,7 +4073,6 @@
                 "with_genres": "99",
                 "watch_region": "US",
                 "with_release_type": "4|5|6",
-
                 "vote_average.gte": 5,
                 "vote_count.gte": 100,
                 "with_runtime.gte": 60
@@ -4045,7 +4083,12 @@
                 "sortBy": "primary_release_date.desc",
                 "cacheTTL": 86400,
                 "catalogType": "movie",
-                "includeGenres": [{ "id": 99, "label": "Documentary" }],
+                "includeGenres": [
+                  {
+                    "id": 99,
+                    "label": "Documentary"
+                  }
+                ],
                 "excludeGenres": [],
                 "genreJoinMode": "or",
                 "originalLanguage": "",
@@ -4099,7 +4142,6 @@
                 "with_genres": "18",
                 "watch_region": "US",
                 "with_release_type": "4|5|6",
-
                 "vote_average.gte": 5,
                 "vote_count.gte": 100,
                 "with_runtime.gte": 60
@@ -4110,7 +4152,12 @@
                 "sortBy": "primary_release_date.desc",
                 "cacheTTL": 86400,
                 "catalogType": "movie",
-                "includeGenres": [{ "id": 18, "label": "Drama" }],
+                "includeGenres": [
+                  {
+                    "id": 18,
+                    "label": "Drama"
+                  }
+                ],
                 "excludeGenres": [],
                 "genreJoinMode": "or",
                 "originalLanguage": "",
@@ -4164,7 +4211,6 @@
                 "with_genres": "10751",
                 "watch_region": "US",
                 "with_release_type": "4|5|6",
-
                 "vote_average.gte": 5,
                 "vote_count.gte": 100,
                 "with_runtime.gte": 60
@@ -4175,7 +4221,12 @@
                 "sortBy": "primary_release_date.desc",
                 "cacheTTL": 86400,
                 "catalogType": "movie",
-                "includeGenres": [{ "id": 10751, "label": "Family" }],
+                "includeGenres": [
+                  {
+                    "id": 10751,
+                    "label": "Family"
+                  }
+                ],
                 "excludeGenres": [],
                 "genreJoinMode": "or",
                 "originalLanguage": "",
@@ -4229,7 +4280,6 @@
                 "with_genres": "14",
                 "watch_region": "US",
                 "with_release_type": "4|5|6",
-
                 "vote_average.gte": 5,
                 "vote_count.gte": 100,
                 "with_runtime.gte": 60
@@ -4240,7 +4290,12 @@
                 "sortBy": "primary_release_date.desc",
                 "cacheTTL": 86400,
                 "catalogType": "movie",
-                "includeGenres": [{ "id": 14, "label": "Fantasy" }],
+                "includeGenres": [
+                  {
+                    "id": 14,
+                    "label": "Fantasy"
+                  }
+                ],
                 "excludeGenres": [],
                 "genreJoinMode": "or",
                 "originalLanguage": "",
@@ -4294,7 +4349,6 @@
                 "with_genres": "36",
                 "watch_region": "US",
                 "with_release_type": "4|5|6",
-
                 "vote_average.gte": 5,
                 "vote_count.gte": 100,
                 "with_runtime.gte": 60
@@ -4305,7 +4359,12 @@
                 "sortBy": "primary_release_date.desc",
                 "cacheTTL": 86400,
                 "catalogType": "movie",
-                "includeGenres": [{ "id": 36, "label": "History" }],
+                "includeGenres": [
+                  {
+                    "id": 36,
+                    "label": "History"
+                  }
+                ],
                 "excludeGenres": [],
                 "genreJoinMode": "or",
                 "originalLanguage": "",
@@ -4359,7 +4418,6 @@
                 "with_genres": "27",
                 "watch_region": "US",
                 "with_release_type": "4|5|6",
-
                 "vote_average.gte": 5,
                 "vote_count.gte": 100,
                 "with_runtime.gte": 60
@@ -4370,7 +4428,12 @@
                 "sortBy": "primary_release_date.desc",
                 "cacheTTL": 86400,
                 "catalogType": "movie",
-                "includeGenres": [{ "id": 27, "label": "Horror" }],
+                "includeGenres": [
+                  {
+                    "id": 27,
+                    "label": "Horror"
+                  }
+                ],
                 "excludeGenres": [],
                 "genreJoinMode": "or",
                 "originalLanguage": "",
@@ -4424,7 +4487,6 @@
                 "with_genres": "10402",
                 "watch_region": "US",
                 "with_release_type": "4|5|6",
-
                 "vote_average.gte": 5,
                 "vote_count.gte": 100,
                 "with_runtime.gte": 60
@@ -4435,7 +4497,12 @@
                 "sortBy": "primary_release_date.desc",
                 "cacheTTL": 86400,
                 "catalogType": "movie",
-                "includeGenres": [{ "id": 10402, "label": "Music" }],
+                "includeGenres": [
+                  {
+                    "id": 10402,
+                    "label": "Music"
+                  }
+                ],
                 "excludeGenres": [],
                 "genreJoinMode": "or",
                 "originalLanguage": "",
@@ -4489,7 +4556,6 @@
                 "with_genres": "9648",
                 "watch_region": "US",
                 "with_release_type": "4|5|6",
-
                 "vote_average.gte": 5,
                 "vote_count.gte": 100,
                 "with_runtime.gte": 60
@@ -4500,7 +4566,12 @@
                 "sortBy": "primary_release_date.desc",
                 "cacheTTL": 86400,
                 "catalogType": "movie",
-                "includeGenres": [{ "id": 9648, "label": "Mystery" }],
+                "includeGenres": [
+                  {
+                    "id": 9648,
+                    "label": "Mystery"
+                  }
+                ],
                 "excludeGenres": [],
                 "genreJoinMode": "or",
                 "originalLanguage": "",
@@ -4554,7 +4625,6 @@
                 "with_genres": "10749",
                 "watch_region": "US",
                 "with_release_type": "4|5|6",
-
                 "vote_average.gte": 5,
                 "vote_count.gte": 100,
                 "with_runtime.gte": 60
@@ -4565,7 +4635,12 @@
                 "sortBy": "primary_release_date.desc",
                 "cacheTTL": 86400,
                 "catalogType": "movie",
-                "includeGenres": [{ "id": 10749, "label": "Romance" }],
+                "includeGenres": [
+                  {
+                    "id": 10749,
+                    "label": "Romance"
+                  }
+                ],
                 "excludeGenres": [],
                 "genreJoinMode": "or",
                 "originalLanguage": "",
@@ -4619,7 +4694,6 @@
                 "with_genres": "878",
                 "watch_region": "US",
                 "with_release_type": "4|5|6",
-
                 "vote_average.gte": 5,
                 "vote_count.gte": 100,
                 "with_runtime.gte": 60
@@ -4630,7 +4704,12 @@
                 "sortBy": "primary_release_date.desc",
                 "cacheTTL": 86400,
                 "catalogType": "movie",
-                "includeGenres": [{ "id": 878, "label": "Science Fiction" }],
+                "includeGenres": [
+                  {
+                    "id": 878,
+                    "label": "Science Fiction"
+                  }
+                ],
                 "excludeGenres": [],
                 "genreJoinMode": "or",
                 "originalLanguage": "",
@@ -4684,7 +4763,6 @@
                 "with_genres": "53",
                 "watch_region": "US",
                 "with_release_type": "4|5|6",
-
                 "vote_average.gte": 5,
                 "vote_count.gte": 100,
                 "with_runtime.gte": 60
@@ -4695,7 +4773,12 @@
                 "sortBy": "primary_release_date.desc",
                 "cacheTTL": 86400,
                 "catalogType": "movie",
-                "includeGenres": [{ "id": 53, "label": "Thriller" }],
+                "includeGenres": [
+                  {
+                    "id": 53,
+                    "label": "Thriller"
+                  }
+                ],
                 "excludeGenres": [],
                 "genreJoinMode": "or",
                 "originalLanguage": "",
@@ -4749,7 +4832,6 @@
                 "with_genres": "10752",
                 "watch_region": "US",
                 "with_release_type": "4|5|6",
-
                 "vote_average.gte": 5,
                 "vote_count.gte": 100,
                 "with_runtime.gte": 60
@@ -4760,7 +4842,12 @@
                 "sortBy": "primary_release_date.desc",
                 "cacheTTL": 86400,
                 "catalogType": "movie",
-                "includeGenres": [{ "id": 10752, "label": "War" }],
+                "includeGenres": [
+                  {
+                    "id": 10752,
+                    "label": "War"
+                  }
+                ],
                 "excludeGenres": [],
                 "genreJoinMode": "or",
                 "originalLanguage": "",
@@ -4814,7 +4901,6 @@
                 "with_genres": "37",
                 "watch_region": "US",
                 "with_release_type": "4|5|6",
-
                 "vote_average.gte": 5,
                 "vote_count.gte": 100,
                 "with_runtime.gte": 60
@@ -4825,7 +4911,12 @@
                 "sortBy": "primary_release_date.desc",
                 "cacheTTL": 86400,
                 "catalogType": "movie",
-                "includeGenres": [{ "id": 37, "label": "Western" }],
+                "includeGenres": [
+                  {
+                    "id": 37,
+                    "label": "Western"
+                  }
+                ],
                 "excludeGenres": [],
                 "genreJoinMode": "or",
                 "originalLanguage": "",
@@ -4889,7 +4980,10 @@
                 "cacheTTL": 86400,
                 "catalogType": "series",
                 "includeGenres": [
-                  { "id": 10759, "label": "Action & Adventure" }
+                  {
+                    "id": 10759,
+                    "label": "Action & Adventure"
+                  }
                 ],
                 "excludeGenres": [],
                 "genreJoinMode": "or",
@@ -4953,7 +5047,12 @@
                 "sortBy": "first_air_date.desc",
                 "cacheTTL": 86400,
                 "catalogType": "series",
-                "includeGenres": [{ "id": 16, "label": "Animation" }],
+                "includeGenres": [
+                  {
+                    "id": 16,
+                    "label": "Animation"
+                  }
+                ],
                 "excludeGenres": [],
                 "genreJoinMode": "or",
                 "originalLanguage": "",
@@ -5016,7 +5115,12 @@
                 "sortBy": "first_air_date.desc",
                 "cacheTTL": 86400,
                 "catalogType": "series",
-                "includeGenres": [{ "id": 35, "label": "Comedy" }],
+                "includeGenres": [
+                  {
+                    "id": 35,
+                    "label": "Comedy"
+                  }
+                ],
                 "excludeGenres": [],
                 "genreJoinMode": "or",
                 "originalLanguage": "",
@@ -5079,7 +5183,12 @@
                 "sortBy": "first_air_date.desc",
                 "cacheTTL": 86400,
                 "catalogType": "series",
-                "includeGenres": [{ "id": 80, "label": "Crime" }],
+                "includeGenres": [
+                  {
+                    "id": 80,
+                    "label": "Crime"
+                  }
+                ],
                 "excludeGenres": [],
                 "genreJoinMode": "or",
                 "originalLanguage": "",
@@ -5142,7 +5251,12 @@
                 "sortBy": "first_air_date.desc",
                 "cacheTTL": 86400,
                 "catalogType": "series",
-                "includeGenres": [{ "id": 99, "label": "Documentary" }],
+                "includeGenres": [
+                  {
+                    "id": 99,
+                    "label": "Documentary"
+                  }
+                ],
                 "excludeGenres": [],
                 "genreJoinMode": "or",
                 "originalLanguage": "",
@@ -5205,7 +5319,12 @@
                 "sortBy": "first_air_date.desc",
                 "cacheTTL": 86400,
                 "catalogType": "series",
-                "includeGenres": [{ "id": 18, "label": "Drama" }],
+                "includeGenres": [
+                  {
+                    "id": 18,
+                    "label": "Drama"
+                  }
+                ],
                 "excludeGenres": [],
                 "genreJoinMode": "or",
                 "originalLanguage": "",
@@ -5268,7 +5387,12 @@
                 "sortBy": "first_air_date.desc",
                 "cacheTTL": 86400,
                 "catalogType": "series",
-                "includeGenres": [{ "id": 10751, "label": "Family" }],
+                "includeGenres": [
+                  {
+                    "id": 10751,
+                    "label": "Family"
+                  }
+                ],
                 "excludeGenres": [],
                 "genreJoinMode": "or",
                 "originalLanguage": "",
@@ -5331,7 +5455,12 @@
                 "sortBy": "first_air_date.desc",
                 "cacheTTL": 86400,
                 "catalogType": "series",
-                "includeGenres": [{ "id": 9648, "label": "Mystery" }],
+                "includeGenres": [
+                  {
+                    "id": 9648,
+                    "label": "Mystery"
+                  }
+                ],
                 "excludeGenres": [],
                 "genreJoinMode": "or",
                 "originalLanguage": "",
@@ -5394,7 +5523,12 @@
                 "sortBy": "first_air_date.desc",
                 "cacheTTL": 86400,
                 "catalogType": "series",
-                "includeGenres": [{ "id": 10765, "label": "Sci-Fi & Fantasy" }],
+                "includeGenres": [
+                  {
+                    "id": 10765,
+                    "label": "Sci-Fi & Fantasy"
+                  }
+                ],
                 "excludeGenres": [],
                 "genreJoinMode": "or",
                 "originalLanguage": "",
@@ -5525,7 +5659,12 @@
                 "sortBy": "first_air_date.desc",
                 "cacheTTL": 86400,
                 "catalogType": "series",
-                "includeGenres": [{ "id": 10768, "label": "War & Politics" }],
+                "includeGenres": [
+                  {
+                    "id": 10768,
+                    "label": "War & Politics"
+                  }
+                ],
                 "excludeGenres": [],
                 "genreJoinMode": "or",
                 "originalLanguage": "",
@@ -5588,7 +5727,12 @@
                 "sortBy": "first_air_date.desc",
                 "cacheTTL": 86400,
                 "catalogType": "series",
-                "includeGenres": [{ "id": 37, "label": "Western" }],
+                "includeGenres": [
+                  {
+                    "id": 37,
+                    "label": "Western"
+                  }
+                ],
                 "excludeGenres": [],
                 "genreJoinMode": "or",
                 "originalLanguage": "",
@@ -5621,6 +5765,81 @@
               }
             }
           }
+        },
+        {
+          "id": "tmdb.discover.movie.best_movies_of_the_80s_copy.mr7x0teu",
+          "type": "movie",
+          "name": "Best Movies of the 70s",
+          "enabled": false,
+          "showInHome": false,
+          "source": "tmdb",
+          "cacheTTL": 86400,
+          "randomizePerPage": true,
+          "metadata": {
+            "description": "TMDB Discover (movie)",
+            "url": "https://www.themoviedb.org/discover/movie?sort_by=popularity.desc&include_adult=false&without_genres=99&vote_average.gte=7&vote_count.gte=1000&primary_release_date.gte=1970-01-01&primary_release_date.lte=1979-12-31",
+            "discover": {
+              "version": 2,
+              "source": "tmdb",
+              "mediaType": "movie",
+              "params": {
+                "sort_by": "popularity.desc",
+                "include_adult": false,
+                "without_genres": "99",
+                "vote_average.gte": 7,
+                "vote_count.gte": 1000,
+                "primary_release_date.gte": "1970-01-01",
+                "primary_release_date.lte": "1979-12-31"
+              },
+              "formState": {
+                "catalogName": "Best Movies of the 70s",
+                "discoverSource": "tmdb",
+                "sortBy": "popularity.desc",
+                "cacheTTL": 86400,
+                "catalogType": "movie",
+                "includeGenres": [],
+                "excludeGenres": [
+                  {
+                    "id": 99,
+                    "label": "Documentary"
+                  }
+                ],
+                "genreJoinMode": "or",
+                "originalLanguage": "",
+                "originCountry": "",
+                "certificationCountry": "",
+                "certificationValue": "",
+                "certificationMode": "exact",
+                "includeAdult": false,
+                "releasedOnly": false,
+                "tmdbTvStatuses": [],
+                "selectedPeople": [],
+                "peopleJoinMode": "or",
+                "withCompanies": [],
+                "withoutCompanies": [],
+                "companyJoinMode": "or",
+                "withKeywords": [],
+                "withoutKeywords": [],
+                "keywordJoinMode": "or",
+                "watchRegion": "",
+                "watchProviders": [],
+                "providerJoinMode": "or",
+                "voteAverageRange": [7, 10],
+                "voteCountMin": 1000,
+                "runtimeRange": [0, 400],
+                "primaryReleaseFrom": "1970-01-01",
+                "primaryReleaseTo": "1979-12-31",
+                "movieDatePreset": "custom",
+                "firstAirFrom": "",
+                "firstAirTo": "",
+                "seriesDatePreset": "clear",
+                "airDateFrom": "",
+                "airDateTo": "",
+                "releaseRegion": ""
+              }
+            }
+          },
+          "tags": ["decades"]
         },
         {
           "id": "tmdb.discover.movie.best_movies_of_80s.mlyccp2c",
@@ -5980,6 +6199,92 @@
             "description": "TMDB Discover (movie)"
           },
           "showInHome": false
+        },
+        {
+          "id": "tmdb.discover.series.best_shows_of_the_90s_copy.mr7x2n0t",
+          "type": "series",
+          "name": "Best Shows of the 70s",
+          "enabled": false,
+          "showInHome": false,
+          "source": "tmdb",
+          "cacheTTL": 86400,
+          "metadata": {
+            "description": "TMDB Discover (tv)",
+            "url": "https://www.themoviedb.org/discover/tv?sort_by=popularity.desc&include_adult=false&without_genres=99%7C10767%7C10764%7C10763&vote_average.gte=7&vote_count.gte=1000&first_air_date.gte=1970-01-01&first_air_date.lte=1979-12-31",
+            "discover": {
+              "version": 2,
+              "source": "tmdb",
+              "mediaType": "tv",
+              "params": {
+                "sort_by": "popularity.desc",
+                "include_adult": false,
+                "without_genres": "99|10767|10764|10763",
+                "vote_average.gte": 7,
+                "vote_count.gte": 1000,
+                "first_air_date.gte": "1970-01-01",
+                "first_air_date.lte": "1979-12-31"
+              },
+              "formState": {
+                "catalogName": "Best Shows of the 70s",
+                "discoverSource": "tmdb",
+                "sortBy": "popularity.desc",
+                "cacheTTL": 86400,
+                "catalogType": "series",
+                "includeGenres": [],
+                "excludeGenres": [
+                  {
+                    "id": 99,
+                    "label": "Documentary"
+                  },
+                  {
+                    "id": 10767,
+                    "label": "Talk"
+                  },
+                  {
+                    "id": 10764,
+                    "label": "Reality"
+                  },
+                  {
+                    "id": 10763,
+                    "label": "News"
+                  }
+                ],
+                "genreJoinMode": "or",
+                "originalLanguage": "",
+                "originCountry": "",
+                "certificationCountry": "",
+                "certificationValue": "",
+                "certificationMode": "exact",
+                "includeAdult": false,
+                "releasedOnly": false,
+                "tmdbTvStatuses": [],
+                "selectedPeople": [],
+                "peopleJoinMode": "or",
+                "withCompanies": [],
+                "withoutCompanies": [],
+                "companyJoinMode": "or",
+                "withKeywords": [],
+                "withoutKeywords": [],
+                "keywordJoinMode": "or",
+                "watchRegion": "",
+                "watchProviders": [],
+                "providerJoinMode": "or",
+                "voteAverageRange": [7, 10],
+                "voteCountMin": 1000,
+                "runtimeRange": [0, 400],
+                "primaryReleaseFrom": "",
+                "primaryReleaseTo": "",
+                "movieDatePreset": "clear",
+                "firstAirFrom": "1970-01-01",
+                "firstAirTo": "1979-12-31",
+                "seriesDatePreset": "custom",
+                "airDateFrom": "",
+                "airDateTo": "",
+                "releaseRegion": ""
+              }
+            }
+          },
+          "tags": ["decades"]
         },
         {
           "id": "tmdb.discover.series.best_tv_shows_of_the_80s.mp44uksc",
@@ -7524,6 +7829,3402 @@
               }
             }
           }
+        },
+        {
+          "id": "tmdb.discover.movie.argentina_movies.mr7xgxcz",
+          "type": "movie",
+          "name": "Argentina Movies",
+          "enabled": false,
+          "showInHome": false,
+          "source": "tmdb",
+          "cacheTTL": 86400,
+          "metadata": {
+            "description": "TMDB Discover (movie)",
+            "url": "https://www.themoviedb.org/discover/movie?sort_by=popularity.desc&include_adult=false&without_genres=99&with_origin_country=AR&vote_average.gte=5&vote_count.gte=0&with_runtime.gte=60",
+            "discover": {
+              "version": 2,
+              "source": "tmdb",
+              "mediaType": "movie",
+              "params": {
+                "sort_by": "popularity.desc",
+                "include_adult": false,
+                "without_genres": "99",
+                "with_origin_country": "AR",
+                "vote_average.gte": 5,
+                "vote_count.gte": 0,
+                "with_runtime.gte": 60
+              },
+              "formState": {
+                "catalogName": "Argentina Movies",
+                "discoverSource": "tmdb",
+                "sortBy": "popularity.desc",
+                "cacheTTL": 86400,
+                "catalogType": "movie",
+                "includeGenres": [],
+                "excludeGenres": [
+                  {
+                    "id": 99,
+                    "label": "Documentary"
+                  }
+                ],
+                "genreJoinMode": "or",
+                "originalLanguage": "",
+                "originCountry": "AR",
+                "certificationCountry": "",
+                "certificationValue": "",
+                "certificationMode": "exact",
+                "includeAdult": false,
+                "releasedOnly": false,
+                "tmdbTvStatuses": [],
+                "selectedPeople": [],
+                "peopleJoinMode": "or",
+                "withCompanies": [],
+                "withoutCompanies": [],
+                "companyJoinMode": "or",
+                "withKeywords": [],
+                "withoutKeywords": [],
+                "keywordJoinMode": "or",
+                "watchRegion": "",
+                "watchProviders": [],
+                "providerJoinMode": "or",
+                "voteAverageRange": [5, 10],
+                "voteCountMin": 0,
+                "runtimeRange": [60, 400],
+                "primaryReleaseFrom": "",
+                "primaryReleaseTo": "",
+                "movieDatePreset": "clear",
+                "firstAirFrom": "",
+                "firstAirTo": "",
+                "seriesDatePreset": "clear",
+                "airDateFrom": "",
+                "airDateTo": "",
+                "releaseRegion": ""
+              }
+            }
+          },
+          "tags": ["countries"]
+        },
+        {
+          "id": "tmdb.discover.movie.brazil.mr7xht61",
+          "type": "movie",
+          "name": "Brazil Movies",
+          "enabled": false,
+          "showInHome": false,
+          "source": "tmdb",
+          "cacheTTL": 86400,
+          "metadata": {
+            "description": "TMDB Discover (movie)",
+            "url": "https://www.themoviedb.org/discover/movie?sort_by=popularity.desc&include_adult=false&without_genres=99&with_origin_country=BR&vote_average.gte=5&vote_count.gte=0&with_runtime.gte=60",
+            "discover": {
+              "version": 2,
+              "source": "tmdb",
+              "mediaType": "movie",
+              "params": {
+                "sort_by": "popularity.desc",
+                "include_adult": false,
+                "without_genres": "99",
+                "with_origin_country": "BR",
+                "vote_average.gte": 5,
+                "vote_count.gte": 0,
+                "with_runtime.gte": 60
+              },
+              "formState": {
+                "catalogName": "Brazil Movies",
+                "discoverSource": "tmdb",
+                "sortBy": "popularity.desc",
+                "cacheTTL": 86400,
+                "catalogType": "movie",
+                "includeGenres": [],
+                "excludeGenres": [
+                  {
+                    "id": 99,
+                    "label": "Documentary"
+                  }
+                ],
+                "genreJoinMode": "or",
+                "originalLanguage": "",
+                "originCountry": "BR",
+                "certificationCountry": "",
+                "certificationValue": "",
+                "certificationMode": "exact",
+                "includeAdult": false,
+                "releasedOnly": false,
+                "tmdbTvStatuses": [],
+                "selectedPeople": [],
+                "peopleJoinMode": "or",
+                "withCompanies": [],
+                "withoutCompanies": [],
+                "companyJoinMode": "or",
+                "withKeywords": [],
+                "withoutKeywords": [],
+                "keywordJoinMode": "or",
+                "watchRegion": "",
+                "watchProviders": [],
+                "providerJoinMode": "or",
+                "voteAverageRange": [5, 10],
+                "voteCountMin": 0,
+                "runtimeRange": [60, 400],
+                "primaryReleaseFrom": "",
+                "primaryReleaseTo": "",
+                "movieDatePreset": "clear",
+                "firstAirFrom": "",
+                "firstAirTo": "",
+                "seriesDatePreset": "clear",
+                "airDateFrom": "",
+                "airDateTo": "",
+                "releaseRegion": ""
+              }
+            }
+          },
+          "tags": ["countries"]
+        },
+        {
+          "id": "tmdb.discover.movie.china_movies.mr7xiwr9",
+          "type": "movie",
+          "name": "China Movies",
+          "enabled": false,
+          "showInHome": false,
+          "source": "tmdb",
+          "cacheTTL": 86400,
+          "metadata": {
+            "description": "TMDB Discover (movie)",
+            "url": "https://www.themoviedb.org/discover/movie?sort_by=popularity.desc&include_adult=false&without_genres=99&with_origin_country=CN&vote_average.gte=10&vote_count.gte=0&with_runtime.gte=60",
+            "discover": {
+              "version": 2,
+              "source": "tmdb",
+              "mediaType": "movie",
+              "params": {
+                "sort_by": "popularity.desc",
+                "include_adult": false,
+                "without_genres": "99",
+                "with_origin_country": "CN",
+                "vote_average.gte": 5,
+                "vote_count.gte": 0,
+                "with_runtime.gte": 60
+              },
+              "formState": {
+                "catalogName": "China Movies",
+                "discoverSource": "tmdb",
+                "sortBy": "popularity.desc",
+                "cacheTTL": 86400,
+                "catalogType": "movie",
+                "includeGenres": [],
+                "excludeGenres": [
+                  {
+                    "id": 99,
+                    "label": "Documentary"
+                  }
+                ],
+                "genreJoinMode": "or",
+                "originalLanguage": "",
+                "originCountry": "CN",
+                "certificationCountry": "",
+                "certificationValue": "",
+                "certificationMode": "exact",
+                "includeAdult": false,
+                "releasedOnly": false,
+                "tmdbTvStatuses": [],
+                "selectedPeople": [],
+                "peopleJoinMode": "or",
+                "withCompanies": [],
+                "withoutCompanies": [],
+                "companyJoinMode": "or",
+                "withKeywords": [],
+                "withoutKeywords": [],
+                "keywordJoinMode": "or",
+                "watchRegion": "",
+                "watchProviders": [],
+                "providerJoinMode": "or",
+                "voteAverageRange": [10, 10],
+                "voteCountMin": 0,
+                "runtimeRange": [60, 400],
+                "primaryReleaseFrom": "",
+                "primaryReleaseTo": "",
+                "movieDatePreset": "clear",
+                "firstAirFrom": "",
+                "firstAirTo": "",
+                "seriesDatePreset": "clear",
+                "airDateFrom": "",
+                "airDateTo": "",
+                "releaseRegion": ""
+              }
+            }
+          },
+          "tags": ["countries"]
+        },
+        {
+          "id": "tmdb.discover.movie.france_movies.mr7xkzx9",
+          "type": "movie",
+          "name": "France Movies",
+          "enabled": false,
+          "showInHome": false,
+          "source": "tmdb",
+          "cacheTTL": 86400,
+          "metadata": {
+            "description": "TMDB Discover (movie)",
+            "url": "https://www.themoviedb.org/discover/movie?sort_by=popularity.desc&include_adult=false&without_genres=99&with_origin_country=FR&vote_average.gte=5&vote_count.gte=0&with_runtime.gte=60",
+            "discover": {
+              "version": 2,
+              "source": "tmdb",
+              "mediaType": "movie",
+              "params": {
+                "sort_by": "popularity.desc",
+                "include_adult": false,
+                "without_genres": "99",
+                "with_origin_country": "FR",
+                "vote_average.gte": 5,
+                "vote_count.gte": 0,
+                "with_runtime.gte": 60
+              },
+              "formState": {
+                "catalogName": "France Movies",
+                "discoverSource": "tmdb",
+                "sortBy": "popularity.desc",
+                "cacheTTL": 86400,
+                "catalogType": "movie",
+                "includeGenres": [],
+                "excludeGenres": [
+                  {
+                    "id": 99,
+                    "label": "Documentary"
+                  }
+                ],
+                "genreJoinMode": "or",
+                "originalLanguage": "",
+                "originCountry": "FR",
+                "certificationCountry": "",
+                "certificationValue": "",
+                "certificationMode": "exact",
+                "includeAdult": false,
+                "releasedOnly": false,
+                "tmdbTvStatuses": [],
+                "selectedPeople": [],
+                "peopleJoinMode": "or",
+                "withCompanies": [],
+                "withoutCompanies": [],
+                "companyJoinMode": "or",
+                "withKeywords": [],
+                "withoutKeywords": [],
+                "keywordJoinMode": "or",
+                "watchRegion": "",
+                "watchProviders": [],
+                "providerJoinMode": "or",
+                "voteAverageRange": [5, 10],
+                "voteCountMin": 0,
+                "runtimeRange": [60, 400],
+                "primaryReleaseFrom": "",
+                "primaryReleaseTo": "",
+                "movieDatePreset": "clear",
+                "firstAirFrom": "",
+                "firstAirTo": "",
+                "seriesDatePreset": "clear",
+                "airDateFrom": "",
+                "airDateTo": "",
+                "releaseRegion": ""
+              }
+            }
+          },
+          "tags": ["countries"]
+        },
+        {
+          "id": "tmdb.discover.movie.germany_movies.mr7xlhii",
+          "type": "movie",
+          "name": "Germany Movies",
+          "enabled": false,
+          "showInHome": false,
+          "source": "tmdb",
+          "cacheTTL": 86400,
+          "metadata": {
+            "description": "TMDB Discover (movie)",
+            "url": "https://www.themoviedb.org/discover/movie?sort_by=popularity.desc&include_adult=false&without_genres=99&with_origin_country=DE&vote_average.gte=5&vote_count.gte=0&with_runtime.gte=60",
+            "discover": {
+              "version": 2,
+              "source": "tmdb",
+              "mediaType": "movie",
+              "params": {
+                "sort_by": "popularity.desc",
+                "include_adult": false,
+                "without_genres": "99",
+                "with_origin_country": "DE",
+                "vote_average.gte": 5,
+                "vote_count.gte": 0,
+                "with_runtime.gte": 60
+              },
+              "formState": {
+                "catalogName": "Germany Movies",
+                "discoverSource": "tmdb",
+                "sortBy": "popularity.desc",
+                "cacheTTL": 86400,
+                "catalogType": "movie",
+                "includeGenres": [],
+                "excludeGenres": [
+                  {
+                    "id": 99,
+                    "label": "Documentary"
+                  }
+                ],
+                "genreJoinMode": "or",
+                "originalLanguage": "",
+                "originCountry": "DE",
+                "certificationCountry": "",
+                "certificationValue": "",
+                "certificationMode": "exact",
+                "includeAdult": false,
+                "releasedOnly": false,
+                "tmdbTvStatuses": [],
+                "selectedPeople": [],
+                "peopleJoinMode": "or",
+                "withCompanies": [],
+                "withoutCompanies": [],
+                "companyJoinMode": "or",
+                "withKeywords": [],
+                "withoutKeywords": [],
+                "keywordJoinMode": "or",
+                "watchRegion": "",
+                "watchProviders": [],
+                "providerJoinMode": "or",
+                "voteAverageRange": [5, 10],
+                "voteCountMin": 0,
+                "runtimeRange": [60, 400],
+                "primaryReleaseFrom": "",
+                "primaryReleaseTo": "",
+                "movieDatePreset": "clear",
+                "firstAirFrom": "",
+                "firstAirTo": "",
+                "seriesDatePreset": "clear",
+                "airDateFrom": "",
+                "airDateTo": "",
+                "releaseRegion": ""
+              }
+            }
+          },
+          "tags": ["countries"]
+        },
+        {
+          "id": "tmdb.discover.movie.india_movies.mr7xmari",
+          "type": "movie",
+          "name": "India Movies",
+          "enabled": false,
+          "showInHome": false,
+          "source": "tmdb",
+          "cacheTTL": 86400,
+          "metadata": {
+            "description": "TMDB Discover (movie)",
+            "url": "https://www.themoviedb.org/discover/movie?sort_by=popularity.desc&include_adult=false&without_genres=99&with_origin_country=IN&vote_average.gte=5&vote_count.gte=0&with_runtime.gte=60",
+            "discover": {
+              "version": 2,
+              "source": "tmdb",
+              "mediaType": "movie",
+              "params": {
+                "sort_by": "popularity.desc",
+                "include_adult": false,
+                "without_genres": "99",
+                "with_origin_country": "IN",
+                "vote_average.gte": 5,
+                "vote_count.gte": 0,
+                "with_runtime.gte": 60
+              },
+              "formState": {
+                "catalogName": "India Movies",
+                "discoverSource": "tmdb",
+                "sortBy": "popularity.desc",
+                "cacheTTL": 86400,
+                "catalogType": "movie",
+                "includeGenres": [],
+                "excludeGenres": [
+                  {
+                    "id": 99,
+                    "label": "Documentary"
+                  }
+                ],
+                "genreJoinMode": "or",
+                "originalLanguage": "",
+                "originCountry": "IN",
+                "certificationCountry": "",
+                "certificationValue": "",
+                "certificationMode": "exact",
+                "includeAdult": false,
+                "releasedOnly": false,
+                "tmdbTvStatuses": [],
+                "selectedPeople": [],
+                "peopleJoinMode": "or",
+                "withCompanies": [],
+                "withoutCompanies": [],
+                "companyJoinMode": "or",
+                "withKeywords": [],
+                "withoutKeywords": [],
+                "keywordJoinMode": "or",
+                "watchRegion": "",
+                "watchProviders": [],
+                "providerJoinMode": "or",
+                "voteAverageRange": [5, 10],
+                "voteCountMin": 0,
+                "runtimeRange": [60, 400],
+                "primaryReleaseFrom": "",
+                "primaryReleaseTo": "",
+                "movieDatePreset": "clear",
+                "firstAirFrom": "",
+                "firstAirTo": "",
+                "seriesDatePreset": "clear",
+                "airDateFrom": "",
+                "airDateTo": "",
+                "releaseRegion": ""
+              }
+            }
+          },
+          "tags": ["countries"]
+        },
+        {
+          "id": "tmdb.discover.movie.italy_movies.mr7xn5f9",
+          "type": "movie",
+          "name": "Italy Movies",
+          "enabled": false,
+          "showInHome": false,
+          "source": "tmdb",
+          "cacheTTL": 86400,
+          "metadata": {
+            "description": "TMDB Discover (movie)",
+            "url": "https://www.themoviedb.org/discover/movie?sort_by=popularity.desc&include_adult=false&without_genres=99&with_origin_country=IT&vote_average.gte=5&vote_count.gte=0&with_runtime.gte=60",
+            "discover": {
+              "version": 2,
+              "source": "tmdb",
+              "mediaType": "movie",
+              "params": {
+                "sort_by": "popularity.desc",
+                "include_adult": false,
+                "without_genres": "99",
+                "with_origin_country": "IT",
+                "vote_average.gte": 5,
+                "vote_count.gte": 0,
+                "with_runtime.gte": 60
+              },
+              "formState": {
+                "catalogName": "Italy Movies",
+                "discoverSource": "tmdb",
+                "sortBy": "popularity.desc",
+                "cacheTTL": 86400,
+                "catalogType": "movie",
+                "includeGenres": [],
+                "excludeGenres": [
+                  {
+                    "id": 99,
+                    "label": "Documentary"
+                  }
+                ],
+                "genreJoinMode": "or",
+                "originalLanguage": "",
+                "originCountry": "IT",
+                "certificationCountry": "",
+                "certificationValue": "",
+                "certificationMode": "exact",
+                "includeAdult": false,
+                "releasedOnly": false,
+                "tmdbTvStatuses": [],
+                "selectedPeople": [],
+                "peopleJoinMode": "or",
+                "withCompanies": [],
+                "withoutCompanies": [],
+                "companyJoinMode": "or",
+                "withKeywords": [],
+                "withoutKeywords": [],
+                "keywordJoinMode": "or",
+                "watchRegion": "",
+                "watchProviders": [],
+                "providerJoinMode": "or",
+                "voteAverageRange": [5, 10],
+                "voteCountMin": 0,
+                "runtimeRange": [60, 400],
+                "primaryReleaseFrom": "",
+                "primaryReleaseTo": "",
+                "movieDatePreset": "clear",
+                "firstAirFrom": "",
+                "firstAirTo": "",
+                "seriesDatePreset": "clear",
+                "airDateFrom": "",
+                "airDateTo": "",
+                "releaseRegion": ""
+              }
+            }
+          },
+          "tags": ["countries"]
+        },
+        {
+          "id": "tmdb.discover.movie.japan_movies.mr7xo9vr",
+          "type": "movie",
+          "name": "Japan Movies",
+          "enabled": false,
+          "showInHome": false,
+          "source": "tmdb",
+          "cacheTTL": 86400,
+          "metadata": {
+            "description": "TMDB Discover (movie)",
+            "url": "https://www.themoviedb.org/discover/movie?sort_by=popularity.desc&include_adult=false&without_genres=99%7C16&with_origin_country=JP&vote_average.gte=5&vote_count.gte=0&with_runtime.gte=60",
+            "discover": {
+              "version": 2,
+              "source": "tmdb",
+              "mediaType": "movie",
+              "params": {
+                "sort_by": "popularity.desc",
+                "include_adult": false,
+                "without_genres": "99|16",
+                "with_origin_country": "JP",
+                "vote_average.gte": 5,
+                "vote_count.gte": 0,
+                "with_runtime.gte": 60
+              },
+              "formState": {
+                "catalogName": "Japan Movies",
+                "discoverSource": "tmdb",
+                "sortBy": "popularity.desc",
+                "cacheTTL": 86400,
+                "catalogType": "movie",
+                "includeGenres": [],
+                "excludeGenres": [
+                  {
+                    "id": 99,
+                    "label": "Documentary"
+                  },
+                  {
+                    "id": 16,
+                    "label": "Animation"
+                  }
+                ],
+                "genreJoinMode": "or",
+                "originalLanguage": "",
+                "originCountry": "JP",
+                "certificationCountry": "",
+                "certificationValue": "",
+                "certificationMode": "exact",
+                "includeAdult": false,
+                "releasedOnly": false,
+                "tmdbTvStatuses": [],
+                "selectedPeople": [],
+                "peopleJoinMode": "or",
+                "withCompanies": [],
+                "withoutCompanies": [],
+                "companyJoinMode": "or",
+                "withKeywords": [],
+                "withoutKeywords": [],
+                "keywordJoinMode": "or",
+                "watchRegion": "",
+                "watchProviders": [],
+                "providerJoinMode": "or",
+                "voteAverageRange": [5, 10],
+                "voteCountMin": 0,
+                "runtimeRange": [60, 400],
+                "primaryReleaseFrom": "",
+                "primaryReleaseTo": "",
+                "movieDatePreset": "clear",
+                "firstAirFrom": "",
+                "firstAirTo": "",
+                "seriesDatePreset": "clear",
+                "airDateFrom": "",
+                "airDateTo": "",
+                "releaseRegion": ""
+              }
+            }
+          },
+          "tags": ["countries"]
+        },
+        {
+          "id": "tmdb.discover.movie.mexico_movies.mr7xp592",
+          "type": "movie",
+          "name": "Mexico Movies",
+          "enabled": false,
+          "showInHome": false,
+          "source": "tmdb",
+          "cacheTTL": 86400,
+          "metadata": {
+            "description": "TMDB Discover (movie)",
+            "url": "https://www.themoviedb.org/discover/movie?sort_by=popularity.desc&include_adult=false&without_genres=99&with_origin_country=MX&vote_average.gte=5&vote_count.gte=0&with_runtime.gte=60",
+            "discover": {
+              "version": 2,
+              "source": "tmdb",
+              "mediaType": "movie",
+              "params": {
+                "sort_by": "popularity.desc",
+                "include_adult": false,
+                "without_genres": "99",
+                "with_origin_country": "MX",
+                "vote_average.gte": 5,
+                "vote_count.gte": 0,
+                "with_runtime.gte": 60
+              },
+              "formState": {
+                "catalogName": "Mexico Movies",
+                "discoverSource": "tmdb",
+                "sortBy": "popularity.desc",
+                "cacheTTL": 86400,
+                "catalogType": "movie",
+                "includeGenres": [],
+                "excludeGenres": [
+                  {
+                    "id": 99,
+                    "label": "Documentary"
+                  }
+                ],
+                "genreJoinMode": "or",
+                "originalLanguage": "",
+                "originCountry": "MX",
+                "certificationCountry": "",
+                "certificationValue": "",
+                "certificationMode": "exact",
+                "includeAdult": false,
+                "releasedOnly": false,
+                "tmdbTvStatuses": [],
+                "selectedPeople": [],
+                "peopleJoinMode": "or",
+                "withCompanies": [],
+                "withoutCompanies": [],
+                "companyJoinMode": "or",
+                "withKeywords": [],
+                "withoutKeywords": [],
+                "keywordJoinMode": "or",
+                "watchRegion": "",
+                "watchProviders": [],
+                "providerJoinMode": "or",
+                "voteAverageRange": [5, 10],
+                "voteCountMin": 0,
+                "runtimeRange": [60, 400],
+                "primaryReleaseFrom": "",
+                "primaryReleaseTo": "",
+                "movieDatePreset": "clear",
+                "firstAirFrom": "",
+                "firstAirTo": "",
+                "seriesDatePreset": "clear",
+                "airDateFrom": "",
+                "airDateTo": "",
+                "releaseRegion": ""
+              }
+            }
+          },
+          "tags": ["countries"]
+        },
+        {
+          "id": "tmdb.discover.movie.south_korea_movies.mr7xpv22",
+          "type": "movie",
+          "name": "South Korea Movies",
+          "enabled": false,
+          "showInHome": false,
+          "source": "tmdb",
+          "cacheTTL": 86400,
+          "metadata": {
+            "description": "TMDB Discover (movie)",
+            "url": "https://www.themoviedb.org/discover/movie?sort_by=popularity.desc&include_adult=false&without_genres=99&with_origin_country=KR&vote_average.gte=5&vote_count.gte=0&with_runtime.gte=60",
+            "discover": {
+              "version": 2,
+              "source": "tmdb",
+              "mediaType": "movie",
+              "params": {
+                "sort_by": "popularity.desc",
+                "include_adult": false,
+                "without_genres": "99",
+                "with_origin_country": "KR",
+                "vote_average.gte": 5,
+                "vote_count.gte": 0,
+                "with_runtime.gte": 60
+              },
+              "formState": {
+                "catalogName": "South Korea Movies",
+                "discoverSource": "tmdb",
+                "sortBy": "popularity.desc",
+                "cacheTTL": 86400,
+                "catalogType": "movie",
+                "includeGenres": [],
+                "excludeGenres": [
+                  {
+                    "id": 99,
+                    "label": "Documentary"
+                  }
+                ],
+                "genreJoinMode": "or",
+                "originalLanguage": "",
+                "originCountry": "KR",
+                "certificationCountry": "",
+                "certificationValue": "",
+                "certificationMode": "exact",
+                "includeAdult": false,
+                "releasedOnly": false,
+                "tmdbTvStatuses": [],
+                "selectedPeople": [],
+                "peopleJoinMode": "or",
+                "withCompanies": [],
+                "withoutCompanies": [],
+                "companyJoinMode": "or",
+                "withKeywords": [],
+                "withoutKeywords": [],
+                "keywordJoinMode": "or",
+                "watchRegion": "",
+                "watchProviders": [],
+                "providerJoinMode": "or",
+                "voteAverageRange": [5, 10],
+                "voteCountMin": 0,
+                "runtimeRange": [60, 400],
+                "primaryReleaseFrom": "",
+                "primaryReleaseTo": "",
+                "movieDatePreset": "clear",
+                "firstAirFrom": "",
+                "firstAirTo": "",
+                "seriesDatePreset": "clear",
+                "airDateFrom": "",
+                "airDateTo": "",
+                "releaseRegion": ""
+              }
+            }
+          },
+          "tags": ["countries"]
+        },
+        {
+          "id": "tmdb.discover.movie.spain_movies.mr7xqq7q",
+          "type": "movie",
+          "name": "Spain Movies",
+          "enabled": false,
+          "showInHome": false,
+          "source": "tmdb",
+          "cacheTTL": 86400,
+          "metadata": {
+            "description": "TMDB Discover (movie)",
+            "url": "https://www.themoviedb.org/discover/movie?sort_by=popularity.desc&include_adult=false&without_genres=99&with_origin_country=ES&vote_average.gte=5&vote_count.gte=0&with_runtime.gte=60",
+            "discover": {
+              "version": 2,
+              "source": "tmdb",
+              "mediaType": "movie",
+              "params": {
+                "sort_by": "popularity.desc",
+                "include_adult": false,
+                "without_genres": "99",
+                "with_origin_country": "ES",
+                "vote_average.gte": 5,
+                "vote_count.gte": 0,
+                "with_runtime.gte": 60
+              },
+              "formState": {
+                "catalogName": "Spain Movies",
+                "discoverSource": "tmdb",
+                "sortBy": "popularity.desc",
+                "cacheTTL": 86400,
+                "catalogType": "movie",
+                "includeGenres": [],
+                "excludeGenres": [
+                  {
+                    "id": 99,
+                    "label": "Documentary"
+                  }
+                ],
+                "genreJoinMode": "or",
+                "originalLanguage": "",
+                "originCountry": "ES",
+                "certificationCountry": "",
+                "certificationValue": "",
+                "certificationMode": "exact",
+                "includeAdult": false,
+                "releasedOnly": false,
+                "tmdbTvStatuses": [],
+                "selectedPeople": [],
+                "peopleJoinMode": "or",
+                "withCompanies": [],
+                "withoutCompanies": [],
+                "companyJoinMode": "or",
+                "withKeywords": [],
+                "withoutKeywords": [],
+                "keywordJoinMode": "or",
+                "watchRegion": "",
+                "watchProviders": [],
+                "providerJoinMode": "or",
+                "voteAverageRange": [10, 10],
+                "voteCountMin": 0,
+                "runtimeRange": [60, 400],
+                "primaryReleaseFrom": "",
+                "primaryReleaseTo": "",
+                "movieDatePreset": "clear",
+                "firstAirFrom": "",
+                "firstAirTo": "",
+                "seriesDatePreset": "clear",
+                "airDateFrom": "",
+                "airDateTo": "",
+                "releaseRegion": ""
+              }
+            }
+          },
+          "tags": ["countries"]
+        },
+        {
+          "id": "tmdb.discover.movie.united_kingdom_movies.mr7xsalm",
+          "type": "movie",
+          "name": "United Kingdom Movies",
+          "enabled": false,
+          "showInHome": false,
+          "source": "tmdb",
+          "cacheTTL": 86400,
+          "metadata": {
+            "description": "TMDB Discover (movie)",
+            "url": "https://www.themoviedb.org/discover/movie?sort_by=popularity.desc&include_adult=false&without_genres=99&with_origin_country=GB&vote_average.gte=5&vote_count.gte=0&with_runtime.gte=60",
+            "discover": {
+              "version": 2,
+              "source": "tmdb",
+              "mediaType": "movie",
+              "params": {
+                "sort_by": "popularity.desc",
+                "include_adult": false,
+                "without_genres": "99",
+                "with_origin_country": "GB",
+                "vote_average.gte": 5,
+                "vote_count.gte": 0,
+                "with_runtime.gte": 60
+              },
+              "formState": {
+                "catalogName": "United Kingdom Movies",
+                "discoverSource": "tmdb",
+                "sortBy": "popularity.desc",
+                "cacheTTL": 86400,
+                "catalogType": "movie",
+                "includeGenres": [],
+                "excludeGenres": [
+                  {
+                    "id": 99,
+                    "label": "Documentary"
+                  }
+                ],
+                "genreJoinMode": "or",
+                "originalLanguage": "",
+                "originCountry": "GB",
+                "certificationCountry": "",
+                "certificationValue": "",
+                "certificationMode": "exact",
+                "includeAdult": false,
+                "releasedOnly": false,
+                "tmdbTvStatuses": [],
+                "selectedPeople": [],
+                "peopleJoinMode": "or",
+                "withCompanies": [],
+                "withoutCompanies": [],
+                "companyJoinMode": "or",
+                "withKeywords": [],
+                "withoutKeywords": [],
+                "keywordJoinMode": "or",
+                "watchRegion": "",
+                "watchProviders": [],
+                "providerJoinMode": "or",
+                "voteAverageRange": [5, 10],
+                "voteCountMin": 0,
+                "runtimeRange": [60, 400],
+                "primaryReleaseFrom": "",
+                "primaryReleaseTo": "",
+                "movieDatePreset": "clear",
+                "firstAirFrom": "",
+                "firstAirTo": "",
+                "seriesDatePreset": "clear",
+                "airDateFrom": "",
+                "airDateTo": "",
+                "releaseRegion": ""
+              }
+            }
+          },
+          "tags": ["countries"]
+        },
+        {
+          "id": "tmdb.discover.movie.united_states_movies.mr7xsos7",
+          "type": "movie",
+          "name": "United States Movies",
+          "enabled": false,
+          "showInHome": false,
+          "source": "tmdb",
+          "cacheTTL": 86400,
+          "metadata": {
+            "description": "TMDB Discover (movie)",
+            "url": "https://www.themoviedb.org/discover/movie?sort_by=popularity.desc&include_adult=false&without_genres=99&with_origin_country=US&vote_average.gte=5&vote_count.gte=0&with_runtime.gte=60",
+            "discover": {
+              "version": 2,
+              "source": "tmdb",
+              "mediaType": "movie",
+              "params": {
+                "sort_by": "popularity.desc",
+                "include_adult": false,
+                "without_genres": "99",
+                "with_origin_country": "US",
+                "vote_average.gte": 5,
+                "vote_count.gte": 0,
+                "with_runtime.gte": 60
+              },
+              "formState": {
+                "catalogName": "United States Movies",
+                "discoverSource": "tmdb",
+                "sortBy": "popularity.desc",
+                "cacheTTL": 86400,
+                "catalogType": "movie",
+                "includeGenres": [],
+                "excludeGenres": [
+                  {
+                    "id": 99,
+                    "label": "Documentary"
+                  }
+                ],
+                "genreJoinMode": "or",
+                "originalLanguage": "",
+                "originCountry": "US",
+                "certificationCountry": "",
+                "certificationValue": "",
+                "certificationMode": "exact",
+                "includeAdult": false,
+                "releasedOnly": false,
+                "tmdbTvStatuses": [],
+                "selectedPeople": [],
+                "peopleJoinMode": "or",
+                "withCompanies": [],
+                "withoutCompanies": [],
+                "companyJoinMode": "or",
+                "withKeywords": [],
+                "withoutKeywords": [],
+                "keywordJoinMode": "or",
+                "watchRegion": "",
+                "watchProviders": [],
+                "providerJoinMode": "or",
+                "voteAverageRange": [5, 10],
+                "voteCountMin": 0,
+                "runtimeRange": [60, 400],
+                "primaryReleaseFrom": "",
+                "primaryReleaseTo": "",
+                "movieDatePreset": "clear",
+                "firstAirFrom": "",
+                "firstAirTo": "",
+                "seriesDatePreset": "clear",
+                "airDateFrom": "",
+                "airDateTo": "",
+                "releaseRegion": ""
+              }
+            }
+          },
+          "tags": ["countries"]
+        },
+        {
+          "id": "tmdb.discover.series.argentina_shows.mr7xvlve",
+          "type": "series",
+          "name": "Argentina Shows",
+          "enabled": false,
+          "showInHome": false,
+          "source": "tmdb",
+          "cacheTTL": 86400,
+          "metadata": {
+            "description": "TMDB Discover (tv)",
+            "url": "https://www.themoviedb.org/discover/tv?sort_by=popularity.desc&include_adult=false&without_genres=10764%7C10763%7C10767&with_origin_country=AR&vote_average.gte=5&vote_count.gte=0&with_runtime.gte=10",
+            "discover": {
+              "version": 2,
+              "source": "tmdb",
+              "mediaType": "tv",
+              "params": {
+                "sort_by": "popularity.desc",
+                "include_adult": false,
+                "without_genres": "10764|10763|10767",
+                "with_origin_country": "AR",
+                "vote_average.gte": 5,
+                "vote_count.gte": 0,
+                "with_runtime.gte": 10
+              },
+              "formState": {
+                "catalogName": "Argentina Shows",
+                "discoverSource": "tmdb",
+                "sortBy": "popularity.desc",
+                "cacheTTL": 86400,
+                "catalogType": "series",
+                "includeGenres": [],
+                "excludeGenres": [
+                  {
+                    "id": 10764,
+                    "label": "Reality"
+                  },
+                  {
+                    "id": 10763,
+                    "label": "News"
+                  },
+                  {
+                    "id": 10767,
+                    "label": "Talk"
+                  }
+                ],
+                "genreJoinMode": "or",
+                "originalLanguage": "",
+                "originCountry": "AR",
+                "certificationCountry": "",
+                "certificationValue": "",
+                "certificationMode": "exact",
+                "includeAdult": false,
+                "releasedOnly": false,
+                "tmdbTvStatuses": [],
+                "selectedPeople": [],
+                "peopleJoinMode": "or",
+                "withCompanies": [],
+                "withoutCompanies": [],
+                "companyJoinMode": "or",
+                "withKeywords": [],
+                "withoutKeywords": [],
+                "keywordJoinMode": "or",
+                "watchRegion": "",
+                "watchProviders": [],
+                "providerJoinMode": "or",
+                "voteAverageRange": [5, 10],
+                "voteCountMin": 0,
+                "runtimeRange": [10, 400],
+                "primaryReleaseFrom": "",
+                "primaryReleaseTo": "",
+                "movieDatePreset": "clear",
+                "firstAirFrom": "",
+                "firstAirTo": "",
+                "seriesDatePreset": "clear",
+                "airDateFrom": "",
+                "airDateTo": "",
+                "releaseRegion": ""
+              }
+            }
+          },
+          "tags": ["countries"]
+        },
+        {
+          "id": "tmdb.discover.series.brazil_shows.mr7xzhlq",
+          "type": "series",
+          "name": "Brazil Shows",
+          "enabled": false,
+          "showInHome": false,
+          "source": "tmdb",
+          "cacheTTL": 86400,
+          "metadata": {
+            "description": "TMDB Discover (tv)",
+            "url": "https://www.themoviedb.org/discover/tv?sort_by=popularity.desc&include_adult=false&without_genres=10767%7C10764%7C10763&with_origin_country=BR&vote_average.gte=5&vote_count.gte=0&with_runtime.gte=10",
+            "discover": {
+              "version": 2,
+              "source": "tmdb",
+              "mediaType": "tv",
+              "params": {
+                "sort_by": "popularity.desc",
+                "include_adult": false,
+                "without_genres": "10767|10764|10763",
+                "with_origin_country": "BR",
+                "vote_average.gte": 5,
+                "vote_count.gte": 0,
+                "with_runtime.gte": 10
+              },
+              "formState": {
+                "catalogName": "Brazil Shows",
+                "discoverSource": "tmdb",
+                "sortBy": "popularity.desc",
+                "cacheTTL": 86400,
+                "catalogType": "series",
+                "includeGenres": [],
+                "excludeGenres": [
+                  {
+                    "id": 10767,
+                    "label": "Talk"
+                  },
+                  {
+                    "id": 10764,
+                    "label": "Reality"
+                  },
+                  {
+                    "id": 10763,
+                    "label": "News"
+                  }
+                ],
+                "genreJoinMode": "or",
+                "originalLanguage": "",
+                "originCountry": "BR",
+                "certificationCountry": "",
+                "certificationValue": "",
+                "certificationMode": "exact",
+                "includeAdult": false,
+                "releasedOnly": false,
+                "tmdbTvStatuses": [],
+                "selectedPeople": [],
+                "peopleJoinMode": "or",
+                "withCompanies": [],
+                "withoutCompanies": [],
+                "companyJoinMode": "or",
+                "withKeywords": [],
+                "withoutKeywords": [],
+                "keywordJoinMode": "or",
+                "watchRegion": "",
+                "watchProviders": [],
+                "providerJoinMode": "or",
+                "voteAverageRange": [5, 10],
+                "voteCountMin": 0,
+                "runtimeRange": [10, 400],
+                "primaryReleaseFrom": "",
+                "primaryReleaseTo": "",
+                "movieDatePreset": "clear",
+                "firstAirFrom": "",
+                "firstAirTo": "",
+                "seriesDatePreset": "clear",
+                "airDateFrom": "",
+                "airDateTo": "",
+                "releaseRegion": ""
+              }
+            }
+          },
+          "tags": ["countries"]
+        },
+        {
+          "id": "tmdb.discover.series.china_shows.mr7y0ku7",
+          "type": "series",
+          "name": "China Shows",
+          "enabled": false,
+          "showInHome": false,
+          "source": "tmdb",
+          "cacheTTL": 86400,
+          "metadata": {
+            "description": "TMDB Discover (tv)",
+            "url": "https://www.themoviedb.org/discover/tv?sort_by=popularity.desc&include_adult=false&without_genres=10767%7C10763%7C10764&with_origin_country=CN&vote_average.gte=5&vote_count.gte=0&with_runtime.gte=10",
+            "discover": {
+              "version": 2,
+              "source": "tmdb",
+              "mediaType": "tv",
+              "params": {
+                "sort_by": "popularity.desc",
+                "include_adult": false,
+                "without_genres": "10767|10763|10764",
+                "with_origin_country": "CN",
+                "vote_average.gte": 5,
+                "vote_count.gte": 0,
+                "with_runtime.gte": 10
+              },
+              "formState": {
+                "catalogName": "China Shows",
+                "discoverSource": "tmdb",
+                "sortBy": "popularity.desc",
+                "cacheTTL": 86400,
+                "catalogType": "series",
+                "includeGenres": [],
+                "excludeGenres": [
+                  {
+                    "id": 10767,
+                    "label": "Talk"
+                  },
+                  {
+                    "id": 10763,
+                    "label": "News"
+                  },
+                  {
+                    "id": 10764,
+                    "label": "Reality"
+                  }
+                ],
+                "genreJoinMode": "or",
+                "originalLanguage": "",
+                "originCountry": "CN",
+                "certificationCountry": "",
+                "certificationValue": "",
+                "certificationMode": "exact",
+                "includeAdult": false,
+                "releasedOnly": false,
+                "tmdbTvStatuses": [],
+                "selectedPeople": [],
+                "peopleJoinMode": "or",
+                "withCompanies": [],
+                "withoutCompanies": [],
+                "companyJoinMode": "or",
+                "withKeywords": [],
+                "withoutKeywords": [],
+                "keywordJoinMode": "or",
+                "watchRegion": "",
+                "watchProviders": [],
+                "providerJoinMode": "or",
+                "voteAverageRange": [5, 10],
+                "voteCountMin": 0,
+                "runtimeRange": [10, 400],
+                "primaryReleaseFrom": "",
+                "primaryReleaseTo": "",
+                "movieDatePreset": "clear",
+                "firstAirFrom": "",
+                "firstAirTo": "",
+                "seriesDatePreset": "clear",
+                "airDateFrom": "",
+                "airDateTo": "",
+                "releaseRegion": ""
+              }
+            }
+          },
+          "tags": ["countries"]
+        },
+        {
+          "id": "tmdb.discover.series.france_shows.mr7y2q05",
+          "type": "series",
+          "name": "France Shows",
+          "enabled": false,
+          "showInHome": false,
+          "source": "tmdb",
+          "cacheTTL": 86400,
+          "metadata": {
+            "description": "TMDB Discover (tv)",
+            "url": "https://www.themoviedb.org/discover/tv?sort_by=popularity.desc&include_adult=false&without_genres=10764%7C10763%7C10767&with_origin_country=FR&vote_average.gte=5&vote_count.gte=0&with_runtime.gte=10",
+            "discover": {
+              "version": 2,
+              "source": "tmdb",
+              "mediaType": "tv",
+              "params": {
+                "sort_by": "popularity.desc",
+                "include_adult": false,
+                "without_genres": "10764|10763|10767",
+                "with_origin_country": "FR",
+                "vote_average.gte": 5,
+                "vote_count.gte": 0,
+                "with_runtime.gte": 10
+              },
+              "formState": {
+                "catalogName": "France Shows",
+                "discoverSource": "tmdb",
+                "sortBy": "popularity.desc",
+                "cacheTTL": 86400,
+                "catalogType": "series",
+                "includeGenres": [],
+                "excludeGenres": [
+                  {
+                    "id": 10764,
+                    "label": "Reality"
+                  },
+                  {
+                    "id": 10763,
+                    "label": "News"
+                  },
+                  {
+                    "id": 10767,
+                    "label": "Talk"
+                  }
+                ],
+                "genreJoinMode": "or",
+                "originalLanguage": "",
+                "originCountry": "FR",
+                "certificationCountry": "",
+                "certificationValue": "",
+                "certificationMode": "exact",
+                "includeAdult": false,
+                "releasedOnly": false,
+                "tmdbTvStatuses": [],
+                "selectedPeople": [],
+                "peopleJoinMode": "or",
+                "withCompanies": [],
+                "withoutCompanies": [],
+                "companyJoinMode": "or",
+                "withKeywords": [],
+                "withoutKeywords": [],
+                "keywordJoinMode": "or",
+                "watchRegion": "",
+                "watchProviders": [],
+                "providerJoinMode": "or",
+                "voteAverageRange": [5, 10],
+                "voteCountMin": 0,
+                "runtimeRange": [10, 400],
+                "primaryReleaseFrom": "",
+                "primaryReleaseTo": "",
+                "movieDatePreset": "clear",
+                "firstAirFrom": "",
+                "firstAirTo": "",
+                "seriesDatePreset": "clear",
+                "airDateFrom": "",
+                "airDateTo": "",
+                "releaseRegion": ""
+              }
+            }
+          },
+          "tags": ["countries"]
+        },
+        {
+          "id": "tmdb.discover.series.germany_shows.mr7y3dm6",
+          "type": "series",
+          "name": "Germany Shows",
+          "enabled": false,
+          "showInHome": false,
+          "source": "tmdb",
+          "cacheTTL": 86400,
+          "metadata": {
+            "description": "TMDB Discover (tv)",
+            "url": "https://www.themoviedb.org/discover/tv?sort_by=popularity.desc&include_adult=false&without_genres=10764%7C10763%7C10767&with_origin_country=DE&vote_average.gte=5&vote_count.gte=0&with_runtime.gte=10",
+            "discover": {
+              "version": 2,
+              "source": "tmdb",
+              "mediaType": "tv",
+              "params": {
+                "sort_by": "popularity.desc",
+                "include_adult": false,
+                "without_genres": "10764|10763|10767",
+                "with_origin_country": "DE",
+                "vote_average.gte": 5,
+                "vote_count.gte": 0,
+                "with_runtime.gte": 10
+              },
+              "formState": {
+                "catalogName": "Germany Shows",
+                "discoverSource": "tmdb",
+                "sortBy": "popularity.desc",
+                "cacheTTL": 86400,
+                "catalogType": "series",
+                "includeGenres": [],
+                "excludeGenres": [
+                  {
+                    "id": 10764,
+                    "label": "Reality"
+                  },
+                  {
+                    "id": 10763,
+                    "label": "News"
+                  },
+                  {
+                    "id": 10767,
+                    "label": "Talk"
+                  }
+                ],
+                "genreJoinMode": "or",
+                "originalLanguage": "",
+                "originCountry": "DE",
+                "certificationCountry": "",
+                "certificationValue": "",
+                "certificationMode": "exact",
+                "includeAdult": false,
+                "releasedOnly": false,
+                "tmdbTvStatuses": [],
+                "selectedPeople": [],
+                "peopleJoinMode": "or",
+                "withCompanies": [],
+                "withoutCompanies": [],
+                "companyJoinMode": "or",
+                "withKeywords": [],
+                "withoutKeywords": [],
+                "keywordJoinMode": "or",
+                "watchRegion": "",
+                "watchProviders": [],
+                "providerJoinMode": "or",
+                "voteAverageRange": [5, 10],
+                "voteCountMin": 0,
+                "runtimeRange": [10, 400],
+                "primaryReleaseFrom": "",
+                "primaryReleaseTo": "",
+                "movieDatePreset": "clear",
+                "firstAirFrom": "",
+                "firstAirTo": "",
+                "seriesDatePreset": "clear",
+                "airDateFrom": "",
+                "airDateTo": "",
+                "releaseRegion": ""
+              }
+            }
+          },
+          "tags": ["countries"]
+        },
+        {
+          "id": "tmdb.discover.series.india_shows.mr7y45ul",
+          "type": "series",
+          "name": "India Shows",
+          "enabled": false,
+          "showInHome": false,
+          "source": "tmdb",
+          "cacheTTL": 86400,
+          "metadata": {
+            "description": "TMDB Discover (tv)",
+            "url": "https://www.themoviedb.org/discover/tv?sort_by=popularity.desc&include_adult=false&without_genres=10764%7C10767%7C10763&with_origin_country=IN&vote_average.gte=5&vote_count.gte=0&with_runtime.gte=10",
+            "discover": {
+              "version": 2,
+              "source": "tmdb",
+              "mediaType": "tv",
+              "params": {
+                "sort_by": "popularity.desc",
+                "include_adult": false,
+                "without_genres": "10764|10767|10763",
+                "with_origin_country": "IN",
+                "vote_average.gte": 5,
+                "vote_count.gte": 0,
+                "with_runtime.gte": 10
+              },
+              "formState": {
+                "catalogName": "India Shows",
+                "discoverSource": "tmdb",
+                "sortBy": "popularity.desc",
+                "cacheTTL": 86400,
+                "catalogType": "series",
+                "includeGenres": [],
+                "excludeGenres": [
+                  {
+                    "id": 10764,
+                    "label": "Reality"
+                  },
+                  {
+                    "id": 10767,
+                    "label": "Talk"
+                  },
+                  {
+                    "id": 10763,
+                    "label": "News"
+                  }
+                ],
+                "genreJoinMode": "or",
+                "originalLanguage": "",
+                "originCountry": "IN",
+                "certificationCountry": "",
+                "certificationValue": "",
+                "certificationMode": "exact",
+                "includeAdult": false,
+                "releasedOnly": false,
+                "tmdbTvStatuses": [],
+                "selectedPeople": [],
+                "peopleJoinMode": "or",
+                "withCompanies": [],
+                "withoutCompanies": [],
+                "companyJoinMode": "or",
+                "withKeywords": [],
+                "withoutKeywords": [],
+                "keywordJoinMode": "or",
+                "watchRegion": "",
+                "watchProviders": [],
+                "providerJoinMode": "or",
+                "voteAverageRange": [5, 10],
+                "voteCountMin": 0,
+                "runtimeRange": [10, 400],
+                "primaryReleaseFrom": "",
+                "primaryReleaseTo": "",
+                "movieDatePreset": "clear",
+                "firstAirFrom": "",
+                "firstAirTo": "",
+                "seriesDatePreset": "clear",
+                "airDateFrom": "",
+                "airDateTo": "",
+                "releaseRegion": ""
+              }
+            }
+          },
+          "tags": ["countries"]
+        },
+        {
+          "id": "tmdb.discover.series.italy_shows.mr7y503e",
+          "type": "series",
+          "name": "Italy Shows",
+          "enabled": false,
+          "showInHome": false,
+          "source": "tmdb",
+          "cacheTTL": 86400,
+          "metadata": {
+            "description": "TMDB Discover (tv)",
+            "url": "https://www.themoviedb.org/discover/tv?sort_by=popularity.desc&include_adult=false&without_genres=10764%7C10763%7C10767&with_origin_country=IT&vote_average.gte=5&vote_count.gte=0&with_runtime.gte=10",
+            "discover": {
+              "version": 2,
+              "source": "tmdb",
+              "mediaType": "tv",
+              "params": {
+                "sort_by": "popularity.desc",
+                "include_adult": false,
+                "without_genres": "10764|10763|10767",
+                "with_origin_country": "IT",
+                "vote_average.gte": 5,
+                "vote_count.gte": 0,
+                "with_runtime.gte": 10
+              },
+              "formState": {
+                "catalogName": "Italy Shows",
+                "discoverSource": "tmdb",
+                "sortBy": "popularity.desc",
+                "cacheTTL": 86400,
+                "catalogType": "series",
+                "includeGenres": [],
+                "excludeGenres": [
+                  {
+                    "id": 10764,
+                    "label": "Reality"
+                  },
+                  {
+                    "id": 10763,
+                    "label": "News"
+                  },
+                  {
+                    "id": 10767,
+                    "label": "Talk"
+                  }
+                ],
+                "genreJoinMode": "or",
+                "originalLanguage": "",
+                "originCountry": "IT",
+                "certificationCountry": "",
+                "certificationValue": "",
+                "certificationMode": "exact",
+                "includeAdult": false,
+                "releasedOnly": false,
+                "tmdbTvStatuses": [],
+                "selectedPeople": [],
+                "peopleJoinMode": "or",
+                "withCompanies": [],
+                "withoutCompanies": [],
+                "companyJoinMode": "or",
+                "withKeywords": [],
+                "withoutKeywords": [],
+                "keywordJoinMode": "or",
+                "watchRegion": "",
+                "watchProviders": [],
+                "providerJoinMode": "or",
+                "voteAverageRange": [5, 10],
+                "voteCountMin": 0,
+                "runtimeRange": [10, 400],
+                "primaryReleaseFrom": "",
+                "primaryReleaseTo": "",
+                "movieDatePreset": "clear",
+                "firstAirFrom": "",
+                "firstAirTo": "",
+                "seriesDatePreset": "clear",
+                "airDateFrom": "",
+                "airDateTo": "",
+                "releaseRegion": ""
+              }
+            }
+          },
+          "tags": ["countries"]
+        },
+        {
+          "id": "tmdb.discover.series.japan_shows.mr7y60sa",
+          "type": "series",
+          "name": "Japan Shows",
+          "enabled": false,
+          "showInHome": false,
+          "source": "tmdb",
+          "cacheTTL": 86400,
+          "metadata": {
+            "description": "TMDB Discover (tv)",
+            "url": "https://www.themoviedb.org/discover/tv?sort_by=popularity.desc&include_adult=false&without_genres=10764%7C10763%7C10767%7C16&with_origin_country=JP&vote_average.gte=5&vote_count.gte=0&with_runtime.gte=10",
+            "discover": {
+              "version": 2,
+              "source": "tmdb",
+              "mediaType": "tv",
+              "params": {
+                "sort_by": "popularity.desc",
+                "include_adult": false,
+                "without_genres": "10764|10763|10767|16",
+                "with_origin_country": "JP",
+                "vote_average.gte": 5,
+                "vote_count.gte": 0,
+                "with_runtime.gte": 10
+              },
+              "formState": {
+                "catalogName": "Japan Shows",
+                "discoverSource": "tmdb",
+                "sortBy": "popularity.desc",
+                "cacheTTL": 86400,
+                "catalogType": "series",
+                "includeGenres": [],
+                "excludeGenres": [
+                  {
+                    "id": 10764,
+                    "label": "Reality"
+                  },
+                  {
+                    "id": 10763,
+                    "label": "News"
+                  },
+                  {
+                    "id": 10767,
+                    "label": "Talk"
+                  },
+                  {
+                    "id": 16,
+                    "label": "Animation"
+                  }
+                ],
+                "genreJoinMode": "or",
+                "originalLanguage": "",
+                "originCountry": "JP",
+                "certificationCountry": "",
+                "certificationValue": "",
+                "certificationMode": "exact",
+                "includeAdult": false,
+                "releasedOnly": false,
+                "tmdbTvStatuses": [],
+                "selectedPeople": [],
+                "peopleJoinMode": "or",
+                "withCompanies": [],
+                "withoutCompanies": [],
+                "companyJoinMode": "or",
+                "withKeywords": [],
+                "withoutKeywords": [],
+                "keywordJoinMode": "or",
+                "watchRegion": "",
+                "watchProviders": [],
+                "providerJoinMode": "or",
+                "voteAverageRange": [5, 10],
+                "voteCountMin": 0,
+                "runtimeRange": [10, 400],
+                "primaryReleaseFrom": "",
+                "primaryReleaseTo": "",
+                "movieDatePreset": "clear",
+                "firstAirFrom": "",
+                "firstAirTo": "",
+                "seriesDatePreset": "clear",
+                "airDateFrom": "",
+                "airDateTo": "",
+                "releaseRegion": ""
+              }
+            }
+          },
+          "tags": ["countries"]
+        },
+        {
+          "id": "tmdb.discover.series.mexico_shows.mr7y7bhb",
+          "type": "series",
+          "name": "Mexico Shows",
+          "enabled": false,
+          "showInHome": false,
+          "source": "tmdb",
+          "cacheTTL": 86400,
+          "metadata": {
+            "description": "TMDB Discover (tv)",
+            "url": "https://www.themoviedb.org/discover/tv?sort_by=popularity.desc&include_adult=false&without_genres=10767%7C10764%7C10763&with_origin_country=MX&vote_average.gte=5&vote_count.gte=0&with_runtime.gte=10",
+            "discover": {
+              "version": 2,
+              "source": "tmdb",
+              "mediaType": "tv",
+              "params": {
+                "sort_by": "popularity.desc",
+                "include_adult": false,
+                "without_genres": "10767|10764|10763",
+                "with_origin_country": "MX",
+                "vote_average.gte": 5,
+                "vote_count.gte": 0,
+                "with_runtime.gte": 10
+              },
+              "formState": {
+                "catalogName": "Mexico Shows",
+                "discoverSource": "tmdb",
+                "sortBy": "popularity.desc",
+                "cacheTTL": 86400,
+                "catalogType": "series",
+                "includeGenres": [],
+                "excludeGenres": [
+                  {
+                    "id": 10767,
+                    "label": "Talk"
+                  },
+                  {
+                    "id": 10764,
+                    "label": "Reality"
+                  },
+                  {
+                    "id": 10763,
+                    "label": "News"
+                  }
+                ],
+                "genreJoinMode": "or",
+                "originalLanguage": "",
+                "originCountry": "MX",
+                "certificationCountry": "",
+                "certificationValue": "",
+                "certificationMode": "exact",
+                "includeAdult": false,
+                "releasedOnly": false,
+                "tmdbTvStatuses": [],
+                "selectedPeople": [],
+                "peopleJoinMode": "or",
+                "withCompanies": [],
+                "withoutCompanies": [],
+                "companyJoinMode": "or",
+                "withKeywords": [],
+                "withoutKeywords": [],
+                "keywordJoinMode": "or",
+                "watchRegion": "",
+                "watchProviders": [],
+                "providerJoinMode": "or",
+                "voteAverageRange": [5, 10],
+                "voteCountMin": 0,
+                "runtimeRange": [10, 400],
+                "primaryReleaseFrom": "",
+                "primaryReleaseTo": "",
+                "movieDatePreset": "clear",
+                "firstAirFrom": "",
+                "firstAirTo": "",
+                "seriesDatePreset": "clear",
+                "airDateFrom": "",
+                "airDateTo": "",
+                "releaseRegion": ""
+              }
+            }
+          },
+          "tags": ["countries"]
+        },
+        {
+          "id": "tmdb.discover.series.south_korea_shows.mr7y86va",
+          "type": "series",
+          "name": "South Korea Shows",
+          "enabled": false,
+          "showInHome": false,
+          "source": "tmdb",
+          "cacheTTL": 86400,
+          "metadata": {
+            "description": "TMDB Discover (tv)",
+            "url": "https://www.themoviedb.org/discover/tv?sort_by=popularity.desc&include_adult=false&without_genres=10764%7C10763%7C10767&with_origin_country=KR&vote_average.gte=5&vote_count.gte=0&with_runtime.gte=10",
+            "discover": {
+              "version": 2,
+              "source": "tmdb",
+              "mediaType": "tv",
+              "params": {
+                "sort_by": "popularity.desc",
+                "include_adult": false,
+                "without_genres": "10764|10763|10767",
+                "with_origin_country": "KR",
+                "vote_average.gte": 5,
+                "vote_count.gte": 0,
+                "with_runtime.gte": 10
+              },
+              "formState": {
+                "catalogName": "South Korea Shows",
+                "discoverSource": "tmdb",
+                "sortBy": "popularity.desc",
+                "cacheTTL": 86400,
+                "catalogType": "series",
+                "includeGenres": [],
+                "excludeGenres": [
+                  {
+                    "id": 10764,
+                    "label": "Reality"
+                  },
+                  {
+                    "id": 10763,
+                    "label": "News"
+                  },
+                  {
+                    "id": 10767,
+                    "label": "Talk"
+                  }
+                ],
+                "genreJoinMode": "or",
+                "originalLanguage": "",
+                "originCountry": "KR",
+                "certificationCountry": "",
+                "certificationValue": "",
+                "certificationMode": "exact",
+                "includeAdult": false,
+                "releasedOnly": false,
+                "tmdbTvStatuses": [],
+                "selectedPeople": [],
+                "peopleJoinMode": "or",
+                "withCompanies": [],
+                "withoutCompanies": [],
+                "companyJoinMode": "or",
+                "withKeywords": [],
+                "withoutKeywords": [],
+                "keywordJoinMode": "or",
+                "watchRegion": "",
+                "watchProviders": [],
+                "providerJoinMode": "or",
+                "voteAverageRange": [5, 10],
+                "voteCountMin": 0,
+                "runtimeRange": [10, 400],
+                "primaryReleaseFrom": "",
+                "primaryReleaseTo": "",
+                "movieDatePreset": "clear",
+                "firstAirFrom": "",
+                "firstAirTo": "",
+                "seriesDatePreset": "clear",
+                "airDateFrom": "",
+                "airDateTo": "",
+                "releaseRegion": ""
+              }
+            }
+          },
+          "tags": ["countries"]
+        },
+        {
+          "id": "tmdb.discover.series.spain_shows.mr7y8ysq",
+          "type": "series",
+          "name": "Spain Shows",
+          "enabled": false,
+          "showInHome": false,
+          "source": "tmdb",
+          "cacheTTL": 86400,
+          "metadata": {
+            "description": "TMDB Discover (tv)",
+            "url": "https://www.themoviedb.org/discover/tv?sort_by=popularity.desc&include_adult=false&without_genres=10763%7C10764%7C10767&with_origin_country=ES&vote_average.gte=5&vote_count.gte=0&with_runtime.gte=10",
+            "discover": {
+              "version": 2,
+              "source": "tmdb",
+              "mediaType": "tv",
+              "params": {
+                "sort_by": "popularity.desc",
+                "include_adult": false,
+                "without_genres": "10763|10764|10767",
+                "with_origin_country": "ES",
+                "vote_average.gte": 5,
+                "vote_count.gte": 0,
+                "with_runtime.gte": 10
+              },
+              "formState": {
+                "catalogName": "Spain Shows",
+                "discoverSource": "tmdb",
+                "sortBy": "popularity.desc",
+                "cacheTTL": 86400,
+                "catalogType": "series",
+                "includeGenres": [],
+                "excludeGenres": [
+                  {
+                    "id": 10763,
+                    "label": "News"
+                  },
+                  {
+                    "id": 10764,
+                    "label": "Reality"
+                  },
+                  {
+                    "id": 10767,
+                    "label": "Talk"
+                  }
+                ],
+                "genreJoinMode": "or",
+                "originalLanguage": "",
+                "originCountry": "ES",
+                "certificationCountry": "",
+                "certificationValue": "",
+                "certificationMode": "exact",
+                "includeAdult": false,
+                "releasedOnly": false,
+                "tmdbTvStatuses": [],
+                "selectedPeople": [],
+                "peopleJoinMode": "or",
+                "withCompanies": [],
+                "withoutCompanies": [],
+                "companyJoinMode": "or",
+                "withKeywords": [],
+                "withoutKeywords": [],
+                "keywordJoinMode": "or",
+                "watchRegion": "",
+                "watchProviders": [],
+                "providerJoinMode": "or",
+                "voteAverageRange": [5, 10],
+                "voteCountMin": 0,
+                "runtimeRange": [10, 400],
+                "primaryReleaseFrom": "",
+                "primaryReleaseTo": "",
+                "movieDatePreset": "clear",
+                "firstAirFrom": "",
+                "firstAirTo": "",
+                "seriesDatePreset": "clear",
+                "airDateFrom": "",
+                "airDateTo": "",
+                "releaseRegion": ""
+              }
+            }
+          },
+          "tags": ["countries"]
+        },
+        {
+          "id": "tmdb.discover.series.united_kingdom_shows.mr7y9vbh",
+          "type": "series",
+          "name": "United Kingdom Shows",
+          "enabled": false,
+          "showInHome": false,
+          "source": "tmdb",
+          "cacheTTL": 86400,
+          "metadata": {
+            "description": "TMDB Discover (tv)",
+            "url": "https://www.themoviedb.org/discover/tv?sort_by=popularity.desc&include_adult=false&without_genres=10767%7C10763%7C10764&with_origin_country=GB&vote_average.gte=5&vote_count.gte=0&with_runtime.gte=10",
+            "discover": {
+              "version": 2,
+              "source": "tmdb",
+              "mediaType": "tv",
+              "params": {
+                "sort_by": "popularity.desc",
+                "include_adult": false,
+                "without_genres": "10767|10763|10764",
+                "with_origin_country": "GB",
+                "vote_average.gte": 5,
+                "vote_count.gte": 0,
+                "with_runtime.gte": 10
+              },
+              "formState": {
+                "catalogName": "United Kingdom Shows",
+                "discoverSource": "tmdb",
+                "sortBy": "popularity.desc",
+                "cacheTTL": 86400,
+                "catalogType": "series",
+                "includeGenres": [],
+                "excludeGenres": [
+                  {
+                    "id": 10767,
+                    "label": "Talk"
+                  },
+                  {
+                    "id": 10763,
+                    "label": "News"
+                  },
+                  {
+                    "id": 10764,
+                    "label": "Reality"
+                  }
+                ],
+                "genreJoinMode": "or",
+                "originalLanguage": "",
+                "originCountry": "GB",
+                "certificationCountry": "",
+                "certificationValue": "",
+                "certificationMode": "exact",
+                "includeAdult": false,
+                "releasedOnly": false,
+                "tmdbTvStatuses": [],
+                "selectedPeople": [],
+                "peopleJoinMode": "or",
+                "withCompanies": [],
+                "withoutCompanies": [],
+                "companyJoinMode": "or",
+                "withKeywords": [],
+                "withoutKeywords": [],
+                "keywordJoinMode": "or",
+                "watchRegion": "",
+                "watchProviders": [],
+                "providerJoinMode": "or",
+                "voteAverageRange": [5, 10],
+                "voteCountMin": 0,
+                "runtimeRange": [10, 400],
+                "primaryReleaseFrom": "",
+                "primaryReleaseTo": "",
+                "movieDatePreset": "clear",
+                "firstAirFrom": "",
+                "firstAirTo": "",
+                "seriesDatePreset": "clear",
+                "airDateFrom": "",
+                "airDateTo": "",
+                "releaseRegion": ""
+              }
+            }
+          },
+          "tags": ["countries"]
+        },
+        {
+          "id": "tmdb.discover.series.united_states_shows.mr7yant6",
+          "type": "series",
+          "name": "United States Shows",
+          "enabled": false,
+          "showInHome": false,
+          "source": "tmdb",
+          "cacheTTL": 86400,
+          "metadata": {
+            "description": "TMDB Discover (tv)",
+            "url": "https://www.themoviedb.org/discover/tv?sort_by=popularity.desc&include_adult=false&without_genres=10764%7C10763%7C10767&with_origin_country=US&vote_average.gte=5&vote_count.gte=0&with_runtime.gte=10",
+            "discover": {
+              "version": 2,
+              "source": "tmdb",
+              "mediaType": "tv",
+              "params": {
+                "sort_by": "popularity.desc",
+                "include_adult": false,
+                "without_genres": "10764|10763|10767",
+                "with_origin_country": "US",
+                "vote_average.gte": 5,
+                "vote_count.gte": 0,
+                "with_runtime.gte": 10
+              },
+              "formState": {
+                "catalogName": "United States Shows",
+                "discoverSource": "tmdb",
+                "sortBy": "popularity.desc",
+                "cacheTTL": 86400,
+                "catalogType": "series",
+                "includeGenres": [],
+                "excludeGenres": [
+                  {
+                    "id": 10764,
+                    "label": "Reality"
+                  },
+                  {
+                    "id": 10763,
+                    "label": "News"
+                  },
+                  {
+                    "id": 10767,
+                    "label": "Talk"
+                  }
+                ],
+                "genreJoinMode": "or",
+                "originalLanguage": "",
+                "originCountry": "US",
+                "certificationCountry": "",
+                "certificationValue": "",
+                "certificationMode": "exact",
+                "includeAdult": false,
+                "releasedOnly": false,
+                "tmdbTvStatuses": [],
+                "selectedPeople": [],
+                "peopleJoinMode": "or",
+                "withCompanies": [],
+                "withoutCompanies": [],
+                "companyJoinMode": "or",
+                "withKeywords": [],
+                "withoutKeywords": [],
+                "keywordJoinMode": "or",
+                "watchRegion": "",
+                "watchProviders": [],
+                "providerJoinMode": "or",
+                "voteAverageRange": [5, 10],
+                "voteCountMin": 0,
+                "runtimeRange": [10, 400],
+                "primaryReleaseFrom": "",
+                "primaryReleaseTo": "",
+                "movieDatePreset": "clear",
+                "firstAirFrom": "",
+                "firstAirTo": "",
+                "seriesDatePreset": "clear",
+                "airDateFrom": "",
+                "airDateTo": "",
+                "releaseRegion": ""
+              }
+            }
+          },
+          "tags": ["countries"]
+        },
+        {
+          "id": "tmdb.discover.movie.alien_movies.mr87dffj",
+          "type": "movie",
+          "name": "Alien Movies",
+          "enabled": false,
+          "showInHome": false,
+          "source": "tmdb",
+          "cacheTTL": 86400,
+          "metadata": {
+            "description": "TMDB Discover (movie)",
+            "url": "https://www.themoviedb.org/discover/movie?sort_by=popularity.desc&include_adult=false&without_genres=16%7C99&with_keywords=9951&vote_average.gte=5&with_runtime.gte=60",
+            "discover": {
+              "version": 2,
+              "source": "tmdb",
+              "mediaType": "movie",
+              "params": {
+                "sort_by": "popularity.desc",
+                "include_adult": false,
+                "without_genres": "16|99",
+                "with_keywords": "9951",
+                "vote_average.gte": 5,
+                "with_runtime.gte": 60
+              },
+              "formState": {
+                "catalogName": "Alien Movies",
+                "discoverSource": "tmdb",
+                "sortBy": "popularity.desc",
+                "cacheTTL": 86400,
+                "catalogType": "movie",
+                "includeGenres": [],
+                "excludeGenres": [
+                  {
+                    "id": 16,
+                    "label": "Animation"
+                  },
+                  {
+                    "id": 99,
+                    "label": "Documentary"
+                  }
+                ],
+                "genreJoinMode": "or",
+                "originalLanguage": "",
+                "originCountry": "",
+                "certificationCountry": "",
+                "certificationValue": "",
+                "certificationMode": "exact",
+                "includeAdult": false,
+                "releasedOnly": false,
+                "tmdbTvStatuses": [],
+                "selectedPeople": [],
+                "peopleJoinMode": "or",
+                "withCompanies": [],
+                "withoutCompanies": [],
+                "companyJoinMode": "or",
+                "withKeywords": [
+                  {
+                    "id": 9951,
+                    "label": "alien"
+                  }
+                ],
+                "withoutKeywords": [],
+                "keywordJoinMode": "or",
+                "watchRegion": "",
+                "watchProviders": [],
+                "providerJoinMode": "or",
+                "voteAverageRange": [5, 10],
+                "voteCountMin": 0,
+                "runtimeRange": [60, 400],
+                "primaryReleaseFrom": "",
+                "primaryReleaseTo": "",
+                "movieDatePreset": "clear",
+                "firstAirFrom": "",
+                "firstAirTo": "",
+                "seriesDatePreset": "clear",
+                "airDateFrom": "",
+                "airDateTo": "",
+                "releaseRegion": ""
+              }
+            }
+          },
+          "tags": ["themed"]
+        },
+        {
+          "id": "tmdb.discover.movie.disaster_movies.mr87kp8v",
+          "type": "movie",
+          "name": "Disaster Movies",
+          "enabled": false,
+          "showInHome": false,
+          "source": "tmdb",
+          "cacheTTL": 86400,
+          "metadata": {
+            "description": "TMDB Discover (movie)",
+            "url": "https://www.themoviedb.org/discover/movie?sort_by=popularity.desc&include_adult=false&without_genres=99%7C16&with_keywords=10617&vote_average.gte=5&vote_count.gte=100&with_runtime.gte=60",
+            "discover": {
+              "version": 2,
+              "source": "tmdb",
+              "mediaType": "movie",
+              "params": {
+                "sort_by": "popularity.desc",
+                "include_adult": false,
+                "without_genres": "99|16",
+                "with_keywords": "10617",
+                "vote_average.gte": 5,
+                "vote_count.gte": 100,
+                "with_runtime.gte": 60
+              },
+              "formState": {
+                "catalogName": "Disaster Movies",
+                "discoverSource": "tmdb",
+                "sortBy": "popularity.desc",
+                "cacheTTL": 86400,
+                "catalogType": "movie",
+                "includeGenres": [],
+                "excludeGenres": [
+                  {
+                    "id": 99,
+                    "label": "Documentary"
+                  },
+                  {
+                    "id": 16,
+                    "label": "Animation"
+                  }
+                ],
+                "genreJoinMode": "or",
+                "originalLanguage": "",
+                "originCountry": "",
+                "certificationCountry": "",
+                "certificationValue": "",
+                "certificationMode": "exact",
+                "includeAdult": false,
+                "releasedOnly": false,
+                "tmdbTvStatuses": [],
+                "selectedPeople": [],
+                "peopleJoinMode": "or",
+                "withCompanies": [],
+                "withoutCompanies": [],
+                "companyJoinMode": "or",
+                "withKeywords": [
+                  {
+                    "id": 10617,
+                    "label": "disaster"
+                  }
+                ],
+                "withoutKeywords": [],
+                "keywordJoinMode": "or",
+                "watchRegion": "",
+                "watchProviders": [],
+                "providerJoinMode": "or",
+                "voteAverageRange": [5, 10],
+                "voteCountMin": 100,
+                "runtimeRange": [60, 400],
+                "primaryReleaseFrom": "",
+                "primaryReleaseTo": "",
+                "movieDatePreset": "clear",
+                "firstAirFrom": "",
+                "firstAirTo": "",
+                "seriesDatePreset": "clear",
+                "airDateFrom": "",
+                "airDateTo": "",
+                "releaseRegion": ""
+              }
+            }
+          },
+          "tags": ["themed"]
+        },
+        {
+          "id": "tmdb.discover.movie.heist_movies.mr87mt5q",
+          "type": "movie",
+          "name": "Heist Movies",
+          "enabled": false,
+          "showInHome": false,
+          "source": "tmdb",
+          "cacheTTL": 86400,
+          "metadata": {
+            "description": "TMDB Discover (movie)",
+            "url": "https://www.themoviedb.org/discover/movie?sort_by=popularity.desc&include_adult=false&without_genres=99%7C16&with_keywords=10051&vote_average.gte=5&with_runtime.gte=60",
+            "discover": {
+              "version": 2,
+              "source": "tmdb",
+              "mediaType": "movie",
+              "params": {
+                "sort_by": "popularity.desc",
+                "include_adult": false,
+                "without_genres": "99|16",
+                "with_keywords": "10051",
+                "vote_average.gte": 5,
+                "with_runtime.gte": 60
+              },
+              "formState": {
+                "catalogName": "Heist Movies",
+                "discoverSource": "tmdb",
+                "sortBy": "popularity.desc",
+                "cacheTTL": 86400,
+                "catalogType": "movie",
+                "includeGenres": [],
+                "excludeGenres": [
+                  {
+                    "id": 99,
+                    "label": "Documentary"
+                  },
+                  {
+                    "id": 16,
+                    "label": "Animation"
+                  }
+                ],
+                "genreJoinMode": "or",
+                "originalLanguage": "",
+                "originCountry": "",
+                "certificationCountry": "",
+                "certificationValue": "",
+                "certificationMode": "exact",
+                "includeAdult": false,
+                "releasedOnly": false,
+                "tmdbTvStatuses": [],
+                "selectedPeople": [],
+                "peopleJoinMode": "or",
+                "withCompanies": [],
+                "withoutCompanies": [],
+                "companyJoinMode": "or",
+                "withKeywords": [
+                  {
+                    "id": 10051,
+                    "label": "heist"
+                  }
+                ],
+                "withoutKeywords": [],
+                "keywordJoinMode": "or",
+                "watchRegion": "",
+                "watchProviders": [],
+                "providerJoinMode": "or",
+                "voteAverageRange": [5, 10],
+                "voteCountMin": 0,
+                "runtimeRange": [60, 400],
+                "primaryReleaseFrom": "",
+                "primaryReleaseTo": "",
+                "movieDatePreset": "clear",
+                "firstAirFrom": "",
+                "firstAirTo": "",
+                "seriesDatePreset": "clear",
+                "airDateFrom": "",
+                "airDateTo": "",
+                "releaseRegion": ""
+              }
+            }
+          },
+          "tags": ["themed"]
+        },
+        {
+          "id": "tmdb.discover.movie.holiday_movies.mr87pf1r",
+          "type": "movie",
+          "name": "Holiday Movies",
+          "enabled": false,
+          "showInHome": false,
+          "source": "tmdb",
+          "cacheTTL": 86400,
+          "metadata": {
+            "description": "TMDB Discover (movie)",
+            "url": "https://www.themoviedb.org/discover/movie?sort_by=popularity.desc&include_adult=false&without_genres=99%7C16&with_keywords=65&vote_average.gte=5&with_runtime.gte=60",
+            "discover": {
+              "version": 2,
+              "source": "tmdb",
+              "mediaType": "movie",
+              "params": {
+                "sort_by": "popularity.desc",
+                "include_adult": false,
+                "without_genres": "99|16",
+                "with_keywords": "65",
+                "vote_average.gte": 5,
+                "with_runtime.gte": 60
+              },
+              "formState": {
+                "catalogName": "Holiday Movies",
+                "discoverSource": "tmdb",
+                "sortBy": "popularity.desc",
+                "cacheTTL": 86400,
+                "catalogType": "movie",
+                "includeGenres": [],
+                "excludeGenres": [
+                  {
+                    "id": 99,
+                    "label": "Documentary"
+                  },
+                  {
+                    "id": 16,
+                    "label": "Animation"
+                  }
+                ],
+                "genreJoinMode": "or",
+                "originalLanguage": "",
+                "originCountry": "",
+                "certificationCountry": "",
+                "certificationValue": "",
+                "certificationMode": "exact",
+                "includeAdult": false,
+                "releasedOnly": false,
+                "tmdbTvStatuses": [],
+                "selectedPeople": [],
+                "peopleJoinMode": "or",
+                "withCompanies": [],
+                "withoutCompanies": [],
+                "companyJoinMode": "or",
+                "withKeywords": [
+                  {
+                    "id": 65,
+                    "label": "holiday"
+                  }
+                ],
+                "withoutKeywords": [],
+                "keywordJoinMode": "or",
+                "watchRegion": "",
+                "watchProviders": [],
+                "providerJoinMode": "or",
+                "voteAverageRange": [5, 10],
+                "voteCountMin": 0,
+                "runtimeRange": [60, 400],
+                "primaryReleaseFrom": "",
+                "primaryReleaseTo": "",
+                "movieDatePreset": "clear",
+                "firstAirFrom": "",
+                "firstAirTo": "",
+                "seriesDatePreset": "clear",
+                "airDateFrom": "",
+                "airDateTo": "",
+                "releaseRegion": ""
+              }
+            }
+          },
+          "tags": ["themed"]
+        },
+        {
+          "id": "tmdb.discover.movie.martial_arts_movies.mr87tpzv",
+          "type": "movie",
+          "name": "Martial Arts Movies",
+          "enabled": false,
+          "showInHome": false,
+          "source": "tmdb",
+          "cacheTTL": 86400,
+          "metadata": {
+            "description": "TMDB Discover (movie)",
+            "url": "https://www.themoviedb.org/discover/movie?sort_by=popularity.desc&include_adult=false&without_genres=16%7C99&with_keywords=779&vote_average.gte=5",
+            "discover": {
+              "version": 2,
+              "source": "tmdb",
+              "mediaType": "movie",
+              "params": {
+                "sort_by": "popularity.desc",
+                "include_adult": false,
+                "without_genres": "16|99",
+                "with_keywords": "779",
+                "vote_average.gte": 5
+              },
+              "formState": {
+                "catalogName": "Martial Arts Movies",
+                "discoverSource": "tmdb",
+                "sortBy": "popularity.desc",
+                "cacheTTL": 86400,
+                "catalogType": "movie",
+                "includeGenres": [],
+                "excludeGenres": [
+                  {
+                    "id": 16,
+                    "label": "Animation"
+                  },
+                  {
+                    "id": 99,
+                    "label": "Documentary"
+                  }
+                ],
+                "genreJoinMode": "or",
+                "originalLanguage": "",
+                "originCountry": "",
+                "certificationCountry": "",
+                "certificationValue": "",
+                "certificationMode": "exact",
+                "includeAdult": false,
+                "releasedOnly": false,
+                "tmdbTvStatuses": [],
+                "selectedPeople": [],
+                "peopleJoinMode": "or",
+                "withCompanies": [],
+                "withoutCompanies": [],
+                "companyJoinMode": "or",
+                "withKeywords": [
+                  {
+                    "id": 779,
+                    "label": "martial arts"
+                  }
+                ],
+                "withoutKeywords": [],
+                "keywordJoinMode": "or",
+                "watchRegion": "",
+                "watchProviders": [],
+                "providerJoinMode": "or",
+                "voteAverageRange": [5, 10],
+                "voteCountMin": 0,
+                "runtimeRange": [0, 400],
+                "primaryReleaseFrom": "",
+                "primaryReleaseTo": "",
+                "movieDatePreset": "clear",
+                "firstAirFrom": "",
+                "firstAirTo": "",
+                "seriesDatePreset": "clear",
+                "airDateFrom": "",
+                "airDateTo": "",
+                "releaseRegion": ""
+              }
+            }
+          },
+          "tags": ["themed"]
+        },
+        {
+          "id": "tmdb.discover.movie.monster_movies.mr88cyti",
+          "type": "movie",
+          "name": "Monster Movies",
+          "enabled": false,
+          "showInHome": false,
+          "source": "tmdb",
+          "cacheTTL": 86400,
+          "metadata": {
+            "description": "TMDB Discover (movie)",
+            "url": "https://www.themoviedb.org/discover/movie?sort_by=popularity.desc&include_adult=false&without_genres=16%7C99&with_keywords=11100%7C258464%7C161791%7C221291%7C271162%7C2904%7C257384%7C293178%7C158108%7C161171%7C8873%7C345613&without_keywords=12616&vote_average.gte=5&with_runtime.gte=60",
+            "discover": {
+              "version": 2,
+              "source": "tmdb",
+              "mediaType": "movie",
+              "params": {
+                "sort_by": "popularity.desc",
+                "include_adult": false,
+                "without_genres": "16|99",
+                "with_keywords": "11100|258464|161791|221291|271162|2904|257384|293178|158108|161171|8873|345613",
+                "without_keywords": "12616",
+                "vote_average.gte": 5,
+                "with_runtime.gte": 60
+              },
+              "formState": {
+                "catalogName": "Monster Movies",
+                "discoverSource": "tmdb",
+                "sortBy": "popularity.desc",
+                "cacheTTL": 86400,
+                "catalogType": "movie",
+                "includeGenres": [],
+                "excludeGenres": [
+                  {
+                    "id": 16,
+                    "label": "Animation"
+                  },
+                  {
+                    "id": 99,
+                    "label": "Documentary"
+                  }
+                ],
+                "genreJoinMode": "or",
+                "originalLanguage": "",
+                "originCountry": "",
+                "certificationCountry": "",
+                "certificationValue": "",
+                "certificationMode": "exact",
+                "includeAdult": false,
+                "releasedOnly": false,
+                "tmdbTvStatuses": [],
+                "selectedPeople": [],
+                "peopleJoinMode": "or",
+                "withCompanies": [],
+                "withoutCompanies": [],
+                "companyJoinMode": "or",
+                "withKeywords": [
+                  {
+                    "id": 11100,
+                    "label": "giant monster"
+                  },
+                  {
+                    "id": 258464,
+                    "label": "frankenstein"
+                  },
+                  {
+                    "id": 161791,
+                    "label": "kaiju"
+                  },
+                  {
+                    "id": 221291,
+                    "label": "warewolf"
+                  },
+                  {
+                    "id": 271162,
+                    "label": "invisible man"
+                  },
+                  {
+                    "id": 2904,
+                    "label": "mummy"
+                  },
+                  {
+                    "id": 257384,
+                    "label": "godzilla"
+                  },
+                  {
+                    "id": 293178,
+                    "label": "king kong"
+                  },
+                  {
+                    "id": 158108,
+                    "label": "killer shark"
+                  },
+                  {
+                    "id": 161171,
+                    "label": "kraken"
+                  },
+                  {
+                    "id": 8873,
+                    "label": "yeti"
+                  },
+                  {
+                    "id": 345613,
+                    "label": "the thing"
+                  }
+                ],
+                "withoutKeywords": [
+                  {
+                    "id": 12616,
+                    "label": "dinosaur"
+                  }
+                ],
+                "keywordJoinMode": "or",
+                "watchRegion": "",
+                "watchProviders": [],
+                "providerJoinMode": "or",
+                "voteAverageRange": [5, 10],
+                "voteCountMin": 0,
+                "runtimeRange": [60, 400],
+                "primaryReleaseFrom": "",
+                "primaryReleaseTo": "",
+                "movieDatePreset": "clear",
+                "firstAirFrom": "",
+                "firstAirTo": "",
+                "seriesDatePreset": "clear",
+                "airDateFrom": "",
+                "airDateTo": "",
+                "releaseRegion": ""
+              }
+            }
+          },
+          "tags": ["themed"]
+        },
+        {
+          "id": "tmdb.discover.movie.post_apocalyptic_movies.mr88hxoy",
+          "type": "movie",
+          "name": "Post-Apocalyptic Movies",
+          "enabled": false,
+          "showInHome": false,
+          "source": "tmdb",
+          "cacheTTL": 86400,
+          "metadata": {
+            "description": "TMDB Discover (movie)",
+            "url": "https://www.themoviedb.org/discover/movie?sort_by=popularity.desc&include_adult=false&without_genres=99%7C16&with_keywords=12332&vote_average.gte=5&with_runtime.gte=60",
+            "discover": {
+              "version": 2,
+              "source": "tmdb",
+              "mediaType": "movie",
+              "params": {
+                "sort_by": "popularity.desc",
+                "include_adult": false,
+                "without_genres": "99|16",
+                "with_keywords": "12332",
+                "vote_average.gte": 5,
+                "with_runtime.gte": 60
+              },
+              "formState": {
+                "catalogName": "Post-Apocalyptic Movies",
+                "discoverSource": "tmdb",
+                "sortBy": "popularity.desc",
+                "cacheTTL": 86400,
+                "catalogType": "movie",
+                "includeGenres": [],
+                "excludeGenres": [
+                  {
+                    "id": 99,
+                    "label": "Documentary"
+                  },
+                  {
+                    "id": 16,
+                    "label": "Animation"
+                  }
+                ],
+                "genreJoinMode": "or",
+                "originalLanguage": "",
+                "originCountry": "",
+                "certificationCountry": "",
+                "certificationValue": "",
+                "certificationMode": "exact",
+                "includeAdult": false,
+                "releasedOnly": false,
+                "tmdbTvStatuses": [],
+                "selectedPeople": [],
+                "peopleJoinMode": "or",
+                "withCompanies": [],
+                "withoutCompanies": [],
+                "companyJoinMode": "or",
+                "withKeywords": [
+                  {
+                    "id": 12332,
+                    "label": "apocalypse"
+                  }
+                ],
+                "withoutKeywords": [],
+                "keywordJoinMode": "or",
+                "watchRegion": "",
+                "watchProviders": [],
+                "providerJoinMode": "or",
+                "voteAverageRange": [5, 10],
+                "voteCountMin": 0,
+                "runtimeRange": [60, 400],
+                "primaryReleaseFrom": "",
+                "primaryReleaseTo": "",
+                "movieDatePreset": "clear",
+                "firstAirFrom": "",
+                "firstAirTo": "",
+                "seriesDatePreset": "clear",
+                "airDateFrom": "",
+                "airDateTo": "",
+                "releaseRegion": ""
+              }
+            }
+          },
+          "tags": ["themed"]
+        },
+        {
+          "id": "tmdb.discover.movie.robots.mr88laze",
+          "type": "movie",
+          "name": "Robot Movies",
+          "enabled": false,
+          "showInHome": false,
+          "source": "tmdb",
+          "cacheTTL": 86400,
+          "metadata": {
+            "description": "TMDB Discover (movie)",
+            "url": "https://www.themoviedb.org/discover/movie?sort_by=popularity.desc&include_adult=false&without_genres=99%7C16&with_keywords=14544&vote_average.gte=5&with_runtime.gte=60",
+            "discover": {
+              "version": 2,
+              "source": "tmdb",
+              "mediaType": "movie",
+              "params": {
+                "sort_by": "popularity.desc",
+                "include_adult": false,
+                "without_genres": "99|16",
+                "with_keywords": "14544",
+                "vote_average.gte": 5,
+                "with_runtime.gte": 60
+              },
+              "formState": {
+                "catalogName": "Robot Movies",
+                "discoverSource": "tmdb",
+                "sortBy": "popularity.desc",
+                "cacheTTL": 86400,
+                "catalogType": "movie",
+                "includeGenres": [],
+                "excludeGenres": [
+                  {
+                    "id": 99,
+                    "label": "Documentary"
+                  },
+                  {
+                    "id": 16,
+                    "label": "Animation"
+                  }
+                ],
+                "genreJoinMode": "or",
+                "originalLanguage": "",
+                "originCountry": "",
+                "certificationCountry": "",
+                "certificationValue": "",
+                "certificationMode": "exact",
+                "includeAdult": false,
+                "releasedOnly": false,
+                "tmdbTvStatuses": [],
+                "selectedPeople": [],
+                "peopleJoinMode": "or",
+                "withCompanies": [],
+                "withoutCompanies": [],
+                "companyJoinMode": "or",
+                "withKeywords": [
+                  {
+                    "id": 14544,
+                    "label": "robot"
+                  }
+                ],
+                "withoutKeywords": [],
+                "keywordJoinMode": "or",
+                "watchRegion": "",
+                "watchProviders": [],
+                "providerJoinMode": "or",
+                "voteAverageRange": [5, 10],
+                "voteCountMin": 0,
+                "runtimeRange": [60, 400],
+                "primaryReleaseFrom": "",
+                "primaryReleaseTo": "",
+                "movieDatePreset": "clear",
+                "firstAirFrom": "",
+                "firstAirTo": "",
+                "seriesDatePreset": "clear",
+                "airDateFrom": "",
+                "airDateTo": "",
+                "releaseRegion": ""
+              }
+            }
+          },
+          "tags": ["themed"],
+          "displayType": "movie"
+        },
+        {
+          "id": "tmdb.discover.movie.serial_killer_movies.mr88nfrn",
+          "type": "movie",
+          "name": "Serial Killer Movies",
+          "enabled": false,
+          "showInHome": false,
+          "source": "tmdb",
+          "cacheTTL": 86400,
+          "metadata": {
+            "description": "TMDB Discover (movie)",
+            "url": "https://www.themoviedb.org/discover/movie?sort_by=popularity.desc&include_adult=false&without_genres=16%7C99&with_keywords=10714&vote_average.gte=5&with_runtime.gte=60",
+            "discover": {
+              "version": 2,
+              "source": "tmdb",
+              "mediaType": "movie",
+              "params": {
+                "sort_by": "popularity.desc",
+                "include_adult": false,
+                "without_genres": "16|99",
+                "with_keywords": "10714",
+                "vote_average.gte": 5,
+                "with_runtime.gte": 60
+              },
+              "formState": {
+                "catalogName": "Serial Killer Movies",
+                "discoverSource": "tmdb",
+                "sortBy": "popularity.desc",
+                "cacheTTL": 86400,
+                "catalogType": "movie",
+                "includeGenres": [],
+                "excludeGenres": [
+                  {
+                    "id": 16,
+                    "label": "Animation"
+                  },
+                  {
+                    "id": 99,
+                    "label": "Documentary"
+                  }
+                ],
+                "genreJoinMode": "or",
+                "originalLanguage": "",
+                "originCountry": "",
+                "certificationCountry": "",
+                "certificationValue": "",
+                "certificationMode": "exact",
+                "includeAdult": false,
+                "releasedOnly": false,
+                "tmdbTvStatuses": [],
+                "selectedPeople": [],
+                "peopleJoinMode": "or",
+                "withCompanies": [],
+                "withoutCompanies": [],
+                "companyJoinMode": "or",
+                "withKeywords": [
+                  {
+                    "id": 10714,
+                    "label": "serial killer"
+                  }
+                ],
+                "withoutKeywords": [],
+                "keywordJoinMode": "or",
+                "watchRegion": "",
+                "watchProviders": [],
+                "providerJoinMode": "or",
+                "voteAverageRange": [5, 10],
+                "voteCountMin": 0,
+                "runtimeRange": [60, 400],
+                "primaryReleaseFrom": "",
+                "primaryReleaseTo": "",
+                "movieDatePreset": "clear",
+                "firstAirFrom": "",
+                "firstAirTo": "",
+                "seriesDatePreset": "clear",
+                "airDateFrom": "",
+                "airDateTo": "",
+                "releaseRegion": ""
+              }
+            }
+          },
+          "tags": ["themed"]
+        },
+        {
+          "id": "tmdb.discover.movie.space_movies.mr88p9r3",
+          "type": "movie",
+          "name": "Space Movies",
+          "enabled": false,
+          "showInHome": false,
+          "source": "tmdb",
+          "cacheTTL": 86400,
+          "metadata": {
+            "description": "TMDB Discover (movie)",
+            "url": "https://www.themoviedb.org/discover/movie?sort_by=popularity.desc&include_adult=false&without_genres=16%7C99&with_keywords=3801&vote_average.gte=5&with_runtime.gte=60",
+            "discover": {
+              "version": 2,
+              "source": "tmdb",
+              "mediaType": "movie",
+              "params": {
+                "sort_by": "popularity.desc",
+                "include_adult": false,
+                "without_genres": "16|99",
+                "with_keywords": "3801",
+                "vote_average.gte": 5,
+                "with_runtime.gte": 60
+              },
+              "formState": {
+                "catalogName": "Space Movies",
+                "discoverSource": "tmdb",
+                "sortBy": "popularity.desc",
+                "cacheTTL": 86400,
+                "catalogType": "movie",
+                "includeGenres": [],
+                "excludeGenres": [
+                  {
+                    "id": 16,
+                    "label": "Animation"
+                  },
+                  {
+                    "id": 99,
+                    "label": "Documentary"
+                  }
+                ],
+                "genreJoinMode": "or",
+                "originalLanguage": "",
+                "originCountry": "",
+                "certificationCountry": "",
+                "certificationValue": "",
+                "certificationMode": "exact",
+                "includeAdult": false,
+                "releasedOnly": false,
+                "tmdbTvStatuses": [],
+                "selectedPeople": [],
+                "peopleJoinMode": "or",
+                "withCompanies": [],
+                "withoutCompanies": [],
+                "companyJoinMode": "or",
+                "withKeywords": [
+                  {
+                    "id": 3801,
+                    "label": "space travel"
+                  }
+                ],
+                "withoutKeywords": [],
+                "keywordJoinMode": "or",
+                "watchRegion": "",
+                "watchProviders": [],
+                "providerJoinMode": "or",
+                "voteAverageRange": [5, 10],
+                "voteCountMin": 0,
+                "runtimeRange": [60, 400],
+                "primaryReleaseFrom": "",
+                "primaryReleaseTo": "",
+                "movieDatePreset": "clear",
+                "firstAirFrom": "",
+                "firstAirTo": "",
+                "seriesDatePreset": "clear",
+                "airDateFrom": "",
+                "airDateTo": "",
+                "releaseRegion": ""
+              }
+            }
+          },
+          "tags": ["themed"]
+        },
+        {
+          "id": "tmdb.discover.movie.spy.mr88qnkk",
+          "type": "movie",
+          "name": "Spy Movies",
+          "enabled": false,
+          "showInHome": false,
+          "source": "tmdb",
+          "cacheTTL": 86400,
+          "metadata": {
+            "description": "TMDB Discover (movie)",
+            "url": "https://www.themoviedb.org/discover/movie?sort_by=popularity.desc&include_adult=false&without_genres=16%7C99&with_keywords=470&vote_average.gte=5&with_runtime.gte=60",
+            "discover": {
+              "version": 2,
+              "source": "tmdb",
+              "mediaType": "movie",
+              "params": {
+                "sort_by": "popularity.desc",
+                "include_adult": false,
+                "without_genres": "16|99",
+                "with_keywords": "470",
+                "vote_average.gte": 5,
+                "with_runtime.gte": 60
+              },
+              "formState": {
+                "catalogName": "Spy Movies",
+                "discoverSource": "tmdb",
+                "sortBy": "popularity.desc",
+                "cacheTTL": 86400,
+                "catalogType": "movie",
+                "includeGenres": [],
+                "excludeGenres": [
+                  {
+                    "id": 16,
+                    "label": "Animation"
+                  },
+                  {
+                    "id": 99,
+                    "label": "Documentary"
+                  }
+                ],
+                "genreJoinMode": "or",
+                "originalLanguage": "",
+                "originCountry": "",
+                "certificationCountry": "",
+                "certificationValue": "",
+                "certificationMode": "exact",
+                "includeAdult": false,
+                "releasedOnly": false,
+                "tmdbTvStatuses": [],
+                "selectedPeople": [],
+                "peopleJoinMode": "or",
+                "withCompanies": [],
+                "withoutCompanies": [],
+                "companyJoinMode": "or",
+                "withKeywords": [
+                  {
+                    "id": 470,
+                    "label": "spy"
+                  }
+                ],
+                "withoutKeywords": [],
+                "keywordJoinMode": "or",
+                "watchRegion": "",
+                "watchProviders": [],
+                "providerJoinMode": "or",
+                "voteAverageRange": [5, 10],
+                "voteCountMin": 0,
+                "runtimeRange": [60, 400],
+                "primaryReleaseFrom": "",
+                "primaryReleaseTo": "",
+                "movieDatePreset": "clear",
+                "firstAirFrom": "",
+                "firstAirTo": "",
+                "seriesDatePreset": "clear",
+                "airDateFrom": "",
+                "airDateTo": "",
+                "releaseRegion": ""
+              }
+            }
+          },
+          "tags": ["themed"],
+          "displayType": "movie"
+        },
+        {
+          "id": "tmdb.discover.movie.superhero_movies.mr88t3g7",
+          "type": "movie",
+          "name": "Superhero Movies",
+          "enabled": false,
+          "showInHome": false,
+          "source": "tmdb",
+          "cacheTTL": 86400,
+          "metadata": {
+            "description": "TMDB Discover (movie)",
+            "url": "https://www.themoviedb.org/discover/movie?sort_by=popularity.desc&include_adult=false&without_genres=16%7C99&with_keywords=9715&vote_average.gte=5&with_runtime.gte=60",
+            "discover": {
+              "version": 2,
+              "source": "tmdb",
+              "mediaType": "movie",
+              "params": {
+                "sort_by": "popularity.desc",
+                "include_adult": false,
+                "without_genres": "16|99",
+                "with_keywords": "9715",
+                "vote_average.gte": 5,
+                "with_runtime.gte": 60
+              },
+              "formState": {
+                "catalogName": "Superhero Movies",
+                "discoverSource": "tmdb",
+                "sortBy": "popularity.desc",
+                "cacheTTL": 86400,
+                "catalogType": "movie",
+                "includeGenres": [],
+                "excludeGenres": [
+                  {
+                    "id": 16,
+                    "label": "Animation"
+                  },
+                  {
+                    "id": 99,
+                    "label": "Documentary"
+                  }
+                ],
+                "genreJoinMode": "or",
+                "originalLanguage": "",
+                "originCountry": "",
+                "certificationCountry": "",
+                "certificationValue": "",
+                "certificationMode": "exact",
+                "includeAdult": false,
+                "releasedOnly": false,
+                "tmdbTvStatuses": [],
+                "selectedPeople": [],
+                "peopleJoinMode": "or",
+                "withCompanies": [],
+                "withoutCompanies": [],
+                "companyJoinMode": "or",
+                "withKeywords": [
+                  {
+                    "id": 9715,
+                    "label": "superhero"
+                  }
+                ],
+                "withoutKeywords": [],
+                "keywordJoinMode": "or",
+                "watchRegion": "",
+                "watchProviders": [],
+                "providerJoinMode": "or",
+                "voteAverageRange": [5, 10],
+                "voteCountMin": 0,
+                "runtimeRange": [60, 400],
+                "primaryReleaseFrom": "",
+                "primaryReleaseTo": "",
+                "movieDatePreset": "clear",
+                "firstAirFrom": "",
+                "firstAirTo": "",
+                "seriesDatePreset": "clear",
+                "airDateFrom": "",
+                "airDateTo": "",
+                "releaseRegion": ""
+              }
+            }
+          },
+          "tags": ["themed"]
+        },
+        {
+          "id": "tmdb.discover.movie.time_travel.mr88umsx",
+          "type": "movie",
+          "name": "Time Travel Movies",
+          "enabled": false,
+          "showInHome": false,
+          "source": "tmdb",
+          "cacheTTL": 86400,
+          "metadata": {
+            "description": "TMDB Discover (movie)",
+            "url": "https://www.themoviedb.org/discover/movie?sort_by=popularity.desc&include_adult=false&without_genres=16%7C99&with_keywords=4379&vote_average.gte=5&with_runtime.gte=60",
+            "discover": {
+              "version": 2,
+              "source": "tmdb",
+              "mediaType": "movie",
+              "params": {
+                "sort_by": "popularity.desc",
+                "include_adult": false,
+                "without_genres": "16|99",
+                "with_keywords": "4379",
+                "vote_average.gte": 5,
+                "with_runtime.gte": 60
+              },
+              "formState": {
+                "catalogName": "Time Travel Movies",
+                "discoverSource": "tmdb",
+                "sortBy": "popularity.desc",
+                "cacheTTL": 86400,
+                "catalogType": "movie",
+                "includeGenres": [],
+                "excludeGenres": [
+                  {
+                    "id": 16,
+                    "label": "Animation"
+                  },
+                  {
+                    "id": 99,
+                    "label": "Documentary"
+                  }
+                ],
+                "genreJoinMode": "or",
+                "originalLanguage": "",
+                "originCountry": "",
+                "certificationCountry": "",
+                "certificationValue": "",
+                "certificationMode": "exact",
+                "includeAdult": false,
+                "releasedOnly": false,
+                "tmdbTvStatuses": [],
+                "selectedPeople": [],
+                "peopleJoinMode": "or",
+                "withCompanies": [],
+                "withoutCompanies": [],
+                "companyJoinMode": "or",
+                "withKeywords": [
+                  {
+                    "id": 4379,
+                    "label": "time travel"
+                  }
+                ],
+                "withoutKeywords": [],
+                "keywordJoinMode": "or",
+                "watchRegion": "",
+                "watchProviders": [],
+                "providerJoinMode": "or",
+                "voteAverageRange": [5, 10],
+                "voteCountMin": 0,
+                "runtimeRange": [60, 400],
+                "primaryReleaseFrom": "",
+                "primaryReleaseTo": "",
+                "movieDatePreset": "clear",
+                "firstAirFrom": "",
+                "firstAirTo": "",
+                "seriesDatePreset": "clear",
+                "airDateFrom": "",
+                "airDateTo": "",
+                "releaseRegion": ""
+              }
+            }
+          },
+          "tags": ["themed"],
+          "displayType": "movie"
+        },
+        {
+          "id": "tmdb.discover.movie.zombies.mr88vqiv",
+          "type": "movie",
+          "name": "Zombie Movies",
+          "enabled": false,
+          "showInHome": false,
+          "source": "tmdb",
+          "cacheTTL": 86400,
+          "metadata": {
+            "description": "TMDB Discover (movie)",
+            "url": "https://www.themoviedb.org/discover/movie?sort_by=popularity.desc&include_adult=false&without_genres=16%7C99&with_keywords=12377&vote_average.gte=5&with_runtime.gte=60",
+            "discover": {
+              "version": 2,
+              "source": "tmdb",
+              "mediaType": "movie",
+              "params": {
+                "sort_by": "popularity.desc",
+                "include_adult": false,
+                "without_genres": "16|99",
+                "with_keywords": "12377",
+                "vote_average.gte": 5,
+                "with_runtime.gte": 60
+              },
+              "formState": {
+                "catalogName": "Zombie Movies",
+                "discoverSource": "tmdb",
+                "sortBy": "popularity.desc",
+                "cacheTTL": 86400,
+                "catalogType": "movie",
+                "includeGenres": [],
+                "excludeGenres": [
+                  {
+                    "id": 16,
+                    "label": "Animation"
+                  },
+                  {
+                    "id": 99,
+                    "label": "Documentary"
+                  }
+                ],
+                "genreJoinMode": "or",
+                "originalLanguage": "",
+                "originCountry": "",
+                "certificationCountry": "",
+                "certificationValue": "",
+                "certificationMode": "exact",
+                "includeAdult": false,
+                "releasedOnly": false,
+                "tmdbTvStatuses": [],
+                "selectedPeople": [],
+                "peopleJoinMode": "or",
+                "withCompanies": [],
+                "withoutCompanies": [],
+                "companyJoinMode": "or",
+                "withKeywords": [
+                  {
+                    "id": 12377,
+                    "label": "zombie"
+                  }
+                ],
+                "withoutKeywords": [],
+                "keywordJoinMode": "or",
+                "watchRegion": "",
+                "watchProviders": [],
+                "providerJoinMode": "or",
+                "voteAverageRange": [5, 10],
+                "voteCountMin": 0,
+                "runtimeRange": [60, 400],
+                "primaryReleaseFrom": "",
+                "primaryReleaseTo": "",
+                "movieDatePreset": "clear",
+                "firstAirFrom": "",
+                "firstAirTo": "",
+                "seriesDatePreset": "clear",
+                "airDateFrom": "",
+                "airDateTo": "",
+                "releaseRegion": ""
+              }
+            }
+          },
+          "tags": ["themed"],
+          "displayType": "movie"
+        },
+        {
+          "id": "mal.airing",
+          "name": "MAL Airing Now",
+          "type": "anime",
+          "source": "mal",
+          "enabled": false,
+          "showInHome": false,
+          "enableRatingPosters": true,
+          "randomizePerPage": false
+        },
+        {
+          "id": "mal.season_top",
+          "name": "MAL Top Rated This Week",
+          "type": "anime",
+          "source": "mal",
+          "enabled": false,
+          "showInHome": false,
+          "enableRatingPosters": true,
+          "randomizePerPage": false
+        },
+        {
+          "id": "mal.most_popular",
+          "name": "MAL Most Popular",
+          "type": "anime",
+          "source": "mal",
+          "enabled": false,
+          "showInHome": false,
+          "enableRatingPosters": true,
+          "randomizePerPage": false
+        },
+        {
+          "id": "mal.top_series",
+          "name": "MAL Top Series",
+          "type": "anime",
+          "source": "mal",
+          "enabled": false,
+          "showInHome": false,
+          "enableRatingPosters": true,
+          "randomizePerPage": false
+        },
+        {
+          "id": "mal.top_movies",
+          "name": "MAL Top Movies",
+          "type": "anime",
+          "source": "mal",
+          "enabled": false,
+          "showInHome": false,
+          "enableRatingPosters": true,
+          "randomizePerPage": false
+        },
+        {
+          "id": "mal.80sDecade",
+          "name": "MAL Best of 80s",
+          "type": "anime",
+          "source": "mal",
+          "enabled": false,
+          "showInHome": false,
+          "enableRatingPosters": true,
+          "randomizePerPage": false
+        },
+        {
+          "id": "mal.90sDecade",
+          "name": "MAL Best of 90s",
+          "type": "anime",
+          "source": "mal",
+          "enabled": false,
+          "showInHome": false,
+          "enableRatingPosters": true,
+          "randomizePerPage": false
+        },
+        {
+          "id": "mal.00sDecade",
+          "name": "MAL Best of 2000s",
+          "type": "anime",
+          "source": "mal",
+          "enabled": false,
+          "showInHome": false,
+          "enableRatingPosters": true,
+          "randomizePerPage": false
+        },
+        {
+          "id": "mal.10sDecade",
+          "name": "MAL Best of 2010s",
+          "type": "anime",
+          "source": "mal",
+          "enabled": false,
+          "showInHome": false,
+          "enableRatingPosters": true,
+          "randomizePerPage": false
+        },
+        {
+          "id": "mal.20sDecade",
+          "name": "MAL Best of 2020s",
+          "type": "anime",
+          "source": "mal",
+          "enabled": false,
+          "showInHome": false,
+          "enableRatingPosters": true,
+          "randomizePerPage": false
+        }
+      ],
+      "language": "en",
+      "timezone": "",
+      "ageRating": "None",
+      "castCount": 10,
+      "providers": {
+        "anime": "kitsu",
+        "movie": "tmdb",
+        "series": "tvdb",
+        "anime_id_provider": "imdb",
+        "forceAnimeForDetectedImdb": false
+      },
+      "sessionId": "",
+      "streaming": ["nfx", "dnp", "amp", "hbm", "atp", "pmp", "pcp", "hlu"],
+      "blurThumbs": false,
+      "configHash": "24e9ffb91c2076b6",
+      "showPrefix": false,
+      "artProviders": {
+        "anime": {
+          "logo": "imdb",
+          "poster": "meta",
+          "background": "imdb"
+        },
+        "movie": {
+          "logo": "meta",
+          "poster": "meta",
+          "background": "meta"
+        },
+        "series": {
+          "logo": "meta",
+          "poster": "meta",
+          "background": "meta"
+        },
+        "englishArtOnly": false
+      },
+      "includeAdult": false,
+      "lastModified": 1783280647045,
+      "configVersion": 1783280647047,
+      "searchEnabled": true,
+      "tvdbSeasonType": "default",
+      "usePosterProxy": true,
+      "displayAgeRating": false,
+      "showRateMeButton": false,
+      "simklWatchTracking": true,
+      "anilistWatchTracking": true,
+      "catalogSetupComplete": true,
+      "mdblistWatchTracking": true,
+      "posterRatingProvider": "rpdb",
+      "showDisabledCatalogs": false,
+      "hideUnreleasedDigital": true,
+      "hideUnreleasedDigitalSearch": false,
+      "showMetaProviderAttribution": false,
+      "enableRatingPostersForLibrary": true,
+      "tags": [
+        {
+          "name": "themed",
+          "color": "amber"
         }
       ],
       "kids": [
@@ -7695,6 +11396,89 @@
     }
   },
   "nuvioCollectionsConfig": [
+    {
+      "id": "71f33e25-20ec-4457-8615-223bdc17cd54",
+      "title": "Watch Now",
+      "folders": [
+        {
+          "id": "a9783c1d-0ab6-4a6b-873d-1679650dd814",
+          "title": "Trending",
+          "tileShape": "LANDSCAPE",
+          "hideTitle": true,
+          "focusGifEnabled": true,
+          "sources": [
+            {
+              "provider": "addon",
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.trending",
+              "type": "movie",
+              "genre": "none"
+            },
+            {
+              "provider": "addon",
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.trending",
+              "type": "series",
+              "genre": "none"
+            }
+          ],
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/now/trending.png"
+        },
+        {
+          "id": "9c23830b-b92d-4952-b676-6c0370cd9f84",
+          "title": "Latest",
+          "tileShape": "LANDSCAPE",
+          "hideTitle": true,
+          "focusGifEnabled": true,
+          "sources": [
+            {
+              "provider": "addon",
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.movie.latest_movies.mltmmzhu",
+              "type": "movie",
+              "genre": "none"
+            },
+            {
+              "provider": "addon",
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.tv.latest_shows.mltmnwjd",
+              "type": "series",
+              "genre": "none"
+            }
+          ],
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/now/latest.png"
+        },
+        {
+          "id": "509ec7ad-6707-4706-9f6b-bcfae507d17d",
+          "title": "Top Rated",
+          "tileShape": "LANDSCAPE",
+          "hideTitle": true,
+          "focusGifEnabled": true,
+          "sources": [
+            {
+              "provider": "addon",
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.movie.top_rated.mlz4ps5f",
+              "type": "movie",
+              "genre": "none"
+            },
+            {
+              "provider": "addon",
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.series.top_rated.mlz4rjj0",
+              "type": "series",
+              "genre": "none"
+            }
+          ],
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/now/top-rated.png"
+        }
+      ],
+      "pinToTop": false,
+      "viewMode": "FOLLOW_LAYOUT",
+      "showAllTab": false,
+      "backdropImageUrl": null,
+      "focusGlowEnabled": true
+    },
     {
       "id": "i7xq11qp",
       "title": "Streaming Services",
@@ -8877,6 +12661,86 @@
           "heroBackdropUrl": null
         },
         {
+          "id": "958ef0b5-8396-4fef-80bd-60cce6671222",
+          "title": "Anime",
+          "tileShape": "LANDSCAPE",
+          "hideTitle": true,
+          "focusGifEnabled": true,
+          "sources": [
+            {
+              "provider": "addon",
+              "addonId": "aio-metadata",
+              "catalogId": "mal.airing",
+              "type": "anime",
+              "genre": "none"
+            },
+            {
+              "provider": "addon",
+              "addonId": "aio-metadata",
+              "catalogId": "mal.season_top",
+              "type": "anime",
+              "genre": "none"
+            },
+            {
+              "provider": "addon",
+              "addonId": "aio-metadata",
+              "catalogId": "mal.most_popular",
+              "type": "anime",
+              "genre": "none"
+            },
+            {
+              "provider": "addon",
+              "addonId": "aio-metadata",
+              "catalogId": "mal.top_movies",
+              "type": "anime",
+              "genre": "none"
+            },
+            {
+              "provider": "addon",
+              "addonId": "aio-metadata",
+              "catalogId": "mal.top_series",
+              "type": "anime",
+              "genre": "none"
+            },
+            {
+              "provider": "addon",
+              "addonId": "aio-metadata",
+              "catalogId": "mal.80sDecade",
+              "type": "anime",
+              "genre": "none"
+            },
+            {
+              "provider": "addon",
+              "addonId": "aio-metadata",
+              "catalogId": "mal.90sDecade",
+              "type": "anime",
+              "genre": "none"
+            },
+            {
+              "provider": "addon",
+              "addonId": "aio-metadata",
+              "catalogId": "mal.00sDecade",
+              "type": "anime",
+              "genre": "none"
+            },
+            {
+              "provider": "addon",
+              "addonId": "aio-metadata",
+              "catalogId": "mal.10sDecade",
+              "type": "anime",
+              "genre": "none"
+            },
+            {
+              "provider": "addon",
+              "addonId": "aio-metadata",
+              "catalogId": "mal.20sDecade",
+              "type": "anime",
+              "genre": "none"
+            }
+          ],
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/genres/anime.png"
+        },
+        {
           "id": "z9tl52hm",
           "title": "Comedy",
           "sources": [
@@ -9689,6 +13553,30 @@
       "title": "Decades",
       "folders": [
         {
+          "id": "dc77af3d-0ecf-45d2-87cb-7fb86ca82509",
+          "title": "1970s",
+          "tileShape": "LANDSCAPE",
+          "hideTitle": true,
+          "focusGifEnabled": true,
+          "sources": [
+            {
+              "provider": "addon",
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.movie.best_movies_of_the_80s_copy.mr7x0teu",
+              "type": "movie",
+              "genre": "none"
+            },
+            {
+              "provider": "addon",
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.series.best_shows_of_the_90s_copy.mr7x2n0t",
+              "type": "series",
+              "genre": "none"
+            }
+          ],
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/decades/1970.png"
+        },
+        {
           "id": "6rsl4f9n",
           "title": "1980s",
           "sources": [
@@ -9729,7 +13617,7 @@
           "focusGifUrl": "",
           "heroVideoUrl": "",
           "titleLogoUrl": "",
-          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/decades/80s.jpg",
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/decades/1980.png",
           "catalogSources": [
             {
               "type": "movie",
@@ -9787,7 +13675,7 @@
           "focusGifUrl": "",
           "heroVideoUrl": "",
           "titleLogoUrl": "",
-          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/decades/90s.jpg",
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/decades/1990.png",
           "catalogSources": [
             {
               "type": "movie",
@@ -9845,7 +13733,7 @@
           "focusGifUrl": "",
           "heroVideoUrl": "",
           "titleLogoUrl": "",
-          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/decades/00s.jpg",
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/decades/2000.png",
           "catalogSources": [
             {
               "type": "movie",
@@ -9903,7 +13791,7 @@
           "focusGifUrl": "",
           "heroVideoUrl": "",
           "titleLogoUrl": "",
-          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/decades/10s.jpg",
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/decades/2010.png",
           "catalogSources": [
             {
               "type": "movie",
@@ -9961,7 +13849,7 @@
           "focusGifUrl": "",
           "heroVideoUrl": "",
           "titleLogoUrl": "",
-          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/decades/20s.jpg",
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/decades/2020.png",
           "catalogSources": [
             {
               "type": "movie",
@@ -9982,6 +13870,561 @@
       "viewMode": "FOLLOW_LAYOUT",
       "showAllTab": false,
       "backdropImageUrl": "",
+      "focusGlowEnabled": false
+    },
+    {
+      "id": "61865393-b018-4831-9c67-0516f7267706",
+      "title": "Themed",
+      "folders": [
+        {
+          "id": "1b433b6c-a18f-4e03-a158-066eb34aa349",
+          "title": "Aliens",
+          "tileShape": "LANDSCAPE",
+          "hideTitle": true,
+          "focusGifEnabled": true,
+          "sources": [
+            {
+              "provider": "addon",
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.movie.alien_movies.mr87dffj",
+              "type": "movie",
+              "genre": "none"
+            }
+          ],
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/themed/aliens.png"
+        },
+        {
+          "id": "27ef5322-92cd-4886-b1f2-19e98ab0dee8",
+          "title": "Disaster",
+          "tileShape": "LANDSCAPE",
+          "hideTitle": true,
+          "focusGifEnabled": true,
+          "sources": [
+            {
+              "provider": "addon",
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.movie.disaster_movies.mr87kp8v",
+              "type": "movie",
+              "genre": "none"
+            }
+          ],
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/themed/disaster.png"
+        },
+        {
+          "id": "4ca22290-5267-407e-b60a-aae1f40c590d",
+          "title": "Heists",
+          "tileShape": "LANDSCAPE",
+          "hideTitle": true,
+          "focusGifEnabled": true,
+          "sources": [
+            {
+              "provider": "addon",
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.movie.heist_movies.mr87mt5q",
+              "type": "movie",
+              "genre": "none"
+            }
+          ],
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/themed/heists.png"
+        },
+        {
+          "id": "07d5f414-59c3-40ac-860a-f585ebd53502",
+          "title": "Holidays",
+          "tileShape": "LANDSCAPE",
+          "hideTitle": true,
+          "focusGifEnabled": true,
+          "sources": [
+            {
+              "provider": "addon",
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.movie.holiday_movies.mr87pf1r",
+              "type": "movie",
+              "genre": "none"
+            }
+          ],
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/themed/holidays.png"
+        },
+        {
+          "id": "e51b9eb4-18c5-4b75-94fc-5ff57388b9d4",
+          "title": "Monsters",
+          "tileShape": "LANDSCAPE",
+          "hideTitle": true,
+          "focusGifEnabled": true,
+          "sources": [
+            {
+              "provider": "addon",
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.movie.monster_movies.mr88cyti",
+              "type": "movie",
+              "genre": "none"
+            }
+          ],
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/themed/monsters.png"
+        },
+        {
+          "id": "f7b01305-72e6-4cbe-b15f-732e35e4660d",
+          "title": "Post-Apocalyptic",
+          "tileShape": "LANDSCAPE",
+          "hideTitle": true,
+          "focusGifEnabled": true,
+          "sources": [
+            {
+              "provider": "addon",
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.movie.post_apocalyptic_movies.mr88hxoy",
+              "type": "movie",
+              "genre": "none"
+            }
+          ],
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/themed/post-apocalyptic.png"
+        },
+        {
+          "id": "04cdff0e-2597-4359-ad9c-e66c5e0225cf",
+          "title": "Robots",
+          "tileShape": "LANDSCAPE",
+          "hideTitle": true,
+          "focusGifEnabled": true,
+          "sources": [
+            {
+              "provider": "addon",
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.movie.robots.mr88laze",
+              "type": "movie",
+              "genre": "none"
+            }
+          ],
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/themed/robots.png"
+        },
+        {
+          "id": "02443c1c-31d7-4d34-b940-92ac80928fcf",
+          "title": "Serial Killers",
+          "tileShape": "LANDSCAPE",
+          "hideTitle": true,
+          "focusGifEnabled": true,
+          "sources": [
+            {
+              "provider": "addon",
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.movie.serial_killer_movies.mr88nfrn",
+              "type": "movie",
+              "genre": "none"
+            }
+          ],
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/themed/serial-killers.png"
+        },
+        {
+          "id": "52ca4bbc-3308-4b6a-abe3-cb0cdedbb0fd",
+          "title": "Space",
+          "tileShape": "LANDSCAPE",
+          "hideTitle": true,
+          "focusGifEnabled": true,
+          "sources": [
+            {
+              "provider": "addon",
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.movie.space_movies.mr88p9r3",
+              "type": "movie",
+              "genre": "none"
+            }
+          ],
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/themed/space.png"
+        },
+        {
+          "id": "cff5e2e3-d1f4-4edd-a252-be39628b1d70",
+          "title": "Spy",
+          "tileShape": "LANDSCAPE",
+          "hideTitle": true,
+          "focusGifEnabled": true,
+          "sources": [
+            {
+              "provider": "addon",
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.movie.spy.mr88qnkk",
+              "type": "movie",
+              "genre": "none"
+            }
+          ],
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/themed/spy.png"
+        },
+        {
+          "id": "5b596976-bf7b-40a1-9ac0-ebca35719702",
+          "title": "Superheroes",
+          "tileShape": "LANDSCAPE",
+          "hideTitle": true,
+          "focusGifEnabled": true,
+          "sources": [
+            {
+              "provider": "addon",
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.movie.superhero_movies.mr88t3g7",
+              "type": "movie",
+              "genre": "none"
+            }
+          ],
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/themed/superheroes.png"
+        },
+        {
+          "id": "c89879de-efd3-4e1d-986a-5233243a594d",
+          "title": "Time Travel",
+          "tileShape": "LANDSCAPE",
+          "hideTitle": true,
+          "focusGifEnabled": true,
+          "sources": [
+            {
+              "provider": "addon",
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.movie.time_travel.mr88umsx",
+              "type": "movie",
+              "genre": "none"
+            }
+          ],
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/themed/time-travel.png"
+        },
+        {
+          "id": "e51554d5-acf4-4efd-a37b-e0849cbb38fa",
+          "title": "Zombies",
+          "tileShape": "LANDSCAPE",
+          "hideTitle": true,
+          "focusGifEnabled": true,
+          "sources": [
+            {
+              "provider": "addon",
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.movie.zombies.mr88vqiv",
+              "type": "movie",
+              "genre": "none"
+            }
+          ],
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/themed/zombies.png"
+        }
+      ],
+      "pinToTop": false,
+      "viewMode": "FOLLOW_LAYOUT",
+      "showAllTab": false,
+      "backdropImageUrl": null,
+      "focusGlowEnabled": false
+    },
+    {
+      "id": "f64f868f-4135-4748-8192-67c2e0c0aa2c",
+      "title": "International",
+      "folders": [
+        {
+          "id": "8b6b16be-437a-49ca-9241-6f584712dffc",
+          "title": "Argentina",
+          "tileShape": "LANDSCAPE",
+          "hideTitle": true,
+          "focusGifEnabled": true,
+          "sources": [
+            {
+              "provider": "addon",
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.movie.argentina_movies.mr7xgxcz",
+              "type": "movie",
+              "genre": "none"
+            },
+            {
+              "provider": "addon",
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.series.argentina_shows.mr7xvlve",
+              "type": "series",
+              "genre": "none"
+            }
+          ],
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/countries/argentina.png"
+        },
+        {
+          "id": "ec035b91-67fa-42bb-abd7-0a2861fb40cb",
+          "title": "Brazil",
+          "tileShape": "LANDSCAPE",
+          "hideTitle": true,
+          "focusGifEnabled": true,
+          "sources": [
+            {
+              "provider": "addon",
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.movie.brazil.mr7xht61",
+              "type": "movie",
+              "genre": "none"
+            },
+            {
+              "provider": "addon",
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.series.brazil_shows.mr7xzhlq",
+              "type": "series",
+              "genre": "none"
+            }
+          ],
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/countries/brazil.png"
+        },
+        {
+          "id": "a45c1b3f-be45-4f3b-a8f9-360fdd6e7721",
+          "title": "China",
+          "tileShape": "LANDSCAPE",
+          "hideTitle": true,
+          "focusGifEnabled": true,
+          "sources": [
+            {
+              "provider": "addon",
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.movie.china_movies.mr7xiwr9",
+              "type": "movie",
+              "genre": "none"
+            },
+            {
+              "provider": "addon",
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.series.china_shows.mr7y0ku7",
+              "type": "series",
+              "genre": "none"
+            }
+          ],
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/countries/china.png"
+        },
+        {
+          "id": "2ca2b765-c4ab-4930-8b8b-d8c0b7174503",
+          "title": "France",
+          "tileShape": "LANDSCAPE",
+          "hideTitle": true,
+          "focusGifEnabled": true,
+          "sources": [
+            {
+              "provider": "addon",
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.movie.france_movies.mr7xkzx9",
+              "type": "movie",
+              "genre": "none"
+            },
+            {
+              "provider": "addon",
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.series.france_shows.mr7y2q05",
+              "type": "series",
+              "genre": "none"
+            }
+          ],
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/countries/france.png"
+        },
+        {
+          "id": "72df6a82-1efb-4db3-801e-66f8d9370235",
+          "title": "Germany",
+          "tileShape": "LANDSCAPE",
+          "hideTitle": true,
+          "focusGifEnabled": true,
+          "sources": [
+            {
+              "provider": "addon",
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.movie.germany_movies.mr7xlhii",
+              "type": "movie",
+              "genre": "none"
+            },
+            {
+              "provider": "addon",
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.series.germany_shows.mr7y3dm6",
+              "type": "series",
+              "genre": "none"
+            }
+          ],
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/countries/germany.png"
+        },
+        {
+          "id": "ec37ff6c-145b-461b-975a-8b5f0142e82b",
+          "title": "India",
+          "tileShape": "LANDSCAPE",
+          "hideTitle": true,
+          "focusGifEnabled": true,
+          "sources": [
+            {
+              "provider": "addon",
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.movie.india_movies.mr7xmari",
+              "type": "movie",
+              "genre": "none"
+            },
+            {
+              "provider": "addon",
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.series.india_shows.mr7y45ul",
+              "type": "series",
+              "genre": "none"
+            }
+          ],
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/countries/india.png"
+        },
+        {
+          "id": "9274388a-4276-4647-96d6-47410f1bc429",
+          "title": "Italy",
+          "tileShape": "LANDSCAPE",
+          "hideTitle": true,
+          "focusGifEnabled": true,
+          "sources": [
+            {
+              "provider": "addon",
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.movie.italy_movies.mr7xn5f9",
+              "type": "movie",
+              "genre": "none"
+            },
+            {
+              "provider": "addon",
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.series.italy_shows.mr7y503e",
+              "type": "series",
+              "genre": "none"
+            }
+          ],
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/countries/italy.png"
+        },
+        {
+          "id": "ca57c578-db99-4e7d-8b51-566d8767ed98",
+          "title": "Japan",
+          "tileShape": "LANDSCAPE",
+          "hideTitle": true,
+          "focusGifEnabled": true,
+          "sources": [
+            {
+              "provider": "addon",
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.movie.japan_movies.mr7xo9vr",
+              "type": "movie",
+              "genre": "none"
+            },
+            {
+              "provider": "addon",
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.series.japan_shows.mr7y60sa",
+              "type": "series",
+              "genre": "none"
+            }
+          ],
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/countries/mexico.png"
+        },
+        {
+          "id": "cbd9b823-29e0-4a0d-a8da-19ca59d516bd",
+          "title": "Mexico",
+          "tileShape": "LANDSCAPE",
+          "hideTitle": true,
+          "focusGifEnabled": true,
+          "sources": [
+            {
+              "provider": "addon",
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.movie.mexico_movies.mr7xp592",
+              "type": "movie",
+              "genre": "none"
+            },
+            {
+              "provider": "addon",
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.series.mexico_shows.mr7y7bhb",
+              "type": "series",
+              "genre": "none"
+            }
+          ],
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/countries/mexico.png"
+        },
+        {
+          "id": "8684796a-ba16-4da4-be1c-7e08ef62cf49",
+          "title": "South Korea",
+          "tileShape": "LANDSCAPE",
+          "hideTitle": true,
+          "focusGifEnabled": true,
+          "sources": [
+            {
+              "provider": "addon",
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.movie.south_korea_movies.mr7xpv22",
+              "type": "movie",
+              "genre": "none"
+            },
+            {
+              "provider": "addon",
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.series.south_korea_shows.mr7y86va",
+              "type": "series",
+              "genre": "none"
+            }
+          ],
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/countries/south-korea.png"
+        },
+        {
+          "id": "a29dadac-ef43-4766-b0f6-0453e6160d30",
+          "title": "Spain",
+          "tileShape": "LANDSCAPE",
+          "hideTitle": true,
+          "focusGifEnabled": true,
+          "sources": [
+            {
+              "provider": "addon",
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.movie.spain_movies.mr7xqq7q",
+              "type": "movie",
+              "genre": "none"
+            },
+            {
+              "provider": "addon",
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.series.spain_shows.mr7y8ysq",
+              "type": "series",
+              "genre": "none"
+            }
+          ],
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/countries/spain.png"
+        },
+        {
+          "id": "66e6012a-c624-4cb8-95d6-7f2b2605070d",
+          "title": "United Kingdom",
+          "tileShape": "LANDSCAPE",
+          "hideTitle": true,
+          "focusGifEnabled": true,
+          "sources": [
+            {
+              "provider": "addon",
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.movie.united_kingdom_movies.mr7xsalm",
+              "type": "movie",
+              "genre": "none"
+            },
+            {
+              "provider": "addon",
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.series.united_kingdom_shows.mr7y9vbh",
+              "type": "series",
+              "genre": "none"
+            }
+          ],
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/countries/united-kingdom.png"
+        },
+        {
+          "id": "351e1cd0-da6d-4fe6-857d-b2e2947afe11",
+          "title": "United States",
+          "tileShape": "LANDSCAPE",
+          "hideTitle": true,
+          "focusGifEnabled": true,
+          "sources": [
+            {
+              "provider": "addon",
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.movie.united_states_movies.mr7xsos7",
+              "type": "movie",
+              "genre": "none"
+            },
+            {
+              "provider": "addon",
+              "addonId": "aio-metadata",
+              "catalogId": "tmdb.discover.series.united_states_shows.mr7yant6",
+              "type": "series",
+              "genre": "none"
+            }
+          ],
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/countries/united-states.png"
+        }
+      ],
+      "pinToTop": false,
+      "viewMode": "FOLLOW_LAYOUT",
+      "showAllTab": false,
+      "backdropImageUrl": null,
       "focusGlowEnabled": false
     },
     {
