@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.21.2](https://github.com/DryKillLogic/stremio-account-bootstrapper/compare/v2.21.1...v2.21.2) (2026-07-06)
+
+### Bug Fixes
+
+- removed streailer addon on Nuvio ([949cd91](https://github.com/DryKillLogic/stremio-account-bootstrapper/commit/949cd91b8e0d45a848543a02cda4ccc65c86883d))
+
 ### [2.21.1](https://github.com/DryKillLogic/stremio-account-bootstrapper/compare/v2.21.0...v2.21.1) (2026-07-06)
 
 ### Bug Fixes
