@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.21.1](https://github.com/DryKillLogic/stremio-account-bootstrapper/compare/v2.21.0...v2.21.1) (2026-07-06)
+
+### Bug Fixes
+
+- removed cinemeta addon on Nuvio ([df2f8ab](https://github.com/DryKillLogic/stremio-account-bootstrapper/commit/df2f8ab72722c0479db38757af5b9977140a56d5))
+- updated Nuvio studio cover images ([769ce4c](https://github.com/DryKillLogic/stremio-account-bootstrapper/commit/769ce4c7d45bb2ead018b61bd9db89238890a18e))
+
 ## [2.21.0](https://github.com/DryKillLogic/stremio-account-bootstrapper/compare/v2.20.0...v2.21.0) (2026-07-05)
 
 ### Features
