@@ -33,17 +33,37 @@ import { LOCALE_MESSAGES } from '../locales';
 
 declare const Sqrl: SquirrellyRenderer;
 
+function toKey(text: string): string {
+  return text
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '_')
+    .replace(/^_|_$/g, '');
+}
+
 function translateCollections(collections: any[], language: string): any[] {
   const lang = language.split('-')[0] || 'en';
   const messages = LOCALE_MESSAGES[lang] ?? LOCALE_MESSAGES['en'] ?? {};
   return collections.map((collection) => {
-    const key =
-      'nuvio_collection_' +
-      (collection.title as string).toLowerCase().replace(/\s+/g, '_');
-    if (messages[key]) {
-      return { ...collection, title: messages[key] };
+    const colSlug = toKey(collection.title);
+    const colKey = 'nuvio_collection_' + colSlug;
+    const translated = messages[colKey]
+      ? { ...collection, title: messages[colKey] }
+      : { ...collection };
+
+    if (translated.folders) {
+      translated.folders = translated.folders.map(
+        (folder: { title: string }) => {
+          const folderKey =
+            'nuvio_collection_' + colSlug + '_' + toKey(folder.title);
+          if (messages[folderKey]) {
+            return { ...folder, title: messages[folderKey] };
+          }
+          return folder;
+        }
+      );
     }
-    return collection;
+
+    return translated;
   });
 }
 
