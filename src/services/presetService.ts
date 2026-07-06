@@ -118,9 +118,11 @@ export async function buildPresetService(params: BuildPresetServiceParams) {
     presetKeys = [...presetKeys, 'easynews'];
   }
 
-  // Remove cinemeta on Nuvio
+  // Remove addons on Nuvio
   if (platform === 'nuvio') {
-    presetKeys = presetKeys.filter((key: string) => key !== 'cinemeta');
+    presetKeys = presetKeys.filter(
+      (key: string) => key !== 'cinemeta' && key !== 'streailer'
+    );
   }
 
   // Preset config
