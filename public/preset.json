@@ -14105,6 +14105,1142 @@
       "focusGlowEnabled": false
     },
     {
+      "id": "68f39220-862c-4ef0-96e6-162510222eb5",
+      "title": "Franchises",
+      "folders": [
+        {
+          "id": "79e4efc0-8f3b-4768-b52b-a8746953c8ab",
+          "title": "Star Wars",
+          "sources": [
+            {
+              "title": "Star Wars Collection",
+              "sortBy": "recent",
+              "tmdbId": 10,
+              "filters": {},
+              "provider": "tmdb",
+              "mediaType": "MOVIE",
+              "tmdbSourceType": "COLLECTION"
+            }
+          ],
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverEmoji": "",
+          "focusGifUrl": "",
+          "heroVideoUrl": "",
+          "titleLogoUrl": "",
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/franchises/star-wars.png",
+          "catalogSources": [],
+          "focusGifEnabled": false,
+          "heroBackdropUrl": ""
+        },
+        {
+          "id": "cbbc1aba-0794-49f1-8368-ea10ea194692",
+          "title": "Harry Potter",
+          "sources": [
+            {
+              "title": "Harry Potter Collection",
+              "sortBy": "recent",
+              "tmdbId": 1241,
+              "filters": {},
+              "provider": "tmdb",
+              "mediaType": "MOVIE",
+              "tmdbSourceType": "COLLECTION"
+            }
+          ],
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverEmoji": "",
+          "focusGifUrl": "",
+          "heroVideoUrl": "",
+          "titleLogoUrl": "",
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/franchises/harry-potter.png",
+          "catalogSources": [],
+          "focusGifEnabled": false,
+          "heroBackdropUrl": ""
+        },
+        {
+          "id": "8af8fd5b-6383-46db-ae31-c0197d9f6f80",
+          "title": "Lord of the Rings",
+          "sources": [
+            {
+              "title": "The Lord of the Rings Collection",
+              "sortBy": "recent",
+              "tmdbId": 119,
+              "filters": {},
+              "provider": "tmdb",
+              "mediaType": "MOVIE",
+              "tmdbSourceType": "COLLECTION"
+            }
+          ],
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverEmoji": "",
+          "focusGifUrl": "",
+          "heroVideoUrl": "",
+          "titleLogoUrl": "",
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/franchises/the-lord-of-the-rings.png",
+          "catalogSources": [],
+          "focusGifEnabled": false,
+          "heroBackdropUrl": ""
+        },
+        {
+          "id": "66bf2c77-072f-42e7-9578-cce4228b7f24",
+          "title": "James Bond",
+          "sources": [
+            {
+              "title": "James Bond Collection",
+              "sortBy": "recent",
+              "tmdbId": 645,
+              "filters": {},
+              "provider": "tmdb",
+              "mediaType": "MOVIE",
+              "tmdbSourceType": "COLLECTION"
+            }
+          ],
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverEmoji": "",
+          "focusGifUrl": "",
+          "heroVideoUrl": "",
+          "titleLogoUrl": "",
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/franchises/james-bond.png",
+          "catalogSources": [],
+          "focusGifEnabled": false,
+          "heroBackdropUrl": ""
+        },
+        {
+          "id": "8acd1364-42cf-48b1-bc5d-a6791d23aa98",
+          "title": "Star Trek",
+          "sources": [
+            {
+              "title": "Star Trek: Alternate Reality Collection",
+              "sortBy": "recent",
+              "tmdbId": 115575,
+              "filters": {},
+              "provider": "tmdb",
+              "mediaType": "MOVIE",
+              "tmdbSourceType": "COLLECTION"
+            }
+          ],
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverEmoji": "",
+          "focusGifUrl": "",
+          "heroVideoUrl": "",
+          "titleLogoUrl": "",
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/franchises/star-trek.png",
+          "catalogSources": [],
+          "focusGifEnabled": false,
+          "heroBackdropUrl": ""
+        },
+        {
+          "id": "h6c3063a-6a76-4e09-98a5-801bfa320e08",
+          "title": "The Godfather",
+          "sources": [
+            {
+              "title": "The Godfather Collection",
+              "sortBy": "recent",
+              "tmdbId": 230,
+              "filters": {},
+              "provider": "tmdb",
+              "mediaType": "MOVIE",
+              "tmdbSourceType": "COLLECTION"
+            }
+          ],
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverEmoji": "",
+          "focusGifUrl": "",
+          "heroVideoUrl": "",
+          "titleLogoUrl": "",
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/franchises/the-godfather.png",
+          "catalogSources": [],
+          "focusGifEnabled": false,
+          "heroBackdropUrl": ""
+        },
+        {
+          "id": "6bc46a61-d914-4643-a177-3d7e5f41959a",
+          "title": "Jurassic Park",
+          "sources": [
+            {
+              "title": "Jurassic Park Collection",
+              "sortBy": "recent",
+              "tmdbId": 328,
+              "filters": {},
+              "provider": "tmdb",
+              "mediaType": "MOVIE",
+              "tmdbSourceType": "COLLECTION"
+            }
+          ],
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverEmoji": "",
+          "focusGifUrl": "",
+          "heroVideoUrl": "",
+          "titleLogoUrl": "",
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/franchises/jurassic-park.png",
+          "catalogSources": [],
+          "focusGifEnabled": false,
+          "heroBackdropUrl": ""
+        },
+        {
+          "id": "475d5d4c-e0ee-4542-8a96-4c7ddab8f326",
+          "title": "Indiana Jones",
+          "sources": [
+            {
+              "title": "Indiana Jones Collection",
+              "sortBy": "recent",
+              "tmdbId": 84,
+              "filters": {},
+              "provider": "tmdb",
+              "mediaType": "MOVIE",
+              "tmdbSourceType": "COLLECTION"
+            }
+          ],
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverEmoji": "",
+          "focusGifUrl": "",
+          "heroVideoUrl": "",
+          "titleLogoUrl": "",
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/franchises/indiana-jones.png",
+          "catalogSources": [],
+          "focusGifEnabled": false,
+          "heroBackdropUrl": ""
+        },
+        {
+          "id": "c9b83eee-548c-4498-9b79-e6db12200058",
+          "title": "Back to the Future",
+          "sources": [
+            {
+              "title": "Back to the Future Collection",
+              "sortBy": "recent",
+              "tmdbId": 264,
+              "filters": {},
+              "provider": "tmdb",
+              "mediaType": "MOVIE",
+              "tmdbSourceType": "COLLECTION"
+            }
+          ],
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverEmoji": "",
+          "focusGifUrl": "",
+          "heroVideoUrl": "",
+          "titleLogoUrl": "",
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/franchises/back-to-the-future.png",
+          "catalogSources": [],
+          "focusGifEnabled": false,
+          "heroBackdropUrl": ""
+        },
+        {
+          "id": "427a81ea-5166-4d40-bff5-a44024524181",
+          "title": "Matrix",
+          "sources": [
+            {
+              "title": "The Matrix Collection",
+              "sortBy": "recent",
+              "tmdbId": 2344,
+              "filters": {},
+              "provider": "tmdb",
+              "mediaType": "MOVIE",
+              "tmdbSourceType": "COLLECTION"
+            }
+          ],
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverEmoji": "",
+          "focusGifUrl": "",
+          "heroVideoUrl": "",
+          "titleLogoUrl": "",
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/franchises/the-matrix.png",
+          "catalogSources": [],
+          "focusGifEnabled": false,
+          "heroBackdropUrl": ""
+        },
+        {
+          "id": "6b8c7784-a2c1-4f36-abd4-c38c6ab9ff02",
+          "title": "Pirates of the Caribbean",
+          "sources": [
+            {
+              "title": "Pirates of the Caribbean Collection",
+              "sortBy": "recent",
+              "tmdbId": 295,
+              "filters": {},
+              "provider": "tmdb",
+              "mediaType": "MOVIE",
+              "tmdbSourceType": "COLLECTION"
+            }
+          ],
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverEmoji": "",
+          "focusGifUrl": "",
+          "heroVideoUrl": "",
+          "titleLogoUrl": "",
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/franchises/pirates-of-the-caribbean.png",
+          "catalogSources": [],
+          "focusGifEnabled": false,
+          "heroBackdropUrl": ""
+        },
+        {
+          "id": "1674fece-aaf5-4b3c-a413-d188c222df2e",
+          "title": "Fast and the Furious",
+          "sources": [
+            {
+              "title": "The Fast and the Furious Collection",
+              "sortBy": "recent",
+              "tmdbId": 9485,
+              "filters": {},
+              "provider": "tmdb",
+              "mediaType": "MOVIE",
+              "tmdbSourceType": "COLLECTION"
+            }
+          ],
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverEmoji": "",
+          "focusGifUrl": "",
+          "heroVideoUrl": "",
+          "titleLogoUrl": "",
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/franchises/the-fast-and-the-furious.png",
+          "catalogSources": [],
+          "focusGifEnabled": false,
+          "heroBackdropUrl": ""
+        },
+        {
+          "id": "47726c81-ab40-476f-b9fd-bf5c56c884c2",
+          "title": "Mission: Impossible",
+          "sources": [
+            {
+              "title": "Mission: Impossible Collection",
+              "sortBy": "recent",
+              "tmdbId": 87359,
+              "filters": {},
+              "provider": "tmdb",
+              "mediaType": "MOVIE",
+              "tmdbSourceType": "COLLECTION"
+            }
+          ],
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverEmoji": "",
+          "focusGifUrl": "",
+          "heroVideoUrl": "",
+          "titleLogoUrl": "",
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/franchises/mission-impossible.png",
+          "catalogSources": [],
+          "focusGifEnabled": false,
+          "heroBackdropUrl": ""
+        },
+        {
+          "id": "54d5edba-ae2c-4c9a-a6b6-cd4d033d1278",
+          "title": "Transformers",
+          "sources": [
+            {
+              "title": "Transformers Collection",
+              "sortBy": "recent",
+              "tmdbId": 8650,
+              "filters": {},
+              "provider": "tmdb",
+              "mediaType": "MOVIE",
+              "tmdbSourceType": "COLLECTION"
+            }
+          ],
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverEmoji": "",
+          "focusGifUrl": "",
+          "heroVideoUrl": "",
+          "titleLogoUrl": "",
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/franchises/transformers.png",
+          "catalogSources": [],
+          "focusGifEnabled": false,
+          "heroBackdropUrl": ""
+        },
+        {
+          "id": "f073ee1c-100d-4485-a0f7-413e0c14436e",
+          "title": "Alien",
+          "sources": [
+            {
+              "title": "Alien Collection",
+              "sortBy": "recent",
+              "tmdbId": 8091,
+              "filters": {},
+              "provider": "tmdb",
+              "mediaType": "MOVIE",
+              "tmdbSourceType": "COLLECTION"
+            }
+          ],
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverEmoji": "",
+          "focusGifUrl": "",
+          "heroVideoUrl": "",
+          "titleLogoUrl": "",
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/franchises/alien.png",
+          "catalogSources": [],
+          "focusGifEnabled": false,
+          "heroBackdropUrl": ""
+        },
+        {
+          "id": "19858f7f-0cc7-4328-b0ae-6ecbf1e4ae8b",
+          "title": "Terminator",
+          "sources": [
+            {
+              "title": "The Terminator Collection",
+              "sortBy": "recent",
+              "tmdbId": 528,
+              "filters": {},
+              "provider": "tmdb",
+              "mediaType": "MOVIE",
+              "tmdbSourceType": "COLLECTION"
+            }
+          ],
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverEmoji": "",
+          "focusGifUrl": "",
+          "heroVideoUrl": "",
+          "titleLogoUrl": "",
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/franchises/terminator.png",
+          "catalogSources": [],
+          "focusGifEnabled": false,
+          "heroBackdropUrl": ""
+        },
+        {
+          "id": "c22a01c4-4c86-428c-8543-e1f6f4bf1770",
+          "title": "Rocky",
+          "sources": [
+            {
+              "title": "Rocky Collection",
+              "sortBy": "recent",
+              "tmdbId": 1575,
+              "filters": {},
+              "provider": "tmdb",
+              "mediaType": "MOVIE",
+              "tmdbSourceType": "COLLECTION"
+            }
+          ],
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverEmoji": "",
+          "focusGifUrl": "",
+          "heroVideoUrl": "",
+          "titleLogoUrl": "",
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/franchises/rocky.png",
+          "catalogSources": [],
+          "focusGifEnabled": false,
+          "heroBackdropUrl": ""
+        },
+        {
+          "id": "1c7d9f16-07a7-4903-bc35-e816cda30141",
+          "title": "John Wick",
+          "sources": [
+            {
+              "title": "John Wick Collection",
+              "sortBy": "recent",
+              "tmdbId": 404609,
+              "filters": {},
+              "provider": "tmdb",
+              "mediaType": "MOVIE",
+              "tmdbSourceType": "COLLECTION"
+            }
+          ],
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverEmoji": "",
+          "focusGifUrl": "",
+          "heroVideoUrl": "",
+          "titleLogoUrl": "",
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/franchises/john-wick.png",
+          "catalogSources": [],
+          "focusGifEnabled": false,
+          "heroBackdropUrl": ""
+        },
+        {
+          "id": "3ae108eb-ab91-46ee-adee-469af7e27f85",
+          "title": "Hunger Games",
+          "sources": [
+            {
+              "title": "The Hunger Games Collection",
+              "sortBy": "recent",
+              "tmdbId": 131635,
+              "filters": {},
+              "provider": "tmdb",
+              "mediaType": "MOVIE",
+              "tmdbSourceType": "COLLECTION"
+            }
+          ],
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverEmoji": "",
+          "focusGifUrl": "",
+          "heroVideoUrl": "",
+          "titleLogoUrl": "",
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/franchises/the-hunger-games.png",
+          "catalogSources": [],
+          "focusGifEnabled": false,
+          "heroBackdropUrl": ""
+        },
+        {
+          "id": "g6c3063a-6a76-4e09-98a5-801bfa320e07",
+          "title": "Twilight",
+          "sources": [
+            {
+              "title": "Twilight Collection",
+              "sortBy": "recent",
+              "tmdbId": 33514,
+              "filters": {},
+              "provider": "tmdb",
+              "mediaType": "MOVIE",
+              "tmdbSourceType": "COLLECTION"
+            }
+          ],
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverEmoji": "",
+          "focusGifUrl": "",
+          "heroVideoUrl": "",
+          "titleLogoUrl": "",
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/franchises/twilight.png",
+          "catalogSources": [],
+          "focusGifEnabled": false,
+          "heroBackdropUrl": ""
+        },
+        {
+          "id": "8d3f1d84-f9d6-4de0-bfdd-571f7dafc07d",
+          "title": "Ghostbusters",
+          "sources": [
+            {
+              "title": "Ghostbusters Collection",
+              "sortBy": "recent",
+              "tmdbId": 2980,
+              "filters": {},
+              "provider": "tmdb",
+              "mediaType": "MOVIE",
+              "tmdbSourceType": "COLLECTION"
+            }
+          ],
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverEmoji": "",
+          "focusGifUrl": "",
+          "heroVideoUrl": "",
+          "titleLogoUrl": "",
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/franchises/ghostbusters.png",
+          "catalogSources": [],
+          "focusGifEnabled": false,
+          "heroBackdropUrl": ""
+        },
+        {
+          "id": "6d6624ae-32fd-4341-a0c7-79a994543352",
+          "title": "Die Hard",
+          "sources": [
+            {
+              "title": "Die Hard Collection",
+              "sortBy": "recent",
+              "tmdbId": 1570,
+              "filters": {},
+              "provider": "tmdb",
+              "mediaType": "MOVIE",
+              "tmdbSourceType": "COLLECTION"
+            }
+          ],
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverEmoji": "",
+          "focusGifUrl": "",
+          "heroVideoUrl": "",
+          "titleLogoUrl": "",
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/franchises/die-hard.png",
+          "catalogSources": [],
+          "focusGifEnabled": false,
+          "heroBackdropUrl": ""
+        },
+        {
+          "id": "b7c4d09e-b332-407d-9136-ecf852570efd",
+          "title": "Jaws",
+          "sources": [
+            {
+              "title": "Jaws Collection",
+              "sortBy": "recent",
+              "tmdbId": 2366,
+              "filters": {},
+              "provider": "tmdb",
+              "mediaType": "MOVIE",
+              "tmdbSourceType": "COLLECTION"
+            }
+          ],
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverEmoji": "",
+          "focusGifUrl": "",
+          "heroVideoUrl": "",
+          "titleLogoUrl": "",
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/franchises/jaws.png",
+          "catalogSources": [],
+          "focusGifEnabled": false,
+          "heroBackdropUrl": ""
+        },
+        {
+          "id": "ff29c5bc-952f-44c1-8957-633cfa31f5a5",
+          "title": "Planet of the Apes Collection",
+          "sources": [
+            {
+              "title": "Planet of the Apes (Reboot) Collection",
+              "sortBy": "recent",
+              "tmdbId": 173710,
+              "filters": {},
+              "provider": "tmdb",
+              "mediaType": "MOVIE",
+              "tmdbSourceType": "COLLECTION"
+            }
+          ],
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverEmoji": "",
+          "focusGifUrl": "",
+          "heroVideoUrl": "",
+          "titleLogoUrl": "",
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/franchises/the-planet-of-the-apes.png",
+          "catalogSources": [],
+          "focusGifEnabled": false,
+          "heroBackdropUrl": ""
+        },
+        {
+          "id": "a7b9e8f2-1c3d-4e5f-8a9b-2d4c6e8f0a1b",
+          "title": "Godzilla Collection",
+          "sources": [
+            {
+              "title": "Godzilla Collection",
+              "sortBy": "recent",
+              "tmdbId": 535313,
+              "filters": {},
+              "provider": "tmdb",
+              "mediaType": "MOVIE",
+              "tmdbSourceType": "COLLECTION"
+            }
+          ],
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverEmoji": "",
+          "focusGifUrl": "",
+          "heroVideoUrl": "",
+          "titleLogoUrl": "",
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/franchises/godzilla.png",
+          "catalogSources": [],
+          "focusGifEnabled": false,
+          "heroBackdropUrl": ""
+        },
+        {
+          "id": "e094ab6c-8bd3-4788-bb73-8b1fbc5ad737",
+          "title": "Mad Max",
+          "sources": [
+            {
+              "title": "Mad Max Collection",
+              "sortBy": "recent",
+              "tmdbId": 8945,
+              "filters": {},
+              "provider": "tmdb",
+              "mediaType": "MOVIE",
+              "tmdbSourceType": "COLLECTION"
+            }
+          ],
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverEmoji": "",
+          "focusGifUrl": "",
+          "heroVideoUrl": "",
+          "titleLogoUrl": "",
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/franchises/mad-max.png",
+          "catalogSources": [],
+          "focusGifEnabled": false,
+          "heroBackdropUrl": ""
+        },
+        {
+          "id": "47c9a429-95a8-4d95-8a74-452b396b153f",
+          "title": "Men in Black",
+          "sources": [
+            {
+              "title": "Men in Black Collection",
+              "sortBy": "recent",
+              "tmdbId": 86055,
+              "filters": {},
+              "provider": "tmdb",
+              "mediaType": "MOVIE",
+              "tmdbSourceType": "COLLECTION"
+            }
+          ],
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverEmoji": "",
+          "focusGifUrl": "",
+          "heroVideoUrl": "",
+          "titleLogoUrl": "",
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/franchises/men-in-black.png",
+          "catalogSources": [],
+          "focusGifEnabled": false,
+          "heroBackdropUrl": ""
+        },
+        {
+          "id": "e4dfff97-761f-4cd6-b7a0-23c39a5e502f",
+          "title": "Bourne",
+          "sources": [
+            {
+              "title": "The Bourne Collection",
+              "sortBy": "recent",
+              "tmdbId": 31562,
+              "filters": {},
+              "provider": "tmdb",
+              "mediaType": "MOVIE",
+              "tmdbSourceType": "COLLECTION"
+            }
+          ],
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverEmoji": "",
+          "focusGifUrl": "",
+          "heroVideoUrl": "",
+          "titleLogoUrl": "",
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/franchises/bourne.png",
+          "catalogSources": [],
+          "focusGifEnabled": false,
+          "heroBackdropUrl": ""
+        },
+        {
+          "id": "e6c3063a-6a76-4e09-98a5-801bfa320e05",
+          "title": "The Conjuring",
+          "sources": [
+            {
+              "title": "The Conjuring Collection",
+              "sortBy": "recent",
+              "tmdbId": 313086,
+              "filters": {},
+              "provider": "tmdb",
+              "mediaType": "MOVIE",
+              "tmdbSourceType": "COLLECTION"
+            }
+          ],
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverEmoji": "",
+          "focusGifUrl": "",
+          "heroVideoUrl": "",
+          "titleLogoUrl": "",
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/franchises/the-conjuring.png",
+          "catalogSources": [],
+          "focusGifEnabled": false,
+          "heroBackdropUrl": ""
+        },
+        {
+          "id": "ad155ebe-26ff-42c7-b617-c5d4de574ea0",
+          "title": "Predator",
+          "sources": [
+            {
+              "title": "Predator Collection",
+              "sortBy": "recent",
+              "tmdbId": 399,
+              "filters": {},
+              "provider": "tmdb",
+              "mediaType": "MOVIE",
+              "tmdbSourceType": "COLLECTION"
+            }
+          ],
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverEmoji": "",
+          "focusGifUrl": "",
+          "heroVideoUrl": "",
+          "titleLogoUrl": "",
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/franchises/predator.png",
+          "catalogSources": [],
+          "focusGifEnabled": false,
+          "heroBackdropUrl": ""
+        },
+        {
+          "id": "8af79b87-7981-4abe-88b5-b334d0b1844a",
+          "title": "Resident Evil",
+          "sources": [
+            {
+              "title": "Resident Evil Collection",
+              "sortBy": "recent",
+              "tmdbId": 17255,
+              "filters": {},
+              "provider": "tmdb",
+              "mediaType": "MOVIE",
+              "tmdbSourceType": "COLLECTION"
+            }
+          ],
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverEmoji": "",
+          "focusGifUrl": "",
+          "heroVideoUrl": "",
+          "titleLogoUrl": "",
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/franchises/resident-evil.png",
+          "catalogSources": [],
+          "focusGifEnabled": false,
+          "heroBackdropUrl": ""
+        },
+        {
+          "id": "f71119d4-ffdb-4d2e-8efc-1c1725c8abf7",
+          "title": "Saw",
+          "sources": [
+            {
+              "title": "Saw Collection",
+              "sortBy": "recent",
+              "tmdbId": 656,
+              "filters": {},
+              "provider": "tmdb",
+              "mediaType": "MOVIE",
+              "tmdbSourceType": "COLLECTION"
+            }
+          ],
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverEmoji": "",
+          "focusGifUrl": "",
+          "heroVideoUrl": "",
+          "titleLogoUrl": "",
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/franchises/saw.png",
+          "catalogSources": [],
+          "focusGifEnabled": false,
+          "heroBackdropUrl": ""
+        },
+        {
+          "id": "01415323-7e9d-46e2-8c10-6d44cb2e7c80",
+          "title": "Halloween",
+          "sources": [
+            {
+              "title": "Halloween Collection",
+              "sortBy": "recent",
+              "tmdbId": 91361,
+              "filters": {},
+              "provider": "tmdb",
+              "mediaType": "MOVIE",
+              "tmdbSourceType": "COLLECTION"
+            }
+          ],
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverEmoji": "",
+          "focusGifUrl": "",
+          "heroVideoUrl": "",
+          "titleLogoUrl": "",
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/franchises/halloween.png",
+          "catalogSources": [],
+          "focusGifEnabled": false,
+          "heroBackdropUrl": ""
+        },
+        {
+          "id": "810e349c-d06c-41dd-8600-559db4f2d16e",
+          "title": "Friday the 13th",
+          "sources": [
+            {
+              "title": "Friday the 13th Collection",
+              "sortBy": "recent",
+              "tmdbId": 9735,
+              "filters": {},
+              "provider": "tmdb",
+              "mediaType": "MOVIE",
+              "tmdbSourceType": "COLLECTION"
+            }
+          ],
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverEmoji": "",
+          "focusGifUrl": "",
+          "heroVideoUrl": "",
+          "titleLogoUrl": "",
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/franchises/friday-the-13th.png",
+          "catalogSources": [],
+          "focusGifEnabled": false,
+          "heroBackdropUrl": ""
+        },
+        {
+          "id": "b0c383f1-f7a8-4d57-ba73-3c624a6c3789",
+          "title": "A Nightmare on Elm Street",
+          "sources": [
+            {
+              "title": "A Nightmare on Elm Street Collection",
+              "sortBy": "recent",
+              "tmdbId": 8581,
+              "filters": {},
+              "provider": "tmdb",
+              "mediaType": "MOVIE",
+              "tmdbSourceType": "COLLECTION"
+            }
+          ],
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverEmoji": "",
+          "focusGifUrl": "",
+          "heroVideoUrl": "",
+          "titleLogoUrl": "",
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/franchises/a-nightmare-on-elm-street.png",
+          "catalogSources": [],
+          "focusGifEnabled": false,
+          "heroBackdropUrl": ""
+        },
+        {
+          "id": "35f71d6e-e5f2-436c-86ed-69d1f1d0bf19",
+          "title": "Scream",
+          "sources": [
+            {
+              "title": "Scream Collection",
+              "sortBy": "recent",
+              "tmdbId": 2602,
+              "filters": {},
+              "provider": "tmdb",
+              "mediaType": "MOVIE",
+              "tmdbSourceType": "COLLECTION"
+            }
+          ],
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverEmoji": "",
+          "focusGifUrl": "",
+          "heroVideoUrl": "",
+          "titleLogoUrl": "",
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/franchises/scream.png",
+          "catalogSources": [],
+          "focusGifEnabled": false,
+          "heroBackdropUrl": ""
+        },
+        {
+          "id": "d6c3063a-6a76-4e09-98a5-801bfa320e04",
+          "title": "Final Destination",
+          "sources": [
+            {
+              "title": "Final Destination Collection",
+              "sortBy": "recent",
+              "tmdbId": 8864,
+              "filters": {},
+              "provider": "tmdb",
+              "mediaType": "MOVIE",
+              "tmdbSourceType": "COLLECTION"
+            }
+          ],
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverEmoji": "",
+          "focusGifUrl": "",
+          "heroVideoUrl": "",
+          "titleLogoUrl": "",
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/franchises/final-destination.png",
+          "catalogSources": [],
+          "focusGifEnabled": false,
+          "heroBackdropUrl": ""
+        },
+        {
+          "id": "7fdf7b13-e0aa-4304-92a7-d6cd87ba22db",
+          "title": "The Purge",
+          "sources": [
+            {
+              "title": "The Purge Collection",
+              "sortBy": "recent",
+              "tmdbId": 256322,
+              "filters": {},
+              "provider": "tmdb",
+              "mediaType": "MOVIE",
+              "tmdbSourceType": "COLLECTION"
+            }
+          ],
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverEmoji": "",
+          "focusGifUrl": "",
+          "heroVideoUrl": "",
+          "titleLogoUrl": "",
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/franchises/the-purge.png",
+          "catalogSources": [],
+          "focusGifEnabled": false,
+          "heroBackdropUrl": ""
+        },
+        {
+          "id": "b7c4d09e-b332-407d-9136-ecf852570efd",
+          "title": "Rambo",
+          "sources": [
+            {
+              "title": "Rambo Collection",
+              "sortBy": "recent",
+              "tmdbId": 5039,
+              "filters": {},
+              "provider": "tmdb",
+              "mediaType": "MOVIE",
+              "tmdbSourceType": "COLLECTION"
+            }
+          ],
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverEmoji": "",
+          "focusGifUrl": "",
+          "heroVideoUrl": "",
+          "titleLogoUrl": "",
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/franchises/rambo.png",
+          "catalogSources": [],
+          "focusGifEnabled": false,
+          "heroBackdropUrl": ""
+        },
+        {
+          "id": "22932df5-023a-4582-933f-77e8af6e3afd",
+          "title": "Insidious",
+          "sources": [
+            {
+              "title": "Insidious Collection",
+              "sortBy": "recent",
+              "tmdbId": 228446,
+              "filters": {},
+              "provider": "tmdb",
+              "mediaType": "MOVIE",
+              "tmdbSourceType": "COLLECTION"
+            }
+          ],
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverEmoji": "",
+          "focusGifUrl": "",
+          "heroVideoUrl": "",
+          "titleLogoUrl": "",
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/franchises/insidious.png",
+          "catalogSources": [],
+          "focusGifEnabled": false,
+          "heroBackdropUrl": ""
+        },
+        {
+          "id": "abbbd445-3c0a-4918-b2c7-af8931c73b4f",
+          "title": "Karate Kid",
+          "sources": [
+            {
+              "title": "The Karate Kid Collection",
+              "sortBy": "recent",
+              "tmdbId": 8580,
+              "filters": {},
+              "provider": "tmdb",
+              "mediaType": "MOVIE",
+              "tmdbSourceType": "COLLECTION"
+            }
+          ],
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverEmoji": "",
+          "focusGifUrl": "",
+          "heroVideoUrl": "",
+          "titleLogoUrl": "",
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/franchises/the-karate-kid.png",
+          "catalogSources": [],
+          "focusGifEnabled": false,
+          "heroBackdropUrl": ""
+        },
+        {
+          "id": "8cc0b867-e426-4a53-a6d7-5c9a7969613e",
+          "title": "Mummy",
+          "sources": [
+            {
+              "title": "The Mummy Collection",
+              "sortBy": "recent",
+              "tmdbId": 1733,
+              "filters": {},
+              "provider": "tmdb",
+              "mediaType": "MOVIE",
+              "tmdbSourceType": "COLLECTION"
+            }
+          ],
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverEmoji": "",
+          "focusGifUrl": "",
+          "heroVideoUrl": "",
+          "titleLogoUrl": "",
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/franchises/the-mummy.png",
+          "catalogSources": [],
+          "focusGifEnabled": false,
+          "heroBackdropUrl": ""
+        },
+        {
+          "id": "f6c3063a-6a76-4e09-98a5-801bfa320e06",
+          "title": "Rush Hour",
+          "sources": [
+            {
+              "title": "Rush Hour Collection",
+              "sortBy": "recent",
+              "tmdbId": 90863,
+              "filters": {},
+              "provider": "tmdb",
+              "mediaType": "MOVIE",
+              "tmdbSourceType": "COLLECTION"
+            }
+          ],
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverEmoji": "",
+          "focusGifUrl": "",
+          "heroVideoUrl": "",
+          "titleLogoUrl": "",
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/franchises/rush-hour.png",
+          "catalogSources": [],
+          "focusGifEnabled": false,
+          "heroBackdropUrl": ""
+        },
+        {
+          "id": "9ec1226a-f7ee-41a4-9eae-51006632cf12",
+          "title": "Bad Boys",
+          "sources": [
+            {
+              "title": "Bad Boys Collection",
+              "sortBy": "recent",
+              "tmdbId": 14890,
+              "filters": {},
+              "provider": "tmdb",
+              "mediaType": "MOVIE",
+              "tmdbSourceType": "COLLECTION"
+            }
+          ],
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverEmoji": "",
+          "focusGifUrl": "",
+          "heroVideoUrl": "",
+          "titleLogoUrl": "",
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/franchises/bad-boys.png",
+          "catalogSources": [],
+          "focusGifEnabled": false,
+          "heroBackdropUrl": ""
+        },
+        {
+          "id": "44f9fd35-aa05-4efd-b15f-e3a6202b00b1",
+          "title": "Lethal Weapon",
+          "sources": [
+            {
+              "title": "Lethal Weapon Collection",
+              "sortBy": "recent",
+              "tmdbId": 945,
+              "filters": {},
+              "provider": "tmdb",
+              "mediaType": "MOVIE",
+              "tmdbSourceType": "COLLECTION"
+            }
+          ],
+          "hideTitle": true,
+          "tileShape": "LANDSCAPE",
+          "coverEmoji": "",
+          "focusGifUrl": "",
+          "heroVideoUrl": "",
+          "titleLogoUrl": "",
+          "coverImageUrl": "https://raw.githubusercontent.com/DryKillLogic/stremio-account-bootstrapper/refs/heads/main/public/covers/franchises/lethal-weapon.png",
+          "catalogSources": [],
+          "focusGifEnabled": false,
+          "heroBackdropUrl": ""
+        }
+      ],
+      "pinToTop": false,
+      "viewMode": "FOLLOW_LAYOUT",
+      "showAllTab": false,
+      "backdropImageUrl": "",
+      "focusGlowEnabled": true
+    },
+    {
       "id": "f64f868f-4135-4748-8192-67c2e0c0aa2c",
       "title": "International",
       "folders": [
