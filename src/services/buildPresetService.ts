@@ -85,7 +85,12 @@ export async function buildPresetService(params: BuildPresetServiceParams) {
     'pt-BR': ['brazucatorrents']
   };
 
-  if (preset !== 'allinone' && preset !== 'factory' && preset !== 'http_only') {
+  if (
+    preset !== 'allinone' &&
+    preset !== 'factory' &&
+    preset !== 'http_only' &&
+    preset !== 'no_streams'
+  ) {
     const addons = languageAddons[language];
     if (addons) {
       presetKeys = [...presetKeys, ...addons];
