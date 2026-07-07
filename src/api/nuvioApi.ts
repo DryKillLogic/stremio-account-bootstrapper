@@ -92,6 +92,39 @@ export const syncPullProfiles = async (authKey: string): Promise<any> =>
     }
   );
 
+export const syncPullProfileSettings = async (
+  authKey: string,
+  profileId = 1
+): Promise<any> =>
+  nuvioPostRequest(
+    `${nuvioApiBase}/rest/v1/rpc/sync_pull_profile_settings_blob`,
+    { p_profile_id: profileId, p_platform: 'mobile' },
+    {
+      headers: {
+        Authorization: `Bearer ${authKey}`
+      }
+    }
+  );
+
+export const syncPushProfileSettings = async (
+  settingsJson: any,
+  authKey: string,
+  profileId = 1
+): Promise<any> =>
+  nuvioPostRequest(
+    `${nuvioApiBase}/rest/v1/rpc/sync_push_profile_settings_blob`,
+    {
+      p_profile_id: profileId,
+      p_settings_json: settingsJson,
+      p_platform: 'mobile'
+    },
+    {
+      headers: {
+        Authorization: `Bearer ${authKey}`
+      }
+    }
+  );
+
 export const loginUser = async (
   email: string,
   password: string

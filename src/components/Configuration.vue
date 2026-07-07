@@ -204,7 +204,8 @@ async function syncUserAddons() {
       key,
       platform: props.platform,
       collections,
-      profileId: selectedNuvioProfileId.value || 1
+      profileId: selectedNuvioProfileId.value || 1,
+      tmdbKey: advancedOptions.value.tmdbKey
     });
     addNotification(t('sync_complete'), 'success');
     track('sync_stremio_click', {

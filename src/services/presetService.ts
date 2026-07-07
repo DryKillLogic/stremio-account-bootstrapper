@@ -5,6 +5,8 @@ import { isValidManifestUrl } from '../utils/url.ts';
 import {
   setAddonCollection,
   pushCollections,
+  pullProfileSettingsBlob,
+  pushProfileSettingsBlob,
   type Platform
 } from '../api/platformApi';
 import type {
@@ -392,13 +394,24 @@ export async function buildPresetService(params: BuildPresetServiceParams) {
     console.warn('Errors during preset configuration:', errorMessage);
   }
 
+  let collections = kids
+    ? []
+    : translateCollections(data.nuvioCollectionsConfig || [], language);
+
+  // Include franchises collection only if a TMDB API key is provided
+  if (advanced?.tmdbKey && data.nuvioFranchisesCollectionConfig) {
+    const franchises = translateCollections(
+      [data.nuvioFranchisesCollectionConfig],
+      language
+    );
+    collections = [...collections, ...franchises];
+  }
+
   return {
     presetConfig,
     selectedAddons,
     debridServiceName,
-    collections: kids
-      ? []
-      : translateCollections(data.nuvioCollectionsConfig || [], language),
+    collections,
     errors
   };
 }
@@ -409,6 +422,7 @@ interface LoadPresetServiceParams {
   platform?: Platform;
   collections?: any;
   profileId?: number;
+  tmdbKey?: string;
 }
 
 export async function loadPresetService({
@@ -416,7 +430,8 @@ export async function loadPresetService({
   key,
   platform = 'stremio',
   collections = [],
-  profileId = 1
+  profileId = 1,
+  tmdbKey
 }: LoadPresetServiceParams) {
   if (!key) {
     throw new Error('No auth key provided');
@@ -437,6 +452,34 @@ export async function loadPresetService({
       throw new Error(
         collectionsSyncRes?.result?.error || 'Collections sync failed'
       );
+    }
+
+    // If TMDB key is provided, update profile settings to enable TMDB
+    if (tmdbKey) {
+      const currentSettings = await pullProfileSettingsBlob(key, profileId);
+      const existing = currentSettings?.result?.settings_json || {
+        version: 3,
+        features: {}
+      };
+
+      existing.features = {
+        ...existing.features,
+        tmdb_settings: {
+          tmdb_enabled: { type: 'boolean', value: true },
+          tmdb_api_key: { type: 'string', value: tmdbKey }
+        }
+      };
+
+      const settingsRes = await pushProfileSettingsBlob(
+        existing,
+        key,
+        profileId
+      );
+      if (!settingsRes?.result?.success) {
+        throw new Error(
+          settingsRes?.result?.error || 'User profile settings sync failed'
+        );
+      }
     }
   }
 

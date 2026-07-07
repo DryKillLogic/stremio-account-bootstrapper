@@ -96,6 +96,23 @@ export const pushCollections = async (
     await nuvioApi.syncCollections(collectionsJson, authKey, profileId)
   );
 
+export const pullProfileSettingsBlob = async (
+  authKey: string,
+  profileId = 1
+): Promise<any> =>
+  normalizePlatformResponse(
+    await nuvioApi.syncPullProfileSettings(authKey, profileId)
+  );
+
+export const pushProfileSettingsBlob = async (
+  settingsJson: any,
+  authKey: string,
+  profileId = 1
+): Promise<any> =>
+  normalizePlatformResponse(
+    await nuvioApi.syncPushProfileSettings(settingsJson, authKey, profileId)
+  );
+
 export const pullProfiles = async (authKey: string): Promise<any> => {
   const payload = await nuvioApi.syncPullProfiles(authKey);
 
