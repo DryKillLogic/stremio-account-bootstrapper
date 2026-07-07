@@ -399,5 +399,6 @@
   "nuvio_collection_international_united_kingdom": "Royaume-Uni",
   "nuvio_collection_international_united_states": "États-Unis",
   "nuvio_collection_studios": "Studios",
-  "nuvio_collection_streaming_services": "Services de streaming"
+  "nuvio_collection_streaming_services": "Services de streaming",
+  "nuvio_collection_suffix": "Collection"
 }
