@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.22.0](https://github.com/DryKillLogic/stremio-account-bootstrapper/compare/v2.21.2...v2.22.0) (2026-07-07)
+
+### Features
+
+- added franchises Nuvio collection ([8710315](https://github.com/DryKillLogic/stremio-account-bootstrapper/commit/87103155e9c625686a2f0114ba4067a27c01ab68))
+- added translation to collection titles ([ee65473](https://github.com/DryKillLogic/stremio-account-bootstrapper/commit/ee65473f713e9f614f0a2be3db001ea3b4394588))
+- update Nuvio profile to include TMDB API key when provided ([f3e90b6](https://github.com/DryKillLogic/stremio-account-bootstrapper/commit/f3e90b622cfe98503ec2a300a911ce90506fc9f1))
+
+### Bug Fixes
+
+- translate the list title in the franchises collection ([968174c](https://github.com/DryKillLogic/stremio-account-bootstrapper/commit/968174c1d00c8402b64a1258665d60fe434f42d5))
+
 ### [2.21.2](https://github.com/DryKillLogic/stremio-account-bootstrapper/compare/v2.21.1...v2.21.2) (2026-07-06)
 
 ### Bug Fixes
