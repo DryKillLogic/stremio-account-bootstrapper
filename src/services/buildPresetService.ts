@@ -81,7 +81,7 @@ export async function buildPresetService(params: BuildPresetServiceParams) {
   // Region-specific addons
   const languageAddons: Record<string, string[]> = {
     'es-ES': ['cometa', 'peerflix'],
-    'es-MX': ['cometa', 'notorrent'],
+    'es-MX': ['cometa'],
     'pt-BR': ['brazucatorrents']
   };
 

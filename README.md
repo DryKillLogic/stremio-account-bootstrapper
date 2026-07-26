@@ -18,6 +18,7 @@ Stremio Account Bootstrapper lets you set up your Stremio/Nuvio account with jus
 - RealDebrid, AllDebrid, Premiumize, Debrid-Link, OffCloud, TorBox, and Easynews support.
 - Multi-debrid services support.
 - Multi-platform support. It currently supports Stremio and Nuvio.
+- Collections support on Nuvio. It currently includes Trending/Latest/Top Rated, Genres, Decades, Themed, International, and Franchises (TMDB API key required) collections.
 - RPDB support.
 - Ability to reset the account to a default state (factory preset).
 - Optimized addons configuration.

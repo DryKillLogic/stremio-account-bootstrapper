@@ -1940,21 +1940,6 @@
       "webstreamrmbg": {
         "transportUrl": "https://87d6a6ef6b58-webstreamrmbg.baby-beamup.club/%7B%22multi%22%3A%22on%22%2C%22mx%22%3A%22on%22%2C%22mediaFlowProxyUrl%22%3A%22%22%2C%22mediaFlowProxyPassword%22%3A%22%22%7D/manifest.json"
       },
-      "notorrent": {
-        "transportUrl": "https://addon-osvh.onrender.com/manifest.json",
-        "manifest": {
-          "id": "com.notorrent.addon",
-          "version": "2.0.0",
-          "name": "NoTorrent",
-          "description": "All TV shows from Netflix, Disney+, Prime Video, Apple TV+, Paramount+, HBO Max, Crunchyroll, and over 24K movies in English & Spanish.",
-          "resources": ["catalog", "stream", "meta"],
-          "types": ["series", "movie"],
-          "idPrefixes": ["tmdb_", "tt"],
-          "catalogs": [],
-          "background": "https://aqua-vulture-337623.hostingersite.com/addon//background.jpg",
-          "logo": "https://styles.redditmedia.com/t5_fvvpco/styles/profileIcon_c8ye4t9j6x2g1.png"
-        }
-      },
       "streailer": {
         "transportUrl": "https://streailer.elfhosted.com/%7B%22language%22%3A%22es-MX%22%2C%22externalLink%22%3Afalse%2C%22showRecap%22%3Atrue%2C%22onlyRecaps%22%3Afalse%7D/manifest.json"
       },
