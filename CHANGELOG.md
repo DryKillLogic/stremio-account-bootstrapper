@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.23.0](https://github.com/DryKillLogic/stremio-account-bootstrapper/compare/v2.22.1...v2.23.0) (2026-07-26)
+
+### Features
+
+- removed NoTorrent addon ([82ff7ee](https://github.com/DryKillLogic/stremio-account-bootstrapper/commit/82ff7ee7c93f2400e1caf21e15a1cc775f63bb98))
+
 ### [2.22.1](https://github.com/DryKillLogic/stremio-account-bootstrapper/compare/v2.22.0...v2.22.1) (2026-07-07)
 
 ### Bug Fixes
