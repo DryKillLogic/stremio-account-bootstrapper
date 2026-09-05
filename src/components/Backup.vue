@@ -1,6 +1,10 @@
 <script setup>
-import { ref } from 'vue';
-import { getAddonCollection, setAddonCollection } from '../api/platformApi';
+import { computed, ref, watch } from 'vue';
+import {
+  getAddonCollection,
+  pullProfiles,
+  setAddonCollection
+} from '../api/platformApi';
 import { format } from 'date-fns';
 import { useI18n } from 'vue-i18n';
 import { addNotification } from '../composables/useNotifications';
@@ -20,12 +24,73 @@ const loadingRestore = ref(false);
 const error = ref(null);
 const fileInputRef = ref(null);
 const { track } = useAnalytics();
+const nuvioProfiles = ref([]);
+const selectedNuvioProfileId = ref(1);
+const isLoadingNuvioProfiles = ref(false);
+
+const selectedNuvioProfileName = computed(() => {
+  const profile = nuvioProfiles.value.find(
+    (item) => item.id === selectedNuvioProfileId.value
+  );
+  return (
+    profile?.name ||
+    t('profile_fallback_name', { id: selectedNuvioProfileId.value })
+  );
+});
+
+function resetNuvioProfiles() {
+  nuvioProfiles.value = [];
+  selectedNuvioProfileId.value = 1;
+}
+
+async function loadNuvioProfiles() {
+  if (platform !== 'nuvio' || !authKey) {
+    resetNuvioProfiles();
+    return;
+  }
+
+  isLoadingNuvioProfiles.value = true;
+  try {
+    const response = await pullProfiles(authKey);
+    const profiles = Array.isArray(response)
+      ? response
+          .map((profile) => {
+            const id = Number(profile?.profile_index);
+            return Number.isFinite(id)
+              ? {
+                  id,
+                  name: profile?.name || t('profile_fallback_name', { id })
+                }
+              : null;
+          })
+          .filter(Boolean)
+      : [];
+
+    nuvioProfiles.value = profiles;
+    if (
+      profiles.length > 0 &&
+      !profiles.some(
+        (profile) => profile.id === selectedNuvioProfileId.value
+      )
+    ) {
+      selectedNuvioProfileId.value = profiles[0].id;
+    }
+  } catch (e) {
+    console.error('Failed to load profiles', e);
+    resetNuvioProfiles();
+    addNotification(t('profile_load_failed'), 'error');
+  } finally {
+    isLoadingNuvioProfiles.value = false;
+  }
+}
+
+watch(() => [platform, authKey], loadNuvioProfiles, { immediate: true });
 
 function backupConfig() {
   loadingBackup.value = true;
   error.value = null;
 
-  getAddonCollection(platform, authKey)
+  getAddonCollection(platform, authKey, selectedNuvioProfileId.value)
     .then((data) => {
       const blob = new Blob([JSON.stringify(data, null, 2)], {
         type: 'application/json'
@@ -33,7 +98,12 @@ function backupConfig() {
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = `${platform}-addons-config-${format(new Date(), 'yyyy-MM-dd_HH-mm-ss')}.json`;
+      const profileSuffix =
+        platform === 'nuvio' ? `-profile-${selectedNuvioProfileId.value}` : '';
+      a.download = `${platform}-addons-config${profileSuffix}-${format(
+        new Date(),
+        'yyyy-MM-dd_HH-mm-ss'
+      )}.json`;
       document.body.appendChild(a);
       a.click();
       a.remove();
@@ -41,7 +111,9 @@ function backupConfig() {
 
       addNotification(t('backup_saved'), 'success');
       track('backup_config_click', {
-        title: `Backup config (${platform})`
+        title: `Backup config (${platform}${
+          platform === 'nuvio' ? `: ${selectedNuvioProfileName.value}` : ''
+        })`
       });
     })
     .catch((e) => {
@@ -81,10 +153,17 @@ async function restoreConfigFile(event) {
       throw new Error(t('invalid_backup_file'));
     }
 
-    await setAddonCollection(platform, addonsPayload, authKey);
+    await setAddonCollection(
+      platform,
+      addonsPayload,
+      authKey,
+      selectedNuvioProfileId.value
+    );
     addNotification(t('restore_successful'), 'success');
     track('restore_config_click', {
-      title: `Restore config (${platform})`
+      title: `Restore config (${platform}${
+        platform === 'nuvio' ? `: ${selectedNuvioProfileName.value}` : ''
+      })`
     });
   } catch (e) {
     error.value = e?.message || String(e);
@@ -101,6 +180,28 @@ async function restoreConfigFile(event) {
     <h2 class="text-2xl font-bold mb-6">{{ $t('backup_restore') }}</h2>
 
     <div class="bg-base-100 p-6 rounded-lg border border-base-300">
+      <label
+        v-if="platform === 'nuvio'"
+        class="label cursor-pointer mb-4"
+      >
+        <span class="label-text">{{ $t('profile_label') }}</span>
+        <select
+          v-model.number="selectedNuvioProfileId"
+          class="select select-bordered w-40"
+          :disabled="isLoadingNuvioProfiles || nuvioProfiles.length === 0"
+        >
+          <option v-if="isLoadingNuvioProfiles" :value="1">
+            {{ $t('profile_loading') }}
+          </option>
+          <option
+            v-for="profile in nuvioProfiles"
+            :key="profile.id"
+            :value="profile.id"
+          >
+            {{ profile.name }}
+          </option>
+        </select>
+      </label>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
           <button
