@@ -59,6 +59,20 @@ let nuvioProfiles = ref([]);
 let selectedNuvioProfileId = ref(1);
 let isLoadingNuvioProfiles = ref(false);
 
+const selectedNuvioProfileName = computed(() => {
+  if (selectedNuvioProfileId.value === 'all') {
+    return t('profile_all');
+  }
+
+  const profile = nuvioProfiles.value.find(
+    (item) => item.id === selectedNuvioProfileId.value
+  );
+  return (
+    profile?.name ||
+    t('profile_fallback_name', { id: selectedNuvioProfileId.value })
+  );
+});
+
 let isPasswordModalVisible = ref(false);
 let generatedPassword = ref(generatePassword());
 
@@ -205,16 +219,26 @@ async function syncUserAddons() {
       platform: props.platform,
       collections,
       profileId: selectedNuvioProfileId.value || 1,
+      profileIds: nuvioProfiles.value.map((profile) => profile.id),
       tmdbKey: advancedOptions.value.tmdbKey
     });
-    addNotification(t('sync_complete'), 'success');
+    const syncCompleteMessage =
+      props.platform === 'nuvio'
+        ? `${t('sync_complete')} (${t('profile_label')}: ${
+            selectedNuvioProfileName.value
+          })`
+        : t('sync_complete');
+    addNotification(syncCompleteMessage, 'success');
     track('sync_stremio_click', {
       title: `Sync to ${platformLabel.value}`,
       vars: {
         platform: props.platform,
         language: language.value,
         preset: preset.value,
-        debrid: debridService.value || ''
+        debrid: debridService.value || '',
+        ...(props.platform === 'nuvio'
+          ? { profile: selectedNuvioProfileName.value }
+          : {})
       }
     });
     isPasswordModalVisible.value = preset.value !== 'factory';
@@ -1003,25 +1027,6 @@ watch(
               </VTooltip>
             </span>
           </label>
-          <label v-if="props.platform === 'nuvio'" class="label cursor-pointer">
-            <span class="label-text">{{ $t('profile_label') }}</span>
-            <select
-              v-model.number="selectedNuvioProfileId"
-              class="select select-bordered w-40"
-              :disabled="isLoadingNuvioProfiles || nuvioProfiles.length === 0"
-            >
-              <option v-if="isLoadingNuvioProfiles" :value="1">
-                {{ $t('profile_loading') }}
-              </option>
-              <option
-                v-for="profile in nuvioProfiles"
-                :key="profile.id"
-                :value="profile.id"
-              >
-                {{ profile.name }}
-              </option>
-            </select>
-          </label>
         </div>
       </fieldset>
 
@@ -1123,10 +1128,35 @@ watch(
       </fieldset>
 
       <!-- Step 10: Bootstrap Account -->
-      <fieldset class="bg-base-100 p-6 rounded-lg border border-base-300">
+      <fieldset class="bg-base-100 p-6 rounded-lg border border-base-300 flex">
         <legend class="text-sm">
           {{ $t('step10_bootstrap_account') }}
         </legend>
+        <label
+          v-if="props.platform === 'nuvio'"
+          class="label cursor-pointer mb-2 max-w-md"
+        >
+          <span class="label-text">{{ $t('profile_label') }}</span>
+          <select
+            v-model="selectedNuvioProfileId"
+            class="select select-bordered w-40 mr-4"
+            :disabled="isLoadingNuvioProfiles || nuvioProfiles.length === 0"
+          >
+            <option v-if="isLoadingNuvioProfiles" :value="1">
+              {{ $t('profile_loading') }}
+            </option>
+            <option v-if="!isLoadingNuvioProfiles" value="all">
+              {{ $t('profile_all') }}
+            </option>
+            <option
+              v-for="profile in nuvioProfiles"
+              :key="profile.id"
+              :value="profile.id"
+            >
+              {{ profile.name }}
+            </option>
+          </select>
+        </label>
         <button
           type="button"
           class="btn btn-primary"

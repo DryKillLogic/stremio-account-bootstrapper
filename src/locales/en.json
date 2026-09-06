@@ -286,6 +286,7 @@
   "custom_addons_details": "You can add already configured addons, private instances, or addons not available in the preset. Warning: the addons will be added without any validation, so make sure they are properly configured to avoid any issues.",
   "kids_option_details": "The perfect setup for parents. This option filters out adult content and includes only kid-friendly catalogs. Content rating is set to \"G.\" (all ages)",
   "profile_label": "Profile",
+  "profile_all": "All users",
   "profile_loading": "Loading profiles...",
   "profile_fallback_name": "Profile {id}",
   "profile_load_failed": "Failed to load profiles",
