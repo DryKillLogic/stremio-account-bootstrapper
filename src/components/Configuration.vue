@@ -60,6 +60,10 @@ let selectedNuvioProfileId = ref(1);
 let isLoadingNuvioProfiles = ref(false);
 
 const selectedNuvioProfileName = computed(() => {
+  if (selectedNuvioProfileId.value === 'all') {
+    return t('profile_all');
+  }
+
   const profile = nuvioProfiles.value.find(
     (item) => item.id === selectedNuvioProfileId.value
   );
@@ -215,6 +219,7 @@ async function syncUserAddons() {
       platform: props.platform,
       collections,
       profileId: selectedNuvioProfileId.value || 1,
+      profileIds: nuvioProfiles.value.map((profile) => profile.id),
       tmdbKey: advancedOptions.value.tmdbKey
     });
     const syncCompleteMessage =
@@ -1133,12 +1138,15 @@ watch(
         >
           <span class="label-text">{{ $t('profile_label') }}</span>
           <select
-            v-model.number="selectedNuvioProfileId"
+            v-model="selectedNuvioProfileId"
             class="select select-bordered w-40 mr-4"
             :disabled="isLoadingNuvioProfiles || nuvioProfiles.length === 0"
           >
             <option v-if="isLoadingNuvioProfiles" :value="1">
               {{ $t('profile_loading') }}
+            </option>
+            <option v-if="!isLoadingNuvioProfiles" value="all">
+              {{ $t('profile_all') }}
             </option>
             <option
               v-for="profile in nuvioProfiles"

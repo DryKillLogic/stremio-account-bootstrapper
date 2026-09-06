@@ -9,7 +9,8 @@ export interface LoadPresetServiceParams {
   key: string;
   platform?: Platform;
   collections?: any;
-  profileId?: number;
+  profileId?: number | 'all';
+  profileIds?: number[];
   tmdbKey?: string;
 }
 
@@ -19,22 +20,35 @@ export async function loadPresetService({
   platform = 'stremio',
   collections = [],
   profileId = 1,
+  profileIds = [],
   tmdbKey
 }: LoadPresetServiceParams) {
   if (!key) {
     throw new Error('No auth key provided');
   }
 
-  const res = await setAddonCollection(platform, addons, key, profileId);
-  if (!res?.result?.success) {
-    throw new Error(res?.result?.error || 'Addons sync failed');
+  const targetProfileIds = profileId === 'all' ? profileIds : [profileId];
+
+  if (targetProfileIds.length === 0) {
+    throw new Error('No profiles available for sync');
   }
 
-  if (platform === 'nuvio') {
-    await syncCollections(collections, key, profileId);
+  let res;
+  for (const targetProfileId of targetProfileIds) {
+    res = await setAddonCollection(platform, addons, key, targetProfileId);
+    if (!res?.result?.success) {
+      throw new Error(
+        res?.result?.error ||
+          `Addons sync failed for profile ${targetProfileId}`
+      );
+    }
 
-    if (tmdbKey) {
-      await updateNuvioProfileSettings(tmdbKey, key, profileId);
+    if (platform === 'nuvio') {
+      await syncCollections(collections, key, targetProfileId);
+
+      if (tmdbKey) {
+        await updateNuvioProfileSettings(tmdbKey, key, targetProfileId);
+      }
     }
   }
 
