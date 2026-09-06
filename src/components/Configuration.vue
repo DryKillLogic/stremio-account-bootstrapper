@@ -1123,7 +1123,7 @@ watch(
       </fieldset>
 
       <!-- Step 10: Bootstrap Account -->
-      <fieldset class="bg-base-100 p-6 rounded-lg border border-base-300">
+      <fieldset class="bg-base-100 p-6 rounded-lg border border-base-300 flex">
         <legend class="text-sm">
           {{ $t('step10_bootstrap_account') }}
         </legend>
@@ -1134,7 +1134,7 @@ watch(
           <span class="label-text">{{ $t('profile_label') }}</span>
           <select
             v-model.number="selectedNuvioProfileId"
-            class="select select-bordered w-40"
+            class="select select-bordered w-40 mr-4"
             :disabled="isLoadingNuvioProfiles || nuvioProfiles.length === 0"
           >
             <option v-if="isLoadingNuvioProfiles" :value="1">

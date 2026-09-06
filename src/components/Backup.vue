@@ -187,7 +187,7 @@ async function restoreConfigFile(event) {
         <span class="label-text">{{ $t('profile_label') }}</span>
         <select
           v-model.number="selectedNuvioProfileId"
-          class="select select-bordered w-40"
+          class="select select-bordered w-40 mr-4"
           :disabled="isLoadingNuvioProfiles || nuvioProfiles.length === 0"
         >
           <option v-if="isLoadingNuvioProfiles" :value="1">
