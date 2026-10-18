@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.25.0](https://github.com/DryKillLogic/stremio-account-bootstrapper/compare/v2.24.0...v2.25.0) (2026-10-18)
+
+### Features
+
+- added Latinobrid to es-MX config ([3656814](https://github.com/DryKillLogic/stremio-account-bootstrapper/commit/3656814d0d8d2bc2abb8501c674fe9a1afef7d9d))
+- updated TamTaro's template to v3.2.12 ([e448875](https://github.com/DryKillLogic/stremio-account-bootstrapper/commit/e448875ae5627c862e9c247b48db3cb3c2d93332))
+
 ## [2.24.0](https://github.com/DryKillLogic/stremio-account-bootstrapper/compare/v2.23.0...v2.24.0) (2026-08-15)
 
 ### Features
