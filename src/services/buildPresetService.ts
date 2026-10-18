@@ -22,7 +22,8 @@ import {
   configureSootio,
   configureAioStreams,
   configureHdHub,
-  configureEasynews
+  configureEasynews,
+  configureLatinobrid
 } from './addons';
 import { configureMeteor } from './addons/meteor.ts';
 import { translateCollections } from '../utils/collections';
@@ -81,7 +82,7 @@ export async function buildPresetService(params: BuildPresetServiceParams) {
   // Region-specific addons
   const languageAddons: Record<string, string[]> = {
     'es-ES': ['cometa', 'peerflix'],
-    'es-MX': ['cometa'],
+    'es-MX': ['cometa', 'latinobrid'],
     'pt-BR': ['brazucatorrents']
   };
 
@@ -237,6 +238,9 @@ export async function buildPresetService(params: BuildPresetServiceParams) {
 
   // Cometa
   configureComet(presetConfig, context, 'cometa');
+
+  // Latinobrid
+  configureLatinobrid(presetConfig, context);
 
   // TorrentsDB
   configureTorrentsDB(presetConfig, context);

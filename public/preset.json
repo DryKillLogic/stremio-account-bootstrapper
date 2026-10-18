@@ -1928,6 +1928,137 @@
           "name": "Cometa"
         }
       },
+      "latinobrid": {
+        "transportUrl": "https://latinobrid.stremx.net/eyJzZXJ2aWNlIjoidG9yYm94IiwiYXBpS2V5IjoiIiwidW5jYWNoZWQiOmZhbHNlLCJleHRyYUNhdGFsb2dzIjpmYWxzZX0/manifest.json",
+        "manifest": {
+          "id": "community.latinobrid",
+          "version": "1.0.0",
+          "name": "Latinobrid",
+          "description": "Tus películas y series favoritas, solo en español latino y con la mejor calidad.",
+          "resources": [
+            "catalog",
+            {
+              "name": "meta",
+              "types": [
+                "movie",
+                "series"
+              ],
+              "idPrefixes": [
+                "lbcolec-"
+              ]
+            },
+            {
+              "name": "stream",
+              "types": [
+                "movie",
+                "series"
+              ],
+              "idPrefixes": [
+                "tt",
+                "lbcolec-"
+              ]
+            }
+          ],
+          "types": [
+            "movie",
+            "series"
+          ],
+          "catalogs": [
+            {
+              "id": "latinobrid_movies",
+              "name": "Películas - Latinobrid",
+              "type": "movie",
+              "extra": [
+                {
+                  "name": "genre",
+                  "isRequired": false,
+                  "options": [
+                    "Acción",
+                    "Animación",
+                    "Aventura",
+                    "Bélica",
+                    "Ciencia ficción",
+                    "Comedia",
+                    "Crimen",
+                    "Documental",
+                    "Drama",
+                    "Familia",
+                    "Fantasía",
+                    "Historia",
+                    "Misterio",
+                    "Música",
+                    "Película de TV",
+                    "Romance",
+                    "Suspense",
+                    "Terror",
+                    "Western"
+                  ]
+                },
+                {
+                  "name": "skip"
+                },
+                {
+                  "name": "search"
+                }
+              ]
+            },
+            {
+              "id": "latinobrid_series",
+              "name": "Series - Latinobrid",
+              "type": "series",
+              "extra": [
+                {
+                  "name": "genre",
+                  "isRequired": false,
+                  "options": [
+                    "Acción y aventura",
+                    "Animación",
+                    "Ciencia ficción y fantasía",
+                    "Comedia",
+                    "Crimen",
+                    "Documental",
+                    "Drama",
+                    "Familia",
+                    "Guerra y política",
+                    "Kids",
+                    "Misterio",
+                    "Reality",
+                    "Soap",
+                    "Western"
+                  ]
+                },
+                {
+                  "name": "skip"
+                },
+                {
+                  "name": "search"
+                }
+              ]
+            }
+          ],
+          "config": [
+            {
+              "key": "service",
+              "type": "text",
+              "title": "Debrid Service",
+              "default": "torbox",
+              "required": true
+            },
+            {
+              "key": "apiKey",
+              "type": "text",
+              "title": "API Key",
+              "required": true
+            }
+          ],
+          "behaviorHints": {},
+          "idPrefixes": [
+            "tt",
+            "lbcolec-"
+          ],
+          "logo": "https://latinobrid.stremx.net/logo.png"
+        }
+      },
       "jackettio": {
         "transportUrl": "https://jackettio.elfhosted.com/eyJtYXhUb3JyZW50cyI6OCwicHJpb3RpemVQYWNrVG9ycmVudHMiOjIsImV4Y2x1ZGVLZXl3b3JkcyI6WyJjYW0iLCJzY3JlZW5lciJdLCJkZWJyaWRJZCI6IiIsImhpZGVVbmNhY2hlZCI6ZmFsc2UsInNvcnRDYWNoZWQiOltbInF1YWxpdHkiLHRydWVdLFsic2l6ZSIsdHJ1ZV1dLCJzb3J0VW5jYWNoZWQiOltbInF1YWxpdHkiLHRydWVdLFsic2VlZGVycyIsdHJ1ZV1dLCJmb3JjZUNhY2hlTmV4dEVwaXNvZGUiOmZhbHNlLCJwcmlvdGl6ZUxhbmd1YWdlcyI6WyJzcGFuaXNoIl0sImluZGV4ZXJUaW1lb3V0U2VjIjo2MCwibWV0YUxhbmd1YWdlIjoiIiwiZW5hYmxlTWVkaWFGbG93IjpmYWxzZSwibWVkaWFmbG93UHJveHlVcmwiOiIiLCJtZWRpYWZsb3dBcGlQYXNzd29yZCI6IiIsIm1lZGlhZmxvd1B1YmxpY0lwIjoiIiwidXNlU3RyZW1UaHJ1Ijp0cnVlLCJzdHJlbXRocnVVcmwiOiJodHRwOi8vZWxmaG9zdGVkLWludGVybmFsLnN0cmVtdGhydSIsInF1YWxpdGllcyI6WzQ4MCw3MjAsMTA4MCwyMTYwXSwiaW5kZXhlcnMiOlsiYml0c2VhcmNoIiwiZXp0diIsInRoZXBpcmF0ZWJheSIsInRoZXJhcmJnIiwieXRzIl0sImRlYnJpZEFwaUtleSI6IiJ9/manifest.json"
       },

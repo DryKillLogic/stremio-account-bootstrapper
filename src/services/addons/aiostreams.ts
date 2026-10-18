@@ -2,16 +2,22 @@ import {
   getAddonConfig as getAioStreamsConfig,
   getTemplate
 } from '../../api/aioStreamsApi';
-import type { AddonConfigContext } from './types';
+import type { AddonConfigContext, DebridEntry } from './types';
 import { getLanguageName } from '../../utils/language';
 import { convertToBytes } from '../../utils/sizeConverters';
+import {
+  getLatinobridDebridEntry,
+  getLatinobridManifestUrl,
+  getLatinobridName
+} from './latinobrid';
 import { merge } from 'lodash';
 import { applyTemplateConditionals } from '../../utils/templateConditionals';
 
 function addLanguageSpecificAddons(
   presets: any[],
   language: string,
-  isDebridUser: boolean
+  isDebridUser: boolean,
+  debridEntries: DebridEntry[]
 ): void {
   const cometaConfig = {
     type: 'comet',
@@ -31,8 +37,13 @@ function addLanguageSpecificAddons(
     category: isDebridUser ? 'Debrid' : 'P2P'
   };
 
+  const latinobridConfig = getLatinobridConfig(debridEntries);
+
   const languageAddons: Record<string, any[]> = {
-    'es-MX': [{ ...cometaConfig }],
+    'es-MX': [
+      { ...cometaConfig },
+      ...(latinobridConfig ? [latinobridConfig] : [])
+    ],
     'es-ES': [
       { ...cometaConfig },
       ...(isDebridUser
@@ -116,6 +127,25 @@ function getEasynewsConfig(): any {
       resources: ['stream'],
       mediaTypes: [],
       strictTitleMatching: true
+    }
+  };
+}
+
+function getLatinobridConfig(debridEntries: DebridEntry[]): any | null {
+  const debrid = getLatinobridDebridEntry(debridEntries);
+  if (!debrid) return null;
+
+  return {
+    type: 'custom',
+    instanceId: '966',
+    enabled: true,
+    options: {
+      name: getLatinobridName(debrid),
+      manifestUrl: getLatinobridManifestUrl(debrid),
+      timeout: 7000,
+      mediaTypes: [],
+      libraryAddon: false,
+      resultPassthrough: false
     }
   };
 }
@@ -242,7 +272,12 @@ export async function configureAioStreams(
   template = processedTemplate;
 
   // Add language-specific addons
-  addLanguageSpecificAddons(template.config.presets, language, isDebridUser);
+  addLanguageSpecificAddons(
+    template.config.presets,
+    language,
+    isDebridUser,
+    debridEntries
+  );
 
   // Remove Webstreamr if it exists and add it with language-specific providers
   template.config.presets = template.config.presets.filter(

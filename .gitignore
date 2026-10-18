@@ -24,3 +24,14 @@ dist-ssr
 *.sw?
 
 .vercel
+
+# --- Runtime tool stubs (created by the agent/MCP environment; not repo files) ---
+.bash_profile
+.bashrc
+.zshrc
+.zprofile
+.profile
+.gitconfig
+.ripgreprc
+.claude/
+
