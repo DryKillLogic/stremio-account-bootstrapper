@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.26.0](https://github.com/DryKillLogic/stremio-account-bootstrapper/compare/v2.25.0...v2.26.0) (2026-10-18)
+
+### Features
+
+- removed Argentina TV addon ([777d7d2](https://github.com/DryKillLogic/stremio-account-bootstrapper/commit/777d7d2a2793dc4b5f66052cd8500d94da50b7dc))
+
 ## [2.25.0](https://github.com/DryKillLogic/stremio-account-bootstrapper/compare/v2.24.0...v2.25.0) (2026-10-18)
 
 ### Features
