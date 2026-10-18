@@ -2808,39 +2808,6 @@
         "idPrefixes": ["kitsu", "mal", "anilist", "anidb"]
       }
     },
-    "argentinatv": {
-      "transportUrl": "https://848b3516657c-argentinatv.baby-beamup.club/manifest.json",
-      "manifest": {
-        "id": "community.argentinatv",
-        "version": "1.4.0",
-        "catalogs": [
-          {
-            "name": "Argentina TV",
-            "type": "tv",
-            "id": "todos",
-            "extra": [
-              {
-                "name": "genre",
-                "isRequired": false,
-                "options": [
-                  "Interes general",
-                  "Noticias",
-                  "Deportes",
-                  "Entretenimiento"
-                ]
-              }
-            ]
-          }
-        ],
-        "resources": ["catalog", "stream", "meta"],
-        "types": ["tv"],
-        "idPrefixes": ["atv"],
-        "name": "Argentina TV",
-        "description": "Argentina TV provee acceso a canales de interes general, noticias, deportes y entretenimiento.",
-        "logo": "https://848b3516657c-argentinatv.baby-beamup.club/public/logo.png",
-        "background": "https://848b3516657c-argentinatv.baby-beamup.club/public/background.jpg"
-      }
-    },
     "stremthrustore": {
       "transportUrl": "https://stremthru.13377001.xyz/stremio/store/eyJzdG9yZV9uYW1lIjoiIiwic3RvcmVfdG9rZW4iOiIifQ==/manifest.json",
       "manifest": {}
