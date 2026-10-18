@@ -2,7 +2,7 @@ import { getRequest, postRequest, PROXY_BASE_URL } from '../utils/http';
 
 const API_BASE_URL = 'https://aiostreamsfortheweebs.midnightignite.me';
 const TEMPLATE_URL =
-  'https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/3c9ef2ab5ed32f57a41244a6570eedf13579f8c8/AIOStreams%20Templates/Tamtaro-complete-setup-template.json'; // v3.0.4
+  'https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/5ded248bd6c6f1de0e9736d9a737859a7a829b21/AIOStreams%20Templates/Tamtaro-complete-setup-template.json'; // v3.2.12
 
 type AIOStreamsResponse = {
   success: boolean;
