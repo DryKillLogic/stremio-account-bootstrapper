@@ -238,6 +238,7 @@
   "catalogs_flixpatrol_movie_top_10_movies_on_starz": "Top 10 des films sur Starz",
   "catalogs_flixpatrol_series_top_10_shows_on_starz": "Top 10 des series sur Starz",
   "profile_label": "Profil",
+  "profile_all": "Tous les utilisateurs",
   "profile_loading": "Chargement des profils...",
   "profile_fallback_name": "Profil {id}",
   "profile_load_failed": "Impossible de charger les profils",
