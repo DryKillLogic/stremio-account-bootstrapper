@@ -19,7 +19,7 @@ import {
       ]"
     >
       <div class="flex-1">
-        <span v-html="note.text"></span>
+        <span>{{ note.text }}</span>
       </div>
       <div class="flex-none">
         <button
