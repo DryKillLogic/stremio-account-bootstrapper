@@ -69,6 +69,7 @@
   "enter_api_key": "Enter API key",
   "get_api_key_here": "Get it from here",
   "invalid_debrid_api_key": "Invalid debrid API key",
+  "debrid_service_torrentio_only": "{service} is currently only supported by Torrentio. Other addons will not use it.",
   "offcloud_email": "OffCloud Email",
   "offcloud_password": "OffCloud Password",
   "easynews_username": "Easynews Username",

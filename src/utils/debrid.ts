@@ -5,6 +5,7 @@ export type DebridService =
   | 'realdebrid'
   | 'torbox'
   | 'offcloud'
+  | 'highway'
   | 'easynews';
 
 export const debridServicesInfo = {
@@ -34,6 +35,11 @@ export const debridServicesInfo = {
     label: 'OffCloud',
     url: 'https://offcloud.com/account'
   },
+  highway: {
+    name: 'HW',
+    label: 'HighWay',
+    url: 'https://cloud.high-way.me/#sessions'
+  },
   easynews: {
     name: 'EN',
     label: 'Easynews',
@@ -54,9 +60,23 @@ export const isValidApiKey = (
     realdebrid: /^[A-Z0-9]{52}$/,
     torbox: /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i,
     offcloud: /^[a-zA-Z0-9]{16}$/,
+    highway: /^[a-f0-9]{32}$/i,
     easynews: /.*/
   };
   return !!patterns[service]?.test(key);
+};
+
+// Services that only some addons support, mapped to the preset keys of those addons
+export const limitedDebridServices: Partial<Record<DebridService, string[]>> = {
+  highway: ['torrentio']
+};
+
+export const supportsDebridService = (
+  addonKey: string | undefined,
+  service: DebridService
+): boolean => {
+  const addons = limitedDebridServices[service];
+  return !addons || (!!addonKey && addons.includes(addonKey));
 };
 
 export const isTorbox = (
