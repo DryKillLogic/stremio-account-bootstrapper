@@ -96,6 +96,7 @@
   "max_size": "Taille maximale",
   "no_size_limit": "Aucune limite",
   "invalid_debrid_api_key": "Clé API de débridage invalide",
+  "debrid_service_torrentio_only": "{service} n'est actuellement pris en charge que par Torrentio. Les autres addons ne l'utiliseront pas.",
   "offcloud_email": "E-mail OffCloud",
   "offcloud_password": "Mot de passe OffCloud",
   "easynews_username": "Nom d'utilisateur Easynews",

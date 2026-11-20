@@ -9,7 +9,11 @@ import _ from 'lodash';
 import { QuestionMarkCircleIcon } from '@heroicons/vue/24/outline';
 import { addNotification } from '../composables/useNotifications';
 import { useAnalytics } from '../composables/useAnalytics';
-import { isValidApiKey, debridServicesInfo } from '../utils/debrid.ts';
+import {
+  isValidApiKey,
+  debridServicesInfo,
+  limitedDebridServices
+} from '../utils/debrid.ts';
 import { isValidManifestUrl } from '../utils/url.ts';
 import { pullProfiles } from '../api/platformApi';
 import {
@@ -789,6 +793,21 @@ watch(
                   class="input input-bordered flex-1"
                   :placeholder="$t('offcloud_password')"
                 />
+              </div>
+
+              <!-- Services that only some addons support -->
+              <div
+                v-if="entry.service && limitedDebridServices[entry.service]"
+                class="flex items-center gap-2 mt-1"
+              >
+                <div class="w-40"></div>
+                <span class="label-text-alt text-warning text-xs">
+                  {{
+                    $t('debrid_service_torrentio_only', {
+                      service: debridServicesInfo[entry.service]?.label
+                    })
+                  }}
+                </span>
               </div>
 
               <div

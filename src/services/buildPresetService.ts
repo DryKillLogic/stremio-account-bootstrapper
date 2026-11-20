@@ -1,6 +1,10 @@
 import _ from 'lodash';
 import { getRequest } from '../utils/http';
-import { debridServicesInfo, isValidApiKey } from '../utils/debrid';
+import {
+  debridServicesInfo,
+  isValidApiKey,
+  supportsDebridService
+} from '../utils/debrid';
 import { isValidManifestUrl } from '../utils/url.ts';
 import type { Platform } from '../api/platformApi';
 import type {
@@ -181,32 +185,40 @@ export async function buildPresetService(params: BuildPresetServiceParams) {
   );
 
   // Debrid service name for manifest suffixes
-  const debridServiceName =
-    validatedDebridEntries.length > 0
-      ? validatedDebridEntries
-          .map(
-            (debrid) =>
-              debridServicesInfo[debrid.service]?.name || debrid.service
-          )
-          .join(' + ')
-      : '';
+  const getDebridServiceName = (entries: DebridEntry[]) =>
+    entries
+      .map(
+        (debrid) => debridServicesInfo[debrid.service]?.name || debrid.service
+      )
+      .join(' + ');
+  const debridServiceName = getDebridServiceName(validatedDebridEntries);
 
-  // Create context for addon configurations
-  const context: AddonConfigContext = {
-    language,
-    no4k,
-    cached,
-    limit,
-    size,
-    debridEntries: validatedDebridEntries,
-    debridServiceName,
-    preset,
-    password,
-    easynewsEntry
+  // Create context for addon configurations, only with the debrid services the addon supports
+  const createContext = (addonKey?: string): AddonConfigContext => {
+    const entries = validatedDebridEntries.filter((debrid) =>
+      supportsDebridService(addonKey, debrid.service)
+    );
+    return {
+      language,
+      no4k,
+      cached,
+      limit,
+      size,
+      debridEntries: entries,
+      debridServiceName: getDebridServiceName(entries),
+      preset,
+      password,
+      easynewsEntry
+    };
   };
+  const context = createContext();
 
   // Torrentio
-  const torrentioResult = configureTorrentio(presetConfig, context, Sqrl);
+  const torrentioResult = configureTorrentio(
+    presetConfig,
+    createContext('torrentio'),
+    Sqrl
+  );
   if (torrentioResult.shouldReplace && torrentioResult.rebuilt) {
     presetConfig = replaceAddonKey(
       presetConfig,
@@ -291,7 +303,7 @@ export async function buildPresetService(params: BuildPresetServiceParams) {
   configureSootio(presetConfig, context, 'http');
 
   // Configure or remove debrid-only addons
-  if (validatedDebridEntries.length > 0) {
+  if (context.debridEntries.length > 0) {
     // Jackettio
     const jackettioResult = configureJackettio(presetConfig, context);
     if (jackettioResult.shouldReplace && jackettioResult.rebuilt) {
