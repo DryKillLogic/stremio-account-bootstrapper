@@ -50,7 +50,10 @@ export const isValidApiKey = (
   const patterns: Record<DebridService, RegExp> = {
     alldebrid: /^[a-zA-Z0-9]{20}$/,
     premiumize: /^[a-z0-9]{16}$/i,
-    debridlink: /^[A-Z0-9]{6}-[A-Z0-9]{6}-[A-Z0-9]{6}-[A-Z0-9]{5}$/,
+    // Debrid-Link has used multiple API key formats (35-char, 32+ char and
+    // dash-separated). Keep this deliberately loose and let the service or
+    // the configured addons reject a genuinely invalid key.
+    debridlink: /^[A-Za-z0-9_-]{16,}$/,
     realdebrid: /^[A-Z0-9]{52}$/,
     torbox: /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i,
     offcloud: /^[a-zA-Z0-9]{16}$/,
